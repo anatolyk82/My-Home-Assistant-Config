@@ -3,7 +3,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_control
+      id: ikea_switch_1
       event: 1002
   condition:
   - condition: state
@@ -24,7 +24,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_control
+      id: ikea_switch_1
       event: 1002
   condition:
   - condition: state
@@ -43,7 +43,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_control
+      id: ikea_switch_1
       event: 2002
   action:
   - service: light.turn_on
@@ -56,7 +56,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_control
+      id: ikea_switch_1
       event: 3002
   action:
   - service: light.turn_on
@@ -71,7 +71,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: tradfri_remote_control
+      id: ikea_switch_1
       event: 5002
   action:
   - service: script.set_color
@@ -105,7 +105,7 @@
 #    platform: event
 #    event_type: deconz_event
 #    event_data:
-#      id: tradfri_remote_control
+#      id: tradfri_remote_control #ikea_switch_1
 #      event: 5002
 #  action:
 #  - service: script.set_color

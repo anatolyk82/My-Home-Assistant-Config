@@ -118,7 +118,8 @@ binary_sensor.aurora_visibility:
 sensor.installed_version:
   hidden: true
 
-sensor.tradfri_remote_control_battery_level:
+#sensor.tradfri_remote_control_battery_level:
+sensor.ikea_switch_1_battery_level:
   hidden: true
   friendly_name: IKEA button battery
 

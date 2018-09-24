@@ -264,6 +264,7 @@ views:
         title: Batteries
         entities:
           - sensor.tradfri_remote_control_battery_level
+          - sensor.ikea_switch_1_battery_level
           - sensor.battery_temperature_sensor_floor1
           - sensor.battery_temperature_sensor_floor2
           - sensor.battery_temperature_sensor_outside
