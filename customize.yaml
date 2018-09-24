@@ -1,0 +1,570 @@
+sensor.ping_xiaomi_gateway:
+  hidden: true
+
+#sensor.ping_avg_xiaomi:
+#  hidden: true
+#
+#sensor.ping_min_xiaomi:
+#  hidden: true
+#
+#sensor.ping_max_xiaomi:
+#  hidden: true
+
+sensor.yr_temperature:
+#  hidden: true
+  friendly_name: Temperature
+
+sensor.yr_humidity:
+#  hidden: true
+  friendly_name: Humidity
+  icon: mdi:water-percent
+
+sensor.yr_pressure:
+#  hidden: true
+  friendly_name: Pressure
+  icon: mdi:speedometer
+
+sensor.yr_cloudiness:
+  hidden: true
+  friendly_name: Cloudness
+  icon: mdi:cloud
+
+sensor.yr_precipitation:
+  hidden: true
+  friendly_name: Precipitation
+  icon: mdi:weather-snowy-rainy
+
+sensor.yr_wind_speed:
+  hidden: true
+  friendly_name: Wind speed
+  icon: mdi:weather-windy
+
+sensor.yr_wind_direction:
+  hidden: true
+  friendly_name: Wind direction
+  icon: mdi:weather-windy
+
+sensor.yr_fog:
+  hidden: true
+  friendly_name: Fog
+  icon: mdi:weather-fog
+
+sensor.yr_symbol:
+  hidden: true
+  friendly_name: Symbol
+
+
+sensor.sunset_time:
+  hidden: true
+
+sensor.sunrise_time:
+  hidden: true
+
+sensor.solar_angle:
+  hidden: true
+
+script.play_sel_sound_loop:
+  hidden: true
+
+#========================================== batteries
+sensor.battery_temperature_sensor_floor1:
+  hidden: true
+
+sensor.battery_temperature_sensor_floor2:
+  hidden: true
+
+sensor.battery_temperature_sensor_outside:
+  hidden: true
+
+sensor.battery_motion_sensor_living_room:
+  hidden: true
+
+sensor.battery_motion_sensor_kitchen:
+  hidden: true
+
+sensor.battery_motion_sensor_entrance:
+  hidden: true
+
+sensor.battery_water_leak_sensor:
+  hidden: true
+
+sensor.battery_smoke_sensor:
+  hidden: true
+   
+sensor.battery_door_sensor_entrance:
+  hidden: true
+   
+sensor.battery_door_sensor_kitchen:
+  hidden: true
+   
+sensor.battery_door_sensor_living_room:
+  hidden: true
+   
+sensor.battery_door_sensor_storehouse:
+  hidden: true
+   
+sensor.battery_motion_sensor_second_floor:
+  hidden: true
+#======================================================
+
+sensor.illumination_7811dcb7f720:
+  hidden: true
+  friendly_name: Illumination Xiaomi gateway
+
+binary_sensor.aurora_visibility:
+  hidden: true
+  friendly_name: Aurora visibility (70%)
+
+sensor.installed_version:
+  hidden: true
+
+sensor.tradfri_remote_control_battery_level:
+  hidden: true
+  friendly_name: IKEA button battery
+
+binary_sensor.switch_158d0002130dec:
+  hidden: true
+
+sensor.daylight:
+  hidden: true
+  friendly_name: Daylight
+
+#=========================== Second floor
+sensor.humidity_158d0002320bc1:
+  friendly_name: Humidity
+
+sensor.temperature_158d0002320bc1:
+  friendly_name: Temperature
+
+sensor.pressure_158d0002320bc1:
+  friendly_name: Pressure
+
+#=========================== Outside
+sensor.humidity_158d0002478a68:
+  friendly_name: Humidity
+
+sensor.temperature_158d0002478a68:
+  friendly_name: Temperature
+
+sensor.pressure_158d0002478a68:
+  friendly_name: Pressure
+
+#=========================== First floor
+sensor.humidity_158d000245a9ee:
+  friendly_name: Humidity
+
+sensor.temperature_158d000245a9ee:
+  friendly_name: Temperature
+
+sensor.pressure_158d000245a9ee:
+  friendly_name: Pressure
+
+#=========================== Doors
+binary_sensor.door_window_sensor_158d00022bd3cb:
+  friendly_name: Living room
+  
+binary_sensor.door_window_sensor_158d000238694e:
+  friendly_name: Entrance 
+
+binary_sensor.door_window_sensor_158d000232d8e8:
+  friendly_name: Kitchen
+
+binary_sensor.door_window_sensor_158d00022da733:
+  friendly_name: Förråd
+
+
+#============================ Motion
+binary_sensor.motion_sensor_158d00023e8333:
+  friendly_name: Living room
+
+binary_sensor.motion_sensor_158d000236a817:
+  friendly_name: Entrance
+
+binary_sensor.motion_sensor_158d000200ce6a:  
+  friendly_name: Kitchen
+ 
+binary_sensor.motion_sensor_158d000236a19b:
+  friendly_name: Second floor 
+ 
+  
+#============================ Illumination
+sensor.illumination_158d00023e8333:
+  friendly_name: Living room
+
+sensor.illumination_158d000236a817:
+  friendly_name: Entrance
+
+sensor.illumination_158d000200ce6a:  
+  friendly_name: Kitchen
+ 
+sensor.illumination_158d000236a19b:
+  friendly_name: Second floor 
+
+
+#============================= Lights
+light.gateway_light_7811dcb7f720:
+  friendly_name: Xiaomi Gateway Light
+
+            
+binary_sensor.smoke_sensor_158d0002311b86:
+  hidden: true
+  friendly_name: Smoke detector
+
+binary_sensor.water_leak_sensor_158d00023aa4a9:
+  hidden: true
+  friendly_name: Water leak
+
+sensor.homeassistantlog:
+  hidden: true
+  friendly_name: Log File
+
+sensor.homeassistant_v2db:
+  hidden: true
+  friendly_name: Database
+
+
+
+#===================== dark sky sensors
+sensor.dark_sky_icon:
+  hidden: true
+
+sensor.dark_sky_icon_1:
+  hidden: true
+
+sensor.dark_sky_icon_2:
+  hidden: true
+
+sensor.dark_sky_icon_3:
+  hidden: true
+
+sensor.dark_sky_icon_4:
+  hidden: true
+
+sensor.dark_sky_icon_5:
+  hidden: true
+
+sensor.dark_sky_summary:
+  hidden: true
+
+sensor.dark_sky_nearest_storm_distance:
+  hidden: true
+
+sensor.dark_sky_nearest_storm_bearing:
+  hidden: true
+
+sensor.dark_sky_humidity:
+  friendly_name: Humidity
+  hidden: true
+
+sensor.dark_sky_humidity_1:
+  hidden: true
+
+sensor.dark_sky_humidity_2:
+  hidden: true
+
+sensor.dark_sky_humidity_3:
+  hidden: true
+
+sensor.dark_sky_humidity_4:
+  hidden: true
+
+sensor.dark_sky_humidity_5:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature_1:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature_2:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature_3:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature_4:
+  hidden: true
+
+sensor.dark_sky_daytime_high_apparent_temperature_5:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature_1:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature_2:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature_3:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature_4:
+  hidden: true
+
+sensor.dark_sky_daytime_low_apparent_temperature_5:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_1:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_2:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_3:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_4:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_5:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature_1:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature_2:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature_3:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature_4:
+  hidden: true
+
+sensor.dark_sky_apparent_temperature_5:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature_1:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature_2:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature_3:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature_4:
+  hidden: true
+
+sensor.dark_sky_overnight_low_apparent_temperature_5:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature_1:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature_2:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature_3:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature_4:
+  hidden: true
+
+sensor.dark_sky_overnight_low_temperature_5:
+  hidden: true
+
+sensor.dark_sky_temperature:
+  friendly_name: Temperature
+  hidden: true
+
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind speed
+  hidden: true
+
+sensor.dark_sky_wind_speed_1:
+  hidden: true
+
+sensor.dark_sky_wind_speed_2:
+  hidden: true
+
+sensor.dark_sky_wind_speed_3:
+  hidden: true
+
+sensor.dark_sky_wind_speed_4:
+  hidden: true
+
+sensor.dark_sky_wind_speed_5:
+  hidden: true
+
+sensor.dark_sky_wind_bearing:
+  hidden: true
+
+sensor.dark_sky_wind_bearing_1:
+  hidden: true
+
+sensor.dark_sky_wind_bearing_2:
+  hidden: true
+
+sensor.dark_sky_wind_bearing_3:
+  hidden: true
+
+sensor.dark_sky_wind_bearing_4:
+  hidden: true
+
+sensor.dark_sky_wind_bearing_5:
+  hidden: true
+
+sensor.dark_sky_precip:
+  friendly_name: Precipitation
+  hidden: true
+
+sensor.dark_sky_precip_1:
+  hidden: true
+
+sensor.dark_sky_precip_2:
+  hidden: true
+
+sensor.dark_sky_precip_3:
+  hidden: true
+
+sensor.dark_sky_precip_4:
+  hidden: true
+
+sensor.dark_sky_precip_5:
+  hidden: true
+
+sensor.dark_sky_precip_probability:
+  hidden: true
+
+sensor.dark_sky_precip_probability_1:
+  hidden: true
+
+sensor.dark_sky_precip_probability_2:
+  hidden: true
+
+sensor.dark_sky_precip_probability_3:
+  hidden: true
+
+sensor.dark_sky_precip_probability_4:
+  hidden: true
+
+sensor.dark_sky_precip_probability_5:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_1:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_2:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_3:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_4:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_5:
+  hidden: true
+
+sensor.dark_sky_precip_intensity:
+  hidden: true
+
+sensor.dark_sky_precip_intensity_1:
+  hidden: true
+
+sensor.dark_sky_precip_intensity_2:
+  hidden: true
+
+sensor.dark_sky_precip_intensity_3:
+  hidden: true
+
+sensor.dark_sky_precip_intensity_4:
+  hidden: true
+
+sensor.dark_sky_precip_intensity_5:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_1:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_2:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_3:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_4:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_5:
+  hidden: true
+
+sensor.dark_sky_uv_index:
+  hidden: true
+
+sensor.dark_sky_uv_index_1:
+  hidden: true
+
+sensor.dark_sky_uv_index_2:
+  hidden: true
+
+sensor.dark_sky_uv_index_3:
+  hidden: true
+
+sensor.dark_sky_uv_index_4:
+  hidden: true
+
+sensor.dark_sky_uv_index_5:
+  hidden: true
+
+sensor.dark_sky_daily_summary:
+  hidden: true
+
+sensor.dark_sky_pressure:
+  friendly_name: Pressure
+  hidden: true
+
+sensor.dark_sky_pressure_1:
+  hidden: true
+
+sensor.dark_sky_pressure_2:
+  hidden: true
+
+sensor.dark_sky_pressure_3:
+  hidden: true
+
+sensor.dark_sky_pressure_4:
+  hidden: true
+
+sensor.dark_sky_pressure_5:
+  hidden: true
+
+sensor.dark_sky_visibility:
+  hidden: true
+
+sensor.dark_sky_visibility_1:
+  hidden: true
+
+sensor.dark_sky_visibility_2:
+  hidden: true
+
+sensor.dark_sky_visibility_3:
+  hidden: true
+
+sensor.dark_sky_visibility_4:
+  hidden: true
+
+sensor.dark_sky_visibility_5:
+  hidden: true

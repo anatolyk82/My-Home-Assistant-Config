@@ -1,0 +1,12 @@
+automation:
+  - alias: 'Prealarm beeping'
+    #hide_entity: true
+    initial_state: False
+    trigger:
+      - platform: time
+        seconds: "/2"
+    action:
+      service: shell_command.prealarm_sound
+
+shell_command:
+  prealarm_sound: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm_pending_beep.wav"

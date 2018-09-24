@@ -1,0 +1,19 @@
+set_color:
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: '{{ id }}'
+        rgb_color: [ "{{ colors.split(',')[0]|int }}", "{{ colors.split(',')[1]|int }}", "{{ colors.split(',')[2]|int }}" ]
+        brightness: "{{ brightness }}"
+        transition: "{{ transition }}"
+
+
+#notify_pushover:
+#  sequence:
+#    - condition: state
+#      entity_id: switch.pushover_notifications
+#      state: 'on'
+#    - service: notify.pushover
+#      data_template:
+#        title: "{{ title }}"
+#        message: "{{ message }}"

@@ -1,0 +1,11 @@
+- alias: 'Water leakage'
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.water_leak_sensor_158d00023aa4a9
+    to: 'on'
+  action:
+    service: notify.pushover
+    data:
+      message: "WARNING! A water leakage is detected."
+

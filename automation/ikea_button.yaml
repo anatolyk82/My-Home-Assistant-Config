@@ -1,0 +1,137 @@
+- alias: 'Turn on the gateway light from the IKEA button'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_control
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.gateway_light_7811dcb7f720
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data:
+      rgb_color: [255, 255, 255]
+      brightness: 255
+#  - service: notify.hangouts
+#    data:
+#      message: "Xiaomi light is on"
+
+- alias: 'Turn off the gateway light from the IKEA button'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_control
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.gateway_light_7811dcb7f720
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.gateway_light_7811dcb7f720
+#  - service: notify.hangouts
+#    data:
+#      message: "Xiaomi light is off"
+
+
+- alias: "Increase brightness of the gateway light with the IKEA button"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_control
+      event: 2002
+  action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data_template: 
+      brightness: '{{states.light.gateway_light_7811dcb7f720.attributes.brightness + 25}}'
+
+- alias: "Decrease brightness of the gateway light with the IKEA button"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_control
+      event: 3002
+  action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data_template: 
+      brightness: '{{states.light.gateway_light_7811dcb7f720.attributes.brightness - 25}}'
+
+
+- alias: "Button right 5002"
+  hide_entity: True
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_remote_control
+      event: 5002
+  action:
+  - service: script.set_color
+    data_template:
+      id: light.gateway_light_7811dcb7f720
+      colors: >-
+        {%- set delta = 80 %}
+        {%- set low = 80 %}
+        {%- set high = 256 - delta %}
+        {%- set choice = range(0, 6) | random | int %}
+        {% set red = range(low, high) | random | int %}
+        {% if choice == 0 or choice == 3 or choice == 4 %}
+          {% set red = delta + red %}
+        {% endif %}
+        {% set green = range(low, high) | random | int %}
+        {% if choice == 1 or choice == 3 or choice == 5 %}
+          {% set green = delta + green %}
+        {% endif %}
+        {% set blue = range(low, high) | random | int %}
+        {% if choice == 2 or choice == 4 or choice == 5 %}
+          {% set blue = delta + blue %}
+        {%- endif %}
+        {{ red|int }},{{ green|int }},{{ blue|int }},{{ choice }}
+      brightness: 150
+      transition: 5
+
+        
+
+#- alias: "Button right 5002"
+#  trigger:
+#    platform: event
+#    event_type: deconz_event
+#    event_data:
+#      id: tradfri_remote_control
+#      event: 5002
+#  action:
+#  - service: script.set_color
+#    data_template:
+#      id: light.gateway_light_7811dcb7f720
+#      colors: >-
+#        {%- set value_json={
+#                "0": [255, 255, 255],
+#                "1": [255,0,0],
+#                "2": [255,127,0],
+#                "3": [255,255,0],
+#                "4": [127,255,0],
+#                "5": [0,255,0],
+#                "6": [0,255,127],
+#                "7": [0,255,255],
+#                "8": [0,127,255],
+#                "9": [0,0,255],
+#                "10": [127,0,255],
+#                "11": [255,0,255],
+#                "12": [255,0,127],
+#             }
+#        %}
+#        {%- set choice = range(0, 12) | random | string %}
+#        {%- set current = value_json[ choice ] %}
+#        {{ current }}
+#      brightness: 255
+#      transition: 5
+        
+

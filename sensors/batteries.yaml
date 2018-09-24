@@ -1,0 +1,357 @@
+
+
+- platform: template
+  sensors:
+    battery_temperature_sensor_floor1:
+      friendly_name: 'Temperature sensor First floor'
+      value_template: "{{ states.sensor.temperature_158d000245a9ee.attributes.battery_level|default(-1)|int if states.sensor.temperature_158d000245a9ee is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.sensor.temperature_158d000245a9ee.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.sensor.temperature_158d000245a9ee.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_temperature_sensor_floor2:
+      friendly_name: 'Temperature sensor Second floor'
+      value_template: "{{ states.sensor.temperature_158d0002320bc1.attributes.battery_level|default(-1)|int if states.sensor.temperature_158d0002320bc1 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.sensor.temperature_158d0002320bc1.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.sensor.temperature_158d0002320bc1.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_temperature_sensor_outside:
+      friendly_name: 'Temperature sensor Outside'
+      value_template: "{{ states.sensor.temperature_158d0002478a68.attributes.battery_level|default(-1)|int if states.sensor.temperature_158d0002478a68 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.sensor.temperature_158d0002478a68.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.sensor.temperature_158d0002478a68.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_motion_sensor_living_room:
+      friendly_name: 'Motion sensor Living room'
+      value_template: "{{ states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level|default(-1)|int if states.binary_sensor.motion_sensor_158d00023e8333 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.motion_sensor_158d00023e8333.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_motion_sensor_kitchen:
+      friendly_name: 'Motion sensor Kitchen'
+      value_template: "{{ states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level|default(-1)|int if states.binary_sensor.motion_sensor_158d000200ce6a is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.motion_sensor_158d000200ce6a.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_motion_sensor_entrance:
+      friendly_name: 'Motion sensor Entrance'
+      value_template: "{{ states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level|default(-1)|int if states.binary_sensor.motion_sensor_158d000236a817 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.motion_sensor_158d000236a817.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_motion_sensor_second_floor:
+      friendly_name: 'Motion sensor Second floor'
+      value_template: "{{ states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level|default(-1)|int if states.binary_sensor.motion_sensor_158d000236a19b is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.motion_sensor_158d000236a19b.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_water_leak_sensor:
+      friendly_name: 'Water Leakage Sensor'
+      value_template: "{{ states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level|default(-1)|int if states.binary_sensor.water_leak_sensor_158d00023aa4a9 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.water_leak_sensor_158d00023aa4a9.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_smoke_sensor:
+      friendly_name: 'Smoke Sensor'
+      value_template: "{{ states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level|default(-1)|int if states.binary_sensor.smoke_sensor_158d0002311b86 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.smoke_sensor_158d0002311b86.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_door_sensor_entrance:
+      friendly_name: 'Door Sensor Entrance'
+      value_template: "{{ states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level|default(-1)|int if states.binary_sensor.door_window_sensor_158d000238694e is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.door_window_sensor_158d000238694e.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_door_sensor_kitchen:
+      friendly_name: 'Door Sensor Kitchen'
+      value_template: "{{ states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level|default(-1)|int if states.binary_sensor.door_window_sensor_158d000232d8e8 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.door_window_sensor_158d000232d8e8.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_door_sensor_living_room:
+      friendly_name: 'Door Sensor Living Room'
+      value_template: "{{ states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level|default(-1)|int if states.binary_sensor.door_window_sensor_158d00022bd3cb is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.door_window_sensor_158d00022bd3cb.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+    battery_door_sensor_storehouse:
+      friendly_name: 'Door Sensor Storehouse'
+      value_template: "{{ states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level|default(-1)|int if states.binary_sensor.door_window_sensor_158d00022da733 is not none }}"
+      unit_of_measurement: '%'
+      icon_template: '{% if states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level == 100 %}
+                         mdi:battery
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 90 %}
+                         mdi:battery-90
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 80 %}
+                         mdi:battery-80
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 70 %}
+                         mdi:battery-70
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 60 %}
+                         mdi:battery-60
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 50 %}
+                         mdi:battery-50
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 40 %}
+                         mdi:battery-40
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 30 %}
+                         mdi:battery-30
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 20 %}
+                         mdi:battery-20
+                      {% elif states.binary_sensor.door_window_sensor_158d00022da733.attributes.battery_level >= 10 %}
+                         mdi:battery-10
+                      {% else %}
+                         battery-outline
+                      {% endif %}'
+
+

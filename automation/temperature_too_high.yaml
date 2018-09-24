@@ -1,0 +1,21 @@
+- alias: 'Too high temperature at the second floor'
+  initial_state: True
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature_158d0002320bc1
+    above: 50
+  action:
+    service: notify.pushover
+    data:
+      message: "Warning! Temperature at the second floor is more than 50 degrees"
+
+- alias: 'Too high temperature at the first floor'
+  initial_state: True
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature_158d000245a9ee
+    above: 50
+  action:
+    service: notify.pushover
+    data:
+      message: "Warning! Temperature at the first floor is more than 50 degrees"

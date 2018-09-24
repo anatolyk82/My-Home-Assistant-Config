@@ -1,0 +1,121 @@
+# https://github.com/gazoscalvertos/Hass-Custom-Alarm/blob/master/automation.yaml
+
+# =========> Arming
+- id: alarm_arming_away
+  hide_entity: True
+  alias: '[Alarm] Away Mode Arming'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'pending'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.prealarm_beeping
+
+
+# =========> Armed
+- id: alarm_armed_away
+  hide_entity: True
+  alias: '[Alarm] Away Mode Armed'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  action:
+  - service: notify.pushover
+    data:
+      message: "The Away alarm has been armed."
+  - service: automation.turn_off
+    entity_id: automation.prealarm_beeping
+
+
+- id: alarm_armed_home
+  hide_entity: True
+  alias: '[Alarm] Home Mode Armed'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_home'
+  action:
+  - service: notify.pushover
+    data:
+      message: "The Home alarm has been armed."
+  - service: automation.turn_off
+    entity_id: automation.prealarm_beeping
+
+
+# ============> Warning
+- id: alarm_warning
+  alias: '[Alarm] Warning'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'warning'
+  action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data:
+      brightness: 255
+      rgb_color: [0, 0, 255]
+  - service: automation.turn_on
+    entity_id: automation.prealarm_beeping
+
+
+# ==============> Disarmed
+- id: alarm_disarmed
+  alias: '[Alarm] Disarmed'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'disarmed'
+  action:
+  - service: light.turn_off
+    entity_id: light.gateway_light_7811dcb7f720
+  - service: automation.turn_off
+    entity_id: automation.prealarm_beeping
+  - service: script.turn_off
+    data:
+      entity_id: script.alarm_sound_xiaomi_gateway
+  - service: script.turn_off
+    data:
+      entity_id: script.alarm_sound_xiaomi_gateway_loop
+  - service: script.turn_off
+    data:
+      entity_id: script.alarm_light_xiaomi_gateway
+  - service: script.turn_off
+    data:
+      entity_id: script.alarm_light_xiaomi_gateway_loop
+  - service: xiaomi_aqara.stop_ringtone
+    data_template:
+      gw_mac: !secret xiaomi_gateway_mac
+
+
+# =============> Triggered
+- id: alarm_triggered
+  alias: '[Alarm] Triggered'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'triggered'
+  action:
+  - service: automation.turn_off
+    entity_id: automation.prealarm_beeping
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data:
+      brightness: 255
+      rgb_color: [255, 0, 0]
+  - service: notify.pushover
+    data:
+      message: "WARNING! The home alarm has been triggered."
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_sound_xiaomi_gateway
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_light_xiaomi_gateway
+
+

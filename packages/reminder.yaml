@@ -1,0 +1,148 @@
+
+input_boolean:
+  run_reminder:
+    name: "Run Timer"
+    initial: off
+    icon: mdi:timer
+
+input_number:
+  reminder_timer_hours:
+    name: Hours
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 99
+    step: 1
+  reminder_timer_minutes:
+    name: Minutes
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 60
+    step: 1
+  reminder_timer_seconds:
+    name: Seconds
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 60
+    step: 1
+
+input_text:
+  text_reminder:
+    name: Reminder
+    initial: "Time is over !"
+
+sensor:
+  - platform: template
+    sensors:
+      reminder_remaining_time:
+        friendly_name: Remaining time
+        value_template: '{{ strptime(states.timer.reminder_timer.attributes.duration, "%H:%M:%S").second 
+        + strptime(states.timer.reminder_timer.attributes.duration, "%H:%M:%S").minute * 60 
+        + strptime(states.timer.reminder_timer.attributes.duration, "%H:%M:%S").hour * 3600 
+        - states.counter.reminder_time_elapsed.state | int }}'
+
+
+timer:
+  reminder_timer:
+    name: Reminder timer
+
+counter:
+  reminder_time_elapsed:
+    initial: 0
+    step: 1
+
+automation:
+  - alias: Start counting elapsed time for the reminder timer
+    hide_entity: true
+    trigger:
+      platform: time
+      seconds: '/1'
+    condition:
+      condition: state
+      entity_id: timer.reminder_timer
+      state: active
+    action:
+      service: counter.increment
+      data:
+        entity_id: counter.reminder_time_elapsed
+
+  - alias: Stop counting elapsed time for the reminder timer
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.reminder_timer
+    action:
+      service: counter.reset
+      data:
+        entity_id: counter.reminder_time_elapsed
+
+  - alias: Turn on the reminder timer
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_boolean.run_reminder
+        to: "on"
+    action:
+      - service: timer.start
+        data_template:
+          entity_id: timer.reminder_timer
+          duration: "{{ states.input_number.reminder_timer_hours.state | int }}:{{ states.input_number.reminder_timer_minutes.state | int }}:{{ states.input_number.reminder_timer_seconds.state | int }}"
+
+  - alias: Turn off the reminder timer
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_boolean.run_reminder
+        to: "off"
+    action:
+      - service: timer.cancel
+        entity_id: timer.reminder_timer
+      - service: counter.reset
+        entity_id: counter.reminder_time_elapsed
+
+  - alias: Timeout of the reminder timer
+    hide_entity: true
+    trigger: 
+      - platform: event
+        event_type: timer.finished
+        event_data: 
+          entity_id: timer.reminder_timer
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.run_reminder
+      - service: counter.reset
+        entity_id: counter.reminder_time_elapsed
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.reminder_timer_hours
+          value: 0
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.reminder_timer_minutes
+          value: 0
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.reminder_timer_seconds
+          value: 0
+      - service: notify.pushover
+        data:
+          message: "{{states.input_text.text_reminder.state}}"
+
+
+group:
+  timer_control:
+    view: no
+    name: Reminder
+    control: hidden
+    entities:
+      - input_boolean.run_reminder
+      - input_number.reminder_timer_hours
+      - input_number.reminder_timer_minutes
+      - input_number.reminder_timer_seconds
+      - input_text.text_reminder
+      - sensor.reminder_remaining_time
+

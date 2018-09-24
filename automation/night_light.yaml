@@ -1,0 +1,46 @@
+- alias: Turn on Xiaomi gateway as nightlight
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d00023e8333
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.auto_nightlight  #This input_boolean is only for learning double conditions
+      state: 'on'
+    - condition: numeric_state
+      entity_id: sensor.illumination_7811dcb7f720
+      below: 50
+  action:
+    - service: light.turn_on
+      entity_id: light.gateway_light_7811dcb7f720
+      data:
+        brightness: 50
+        rgb_color: [0, 255, 0]
+    - service: automation.turn_on
+      data:
+        entity_id: automation.MOTION_OFF
+
+
+- alias: Turn off the nightlight
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d00023e8333
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 10
+  condition:
+  - condition: state
+    entity_id: light.gateway_light_7811dcb7f720
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.gateway_light_7811dcb7f720
+
+        
+        

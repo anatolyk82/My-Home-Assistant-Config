@@ -1,0 +1,358 @@
+title: My Home
+# Include external resources
+resources:
+  - url: /local/custom_ui/alarm_control_panel-card.js
+    type: js
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=6
+    type: js
+  - url: /local/custom_ui/dark-sky-weather-card.css
+    type: css
+  - url: /local/custom_ui/button-card.js
+    type: module
+  - url: /local/custom_ui/bignumber-card.js
+    type: js
+  - url: /local/custom_ui/gauge-card.js
+    type: js
+
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+excluded_entities:
+  - weblink.router
+views:
+    # View tab title.
+  - title: "Overview"
+    # Optional unique id for direct access /lovelace/${id}
+    id: overview
+    # Optional background (overwrites the global background).
+    background: radial-gradient(crimson, skyblue)
+    # Each view can have a different theme applied. Theme should be defined in the frontend.
+    theme: dark-mode
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        entities:
+        - device_tracker.google_maps_104206738568170616102
+
+      - type: entities
+        entities:
+        - sensor.moonphases
+
+      - type: entities
+        entities:
+        - sensor.sunrise_time
+        - sensor.solar_angle
+        - sensor.sunset_time
+
+      - type: entities
+        title: Current weather
+        entities:
+        - sensor.yr_symbol
+        - sensor.yr_temperature
+        - sensor.yr_humidity
+        - sensor.yr_pressure
+        - sensor.yr_cloudness
+        - sensor.yr_precipitation
+        - sensor.yr_wind_speed
+        - sensor.yr_wind_direction
+        - sensor.yr_fog
+
+
+#      - type: entity-filter
+#        entities:
+#          - device_tracker.google_maps_104206738568170616102
+#        state_filter:
+#          - 'home'
+#        card:
+#          type: media-control
+#          entity: media_player.sirius
+
+      - type: entities
+        entities:
+        - switch.wifi_cord_1
+
+      - type: entities
+        title: Reminder
+        show_header_toggle: false
+        entities:
+        - input_boolean.run_reminder
+        - input_number.reminder_timer_hours
+        - input_number.reminder_timer_minutes
+        - input_number.reminder_timer_seconds
+        - input_text.text_reminder
+        - sensor.reminder_remaining_time
+
+
+  - title: "First floor"
+    id: floor1
+    cards:
+      - type: picture-elements
+        image: /local/images/first_floor_ext.jpg
+        elements:
+          - type: state-icon
+            entity: binary_sensor.motion_sensor_158d000236a817
+            style:
+              top: 77%
+              left: 50%
+          - type: state-icon
+            entity: binary_sensor.motion_sensor_158d000200ce6a
+            style:
+              top: 35%
+              left: 73%
+          - type: state-icon #Motion - Living room
+            entity: binary_sensor.motion_sensor_158d00023e8333
+            style:
+              top: 30%
+              left: 40%
+          - type: state-icon
+            entity: light.gateway_light_7811dcb7f720
+            tap_action: toggle
+            style:
+              top: 50%
+              left: 40%
+          - type: state-icon #Door - Entrance
+            entity: binary_sensor.door_window_sensor_158d000238694e
+            style:
+              top: 92%
+              left: 47.8%
+          - type: state-icon #Door - Living room
+            entity: binary_sensor.door_window_sensor_158d00022bd3cb
+            style:
+              top: 50.5%
+              left: 20%
+          - type: state-icon #Door - Kitchen
+            entity: binary_sensor.door_window_sensor_158d000232d8e8
+            style:
+              top: 44%
+              left: 84%
+          - type: state-icon #Water leak
+            entity: binary_sensor.water_leak_sensor_158d00023aa4a9
+            style:
+              top: 74%
+              left: 70%
+          - type: state-icon #Smoke detector
+            entity: binary_sensor.smoke_sensor_158d0002311b86
+            style:
+              top: 42%
+              left: 57%
+      - type: entities
+        title: Motion
+        entities:
+          - binary_sensor.motion_sensor_158d000236a817
+          - binary_sensor.motion_sensor_158d00023e8333
+          - binary_sensor.motion_sensor_158d000200ce6a
+      - type: entities
+        title: Doors
+        entities:
+          - binary_sensor.door_window_sensor_158d000238694e
+          - binary_sensor.door_window_sensor_158d00022bd3cb
+          - binary_sensor.door_window_sensor_158d000232d8e8
+      - type: entities
+        title: Weather
+        entities:
+          - sensor.temperature_158d000245a9ee
+          - sensor.humidity_158d000245a9ee
+          - sensor.pressure_158d000245a9ee
+      - type: entities
+        title: Lights
+        entities:
+          - light.gateway_light_7811dcb7f720
+
+
+  - title: "Second floor"
+    id: floor2
+    cards:
+      - type: picture-elements
+        image: /local/images/second_floor_ext.jpg
+        elements:
+          - type: state-icon
+            entity: binary_sensor.motion_sensor_158d000236a19b
+            style:
+              top: 60%
+              left: 50%
+      - type: entities
+        title: Weather
+        entities:
+          - sensor.temperature_158d0002320bc1
+          - sensor.humidity_158d0002320bc1
+          - sensor.pressure_158d0002320bc1
+
+
+  - title: "Weather"
+    id: weather
+    cards:
+#      - type: iframe
+#        url: https://embed.windy.com/embed2.html?lat=58.356&lon=13.535&zoom=4
+#        aspect_ratio: 75%
+      - type: picture-elements
+        image: https://www.yr.no/place/Sweden/V%C3%A4stra_G%C3%B6taland/Gothenburg/meteogram.svg
+        elements:
+        - type: state-icon
+      - type: custom:dark-sky-weather-card
+        entity_sun: sun.sun
+        entity_daily_summary: sensor.dark_sky_daily_summary
+        entity_current_conditions: sensor.dark_sky_icon  
+        entity_humidity: sensor.dark_sky_humidity
+        entity_pressure: sensor.dark_sky_pressure
+        entity_temperature: sensor.dark_sky_temperature
+        entity_visibility: sensor.dark_sky_visibility
+        entity_wind_bearing: sensor.dark_sky_wind_bearing
+        entity_wind_speed: sensor.dark_sky_wind_speed
+        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+        entity_forecast_icon_1: sensor.dark_sky_icon_1
+        entity_forecast_icon_2: sensor.dark_sky_icon_2
+        entity_forecast_icon_3: sensor.dark_sky_icon_3
+        entity_forecast_icon_4: sensor.dark_sky_icon_4
+        entity_forecast_icon_5: sensor.dark_sky_icon_5
+      - type: history-graph
+        title: Temperature history
+        entities:
+          - sensor.yr_temperature
+      - type: history-graph
+        title: Humidity history
+        entities:
+          - sensor.yr_humidity
+#      - type: history-graph
+#        title: Wind speed history
+#        entities:
+#          - sensor.yr_wind_speed
+      - type: history-graph
+        title: Pressure history
+        entities:
+          - sensor.yr_pressure
+#      - type: entities
+#        title: Aurora
+#        entities:
+#          - binary_sensor.aurora_visibility
+
+
+  - title: "Settings"
+    id: settings
+    cards:
+      - type: entities
+        title: Xiaomi Alarm settings
+        show_header_toggle: false
+        entities:
+          - input_select.gateway_sound
+          - input_boolean.mute_gateway_sounds
+          - input_number.gateway_volume
+          - input_number.loop_delay
+          - script.alarm_sound_xiaomi_gateway
+          - script.alarm_sound_xiaomi_gateway_once
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.hass_available_version
+          - sensor.hass_installed_version
+      - type: entities
+        show_header_toggle: false
+        title: HA Files
+        entities:
+          - sensor.homeassistant_v2db
+          - sensor.homeassistantlog
+      - type: entities
+        show_header_toggle: false
+        title: Batteries
+        entities:
+          - sensor.tradfri_remote_control_battery_level
+          - sensor.battery_temperature_sensor_floor1
+          - sensor.battery_temperature_sensor_floor2
+          - sensor.battery_temperature_sensor_outside
+          - sensor.battery_motion_sensor_living_room
+          - sensor.battery_motion_sensor_kitchen
+          - sensor.battery_motion_sensor_entrance
+          - sensor.battery_motion_sensor_second_floor
+          - sensor.battery_water_leak_sensor
+          - sensor.battery_smoke_sensor
+          - sensor.battery_door_sensor_entrance
+          - sensor.battery_door_sensor_kitchen
+          - sensor.battery_door_sensor_living_room
+          - sensor.battery_door_sensor_storehouse
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.home_assistant_log
+      - type: vertical-stack
+        cards:
+        - type: entities
+          show_header_toggle: false
+          title: Alarms
+          entities:
+            - automation.water_leakage
+            - automation.too_high_temperature_at_the_first_floor
+            - automation.too_high_temperature_at_the_second_floor
+            - automation.smoke_alarm
+        - type: entities
+          show_header_toggle: false
+          title: Automations
+          entities:
+              - automation.update_available_notifications
+      - type: vertical-stack
+        cards:
+          - type: entities
+            show_header_toggle: false
+            title: Network
+            entities:
+              - binary_sensor.xiaomi_gateway_network
+          - type: history-graph
+            title: 'Ping'
+            hours_to_show: 24
+            entities:
+              - sensor.ping_min_xiaomi
+              - sensor.ping_avg_xiaomi
+              - sensor.ping_max_xiaomi
+
+
+  - title: "Alarm"
+    id: alarm
+    cards:
+      - type: custom:alarm_control_panel-card
+        entity: alarm_control_panel.house
+        show_keypad: true
+        title: Home Alarm
+        style: '--alarm-color-disarmed: var(--label-badge-blue);'
+        states:
+          - arm_home
+          - arm_away
+
+  - title: "Tablet"
+    id: tablet
+    cards:
+      - type: horizontal-stack
+        title: First floor
+        cards:
+        - type: custom:gauge-card
+          title: Temperature
+          entity: sensor.temperature_158d000245a9ee
+          min: 0
+          max: 50
+          severity:
+            amber: 0
+            green: 23
+            red: 40
+        - type: custom:gauge-card
+          title: Humidity
+          entity: sensor.humidity_158d000245a9ee
+          min: 0
+          max: 100
+          severity:
+            amber: 0
+            green: 40
+            red: 80
+
+      - type: "custom:button-card"
+        entity: switch.wifi_cord_1
+        name: WiFi cord
+        icon: mdi:power-socket-eu
+        size: 20%
+        show_state: true
+            

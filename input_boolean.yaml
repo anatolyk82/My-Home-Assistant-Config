@@ -1,0 +1,9 @@
+#enable_security:
+#  name: Alarm Enabled
+#  icon: mdi:shield-outline
+#  initial: off
+
+auto_nightlight:
+  name: Auto nightlight
+  initial: on
+

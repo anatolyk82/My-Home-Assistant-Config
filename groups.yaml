@@ -1,0 +1,88 @@
+
+weather_sensor_outside:
+  view: no
+  name: Outside
+  control: hidden
+  entities:
+    - sensor.temperature_158d0002478a68
+    - sensor.humidity_158d0002478a68
+    - sensor.pressure_158d0002478a68
+
+weather_sensor_1:
+  view: no
+  name: First floor
+  control: hidden
+  entities:
+    - sensor.temperature_158d000245a9ee
+    - sensor.humidity_158d000245a9ee
+    - sensor.pressure_158d000245a9ee
+
+weather_sensor_2:
+  view: no
+  name: Second floor
+  control: hidden
+  entities:
+    - sensor.temperature_158d0002320bc1
+    - sensor.humidity_158d0002320bc1
+    - sensor.pressure_158d0002320bc1
+
+kitchen:
+  view: no
+  name: Kitchen
+  control: hidden
+  entities:
+    - sensor.illumination_158d000200ce6a
+    - binary_sensor.motion_sensor_158d000200ce6a
+
+
+living_room:
+  view: no
+  name: Living room
+  control: hidden
+  entities:
+    - sensor.illumination_158d00023e8333
+    - binary_sensor.motion_sensor_158d00023e8333
+
+entrance:
+  view: no
+  name: Entrance
+  control: hidden
+  entities:
+    - sensor.illumination_158d000236a817
+    - binary_sensor.motion_sensor_158d000236a817
+
+second_floor:
+  view: no
+  name: Second floor
+  control: hidden
+  entities:
+    - sensor.illumination_158d000236a19b
+    - binary_sensor.motion_sensor_158d000236a19b
+
+doors:
+  view: no
+  name: Doors
+  control: hidden
+  entities:
+    - binary_sensor.door_window_sensor_158d000238694e
+    - binary_sensor.door_window_sensor_158d00022bd3cb
+    - binary_sensor.door_window_sensor_158d000232d8e8
+
+
+ping_xiaomi_gateway:
+  view: no
+  name: Network
+  control: hidden
+  entities:
+    - sensor.ping_min_xiaomi
+    - sensor.ping_avg_xiaomi
+    - sensor.ping_max_xiaomi
+
+current_weather_yr:
+  view: no
+  name: Current weather
+  control: hidden
+  entities:
+    - sensor.yr_temperature
+    - sensor.yr_pressure
+    - sensor.yr_humidity

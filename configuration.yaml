@@ -1,0 +1,126 @@
+homeassistant:
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lat_home
+  longitude: !secret lon_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 80
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret time_zone
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+  whitelist_external_dirs:
+    - /home/homeassistant/.homeassistant   
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_named themes/
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  #api_password: !secret http_password
+  trusted_proxies: 
+    - 172.16.0.0/12
+  trusted_networks:
+    - 172.16.0.0/12
+  use_x_forwarded_for: true
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  base_url: !secret http_external_url
+
+# Checks for available updates
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+# MQTT
+mqtt:
+  broker: 127.0.0.1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+
+xiaomi_aqara:
+  discovery_retry: 8
+  gateways:
+    - key: !secret xiaomi_gateway_key
+      mac: !secret xiaomi_gateway_mac
+
+
+deconz:
+  host: !secret deconz_host
+  port: !secret deconz_port
+  api_key: !secret deconz_key
+
+logger:
+  default: warning
+  logs:
+    pydeconz: debug
+    homeassistant.components.deconz: debug
+    custom_components.xiaomi: debug
+
+
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
+
+#freedns:
+#  access_token: !secret freedns_token
+ 
+
+notify: !include notify.yaml
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include_dir_merge_list scripts/
+switch: !include switches.yaml
+zone: !include zones.yaml
+weblink: !include weblink.yaml
+binary_sensor: !include binary_sensors.yaml
+sensor: !include_dir_merge_list sensors/
+input_boolean: !include input_boolean.yaml
+input_number: !include input_number.yaml
+camera: !include cameras.yaml
+cast: !include media.yaml
+#weather: !include weather.yaml
+recorder: !include recorder.yaml
+device_tracker: !include_dir_merge_list device_tracker/
+light: !include_dir_merge_list lights/
+shell_command: !include_dir_merge_list shell_commands/
+
+alarm_control_panel: !include alarm.yaml
+panel_custom: !include panel_custom.yaml
+

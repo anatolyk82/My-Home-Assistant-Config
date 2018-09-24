@@ -1,0 +1,12 @@
+
+- name: Home
+  latitude: !secret lat_home
+  longitude: !secret lon_home
+  radius: 80
+  icon: mdi:home
+
+- name: Work
+  latitude: !secret lat_work
+  longitude: !secret lon_work
+  radius: 80
+  icon: mdi:briefcase

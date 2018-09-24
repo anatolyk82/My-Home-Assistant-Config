@@ -1,0 +1,39 @@
+- platform: command_line
+  name: Ping Xiaomi Gateway
+  command: 'sh /home/homeassistant/.homeassistant/bin/ping.sh 10 192.168.1.3'
+  scan_interval: 300
+  value_template: '{{ value_json.time_avg }}'
+  json_attributes:
+    - transmitted
+    - received
+    - time_min
+    - time_avg
+    - time_max
+
+
+- platform: template
+  sensors:
+    ping_avg_xiaomi:
+      entity_id: sensor.ping_xiaomi_gateway
+      friendly_name: 'Average ping Xiaomi Gateway'
+      icon_template: mdi:server-network
+      value_template: '{{ states.sensor.ping_xiaomi_gateway.attributes.time_avg | float  }}'
+      unit_of_measurement: ms
+
+- platform: template
+  sensors:
+    ping_min_xiaomi:
+      entity_id: sensor.ping_xiaomi_gateway
+      friendly_name: 'Min ping Xiaomi Gateway'
+      icon_template: mdi:server-network
+      value_template: '{{ states.sensor.ping_xiaomi_gateway.attributes.time_min | float }}'
+      unit_of_measurement: ms
+
+- platform: template
+  sensors:
+    ping_max_xiaomi:
+      entity_id: sensor.ping_xiaomi_gateway
+      friendly_name: 'Max ping Xiaomi Gateway'
+      icon_template: mdi:server-network
+      value_template: '{{ states.sensor.ping_xiaomi_gateway.attributes.time_max | float }}'
+      unit_of_measurement: ms

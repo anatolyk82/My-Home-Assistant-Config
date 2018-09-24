@@ -1,0 +1,12 @@
+- platform: mqtt
+  entity_id: wifi_cord_1
+  name: "WiFi Cord 1"
+  command_topic: "home/switch1/relay/0/set"
+  state_topic: "home/switch1/relay/0"
+  availability_topic: "home/switch1/status"
+  payload_on: "1"
+  payload_off: "0"
+  payload_available: 1
+  payload_not_available: 0
+  qos: 0
+  retain: true

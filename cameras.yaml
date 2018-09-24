@@ -1,0 +1,5 @@
+- platform: generic
+  name: Weather
+  still_image_url: !secret yr_url_weather_location
+  content_type: 'image/svg+xml'
+

@@ -1,0 +1,29 @@
+- name: xmpp
+  platform: xmpp
+  sender: !secret notify_xmpp_sender
+  password: !secret notify_xmpp_password
+  recipient: !secret notify_xmpp_recipient
+
+
+- name: pushover
+  platform: pushover
+  user_key: !secret pushover_user_key
+  api_key: !secret pushover_api_key
+
+
+- name: hangouts
+  platform: hangouts
+  default_conversations:
+    - id: !secret hangouts_id1
+
+#- name: email_anatoly
+#  platform: smtp
+#  server: smtp.gmail.com
+#  port: 587
+#  timeout: 15
+#  sender: !secret google_username
+#  username: !secret google_username
+#  password: !secret google_passowrd
+#  recipient: !secret google_recipient
+#  encryption: starttls
+#  sender_name: Home Assistant

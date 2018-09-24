@@ -1,0 +1,12 @@
+- platform: file
+  name: Home Assistant Log
+  file_path: /home/homeassistant/.homeassistant/home-assistant.log
+
+
+- platform: template
+  sensors:
+    hass_log:
+      entity_id: sensor.home_assistnt_log
+      friendly_name: ''
+      icon_template: ""
+      value_template: '{{ states.sensor.home_assistnt_log.state }}'

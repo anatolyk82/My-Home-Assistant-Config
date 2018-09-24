@@ -1,0 +1,4 @@
+- platform: google_maps
+  username: !secret google_username
+  password: !secret google_passowrd
+
