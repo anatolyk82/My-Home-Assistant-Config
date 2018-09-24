@@ -7,3 +7,6 @@ known_devices.yaml
 
 .storage/*
 .cloud/*
+
+home-assistnt.log
+home-assistnt_v2.db
