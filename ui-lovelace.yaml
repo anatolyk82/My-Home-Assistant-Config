@@ -278,10 +278,6 @@ views:
           - sensor.battery_door_sensor_kitchen
           - sensor.battery_door_sensor_living_room
           - sensor.battery_door_sensor_storehouse
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.home_assistant_log
       - type: vertical-stack
         cards:
         - type: entities
@@ -311,6 +307,25 @@ views:
               - sensor.ping_min_xiaomi
               - sensor.ping_avg_xiaomi
               - sensor.ping_max_xiaomi
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_boolean.debug_mode
+      - type: conditional
+        conditions:
+          - entity: input_boolean.debug_mode
+            state: "on"
+          - entity: alarm_control_panel.house
+            state: "disarmed"
+        card: 
+          type: entities
+          title: Debug card
+          entities:
+            - automation.alarm_sound_rpi_speaker
+            - automation.prealarm_sound
+            - script.test_pushover
+            - script.alarm_light_xiaomi_gateway
+            - script.alarm_light_xiaomi_gateway_loop
 
 
   - title: "Alarm"

@@ -105,7 +105,7 @@ duckdns:
 notify: !include notify.yaml
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
-script: !include_dir_merge_list scripts/
+script: !include_dir_merge_named scripts/
 switch: !include switches.yaml
 zone: !include zones.yaml
 weblink: !include weblink.yaml

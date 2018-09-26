@@ -1,5 +1,5 @@
 automation:
-  - alias: 'Prealarm beeping'
+  - alias: 'Prealarm sound'
     #hide_entity: true
     initial_state: False
     trigger:

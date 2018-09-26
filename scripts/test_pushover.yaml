@@ -1,0 +1,8 @@
+test_pushover:
+  alias: "Send a test pushover message"
+  sequence:
+    - service: notify.pushover
+      data: 
+        message: "This is a test message from Home Assistant"
+
+

@@ -7,3 +7,6 @@ auto_nightlight:
   name: Auto nightlight
   initial: on
 
+debug_mode:
+  name: Debug mode
+  initial: off
