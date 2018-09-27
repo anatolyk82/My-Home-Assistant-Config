@@ -54,19 +54,20 @@ armed_away:
   #[OPTIONAL] State specific overrides default time above
   trigger_time: 600  
   ##[OPTIONAL however either an immediate or delayed group must exist] Sensors in this group tigger the alarm immediately 
-  immediate:
-    - binary_sensor.motion_sensor_158d000236a19b        # Second floor motion
-    - binary_sensor.door_window_sensor_158d00022da733   # Storagehouse door
-  ##[OPTIONAL] Sensors in this group start the clock (pending_time) when tripped before the alarm is triggered 
+#  immediate:
+#    - binary_sensor.motion_sensor_158d000236a19b        # Second floor motion
+#    - binary_sensor.door_window_sensor_158d00022da733   # Storagehouse door
+#  ##[OPTIONAL] Sensors in this group start the clock (pending_time) when tripped before the alarm is triggered 
   delayed:
-    - binary_sensor.motion_sensor_158d000200ce6a        # Kitchen motion
-    - binary_sensor.door_window_sensor_158d000238694e   # Entrance door
-    - binary_sensor.door_window_sensor_158d00022bd3cb   # Living room door
-    - binary_sensor.door_window_sensor_158d000232d8e8   # Kitchen door
-  #[OPTIONAL] Use this group to automatically override the warning message on open sensors when arming. (I use this as I have a motion sensor at the front door)
-  override:
     - binary_sensor.motion_sensor_158d00023e8333        # Motion living room
-    - binary_sensor.motion_sensor_158d000236a817        # Entrance motion
+#    - binary_sensor.motion_sensor_158d000200ce6a        # Kitchen motion
+#    - binary_sensor.door_window_sensor_158d000238694e   # Entrance door
+#    - binary_sensor.door_window_sensor_158d00022bd3cb   # Living room door
+#    - binary_sensor.door_window_sensor_158d000232d8e8   # Kitchen door
+#  #[OPTIONAL] Use this group to automatically override the warning message on open sensors when arming. (I use this as I have a motion sensor at the front door)
+#  override:
+#    - binary_sensor.motion_sensor_158d00023e8333        # Motion living room
+#    - binary_sensor.motion_sensor_158d000236a817        # Entrance motion
 
 ##[INTERFACE OPTIONAL SETTINGS] 
 #[OPTIONAL] - False by default. True enables a clock in the center of the status bar

@@ -1,0 +1,70 @@
+alarm_on:
+  alias: "Activate alarm"
+  sequence:
+    - service: automation.turn_off
+      entity_id: automation.alarm_sound_pending
+    - service: light.turn_on
+      entity_id: light.gateway_light_7811dcb7f720
+      data:
+        brightness: 255
+        rgb_color: [255, 0, 0]
+    - service: notify.pushover
+      data:
+        message: "WARNING! The home alarm has been triggered."
+    - service: script.turn_on
+      data:
+        entity_id: script.alarm_sound_xiaomi_gateway
+    - service: script.turn_on
+      data:
+        entity_id: script.alarm_light_xiaomi_gateway
+    - service: automation.turn_on
+      entity_id: automation.alarm_sound_rpi_speaker
+    - service: light.turn_on
+      data:
+        entity_id: light.bulb_12
+        effect: "Police"
+    - service: light.turn_on
+      data:
+        entity_id: light.bulb_13
+        effect: "Police"
+    - service: light.turn_on
+      data:
+        entity_id: light.bulb_14
+        effect: "Police"
+
+alarm_off:
+  alias: "Deactivate alarm"
+  sequence:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: disarmed
+    - service: light.turn_off
+      entity_id: light.gateway_light_7811dcb7f720
+    - service: automation.turn_off
+      entity_id: automation.alarm_sound_pending
+    - service: script.turn_off
+      data:
+        entity_id: script.alarm_sound_xiaomi_gateway
+    - service: script.turn_off
+      data:
+        entity_id: script.alarm_sound_xiaomi_gateway_loop
+    - service: script.turn_off
+      data:
+        entity_id: script.alarm_light_xiaomi_gateway
+    - service: script.turn_off
+      data:
+        entity_id: script.alarm_light_xiaomi_gateway_loop
+    - service: xiaomi_aqara.stop_ringtone
+      data_template:
+        gw_mac: !secret xiaomi_gateway_mac
+    - service: automation.turn_off
+      entity_id: automation.alarm_sound_rpi_speaker
+    - service: light.turn_off
+      data:
+        entity_id: light.bulb_12
+    - service: light.turn_off
+      data:
+        entity_id: light.bulb_13
+    - service: light.turn_off
+      data:
+        entity_id: light.bulb_14

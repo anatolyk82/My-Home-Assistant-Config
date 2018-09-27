@@ -1,3 +1,10 @@
+
+# =================================== Bulbs
+
+light.bulb_12:
+  friendly_name: Living room light
+
+# ===================================
 sensor.ping_xiaomi_gateway:
   hidden: true
 

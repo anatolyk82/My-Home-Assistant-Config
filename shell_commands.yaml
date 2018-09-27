@@ -1,2 +1,5 @@
 
 alarm_sound_pending: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm_pending_beep.wav"
+    
+alarm_sound_rpi_speaker: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm.wav"
+

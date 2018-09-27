@@ -1,0 +1,10 @@
+- alias: 'Alarm Sound RPi Speaker'
+  hide_entity: true
+  initial_state: False
+  trigger:
+    - platform: time
+      seconds: "/1"
+  action:
+    service: shell_command.alarm_sound_rpi_speaker
+
+

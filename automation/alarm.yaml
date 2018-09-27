@@ -71,25 +71,9 @@
     entity_id: alarm_control_panel.house
     to: 'disarmed'
   action:
-  - service: light.turn_off
-    entity_id: light.gateway_light_7811dcb7f720
-  - service: automation.turn_off
-    entity_id: automation.alarm_sound_pending
-  - service: script.turn_off
+  - service: script.turn_on
     data:
-      entity_id: script.alarm_sound_xiaomi_gateway
-  - service: script.turn_off
-    data:
-      entity_id: script.alarm_sound_xiaomi_gateway_loop
-  - service: script.turn_off
-    data:
-      entity_id: script.alarm_light_xiaomi_gateway
-  - service: script.turn_off
-    data:
-      entity_id: script.alarm_light_xiaomi_gateway_loop
-  - service: xiaomi_aqara.stop_ringtone
-    data_template:
-      gw_mac: !secret xiaomi_gateway_mac
+      entity_id: script.alarm_off
 
 
 # =============> Triggered
@@ -101,21 +85,8 @@
     entity_id: alarm_control_panel.house
     to: 'triggered'
   action:
-  - service: automation.turn_off
-    entity_id: automation.alarm_sound_pending
-  - service: light.turn_on
-    entity_id: light.gateway_light_7811dcb7f720
-    data:
-      brightness: 255
-      rgb_color: [255, 0, 0]
-  - service: notify.pushover
-    data:
-      message: "WARNING! The home alarm has been triggered."
   - service: script.turn_on
     data:
-      entity_id: script.alarm_sound_xiaomi_gateway
-  - service: script.turn_on
-    data:
-      entity_id: script.alarm_light_xiaomi_gateway
+      entity_id: script.alarm_on
 
 

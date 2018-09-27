@@ -326,6 +326,8 @@ views:
             - script.test_pushover
             - script.alarm_light_xiaomi_gateway
             - script.alarm_light_xiaomi_gateway_loop
+            - script.alarm_on
+            - script.alarm_off
 
 
   - title: "Alarm"
