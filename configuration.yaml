@@ -119,7 +119,7 @@ cast: !include media.yaml
 recorder: !include recorder.yaml
 device_tracker: !include_dir_merge_list device_tracker/
 light: !include_dir_merge_list lights/
-shell_command: !include_dir_merge_list shell_commands/
+shell_command: !include shell_commands.yaml
 
 alarm_control_panel: !include alarm.yaml
 panel_custom: !include panel_custom.yaml

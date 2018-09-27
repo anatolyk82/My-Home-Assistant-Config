@@ -1,0 +1,2 @@
+
+alarm_sound_pending: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm_pending_beep.wav"

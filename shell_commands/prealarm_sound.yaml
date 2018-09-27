@@ -1,2 +1,0 @@
-
-prealarm_sound: mplayer /home/homeassistant/.homeassistant/media/alarm_pending_beep.wav
