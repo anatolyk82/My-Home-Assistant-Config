@@ -1,0 +1,9 @@
+- alias: 'Entrance door sound'
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d000238694e
+    to: "on"
+  action:
+    service: shell_command.entrance_door_open
+

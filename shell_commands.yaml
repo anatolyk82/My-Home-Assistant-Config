@@ -3,3 +3,4 @@ alarm_sound_pending: "/usr/bin/play /home/homeassistant/.homeassistant/media/ala
     
 alarm_sound_rpi_speaker: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm.wav"
 
+entrance_door_open: "/usr/bin/play --volume 0.1 /home/homeassistant/.homeassistant/media/door_open.wav"
