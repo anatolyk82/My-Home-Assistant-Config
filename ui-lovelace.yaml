@@ -245,16 +245,16 @@ views:
   - title: "Settings"
     id: settings
     cards:
-      - type: entities
-        title: Xiaomi Alarm settings
-        show_header_toggle: false
-        entities:
-          - input_select.gateway_sound
-          - input_boolean.mute_gateway_sounds
-          - input_number.gateway_volume
-          - input_number.loop_delay
-          - script.alarm_sound_xiaomi_gateway
-          - script.alarm_sound_xiaomi_gateway_once
+#      - type: entities
+#        title: Xiaomi Alarm settings
+#        show_header_toggle: false
+#        entities:
+#          - input_select.gateway_sound
+#          - input_boolean.mute_gateway_sounds
+#          - input_number.gateway_volume
+#          - input_number.loop_delay
+#          - script.alarm_sound_xiaomi_gateway
+#          - script.alarm_sound_xiaomi_gateway_once
       - type: entities
         show_header_toggle: false
         entities:
@@ -325,16 +325,39 @@ views:
           - entity: alarm_control_panel.house
             state: "disarmed"
         card: 
-          type: entities
-          title: Debug card
-          entities:
-            - automation.alarm_sound_rpi_speaker
-            - automation.alarm_sound_pending
-            - script.test_pushover
-            - script.alarm_light_xiaomi_gateway
-            - script.alarm_light_xiaomi_gateway_loop
-            - script.alarm_on
-            - script.alarm_off
+          type: vertical-stack
+          cards:
+            - type: entities
+              title: Debug card
+              entities:
+                - automation.alarm_sound_rpi_speaker
+                - automation.alarm_sound_pending
+                - script.test_pushover
+                - script.alarm_light_xiaomi_gateway
+                - script.alarm_light_xiaomi_gateway_loop
+                - script.alarm_on
+                - script.alarm_off
+            - type: entities
+              title: Xiaomi Alarm settings
+              show_header_toggle: false
+              entities:
+                - input_select.gateway_sound
+                - input_boolean.mute_gateway_sounds
+                - input_number.gateway_volume
+                - input_number.loop_delay
+                - script.alarm_sound_xiaomi_gateway
+                - script.alarm_sound_xiaomi_gateway_once
+
+#          type: entities
+#          title: Debug card
+#          entities:
+#            - automation.alarm_sound_rpi_speaker
+#            - automation.alarm_sound_pending
+#            - script.test_pushover
+#            - script.alarm_light_xiaomi_gateway
+#            - script.alarm_light_xiaomi_gateway_loop
+#            - script.alarm_on
+#            - script.alarm_off
 
 
   - title: "Alarm"
