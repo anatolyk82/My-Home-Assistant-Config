@@ -13,6 +13,8 @@ resources:
     type: js
   - url: /local/custom_ui/gauge-card.js
     type: js
+  - url: /local/custom_ui/slider-entity-row.js
+    type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
@@ -157,6 +159,11 @@ views:
         title: Lights
         entities:
           - light.gateway_light_7811dcb7f720
+      - type: entities
+        entities:
+          - type: custom:slider-entity-row
+            entity: light.light1
+            name: Ikea bulb
 
 
   - title: "Second floor"
