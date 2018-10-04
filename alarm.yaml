@@ -18,7 +18,7 @@ code: !secret alarm_code
 panic_code: !secret alarm_panic_code
 
 #[DEFAULT] Grace time in seconds to allow for exit and entry using Away mode
-pending_time: 30
+pending_time: 60
 #[DEFAULT] The amount of time the alarm stays triggered before returning to its previous state
 trigger_time: 300 
 
@@ -61,12 +61,12 @@ armed_away:
   delayed:
     - binary_sensor.door_window_sensor_158d00022bd3cb   # Door: Living room
     - binary_sensor.door_window_sensor_158d000232d8e8   # Door: Kitchen
-  #[OPTIONAL] Use this group to automatically override the warning message on open sensors when arming. (I use this as I have a motion sensor at the front door)
-  override:
     - binary_sensor.door_window_sensor_158d000238694e   # Door: Entrance
     - binary_sensor.motion_sensor_158d00023e8333        # Motion: Living room
     - binary_sensor.motion_sensor_158d000236a817        # Motion: Entrance
     - binary_sensor.motion_sensor_158d000200ce6a        # Motion: Kitchen
+  #[OPTIONAL] Use this group to automatically override the warning message on open sensors when arming. (I use this as I have a motion sensor at the front door)
+  #override:
 
 ##[INTERFACE OPTIONAL SETTINGS] 
 #[OPTIONAL] - False by default. True enables a clock in the center of the status bar
