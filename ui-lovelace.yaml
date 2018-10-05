@@ -15,6 +15,8 @@ resources:
     type: js
   - url: /local/custom_ui/slider-entity-row.js
     type: js
+  - url: /local/custom_ui/kiosk.js
+    type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
@@ -107,7 +109,7 @@ views:
               top: 30%
               left: 40%
           - type: state-icon
-            entity: light.gateway_light_7811dcb7f720
+            entity: light.light1
             tap_action: toggle
             style:
               top: 50%
@@ -125,8 +127,8 @@ views:
           - type: state-icon #Door - Kitchen
             entity: binary_sensor.door_window_sensor_158d000232d8e8
             style:
-              top: 44%
-              left: 84%
+              top: 43%
+              left: 84.5%
           - type: state-icon #Water leak
             entity: binary_sensor.water_leak_sensor_158d00023aa4a9
             style:
@@ -135,35 +137,40 @@ views:
           - type: state-icon #Smoke detector
             entity: binary_sensor.smoke_sensor_158d0002311b86
             style:
-              top: 42%
+              top: 41%
               left: 57%
-      - type: entities
-        title: Motion
-        entities:
-          - binary_sensor.motion_sensor_158d000236a817
-          - binary_sensor.motion_sensor_158d00023e8333
-          - binary_sensor.motion_sensor_158d000200ce6a
-      - type: entities
-        title: Doors
-        entities:
-          - binary_sensor.door_window_sensor_158d000238694e
-          - binary_sensor.door_window_sensor_158d00022bd3cb
-          - binary_sensor.door_window_sensor_158d000232d8e8
-      - type: entities
-        title: Weather
+      - type: vertical-stack
+        cards:
+        - type: glance
+          column_width: calc(100% / 3)
+          entities:
+            - binary_sensor.motion_sensor_158d000236a817
+            - binary_sensor.motion_sensor_158d00023e8333
+            - binary_sensor.motion_sensor_158d000200ce6a
+        - type: glance
+          column_width: calc(100% / 3)
+          entities:
+            - binary_sensor.door_window_sensor_158d000238694e
+            - binary_sensor.door_window_sensor_158d00022bd3cb
+            - binary_sensor.door_window_sensor_158d000232d8e8
+      - type: glance
+        column_width: calc(100% / 3)
         entities:
           - sensor.temperature_158d000245a9ee
           - sensor.humidity_158d000245a9ee
           - sensor.pressure_158d000245a9ee
-      - type: entities
-        title: Lights
-        entities:
-          - light.gateway_light_7811dcb7f720
-      - type: entities
-        entities:
-          - type: custom:slider-entity-row
-            entity: light.light1
-            name: Ikea bulb
+      - type: vertical-stack
+        cards:
+        - type: entities
+          title: Lights
+          entities:
+              #- light.gateway_light_7811dcb7f720
+            - type: custom:slider-entity-row
+              entity: light.gateway_light_7811dcb7f720
+              name: Xiaomi Gateway Light
+            - type: custom:slider-entity-row
+              entity: light.light1
+              name: Ikea bulb
 
 
   - title: "Second floor"
@@ -177,8 +184,8 @@ views:
             style:
               top: 60%
               left: 50%
-      - type: entities
-        title: Weather
+      - type: glance
+        column_width: calc(100% / 3)
         entities:
           - sensor.temperature_158d0002320bc1
           - sensor.humidity_158d0002320bc1
@@ -245,16 +252,6 @@ views:
   - title: "Settings"
     id: settings
     cards:
-#      - type: entities
-#        title: Xiaomi Alarm settings
-#        show_header_toggle: false
-#        entities:
-#          - input_select.gateway_sound
-#          - input_boolean.mute_gateway_sounds
-#          - input_number.gateway_volume
-#          - input_number.loop_delay
-#          - script.alarm_sound_xiaomi_gateway
-#          - script.alarm_sound_xiaomi_gateway_once
       - type: entities
         show_header_toggle: false
         entities:
@@ -300,6 +297,7 @@ views:
           title: Automations
           entities:
               - automation.update_available_notifications
+              - automation.entrance_door_sound
       - type: vertical-stack
         cards:
           - type: entities
@@ -372,30 +370,61 @@ views:
           - arm_home
           - arm_away
 
-  - title: "Tablet"
-    id: tablet
+  - title: "Kiosk"
+    id: kiosk
     cards:
-      - type: horizontal-stack
-        title: First floor
+      - type: vertical-stack
         cards:
-        - type: custom:gauge-card
-          title: Temperature
-          entity: sensor.temperature_158d000245a9ee
-          min: 0
-          max: 50
-          severity:
-            amber: 0
-            green: 23
-            red: 40
-        - type: custom:gauge-card
-          title: Humidity
-          entity: sensor.humidity_158d000245a9ee
-          min: 0
-          max: 100
-          severity:
-            amber: 0
-            green: 40
-            red: 80
+        - type: markdown
+          content: >
+            # First floor
+        - type: horizontal-stack
+          title: First floor
+          cards:
+          - type: custom:gauge-card
+            title: Temperature
+            entity: sensor.temperature_158d000245a9ee
+            min: 0
+            max: 50
+            severity:
+              amber: 0
+              green: 23
+              red: 40
+          - type: custom:gauge-card
+            title: Humidity
+            entity: sensor.humidity_158d000245a9ee
+            min: 0
+            max: 100
+            severity:
+              amber: 0
+              green: 40
+              red: 80
+
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          content: >
+            # Second floor
+        - type: horizontal-stack
+          cards:
+          - type: custom:gauge-card
+            title: Temperature
+            entity: sensor.temperature_158d0002320bc1
+            min: 0
+            max: 50
+            severity:
+              amber: 0
+              green: 23
+              red: 40
+          - type: custom:gauge-card
+            title: Humidity
+            entity: sensor.humidity_158d0002320bc1
+            min: 0
+            max: 100
+            severity:
+              amber: 0
+              green: 40
+              red: 80
 
       - type: "custom:button-card"
         entity: switch.wifi_cord_1
@@ -404,3 +433,10 @@ views:
         size: 20%
         show_state: true
             
+      - type: "custom:button-card"
+        entity: light.light1
+        name: Living room
+        icon: mdi:lightbulb
+        size: 20%
+        show_state: false
+        color: rgb(255, 252, 0)
