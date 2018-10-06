@@ -13,7 +13,7 @@
       below: 30
     - condition: time
       after: "06:30"
-      before: "23:59"
+      before: "22:59"
   action:
     - service: light.turn_on
       entity_id: light.light1
@@ -36,7 +36,7 @@
       entity_id: sensor.illumination_158d000236a19b
       below: 30
     - condition: time
-      after: "00:00"
+      after: "23:00"
       before: "06:29"
   action:
     - service: light.turn_on

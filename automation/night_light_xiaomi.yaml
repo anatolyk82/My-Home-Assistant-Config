@@ -1,10 +1,10 @@
 - alias: Turn on Xiaomi gateway as nightlight
   hide_entity: true
   trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor_158d00023e8333
-    from: 'off'
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00023e8333
+      from: 'off'
+      to: 'on'
   condition:
     condition: and
     conditions:

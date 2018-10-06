@@ -44,6 +44,10 @@ views:
 
       - type: entities
         entities:
+        - binary_sensor.all_in_bed
+
+      - type: entities
+        entities:
         - sensor.sunrise_time
         - sensor.solar_angle
         - sensor.sunset_time
@@ -153,6 +157,12 @@ views:
             - binary_sensor.door_window_sensor_158d000238694e
             - binary_sensor.door_window_sensor_158d00022bd3cb
             - binary_sensor.door_window_sensor_158d000232d8e8
+        - type: glance
+          column_width: calc(100% / 3)
+          entities:
+            - sensor.illumination_158d000236a817
+            - sensor.illumination_158d00023e8333
+            - sensor.illumination_158d000200ce6a
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -195,6 +205,9 @@ views:
           - sensor.temperature_158d0002320bc1
           - sensor.humidity_158d0002320bc1
           - sensor.pressure_158d0002320bc1
+      - type: entities
+        entities:
+          - sensor.illumination_158d000236a19b
       - type: vertical-stack
         cards:
         - type: entities

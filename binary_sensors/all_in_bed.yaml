@@ -1,0 +1,47 @@
+- platform: bayesian
+  prior: 0.2
+  name: 'all_in_bed'
+  probability_threshold: 0.95
+  observations:
+    - entity_id: 'sun.sun'
+      prob_given_true: 0.2
+      platform: 'state'
+      to_state: 'below_horizon'
+    - entity_id: binary_sensor.motion_sensor_158d00023e8333
+      prob_given_true: 0.2
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: binary_sensor.motion_sensor_158d000236a817
+      prob_given_true: 0.2
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: binary_sensor.motion_sensor_158d000200ce6a  
+      prob_given_true: 0.2
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: binary_sensor.motion_sensor_158d000236a19b
+      prob_given_true: 0.2
+      platform: 'state'
+      to_state: 'off'
+    - entity_id: sensor.illumination_158d000236a19b
+      prob_given_true: 0.2
+      platform: 'numeric_state'
+      below: 10
+    - entity_id: sensor.illumination_158d00023e8333
+      prob_given_true: 0.2
+      platform: 'numeric_state'
+      below: 10
+    - entity_id: sensor.illumination_158d000236a817
+      prob_given_true: 0.2
+      platform: 'numeric_state'
+      below: 10
+    - entity_id: sensor.illumination_158d000200ce6a  
+      prob_given_true: 0.2
+      platform: 'numeric_state'
+      below: 10
+    - entity_id: device_tracker.google_maps_104206738568170616102
+      prob_given_true: 0.2
+      prob_given_false: 0.8
+      platform: 'state'
+      to_state: 'home'
+
