@@ -1,0 +1,64 @@
+- alias: Turn on upstairs light if movements (06:30 - 00:00)
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a19b
+      below: 30
+    - condition: time
+      after: "06:30"
+      before: "23:59"
+  action:
+    - service: light.turn_on
+      entity_id: light.light1
+      data:
+        brightness_pct: 90
+        transition: 5
+
+
+- alias: Turn on upstairs light if movements (00:00 - 06:30)
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a19b
+      below: 30
+    - condition: time
+      after: "00:00"
+      before: "06:29"
+  action:
+    - service: light.turn_on
+      entity_id: light.light1
+      data:
+        brightness_pct: 5
+
+- alias: Turn off upstairs light after movements
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 10
+  condition:
+  - condition: state
+    entity_id: light.light1
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.light1
+      data:
+        transition: 10

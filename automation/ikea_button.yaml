@@ -1,10 +1,42 @@
-- alias: 'Turn on Ikea bulb'
+- alias: 'Turn on Living room'
   trigger:
     platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_1
       event: 1002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+
+- alias: 'Turn off Living room'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.bulb_12
+
+
+
+- alias: 'Turn on Upstairs light (right)'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 5002
   condition:
   - condition: state
     entity_id: light.light1
@@ -13,13 +45,13 @@
   - service: light.turn_on
     entity_id: light.light1
 
-- alias: 'Turn off Ikea bulb'
+- alias: 'Turn off Upstairs light (right)'
   trigger:
     platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_1
-      event: 1002
+      event: 5002
   condition:
   - condition: state
     entity_id: light.light1
@@ -28,6 +60,37 @@
   - service: light.turn_off
     entity_id: light.light1
 
+
+
+- alias: 'Turn on Upstairs light (left)'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 4002
+  condition:
+  - condition: state
+    entity_id: light.light1
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.light1
+
+- alias: 'Turn off Upstairs light (left)'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 4002
+  condition:
+  - condition: state
+    entity_id: light.light1
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.light1
 
 #- alias: "Increase brightness of the gateway light with the IKEA button"
 #  trigger:
