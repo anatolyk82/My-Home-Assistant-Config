@@ -11,14 +11,14 @@ alarm_on:
     - service: notify.pushover
       data:
         message: "WARNING! The home alarm has been triggered."
-    - service: script.turn_on
-      data:
-        entity_id: script.alarm_sound_xiaomi_gateway
+#    - service: script.turn_on
+#      data:
+#        entity_id: script.alarm_sound_xiaomi_gateway
     - service: script.turn_on
       data:
         entity_id: script.alarm_light_xiaomi_gateway
-    - service: automation.turn_on
-      entity_id: automation.alarm_sound_rpi_speaker
+#    - service: automation.turn_on
+#      entity_id: automation.alarm_sound_rpi_speaker
     - service: light.turn_on
       data:
         entity_id: light.bulb_12

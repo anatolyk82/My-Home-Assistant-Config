@@ -109,7 +109,7 @@ views:
               top: 30%
               left: 40%
           - type: state-icon
-            entity: light.light1
+            entity: light.bulb_12
             tap_action: toggle
             style:
               top: 50%
@@ -164,13 +164,12 @@ views:
         - type: entities
           title: Lights
           entities:
-              #- light.gateway_light_7811dcb7f720
             - type: custom:slider-entity-row
               entity: light.gateway_light_7811dcb7f720
               name: Xiaomi Gateway Light
             - type: custom:slider-entity-row
-              entity: light.light1
-              name: Ikea bulb
+              entity: light.bulb_12
+              name: Living room
 
 
   - title: "Second floor"
@@ -182,7 +181,13 @@ views:
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000236a19b
             style:
-              top: 60%
+              top: 75%
+              left: 50%
+          - type: state-icon
+            entity: light.light1
+            tap_action: toggle
+            style:
+              top: 57%
               left: 50%
       - type: glance
         column_width: calc(100% / 3)
@@ -190,6 +195,14 @@ views:
           - sensor.temperature_158d0002320bc1
           - sensor.humidity_158d0002320bc1
           - sensor.pressure_158d0002320bc1
+      - type: vertical-stack
+        cards:
+        - type: entities
+          title: Lights
+          entities:
+            - type: custom:slider-entity-row
+              entity: light.light1
+              name: Upstairs
 
 
   - title: "Weather"
@@ -298,6 +311,9 @@ views:
           entities:
               - automation.update_available_notifications
               - automation.entrance_door_sound
+              - automation.turn_on_upstairs_light_if_movements_0000__0630
+              - automation.turn_on_upstairs_light_if_movements_0630__0000
+              - automation.turn_off_upstairs_light_after_movements
       - type: vertical-stack
         cards:
           - type: entities
@@ -345,17 +361,16 @@ views:
                 - input_number.loop_delay
                 - script.alarm_sound_xiaomi_gateway
                 - script.alarm_sound_xiaomi_gateway_once
-
-#          type: entities
-#          title: Debug card
-#          entities:
-#            - automation.alarm_sound_rpi_speaker
-#            - automation.alarm_sound_pending
-#            - script.test_pushover
-#            - script.alarm_light_xiaomi_gateway
-#            - script.alarm_light_xiaomi_gateway_loop
-#            - script.alarm_on
-#            - script.alarm_off
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - device_tracker.nmap_router
+          - device_tracker.nmap_google_home
+          - device_tracker.nmap_millas_iphone
+          - device_tracker.nmap_galaxy_s9
+          - device_tracker.nmap_galaxy_tablet
+          - device_tracker.nmap_alatolys_laptop
+          - device_tracker.nmap_xiaomi_gateway
 
 
   - title: "Alarm"
@@ -433,10 +448,20 @@ views:
         size: 20%
         show_state: true
             
-      - type: "custom:button-card"
-        entity: light.light1
-        name: Living room
-        icon: mdi:lightbulb
-        size: 20%
-        show_state: false
-        color: rgb(255, 252, 0)
+      - type: vertical-stack
+        cards:
+        - type: "custom:button-card"
+          entity: light.light1
+          name: Upstairs
+          icon: mdi:lightbulb
+          size: 20%
+          show_state: false
+          color: rgb(255, 252, 0)
+
+        - type: "custom:button-card"
+          entity: light.bulb_12
+          name: Living room
+          icon: mdi:lightbulb
+          size: 20%
+          show_state: false
+          color: rgb(255, 252, 0)
