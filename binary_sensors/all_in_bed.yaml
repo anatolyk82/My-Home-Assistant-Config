@@ -1,47 +1,63 @@
 - platform: bayesian
-  prior: 0.2
+  prior: 0.33
   name: 'all_in_bed'
-  probability_threshold: 0.95
+  probability_threshold: 0.8
   observations:
     - entity_id: 'sun.sun'
-      prob_given_true: 0.2
+      prob_given_true: 0.5
       platform: 'state'
       to_state: 'below_horizon'
+      # Living room motion
     - entity_id: binary_sensor.motion_sensor_158d00023e8333
-      prob_given_true: 0.2
-      platform: 'state'
-      to_state: 'off'
-    - entity_id: binary_sensor.motion_sensor_158d000236a817
-      prob_given_true: 0.2
-      platform: 'state'
-      to_state: 'off'
-    - entity_id: binary_sensor.motion_sensor_158d000200ce6a  
-      prob_given_true: 0.2
-      platform: 'state'
-      to_state: 'off'
-    - entity_id: binary_sensor.motion_sensor_158d000236a19b
-      prob_given_true: 0.2
-      platform: 'state'
-      to_state: 'off'
-    - entity_id: sensor.illumination_158d000236a19b
-      prob_given_true: 0.2
-      platform: 'numeric_state'
-      below: 10
-    - entity_id: sensor.illumination_158d00023e8333
-      prob_given_true: 0.2
-      platform: 'numeric_state'
-      below: 10
-    - entity_id: sensor.illumination_158d000236a817
-      prob_given_true: 0.2
-      platform: 'numeric_state'
-      below: 10
-    - entity_id: sensor.illumination_158d000200ce6a  
-      prob_given_true: 0.2
-      platform: 'numeric_state'
-      below: 10
-    - entity_id: device_tracker.google_maps_104206738568170616102
-      prob_given_true: 0.2
+      prob_given_true: 0.7
       prob_given_false: 0.8
+      platform: 'state'
+      to_state: 'off'
+      # Entrance motion
+    - entity_id: binary_sensor.motion_sensor_158d000236a817
+      prob_given_true: 0.7
+      prob_given_false: 0.8
+      platform: 'state'
+      to_state: 'off'
+      # Kitchen motion
+    - entity_id: binary_sensor.motion_sensor_158d000200ce6a  
+      prob_given_true: 0.7
+      prob_given_false: 0.8
+      platform: 'state'
+      to_state: 'off'
+      # Second floor motion
+    - entity_id: binary_sensor.motion_sensor_158d000236a19b
+      prob_given_true: 0.7
+      prob_given_false: 0.8
+      platform: 'state'
+      to_state: 'off'
+#      # Living room light
+#    - entity_id: sensor.illumination_158d00023e8333
+#      prob_given_true: 0.6
+#      prob_given_false: 0.8
+#      platform: 'numeric_state'
+#      below: 10
+#      # Entrance light
+#    - entity_id: sensor.illumination_158d000236a817
+#      prob_given_true: 0.6
+#      prob_given_false: 0.8
+#      platform: 'numeric_state'
+#      below: 10
+#      # Kitchen light
+#    - entity_id: sensor.illumination_158d000200ce6a  
+#      prob_given_true: 0.6
+#      prob_given_false: 0.8
+#      platform: 'numeric_state'
+#      below: 10
+#      # Second floor light
+#    - entity_id: sensor.illumination_158d000236a19b
+#      prob_given_true: 0.6
+#      prob_given_false: 0.8
+#      platform: 'numeric_state'
+#      below: 10
+    - entity_id: device_tracker.google_maps_104206738568170616102
+      prob_given_true: 0.6
+      prob_given_false: 0.85
       platform: 'state'
       to_state: 'home'
 
