@@ -27,6 +27,9 @@
       message: "The Away alarm has been armed."
   - service: automation.turn_off
     entity_id: automation.alarm_sound_pending
+  - service: light.turn_off
+    data:
+      entity_id: group.all_lights
 
 
 - id: alarm_armed_home
