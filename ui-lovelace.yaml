@@ -330,10 +330,16 @@ views:
       - type: vertical-stack
         cards:
           - type: entities
-            show_header_toggle: false
             title: Network
+            show_header_toggle: false
             entities:
-              - binary_sensor.xiaomi_gateway_network
+              - sensor.nmap_router
+              - sensor.nmap_xiaomi_gateway
+              - sensor.nmap_google_home
+              - sensor.nmap_laptop_dell_xps15
+              - sensor.nmap_iphone
+              - sensor.nmap_galaxy_s9
+              - sensor.nmap_galaxy_tablet
           - type: history-graph
             title: 'Ping'
             hours_to_show: 24
@@ -374,16 +380,6 @@ views:
                 - input_number.loop_delay
                 - script.alarm_sound_xiaomi_gateway
                 - script.alarm_sound_xiaomi_gateway_once
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - device_tracker.nmap_router
-          - device_tracker.nmap_google_home
-          - device_tracker.nmap_millas_iphone
-          - device_tracker.nmap_galaxy_s9
-          - device_tracker.nmap_galaxy_tablet
-          - device_tracker.nmap_alatolys_laptop
-          - device_tracker.nmap_xiaomi_gateway
 
 
   - title: "Alarm"

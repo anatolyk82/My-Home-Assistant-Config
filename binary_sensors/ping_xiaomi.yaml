@@ -1,6 +1,0 @@
-#- platform: aurora
-#  forecst_threshold: 70
-
-- platform: ping
-  name: Xiaomi Gateway Network
-  host: !secret xiaomi_gateway_ip

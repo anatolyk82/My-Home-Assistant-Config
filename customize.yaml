@@ -1,10 +1,58 @@
 
+# =================================== Network sensors nmap
+
+sensor.nmap_router:
+  hidden: true
+
+device_tracker.nmap_router:
+  hidden: true
+
+sensor.nmap_xiaomi_gateway:
+  hidden: true
+
+sensor.nmap_laptop_dell_xps15:
+  hidden: true
+
+device_tracker.nmap_laptop_dell_xps15:
+  hidden: true
+
+sensor.nmap_galaxy_tablet:
+  hidden: true
+
+device_tracker.nmap_galaxy_tablet:
+  hidden: true
+
+sensor.nmap_iphone:
+  hidden: true
+
+device_tracker.nmap_iphone:
+  hidden: true
+
+sensor.nmap_galaxy_s9:
+  hidden: true
+
+device_tracker.nmap_galaxy_s9:
+  hidden: true
+
+sensor.nmap_google_home:
+  hidden: true
+
+device_tracker.nmap_google_home:
+  hidden: true
+
 # =================================== Bulbs
 
 light.bulb_12:
   friendly_name: Living room light
 
 # ===================================
+sensor.hass_available_version:
+  hidden: true
+
+sensor.hass_installed_version:
+  hidden: true
+# ===================================
+
 sensor.ping_xiaomi_gateway:
   hidden: true
 
@@ -112,6 +160,7 @@ sensor.battery_door_sensor_storehouse:
    
 sensor.battery_motion_sensor_second_floor:
   hidden: true
+
 #======================================================
 
 sensor.illumination_7811dcb7f720:
@@ -125,8 +174,8 @@ binary_sensor.aurora_visibility:
 sensor.installed_version:
   hidden: true
 
-#sensor.tradfri_remote_control_battery_level:
-sensor.ikea_switch_1_battery_level:
+sensor.tradfri_remote_control_battery_level:
+#sensor.ikea_switch_1_battery_level:
   hidden: true
   friendly_name: IKEA button battery
 
