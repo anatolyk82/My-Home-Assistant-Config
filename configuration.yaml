@@ -92,6 +92,7 @@ logger:
     pydeconz: debug
     homeassistant.components.deconz: debug
     custom_components.xiaomi: debug
+    homeassistant.components.shell_command: debug
 
 
 duckdns:

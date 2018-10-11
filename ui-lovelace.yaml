@@ -199,6 +199,12 @@ views:
             style:
               top: 57%
               left: 50%
+          - type: state-icon
+            entity: light.bulb_13
+            tap_action: toggle
+            style:
+              top: 40%
+              left: 26%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -216,6 +222,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.light1
               name: Upstairs
+            - type: custom:slider-entity-row
+              entity: light.bulb_13
+              name: Bedroom
 
 
   - title: "Weather"
