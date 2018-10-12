@@ -33,8 +33,10 @@ http:
     - 172.16.0.0/12
   use_x_forwarded_for: true
   ip_ban_enabled: true
-  login_attempts_threshold: 5
+  login_attempts_threshold: 3
   base_url: !secret http_external_url
+  ssl_certificate: !secret http_ssl_certificate
+  ssl_key: !secret http_ssl_key
 
 # Checks for available updates
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
