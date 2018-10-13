@@ -27,9 +27,7 @@ trigger_time: 300
 armed_perimeter: 
   ##[OPTIONAL however either an immediate or delayed group must exist] Sensors in this group tigger the alarm immediately 
   immediate:
-    - binary_sensor.garage_door
-    - binary_sensor.back_door
-    - binary_sensor.kitchen_motion
+    - binary_sensor.door_window_sensor_158d00022da733   # Door: Storagehouse
 
 #[REQUIRED]
 armed_home: 
