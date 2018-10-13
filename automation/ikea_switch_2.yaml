@@ -56,6 +56,62 @@
     data_template: 
       brightness: '{{ states.light.bulb_13.attributes.brightness - 25 }}'
 
+- alias: "Increase brightness bedroom to maximum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 2001
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_13
+    data_template: 
+      brightness_pct: 100 #'{{ states.light.bulb_13.attributes.brightness + 25 }}'
+
+- alias: "Decrease brightness bedroom to minimum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 3001
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_13
+    data_template: 
+      brightness_pct: 5 #'{{ states.light.bulb_13.attributes.brightness - 25 }}'
+
+
+- alias: "Toggle WiFi cord to off"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 1001
+  condition:
+  - condition: state
+    entity_id: switch.wifi_cord_1
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.wifi_cord_1
+
+- alias: "Toggle WiFi cord to on"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 1001
+  condition:
+  - condition: state
+    entity_id: switch.wifi_cord_1
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.wifi_cord_1
 
 #- alias: "Increase temperature bedroom"
 #  trigger:
