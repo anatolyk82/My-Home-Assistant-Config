@@ -1,0 +1,10 @@
+- platform: command_line
+  name: SSH attack
+  command: 'sh /home/homeassistant/.homeassistant/bin/ssh_login.sh'
+  scan_interval: 300
+  value_template: '{{ value_json.status }}'
+  json_attributes:
+    - failed_attempts
+    - last_scan
+    - last_scanned_lines
+

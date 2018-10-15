@@ -1,0 +1,12 @@
+- alias: Too many failed ssh logins
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: sensor.ssh_attack
+      to: 'warning'
+  action:
+    - service: notify.pushover
+      data:
+        message: "Warning! Suspicious on ssh attack! Since {{ states.sensor.ssh_attack.attributes.last_scan }} there has been {{ states.sensor.ssh_attack.attributes.failed_attempts }} 
+                 failed ssh login attempts."
+
