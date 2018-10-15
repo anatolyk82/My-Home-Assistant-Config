@@ -40,6 +40,9 @@ sensor.nmap_google_home:
 device_tracker.nmap_google_home:
   hidden: true
 
+device_tracker.nmap_laptop_dell_xps13:
+  hidden: true
+
 # =================================== Bulbs
 
 light.bulb_12:
