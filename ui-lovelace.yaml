@@ -266,18 +266,23 @@ views:
         title: Temperature history
         entities:
           - sensor.yr_temperature
+          - sensor.temperature_158d0002478a68
       - type: history-graph
         title: Humidity history
         entities:
           - sensor.yr_humidity
-#      - type: history-graph
-#        title: Wind speed history
-#        entities:
-#          - sensor.yr_wind_speed
+          - sensor.humidity_158d0002478a68
       - type: history-graph
         title: Pressure history
         entities:
           - sensor.yr_pressure
+          - sensor.pressure_158d0002478a68
+      - type: glance
+        column_width: calc(100% / 3)
+        entities:
+          - sensor.temperature_158d0002478a68
+          - sensor.humidity_158d0002478a68
+          - sensor.pressure_158d0002478a68
 
   - title: "Alarm"
     id: alarm
