@@ -164,6 +164,14 @@ sensor.battery_door_sensor_storehouse:
 sensor.battery_motion_sensor_second_floor:
   hidden: true
 
+sensor.tradfri_remote_control_battery_level:
+#sensor.ikea_switch_1_battery_level:
+  hidden: true
+  friendly_name: IKEA button 1 battery
+
+sensor.ikea_switch_2_battery_level:
+  hidden: true
+  friendly_name: IKEA button 2 battery
 #======================================================
 
 sensor.illumination_7811dcb7f720:
@@ -173,10 +181,6 @@ sensor.illumination_7811dcb7f720:
 sensor.installed_version:
   hidden: true
 
-sensor.tradfri_remote_control_battery_level:
-#sensor.ikea_switch_1_battery_level:
-  hidden: true
-  friendly_name: IKEA button battery
 
 binary_sensor.switch_158d0002130dec:
   hidden: true

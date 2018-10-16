@@ -320,7 +320,8 @@ views:
         title: Batteries
         entities:
           - sensor.tradfri_remote_control_battery_level
-          - sensor.ikea_switch_1_battery_level
+          #- sensor.ikea_switch_1_battery_level
+          - sensor.ikea_switch_2_battery_level
           - sensor.battery_temperature_sensor_floor1
           - sensor.battery_temperature_sensor_floor2
           - sensor.battery_temperature_sensor_outside
@@ -426,7 +427,7 @@ views:
             max: 50
             severity:
               amber: 0
-              green: 23
+              green: 22
               red: 40
           - type: custom:gauge-card
             title: Humidity
@@ -467,7 +468,7 @@ views:
             max: 50
             severity:
               amber: 0
-              green: 23
+              green: 22
               red: 40
           - type: custom:gauge-card
             title: Humidity
