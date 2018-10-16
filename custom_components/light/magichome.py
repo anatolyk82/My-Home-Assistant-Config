@@ -145,7 +145,12 @@ class MagicHome(Light):
 
 
     def __writeRaw(self, bytes):
-        self._socket.send(bytes)
+        try:
+            self._socket.send(bytes)
+            self._available = True
+        except Exception as ex:
+            _LOGGER.error("Failed to send data to led %s, %s: %s", self._host, self._name, ex)
+            self._available = False
 
     def __write(self, bytes):
         """Calculate checksum of byte array and add to end"""
@@ -163,5 +168,11 @@ class MagicHome(Light):
         return rx
 
     def __readRaw(self, byte_count=1024):
-        rx = self._socket.recv(byte_count)
+        rx = 0
+        try:
+            rx = self._socket.recv(byte_count)
+            self._available = True
+        except Exception as ex:
+            _LOGGER.error("Failed to receive data from led %s, %s: %s", self._host, self._name, ex)
+            self._available = False
         return rx
