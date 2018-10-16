@@ -59,7 +59,7 @@ views:
         - sensor.yr_temperature
         - sensor.yr_humidity
         - sensor.yr_pressure
-        - sensor.yr_cloudness
+        - sensor.yr_cloudiness
         - sensor.yr_precipitation
         - sensor.yr_wind_speed
         - sensor.yr_wind_direction
@@ -278,10 +278,6 @@ views:
         title: Pressure history
         entities:
           - sensor.yr_pressure
-#      - type: entities
-#        title: Aurora
-#        entities:
-#          - binary_sensor.aurora_visibility
 
   - title: "Alarm"
     id: alarm
@@ -352,7 +348,6 @@ views:
               - automation.turn_on_upstairs_light_if_movements_0000__0630
               - automation.turn_on_upstairs_light_if_movements_0630__0000
               - automation.turn_off_upstairs_light_after_movements
-              - automation.happy_birthday
       - type: vertical-stack
         cards:
           - type: entities

@@ -170,10 +170,6 @@ sensor.illumination_7811dcb7f720:
   hidden: true
   friendly_name: Illumination Xiaomi gateway
 
-binary_sensor.aurora_visibility:
-  hidden: true
-  friendly_name: Aurora visibility (70%)
-
 sensor.installed_version:
   hidden: true
 
