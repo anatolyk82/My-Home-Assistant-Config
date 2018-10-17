@@ -1,0 +1,36 @@
+- alias: 'Trigger alarm while armed away'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state 
+      entity_id: binary_sensor.door_window_sensor_158d00022bd3cb #Living room door
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.door_window_sensor_158d000238694e #Entrance door
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.door_window_sensor_158d000232d8e8 #Kitchen door
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.door_window_sensor_158d00022da733 #Storagehouse door
+      to: 'on'
+
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room motion
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.house

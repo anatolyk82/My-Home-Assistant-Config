@@ -1,22 +1,25 @@
-# https://github.com/gazoscalvertos/Hass-Custom-Alarm/blob/master/automation.yaml
-
-# =========> Arming
-- id: alarm_arming_away
-  hide_entity: True
-  alias: '[Alarm] Away Mode Arming'
+# =========> Arming/Pending
+- alias: '[Alarm2] Away Mode Arming'
+  hide_entity: true
+  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
     to: 'pending'
   action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data:
+      brightness: 255
+      rgb_color: [0, 0, 255]
   - service: automation.turn_on
     entity_id: automation.alarm_sound_pending
 
 
 # =========> Armed
-- id: alarm_armed_away
-  hide_entity: True
-  alias: '[Alarm] Away Mode Armed'
+- alias: '[Alarm2] Armed Away'
+  hide_entity: true
+  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -32,43 +35,10 @@
       entity_id: group.all_lights
 
 
-- id: alarm_armed_home
-  hide_entity: True
-  alias: '[Alarm] Home Mode Armed'
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.house
-    to: 'armed_home'
-  action:
-  - service: notify.pushover
-    data:
-      message: "The Home alarm has been armed."
-  - service: automation.turn_off
-    entity_id: automation.alarm_sound_pending
-
-
-# ============> Warning
-- id: alarm_warning
-  alias: '[Alarm] Warning'
-  hide_entity: true
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.house
-    to: 'warning'
-  action:
-  - service: light.turn_on
-    entity_id: light.gateway_light_7811dcb7f720
-    data:
-      brightness: 255
-      rgb_color: [0, 0, 255]
-  - service: automation.turn_on
-    entity_id: automation.alarm_sound_pending
-
-
 # ==============> Disarmed
-- id: alarm_disarmed
-  alias: '[Alarm] Disarmed'
+- alias: '[Alarm2] Disarmed'
   hide_entity: true
+  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -80,9 +50,9 @@
 
 
 # =============> Triggered
-- id: alarm_triggered
-  alias: '[Alarm] Triggered'
+- alias: '[Alarm2] Triggered'
   hide_entity: true
+  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -91,5 +61,3 @@
   - service: script.turn_on
     data:
       entity_id: script.alarm_on
-
-

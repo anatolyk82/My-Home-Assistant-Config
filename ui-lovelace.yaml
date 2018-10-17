@@ -36,6 +36,10 @@ views:
     cards:
       - type: entities
         entities:
+          - alarm_control_panel.house
+
+      - type: entities
+        entities:
         - device_tracker.google_maps_104206738568170616102
 
       - type: entities
@@ -52,18 +56,24 @@ views:
         - sensor.solar_angle
         - sensor.sunset_time
 
-      - type: entities
-        title: Current weather
-        entities:
-        - sensor.yr_symbol
-        - sensor.yr_temperature
-        - sensor.yr_humidity
-        - sensor.yr_pressure
-        - sensor.yr_cloudiness
-        - sensor.yr_precipitation
-        - sensor.yr_wind_speed
-        - sensor.yr_wind_direction
-        - sensor.yr_fog
+      - type: vertical-stack
+        cards:
+        - type: glance
+          title: Current weather
+          column_width: calc(100% / 4)
+          entities:
+          - sensor.yr_temperature
+          - sensor.yr_humidity
+          - sensor.yr_pressure
+          - sensor.yr_cloudiness
+        - type: glance
+          column_width: calc(100% / 4)
+          entities:
+          - sensor.yr_precipitation
+          - sensor.yr_wind_speed
+          - sensor.yr_wind_direction
+          - sensor.yr_fog
+
 
 
 #      - type: entity-filter
@@ -80,15 +90,18 @@ views:
         - switch.wifi_cord_1
 
       - type: entities
-        title: Reminder
-        show_header_toggle: false
         entities:
-        - input_boolean.run_reminder
-        - input_number.reminder_timer_hours
-        - input_number.reminder_timer_minutes
-        - input_number.reminder_timer_seconds
-        - input_text.text_reminder
-        - sensor.reminder_remaining_time
+        - binary_sensor.door_window_sensor_158d00022da733
+#      - type: entities
+#        title: Reminder
+#        show_header_toggle: false
+#        entities:
+#        - input_boolean.run_reminder
+#        - input_number.reminder_timer_hours
+#        - input_number.reminder_timer_minutes
+#        - input_number.reminder_timer_seconds
+#        - input_text.text_reminder
+#        - sensor.reminder_remaining_time
 
 
   - title: "First floor"
@@ -110,14 +123,20 @@ views:
           - type: state-icon #Motion - Living room
             entity: binary_sensor.motion_sensor_158d00023e8333
             style:
-              top: 30%
-              left: 40%
+              top: 25%
+              left: 39%
           - type: state-icon
             entity: light.bulb_12
             tap_action: toggle
             style:
-              top: 50%
-              left: 40%
+              top: 45%
+              left: 32%
+          - type: state-icon
+            entity: light.bulb_12
+            tap_action: toggle
+            style:
+              top: 45%
+              left: 47%
           - type: state-icon #Door - Entrance
             entity: binary_sensor.door_window_sensor_158d000238694e
             style:
@@ -191,13 +210,13 @@ views:
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000236a19b
             style:
-              top: 75%
+              top: 77%
               left: 50%
           - type: state-icon
             entity: light.light1
             tap_action: toggle
             style:
-              top: 57%
+              top: 61%
               left: 50%
           - type: state-icon
             entity: light.bulb_13
@@ -205,6 +224,11 @@ views:
             style:
               top: 40%
               left: 26%
+          - type: state-label
+            entity: sensor.temperature_158d0002320bc1
+            style:
+              top: 48%
+              left: 50%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -264,19 +288,28 @@ views:
         entity_forecast_icon_5: sensor.dark_sky_icon_5
       - type: history-graph
         title: Temperature history
+        hours_to_show: 36
         entities:
-          - sensor.yr_temperature
-          - sensor.temperature_158d0002478a68
+          - entity: sensor.yr_temperature
+            name: Yr temperature
+          - entity: sensor.temperature_158d0002478a68
+            name: Temperature sensor
       - type: history-graph
         title: Humidity history
+        hours_to_show: 36
         entities:
-          - sensor.yr_humidity
-          - sensor.humidity_158d0002478a68
+          - entity: sensor.yr_humidity
+            name: Yr humidity
+          - entity: sensor.humidity_158d0002478a68
+            name: Humidity sensor
       - type: history-graph
         title: Pressure history
+        hours_to_show: 36
         entities:
-          - sensor.yr_pressure
-          - sensor.pressure_158d0002478a68
+          - entity: sensor.yr_pressure
+            name: Yr pressure
+          - entity: sensor.pressure_158d0002478a68
+            name: Pressure sensor
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -284,17 +317,17 @@ views:
           - sensor.humidity_158d0002478a68
           - sensor.pressure_158d0002478a68
 
-  - title: "Alarm"
-    id: alarm
-    cards:
-      - type: custom:alarm_control_panel-card
-        entity: alarm_control_panel.house
-        show_keypad: true
-        title: Home Alarm
-        style: '--alarm-color-disarmed: var(--label-badge-blue);'
-        states:
-          - arm_home
-          - arm_away
+#  - title: "Alarm"
+#    id: alarm
+#    cards:
+#      - type: custom:alarm_control_panel-card
+#        entity: alarm_control_panel.house
+#        show_keypad: true
+#        title: Home Alarm
+#        style: '--alarm-color-disarmed: var(--label-badge-blue);'
+#        states:
+#          - arm_home
+#          - arm_away
 
 
   - title: "Settings"
@@ -364,6 +397,7 @@ views:
               - sensor.nmap_xiaomi_gateway
               - sensor.nmap_google_home
               - sensor.nmap_laptop_dell_xps15
+              - sensor.nmap_laptop_dell_xps13
               - sensor.nmap_iphone
               - sensor.nmap_galaxy_s9
               - sensor.nmap_galaxy_tablet
