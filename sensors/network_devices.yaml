@@ -36,6 +36,18 @@
 
 - platform: template
   sensors:
+    nmap_laptop_dell_xps13:
+      entity_id: device_tracker.nmap_laptop_dell_xps13
+      friendly_name: "Dell XPS 13"
+      icon_template: mdi:laptop
+      value_template: '{% if states.device_tracker.nmap_laptop_dell_xps13.state == "home" %}
+                         Connected
+                       {% else %}
+                         Disconnected
+                       {% endif %}'
+
+- platform: template
+  sensors:
     nmap_google_home:
       entity_id: device_tracker.nmap_google_home
       friendly_name: 'Google home'
