@@ -74,8 +74,6 @@ views:
           - sensor.yr_wind_direction
           - sensor.yr_fog
 
-
-
 #      - type: entity-filter
 #        entities:
 #          - device_tracker.google_maps_104206738568170616102
@@ -317,18 +315,6 @@ views:
           - sensor.humidity_158d0002478a68
           - sensor.pressure_158d0002478a68
 
-#  - title: "Alarm"
-#    id: alarm
-#    cards:
-#      - type: custom:alarm_control_panel-card
-#        entity: alarm_control_panel.house
-#        show_keypad: true
-#        title: Home Alarm
-#        style: '--alarm-color-disarmed: var(--label-badge-blue);'
-#        states:
-#          - arm_home
-#          - arm_away
-
 
   - title: "Settings"
     id: settings
@@ -384,9 +370,10 @@ views:
           entities:
               - automation.update_available_notifications
               - automation.entrance_door_sound
-              - automation.turn_on_upstairs_light_if_movements_0000__0630
-              - automation.turn_on_upstairs_light_if_movements_0630__0000
-              - automation.turn_off_upstairs_light_after_movements
+              - automation.turn_on_upstairs_light_if_movements_2300__0630
+              - automation.turn_on_upstairs_light_if_movements_0630__2300
+              - automation.turn_off_upstairs_light_in_10_seconds_0000__0630
+              - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
       - type: vertical-stack
         cards:
           - type: entities
