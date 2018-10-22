@@ -2,6 +2,8 @@ import logging
 
 import voluptuous as vol
 import socket
+import time
+import errno
 
 # Import the device class from the component that you want to support
 from homeassistant.components.light import (ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA, SUPPORT_COLOR, SUPPORT_BRIGHTNESS, ATTR_HS_COLOR)
@@ -45,13 +47,8 @@ class MagicHome(Light):
         self._green = None
         self._blue = None
         self._available = None
-        try:
-            self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self._socket.connect((self._host, self._port))
-            self._available = True
-        except Exception as ex:
-            _LOGGER.error("Failed to connect to led %s, %s: %s",self._host, self._name, ex)
-            self._available = False
+        self._attemptToConnect = 0
+        self.__connectToLED()
 
     @property
     def supported_features(self):
@@ -148,6 +145,10 @@ class MagicHome(Light):
         try:
             self._socket.send(bytes)
             self._available = True
+        except IOError as ioe:
+            _LOGGER.error("IOError: %s %s", self._name, ioe)
+            if ioe.errno == errno.EPIPE:
+                self.__connectToLED()
         except Exception as ex:
             _LOGGER.error("Failed to send data to led %s, %s: %s", self._host, self._name, ex)
             self._available = False
@@ -172,7 +173,26 @@ class MagicHome(Light):
         try:
             rx = self._socket.recv(byte_count)
             self._available = True
+        except IOError as ioe:
+            _LOGGER.error("IOError: %s %s", self._name, ioe)
+            if ioe.errno == errno.EPIPE:
+                self.__connectToLED()
         except Exception as ex:
             _LOGGER.error("Failed to receive data from led %s, %s: %s", self._host, self._name, ex)
             self._available = False
         return rx
+
+
+    def __connectToLED(self):
+        while self._attemptToConnect < 10:
+            try:
+                self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self._socket.connect((self._host, self._port))
+                self._available = True
+                self._attemptToConnect = 0
+                return
+            except Exception as ex:
+                _LOGGER.error("Failed (%s) to connect to led %s, %s: %s",self._attemptToConnect, self._host, self._name, ex)
+                self._available = False
+                self._attemptToConnect += 1
+                time.sleep(5)
