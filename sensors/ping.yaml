@@ -1,7 +1,7 @@
 - platform: command_line
   name: Ping Xiaomi Gateway
   command: 'sh /home/homeassistant/.homeassistant/bin/ping.sh 10 192.168.1.3'
-  scan_interval: 300
+  scan_interval: 600
   value_template: '{{ value_json.time_avg }}'
   json_attributes:
     - transmitted
