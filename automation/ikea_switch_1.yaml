@@ -1,4 +1,7 @@
-- alias: 'Turn on Living room'
+# The bulb closer to the kitchen is the left light - bulb_14
+# The bulb closer to the window is the right light - bulb_12
+#
+- alias: 'Turn on all lights in the living room'
   trigger:
     platform: event
     event_type: deconz_event
@@ -6,14 +9,21 @@
       id: ikea_switch_1
       event: 1002
   condition:
-  - condition: state
-    entity_id: light.bulb_12
-    state: 'off'
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: light.bulb_12
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_14
+      state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.bulb_12
+  - service: light.turn_on
+    entity_id: light.bulb_14
 
-- alias: 'Turn off Living room'
+- alias: 'Turn off all lights the living room'
   trigger:
     platform: event
     event_type: deconz_event
@@ -21,48 +31,23 @@
       id: ikea_switch_1
       event: 1002
   condition:
-  - condition: state
-    entity_id: light.bulb_12
-    state: 'on'
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: light.bulb_12
+      state: 'on'
+    - condition: state
+      entity_id: light.bulb_14
+      state: 'on'
   action:
   - service: light.turn_off
     entity_id: light.bulb_12
-
-
-
-- alias: 'Turn on Upstairs light (right)'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 5002
-  condition:
-  - condition: state
-    entity_id: light.light1
-    state: 'off'
-  action:
-  - service: light.turn_on
-    entity_id: light.light1
-
-- alias: 'Turn off Upstairs light (right)'
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 5002
-  condition:
-  - condition: state
-    entity_id: light.light1
-    state: 'on'
-  action:
   - service: light.turn_off
-    entity_id: light.light1
+    entity_id: light.bulb_14
 
 
 
-- alias: 'Turn on Upstairs light (left)'
+- alias: 'Turn on the left light in the living room'
   trigger:
     platform: event
     event_type: deconz_event
@@ -71,13 +56,13 @@
       event: 4002
   condition:
   - condition: state
-    entity_id: light.light1
+    entity_id: light.bulb_14
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.light1
+    entity_id: light.bulb_14
 
-- alias: 'Turn off Upstairs light (left)'
+- alias: 'Turn off the left light in the living room'
   trigger:
     platform: event
     event_type: deconz_event
@@ -86,106 +71,184 @@
       event: 4002
   condition:
   - condition: state
-    entity_id: light.light1
+    entity_id: light.bulb_14
     state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.light1
+    entity_id: light.bulb_14
 
-#- alias: "Increase brightness of the gateway light with the IKEA button"
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_1
-#      event: 2002
-#  action:
-#  - service: light.turn_on
-#    entity_id: light.gateway_light_7811dcb7f720
-#    data_template: 
-#      brightness: '{{states.light.gateway_light_7811dcb7f720.attributes.brightness + 25}}'
-#
-#- alias: "Decrease brightness of the gateway light with the IKEA button"
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_1
-#      event: 3002
-#  action:
-#  - service: light.turn_on
-#    entity_id: light.gateway_light_7811dcb7f720
-#    data_template: 
-#      brightness: '{{states.light.gateway_light_7811dcb7f720.attributes.brightness - 25}}'
-#
-#
-#- alias: "Button right 5002"
-#  hide_entity: True
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_1
-#      event: 5002
-#  action:
-#  - service: script.set_color
-#    data_template:
-#      id: light.gateway_light_7811dcb7f720
-#      colors: >-
-#        {%- set delta = 80 %}
-#        {%- set low = 80 %}
-#        {%- set high = 256 - delta %}
-#        {%- set choice = range(0, 6) | random | int %}
-#        {% set red = range(low, high) | random | int %}
-#        {% if choice == 0 or choice == 3 or choice == 4 %}
-#          {% set red = delta + red %}
-#        {% endif %}
-#        {% set green = range(low, high) | random | int %}
-#        {% if choice == 1 or choice == 3 or choice == 5 %}
-#          {% set green = delta + green %}
-#        {% endif %}
-#        {% set blue = range(low, high) | random | int %}
-#        {% if choice == 2 or choice == 4 or choice == 5 %}
-#          {% set blue = delta + blue %}
-#        {%- endif %}
-#        {{ red|int }},{{ green|int }},{{ blue|int }},{{ choice }}
-#      brightness: 150
-#      transition: 5
-#
-#        
-#
-#- alias: "Button right 5002"
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: tradfri_remote_control #ikea_switch_1
-#      event: 5002
-#  action:
-#  - service: script.set_color
-#    data_template:
-#      id: light.gateway_light_7811dcb7f720
-#      colors: >-
-#        {%- set value_json={
-#                "0": [255, 255, 255],
-#                "1": [255,0,0],
-#                "2": [255,127,0],
-#                "3": [255,255,0],
-#                "4": [127,255,0],
-#                "5": [0,255,0],
-#                "6": [0,255,127],
-#                "7": [0,255,255],
-#                "8": [0,127,255],
-#                "9": [0,0,255],
-#                "10": [127,0,255],
-#                "11": [255,0,255],
-#                "12": [255,0,127],
-#             }
-#        %}
-#        {%- set choice = range(0, 12) | random | string %}
-#        {%- set current = value_json[ choice ] %}
-#        {{ current }}
-#      brightness: 255
-#      transition: 5
+
+
+- alias: 'Turn on the right light in the living room'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 5002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+
+- alias: 'Turn off the right light in the living room'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 5002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.bulb_12
+    
+
+
+- alias: "Increase brightness of the right light in the living room"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 2002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+    data_template: 
+      brightness: '{{ states.light.bulb_12.attributes.brightness + 50 }}'
+
+- alias: "Decrease brightness of the right light in the living room"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 3002
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+    data_template: 
+      brightness: '{{ states.light.bulb_12.attributes.brightness - 50 }}'
         
 
+
+- alias: "Increase brightness of the left light in the living room"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 2002
+  condition:
+  - condition: state
+    entity_id: light.bulb_14
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_14
+    data_template: 
+      brightness: '{{ states.light.bulb_14.attributes.brightness + 50 }}'
+
+- alias: "Decrease brightness of the left light in the living room"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 3002
+  condition:
+  - condition: state
+    entity_id: light.bulb_14
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_14
+    data_template: 
+      brightness: '{{ states.light.bulb_14.attributes.brightness - 50 }}'
+
+
+
+- alias: "The right light brightness in the living room to maximum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+    data_template: 
+      brightness_pct: 100
+
+- alias: "The right light brightness in the living room to minimum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.bulb_12
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_12
+    data_template: 
+      brightness_pct: 5
+
+
+
+- alias: "The left light brightness in the living room to maximum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.bulb_14
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_14
+    data_template: 
+      brightness_pct: 100
+
+- alias: "The left light brightness in the living room to minimum"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_1
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.bulb_14
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_14
+    data_template: 
+      brightness_pct: 5

@@ -83,60 +83,33 @@
       brightness_pct: 5 #'{{ states.light.bulb_13.attributes.brightness - 25 }}'
 
 
-- alias: "Toggle WiFi cord to off"
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_2
-      event: 1001
-  condition:
-  - condition: state
-    entity_id: switch.wifi_cord_1
-    state: 'on'
-  action:
-  - service: switch.turn_off
-    entity_id: switch.wifi_cord_1
-
-- alias: "Toggle WiFi cord to on"
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_2
-      event: 1001
-  condition:
-  - condition: state
-    entity_id: switch.wifi_cord_1
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    entity_id: switch.wifi_cord_1
-
-#- alias: "Increase temperature bedroom"
+#- alias: "Toggle WiFi cord to off"
 #  trigger:
 #    platform: event
 #    event_type: deconz_event
 #    event_data:
 #      id: ikea_switch_2
-#      event: 5002
+#      event: 1001
+#  condition:
+#  - condition: state
+#    entity_id: switch.wifi_cord_1
+#    state: 'on'
 #  action:
-#  - service: light.turn_on
-#    entity_id: light.bulb_13
-#    data_template: 
-#      kelvin: '{{ states.light.bulb_13.attributes.kelvin + 500 }}'
+#  - service: switch.turn_off
+#    entity_id: switch.wifi_cord_1
 #
-#
-#- alias: "Decrease temperature bedroom"
+#- alias: "Toggle WiFi cord to on"
 #  trigger:
 #    platform: event
 #    event_type: deconz_event
 #    event_data:
 #      id: ikea_switch_2
-#      event: 4002
+#      event: 1001
+#  condition:
+#  - condition: state
+#    entity_id: switch.wifi_cord_1
+#    state: 'off'
 #  action:
-#  - service: light.turn_on
-#    entity_id: light.bulb_13
-#    data_template: 
-#      kelvin: '{{ states.light.bulb_13.attributes.kelvin - 500 }}'
+#  - service: switch.turn_on
+#    entity_id: switch.wifi_cord_1
 

@@ -130,7 +130,7 @@ views:
               top: 45%
               left: 32%
           - type: state-icon
-            entity: light.bulb_12
+            entity: light.bulb_14
             tap_action: toggle
             style:
               top: 45%
@@ -160,6 +160,11 @@ views:
             style:
               top: 41%
               left: 57%
+          - type: state-label
+            entity: sensor.temperature_158d000245a9ee
+            style:
+              top: 15%
+              left: 50%
       - type: vertical-stack
         cards:
         - type: glance
@@ -196,7 +201,10 @@ views:
               name: Xiaomi Gateway Light
             - type: custom:slider-entity-row
               entity: light.bulb_12
-              name: Living room
+              name: Living room right
+            - type: custom:slider-entity-row
+              entity: light.bulb_14
+              name: Living room left
 
 
   - title: "Second floor"
@@ -210,6 +218,12 @@ views:
             style:
               top: 77%
               left: 50%
+          - type: state-icon
+            entity: light.bed_led_stripe
+            tap_action: toggle
+            style:
+              top: 18%
+              left: 26%
           - type: state-icon
             entity: light.light1
             tap_action: toggle
@@ -247,6 +261,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.bulb_13
               name: Bedroom
+            - type: custom:slider-entity-row
+              entity: light.bed_led_stripe
+              name: Bed LED
 
 
   - title: "Weather"
@@ -286,7 +303,7 @@ views:
         entity_forecast_icon_5: sensor.dark_sky_icon_5
       - type: history-graph
         title: Temperature history
-        hours_to_show: 36
+        hours_to_show: 48
         entities:
           - entity: sensor.yr_temperature
             name: Yr temperature
@@ -294,7 +311,7 @@ views:
             name: Temperature sensor
       - type: history-graph
         title: Humidity history
-        hours_to_show: 36
+        hours_to_show: 48
         entities:
           - entity: sensor.yr_humidity
             name: Yr humidity
@@ -302,7 +319,7 @@ views:
             name: Humidity sensor
       - type: history-graph
         title: Pressure history
-        hours_to_show: 36
+        hours_to_show: 48
         entities:
           - entity: sensor.yr_pressure
             name: Yr pressure
@@ -441,31 +458,40 @@ views:
         - type: horizontal-stack
           title: First floor
           cards:
-          - type: custom:gauge-card
+          - type: gauge
             title: Temperature
             entity: sensor.temperature_158d000245a9ee
             min: 0
             max: 50
             severity:
-              amber: 0
+              yellow: 0
               green: 22
               red: 40
-          - type: custom:gauge-card
+          - type: gauge
             title: Humidity
             entity: sensor.humidity_158d000245a9ee
             min: 0
             max: 100
             severity:
-              amber: 0
+              yellow: 0
               green: 40
               red: 80
-        - type: "custom:button-card"
-          entity: light.bulb_12
-          name: Living room
-          icon: mdi:lightbulb
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
+        - type: horizontal-stack
+          cards:
+          - type: "custom:button-card"
+            entity: light.bulb_12
+            name: Living room right
+            icon: mdi:lightbulb
+            size: 20%
+            show_state: false
+            color: rgb(255, 252, 0)
+          - type: "custom:button-card"
+            entity: light.bulb_14
+            name: Living room left
+            icon: mdi:lightbulb
+            size: 20%
+            show_state: false
+            color: rgb(255, 252, 0)
 
         - type: "custom:button-card"
           entity: light.gateway_light_7811dcb7f720
@@ -482,22 +508,22 @@ views:
             # Second floor
         - type: horizontal-stack
           cards:
-          - type: custom:gauge-card
+          - type: gauge
             title: Temperature
             entity: sensor.temperature_158d0002320bc1
             min: 0
             max: 50
             severity:
-              amber: 0
+              yellow: 0
               green: 22
               red: 40
-          - type: custom:gauge-card
+          - type: gauge
             title: Humidity
             entity: sensor.humidity_158d0002320bc1
             min: 0
             max: 100
             severity:
-              amber: 0
+              yellow: 0
               green: 40
               red: 80
         - type: "custom:button-card"
