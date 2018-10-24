@@ -253,16 +253,23 @@ views:
             tap_action: toggle
             style:
               top: 70%
-              left: 74%
+              left: 70%
+          - type: state-icon
+            entity: binary_sensor.motion_sensor_158d000236a581
+            style:
+              top: 70%
+              left: 80%
       - type: glance
         column_width: calc(100% / 3)
         entities:
           - sensor.temperature_158d0002320bc1
           - sensor.humidity_158d0002320bc1
           - sensor.pressure_158d0002320bc1
-      - type: entities
+      - type: glance
+        column_width: calc(100% / 2)
         entities:
           - sensor.illumination_158d000236a19b
+          - sensor.illumination_158d000236a581
       - type: vertical-stack
         cards:
         - type: entities

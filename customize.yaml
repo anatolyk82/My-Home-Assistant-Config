@@ -250,6 +250,8 @@ binary_sensor.motion_sensor_158d000200ce6a:
 binary_sensor.motion_sensor_158d000236a19b:
   friendly_name: Second floor 
  
+binary_sensor.motion_sensor_158d000236a581:
+  friendly_name: Work room
   
 #============================ Illumination
 sensor.illumination_158d00023e8333:
@@ -264,6 +266,19 @@ sensor.illumination_158d000200ce6a:
 sensor.illumination_158d000236a19b:
   friendly_name: Second floor 
 
+sensor.illumination_158d000236a581:
+  friendly_name: Work room
+
+#============================= Västtrafik
+
+sensor.vasttrafik_linje_176_mot_lindholmen:
+  hidden: true
+
+sensor.vasttrafik_linje_176_mot_rannebergen:
+  hidden: true
+
+sensor.vasttrafik_linje_75_mot_angered:
+  hidden: true
 
 #============================= Lights
 light.gateway_light_7811dcb7f720:
