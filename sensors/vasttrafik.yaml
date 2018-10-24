@@ -1,0 +1,43 @@
+- platform: vasttrafik
+  key: !secret vasttrafik_key
+  secret: !secret vasttrafik_secret
+  departures:
+  - name: "Västtrafik Linje 176 mot Lindholmen"
+    from: !secret vasttrafik_my_stop
+    heading: "Hjalmar Brantingsplatsen"
+    lines:
+      - 176
+  - name: "Västtrafik Linje 75 mot Angered"
+    from: !secret vasttrafik_my_stop
+    heading: "Angered centrum"
+    lines:
+      - 75
+  - name: "Västtrafik Linje 176 mot Rannebergen"
+    from: "Hjalmar Brantingsplatsen"
+    heading: !secret vasttrafik_my_stop
+    lines:
+      - 176
+
+
+#- platform: template
+#  sensors:
+#    vasttrafik_line_75:
+#      icon_template: mdi:bus
+#      friendly_name: 'Line 75'
+#      value_template: '{% if states.sensor.vasttrafik_transport.attributes.line|int == 75 %}
+#                         {{ states.sensor.vasttrafik_transport.state }}
+#                      {% else %}
+#                         --:--
+#                      {% endif %}'
+#
+#
+#- platform: template
+#  sensors:
+#    vasttrafik_line_176:
+#      icon_template: mdi:bus
+#      friendly_name: 'Line 176'
+#      value_template: '{% if states.sensor.vasttrafik_transport.attributes.line|int == 176 %}
+#                         {{ states.sensor.vasttrafik_transport.state }}
+#                      {% else %}
+#                         --:--
+#                      {% endif %}'

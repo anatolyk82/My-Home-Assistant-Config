@@ -49,12 +49,19 @@ views:
       - type: entities
         entities:
         - binary_sensor.all_in_bed
+        - input_boolean.bed_test
 
       - type: entities
         entities:
         - sensor.sunrise_time
         - sensor.solar_angle
         - sensor.sunset_time
+
+      - type: entities
+        entities:
+        - sensor.vasttrafik_linje_176_mot_lindholmen
+        - sensor.vasttrafik_linje_176_mot_rannebergen
+        - sensor.vasttrafik_linje_75_mot_angered
 
       - type: vertical-stack
         cards:
@@ -241,6 +248,12 @@ views:
             style:
               top: 48%
               left: 50%
+          - type: state-icon
+            entity: light.bulb_15
+            tap_action: toggle
+            style:
+              top: 70%
+              left: 74%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -264,6 +277,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.bed_led_stripe
               name: Bed LED
+            - type: custom:slider-entity-row
+              entity: light.bulb_15
+              name: Work room
 
 
   - title: "Weather"
@@ -537,6 +553,14 @@ views:
         - type: "custom:button-card"
           entity: light.bulb_13
           name: Bedroom
+          icon: mdi:lightbulb
+          size: 20%
+          show_state: false
+          color: rgb(255, 252, 0)
+
+        - type: "custom:button-card"
+          entity: light.bulb_15
+          name: Work room
           icon: mdi:lightbulb
           size: 20%
           show_state: false
