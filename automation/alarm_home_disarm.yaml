@@ -1,0 +1,26 @@
+- alias: 'Disarm Home alarm if movements on the first floor'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room motion
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
+      to: 'on'
+    - platform: state 
+      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
+      to: 'on'
+#    - platform: state 
+#      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
+#      to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: armed_home
+  action:
+    service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.house
+    data:
+      code: !secret alarm_code
+

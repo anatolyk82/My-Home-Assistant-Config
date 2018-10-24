@@ -1,5 +1,5 @@
 # =========> Arming/Pending
-- alias: '[Alarm2] Away Mode Arming'
+- alias: '[Alarm] Away Mode Arming'
   hide_entity: true
   initial_state: true
   trigger:
@@ -16,8 +16,8 @@
     entity_id: automation.alarm_sound_pending
 
 
-# =========> Armed
-- alias: '[Alarm2] Armed Away'
+# =========> Armed Away
+- alias: '[Alarm] Armed Away'
   hide_entity: true
   initial_state: true
   trigger:
@@ -35,8 +35,24 @@
       entity_id: group.all_lights
 
 
+# =========> Armed Home
+- alias: '[Alarm] Armed Home'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_home'
+  action:
+  - service: notify.pushover
+    data:
+      message: "The Home alarm has been armed."
+  - service: automation.turn_off
+    entity_id: automation.alarm_sound_pending
+
+
 # ==============> Disarmed
-- alias: '[Alarm2] Disarmed'
+- alias: '[Alarm] Disarmed'
   hide_entity: true
   initial_state: true
   trigger:
@@ -50,7 +66,7 @@
 
 
 # =============> Triggered
-- alias: '[Alarm2] Triggered'
+- alias: '[Alarm] Triggered'
   hide_entity: true
   initial_state: true
   trigger:

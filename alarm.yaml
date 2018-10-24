@@ -6,19 +6,15 @@
 - platform: manual
   name: House
   code: !secret alarm_code
-  pending_time: 60
+  pending_time: 0
   delay_time: 0
   trigger_time: 180
   disarm_after_trigger: true
   armed_home:
-    pending_time: 30
-    delay_time: 30
+    pending_time: 0
+    delay_time: 0
     trigger_time: 60
   armed_away:
     pending_time: 60
     delay_time: 5
     trigger_time: 180
-  armed_night:
-    pending_time: 20
-    delay_time: 20
-    trigger_time: 60
