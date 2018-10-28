@@ -34,6 +34,13 @@ kitchen:
     - sensor.illumination_158d000200ce6a
     - binary_sensor.motion_sensor_158d000200ce6a
 
+work_room:
+  view: no
+  name: Work room
+  control: hidden
+  entities:
+    - sensor.illumination_158d000236a581
+    - binary_sensor.motion_sensor_158d000236a581
 
 living_room:
   view: no

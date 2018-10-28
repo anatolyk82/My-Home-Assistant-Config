@@ -47,11 +47,6 @@ device_tracker.nmap_google_home:
   hidden: true
 
 
-# =================================== Bulbs
-
-light.bulb_12:
-  friendly_name: Living room light
-
 # ===================================
 sensor.hass_available_version:
   hidden: true
@@ -115,7 +110,6 @@ sensor.yr_symbol:
   hidden: true
   friendly_name: Symbol
 
-
 sensor.sunset_time:
   hidden: true
 
@@ -126,6 +120,9 @@ sensor.solar_angle:
   hidden: true
 
 script.play_sel_sound_loop:
+  hidden: true
+
+sensor.ssh_attack:
   hidden: true
 
 #========================================== batteries
@@ -178,13 +175,8 @@ sensor.ikea_switch_2_battery_level:
   friendly_name: IKEA button 2 battery
 #======================================================
 
-sensor.illumination_7811dcb7f720:
-  hidden: true
-  friendly_name: Illumination Xiaomi gateway
-
 sensor.installed_version:
   hidden: true
-
 
 binary_sensor.switch_158d0002130dec:
   hidden: true
@@ -254,6 +246,10 @@ binary_sensor.motion_sensor_158d000236a581:
   friendly_name: Work room
   
 #============================ Illumination
+sensor.illumination_7811dcb7f720:
+  hidden: true
+  friendly_name: Illumination Xiaomi gateway
+
 sensor.illumination_158d00023e8333:
   friendly_name: Living room
 
@@ -280,18 +276,23 @@ sensor.vasttrafik_linje_176_mot_rannebergen:
 sensor.vasttrafik_linje_75_mot_angered:
   hidden: true
 
+#============================= Water leak sensors
+
+binary_sensor.water_leak_sensor_158d00023aa4a9:
+  hidden: true
+  friendly_name: Water leak 1
+
+binary_sensor.water_leak_sensor_158d00023e90af:
+  hidden: true
+  friendly_name: Water leak 2
+
 #============================= Lights
 light.gateway_light_7811dcb7f720:
   friendly_name: Xiaomi Gateway Light
 
-            
 binary_sensor.smoke_sensor_158d0002311b86:
   hidden: true
   friendly_name: Smoke detector
-
-binary_sensor.water_leak_sensor_158d00023aa4a9:
-  hidden: true
-  friendly_name: Water leak
 
 sensor.homeassistantlog:
   hidden: true
@@ -300,7 +301,6 @@ sensor.homeassistantlog:
 sensor.homeassistant_v2db:
   hidden: true
   friendly_name: Database
-
 
 
 #===================== dark sky sensors

@@ -48,11 +48,6 @@ views:
 
       - type: entities
         entities:
-        - binary_sensor.all_in_bed
-        - input_boolean.bed_test
-
-      - type: entities
-        entities:
         - sensor.sunrise_time
         - sensor.solar_angle
         - sensor.sunset_time
@@ -119,7 +114,7 @@ views:
             entity: binary_sensor.motion_sensor_158d000236a817
             style:
               top: 77%
-              left: 50%
+              left: 46%
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000200ce6a
             style:
@@ -142,6 +137,12 @@ views:
             style:
               top: 45%
               left: 47%
+          - type: state-icon #Light - Entrance
+            entity: light.bulb_16
+            tap_action: toggle
+            style:
+              top: 77%
+              left: 53%
           - type: state-icon #Door - Entrance
             entity: binary_sensor.door_window_sensor_158d000238694e
             style:
@@ -205,13 +206,16 @@ views:
           entities:
             - type: custom:slider-entity-row
               entity: light.gateway_light_7811dcb7f720
-              name: Xiaomi Gateway Light
+              name: Xiaomi Gateway
             - type: custom:slider-entity-row
               entity: light.bulb_12
               name: Living room right
             - type: custom:slider-entity-row
               entity: light.bulb_14
               name: Living room left
+            - type: custom:slider-entity-row
+              entity: light.bulb_16
+              name: Entrance
 
 
   - title: "Second floor"
@@ -259,6 +263,11 @@ views:
             style:
               top: 70%
               left: 80%
+          - type: state-icon #Water sensor
+            entity: binary_sensor.water_leak_sensor_158d00023e90af
+            style:
+              top: 25%
+              left: 49%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -520,6 +529,14 @@ views:
           entity: light.gateway_light_7811dcb7f720
           name: Xiaomi light
           icon: mdi:led-off
+          size: 20%
+          show_state: false
+          color: rgb(255, 252, 0)
+
+        - type: "custom:button-card"
+          entity: light.bulb_16
+          name: Entrance
+          icon: mdi:lightbulb
           size: 20%
           show_state: false
           color: rgb(255, 252, 0)
