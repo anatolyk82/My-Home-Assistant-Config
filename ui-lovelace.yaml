@@ -411,7 +411,8 @@ views:
           show_header_toggle: false
           title: Alarms
           entities:
-            - automation.water_leakage
+            - automation.water_leakage_floor_1
+            - automation.water_leakage_floor_2
             - automation.too_high_temperature_at_the_first_floor
             - automation.too_high_temperature_at_the_second_floor
             - automation.smoke_alarm

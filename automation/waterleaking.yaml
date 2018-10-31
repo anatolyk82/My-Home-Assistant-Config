@@ -1,11 +1,22 @@
-- alias: 'Water leakage'
+- alias: 'Water leakage floor 1'
   initial_state: True
   trigger:
-    platform: state
+  - platform: state
     entity_id: binary_sensor.water_leak_sensor_158d00023aa4a9
     to: 'on'
   action:
-    service: notify.pushover
+  - service: notify.pushover
     data:
-      message: "WARNING! A water leakage is detected."
+      message: "WARNING! A water leakage is detected on the first floor"
 
+
+- alias: 'Water leakage floor 2'
+  initial_state: True
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.water_leak_sensor_158d00023e90af
+    to: 'on'
+  action:
+  - service: notify.pushover
+    data:
+      message: "WARNING! A water leakage is detected on the second floor"
