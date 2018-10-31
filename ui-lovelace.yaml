@@ -88,6 +88,8 @@ views:
       - type: entities
         entities:
         - switch.wifi_cord_1
+        - light.mqtt_json_light_bed
+        - input_boolean.mqtt_light_transition
 
       - type: entities
         entities:
@@ -423,6 +425,7 @@ views:
               - automation.turn_on_upstairs_light_if_movements_0630__2300
               - automation.turn_off_upstairs_light_in_10_seconds_0000__0630
               - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
+              - automation.entrance_light_in_the_morning
       - type: vertical-stack
         cards:
           - type: entities
