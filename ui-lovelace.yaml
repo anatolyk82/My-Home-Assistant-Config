@@ -88,8 +88,6 @@ views:
       - type: entities
         entities:
         - switch.wifi_cord_1
-        - light.mqtt_json_light_bed
-        - input_boolean.mqtt_light_transition
 
       - type: entities
         entities:
@@ -232,7 +230,7 @@ views:
               top: 77%
               left: 50%
           - type: state-icon
-            entity: light.bed_led_stripe
+            entity: light.bed_led
             tap_action: toggle
             style:
               top: 18%
@@ -293,7 +291,7 @@ views:
               entity: light.bulb_13
               name: Bedroom
             - type: custom:slider-entity-row
-              entity: light.bed_led_stripe
+              entity: light.bed_led
               name: Bed LED
             - type: custom:slider-entity-row
               entity: light.bulb_15

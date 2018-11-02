@@ -1,0 +1,9 @@
+- platform: mqtt_json
+  name: Bed LED
+  rgb: true
+  brightness: true
+  brightness_scale: 1023
+  optimistic: false
+  qos: 0
+  command_topic: "light/bed/set"
+  state_topic: "light/bed"
