@@ -230,23 +230,33 @@ views:
               top: 77%
               left: 50%
           - type: state-icon
+            entity: light.light1
+            tap_action: toggle
+            style:
+              top: 61%
+              left: 50%
+          - type: state-icon  # Bedroom - light
+            entity: light.bulb_13 
+            tap_action: toggle
+            style:
+              top: 50%
+              left: 26%
+          - type: state-icon  # Bedroom - Motion sensor
+            entity: binary_sensor.motion_sensor_158d000236a59e
+            style:
+              top: 35%
+              left: 26%
+          - type: state-icon  # Bedroom - bed light
             entity: light.bed_led
             tap_action: toggle
             style:
               top: 18%
               left: 26%
           - type: state-icon
-            entity: light.light1
-            tap_action: toggle
+            entity: binary_sensor.motion_sensor_158d000236a581
             style:
-              top: 61%
-              left: 50%
-          - type: state-icon
-            entity: light.bulb_13
-            tap_action: toggle
-            style:
-              top: 40%
-              left: 26%
+              top: 70%
+              left: 80%
           - type: state-label
             entity: sensor.temperature_158d0002320bc1
             style:
@@ -275,9 +285,10 @@ views:
           - sensor.humidity_158d0002320bc1
           - sensor.pressure_158d0002320bc1
       - type: glance
-        column_width: calc(100% / 2)
+        column_width: calc(100% / 3)
         entities:
           - sensor.illumination_158d000236a19b
+          - sensor.illumination_158d000236a59e
           - sensor.illumination_158d000236a581
       - type: vertical-stack
         cards:

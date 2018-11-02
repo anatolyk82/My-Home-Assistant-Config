@@ -181,6 +181,10 @@ sensor.installed_version:
 binary_sensor.switch_158d0002130dec:
   hidden: true
 
+binary_sensor.switch_158d00028c93bf:
+  hidden: true
+  friendly_name: Work room switch
+
 sensor.daylight:
   hidden: true
   friendly_name: Daylight
@@ -245,6 +249,9 @@ binary_sensor.motion_sensor_158d000236a19b:
 binary_sensor.motion_sensor_158d000236a581:
   friendly_name: Work room
   
+binary_sensor.motion_sensor_158d000236a59e:
+  friendly_name: Bedroom
+
 #============================ Illumination
 sensor.illumination_7811dcb7f720:
   hidden: true
@@ -264,6 +271,9 @@ sensor.illumination_158d000236a19b:
 
 sensor.illumination_158d000236a581:
   friendly_name: Work room
+
+sensor.illumination_158d000236a59e:
+  friendly_name: Bedroom
 
 #============================= Västtrafik
 
