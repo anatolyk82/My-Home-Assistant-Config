@@ -19,7 +19,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-  themes: !include_dir_named themes/
+#  themes: !include_dir_named themes/
 
 # Enables configuration UI
 config:
@@ -92,8 +92,8 @@ logger:
   default: warning
   logs:
     pydeconz: debug
-    homeassistant.components.deconz: debug
-    custom_components.xiaomi: debug
+    #homeassistant.components.deconz: debug
+    #custom_components.xiaomi: debug
     #homeassistant.components.shell_command: debug
 
 

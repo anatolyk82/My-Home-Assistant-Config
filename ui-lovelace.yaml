@@ -438,6 +438,7 @@ views:
               - automation.entrance_light_before_the_buss
               - automation.entrance_light_is_on_when_the_door_is_open
               - automation.turn_off_the_entrance_light_in_5_minutes_after_the_door_was_closed
+              - automation.bed_led_sunrise
       - type: vertical-stack
         cards:
           - type: entities
