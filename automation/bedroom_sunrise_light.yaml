@@ -1,0 +1,12 @@
+- alias: "Bed LED sunrise"
+  initial_state: 'on'
+  trigger:
+  - platform: time
+    at: "06:50:00"
+  action:
+  - service: light.turn_on
+    entity_id: light.bed_led
+    data:
+      rgb_color: [255, 255, 0]
+      transition: 600
+
