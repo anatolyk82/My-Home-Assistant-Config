@@ -7,16 +7,12 @@ resources:
     type: js
   - url: /local/custom_ui/dark-sky-weather-card.css
     type: css
-  - url: /local/custom_ui/button-card.js
-    type: module
   - url: /local/custom_ui/bignumber-card.js
     type: js
   - url: /local/custom_ui/gauge-card.js
     type: js
   - url: /local/custom_ui/slider-entity-row.js
     type: js
-#  - url: /local/custom_ui/kiosk.js
-#    type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
@@ -88,6 +84,7 @@ views:
       - type: entities
         entities:
         - switch.wifi_cord_1
+        - switch.tasmota_sonoff1
 
       - type: entities
         entities:
@@ -526,36 +523,32 @@ views:
               red: 80
         - type: horizontal-stack
           cards:
-          - type: "custom:button-card"
+          - type: entity-button
             entity: light.bulb_12
             name: Living room right
-            icon: mdi:lightbulb
-            size: 20%
-            show_state: false
-            color: rgb(255, 252, 0)
-          - type: "custom:button-card"
+            icon: mdi:ceiling-light
+            tap_action: toggle
+            hold_action: more-info
+          - type: entity-button
             entity: light.bulb_14
             name: Living room left
-            icon: mdi:lightbulb
-            size: 20%
-            show_state: false
-            color: rgb(255, 252, 0)
+            icon: mdi:ceiling-light
+            tap_action: toggle
+            hold_action: more-info
 
-        - type: "custom:button-card"
+        - type: entity-button
           entity: light.gateway_light_7811dcb7f720
           name: Xiaomi light
-          icon: mdi:led-off
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
+          icon: mdi:flash-circle
+          tap_action: toggle
+          hold_action: more-info
 
-        - type: "custom:button-card"
+        - type: entity-button
           entity: light.bulb_16
           name: Entrance
-          icon: mdi:lightbulb
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
+          icon: mdi:ceiling-light
+          tap_action: toggle
+          hold_action: more-info
 
       - type: vertical-stack
         cards:
@@ -582,35 +575,39 @@ views:
               yellow: 0
               green: 40
               red: 80
-        - type: "custom:button-card"
+
+        - type: horizontal-stack
+          cards:
+          - type: entity-button
+            entity: light.bulb_13
+            name: Bedroom
+            icon: mdi:ceiling-light
+            tap_action: toggle
+            hold_action: more-info
+          - type: entity-button
+            entity: light.bed_led
+            name: Bed light
+            tap_action: toggle
+            hold_action: more-info
+
+        - type: entity-button
           entity: light.light1
           name: Upstairs
-          icon: mdi:lightbulb
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
+          icon: mdi:ceiling-light
+          tap_action: toggle
+          hold_action: more-info
 
-        - type: "custom:button-card"
-          entity: light.bulb_13
-          name: Bedroom
-          icon: mdi:lightbulb
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
-
-        - type: "custom:button-card"
+        - type: entity-button
           entity: light.bulb_15
           name: Work room
-          icon: mdi:lightbulb
-          size: 20%
-          show_state: false
-          color: rgb(255, 252, 0)
+          icon: mdi:ceiling-light
+          tap_action: toggle
+          hold_action: more-info
 
-        - type: "custom:button-card"
+        - type: entity-button
           entity: switch.wifi_cord_1
           name: WiFi cord
           icon: mdi:power-socket-eu
-          size: 20%
-          show_state: true
+          tap_action: toggle
              
 
