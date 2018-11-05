@@ -7,3 +7,6 @@
   qos: 0
   command_topic: "light/bed/set"
   state_topic: "light/bed"
+  availability_topic: "light/bed/status"
+  payload_available: "Online"
+  payload_not_available: "Offline"
