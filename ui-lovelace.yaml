@@ -117,7 +117,7 @@ views:
             style:
               top: 35%
               left: 73%
-          - type: state-icon #Motion - Living room
+          - type: state-icon # Motion - Living room
             entity: binary_sensor.motion_sensor_158d00023e8333
             style:
               top: 25%
@@ -125,42 +125,45 @@ views:
           - type: state-icon
             entity: light.bulb_12
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 45%
               left: 32%
           - type: state-icon
             entity: light.bulb_14
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 45%
               left: 47%
-          - type: state-icon #Light - Entrance
+          - type: state-icon # Light - Entrance
             entity: light.bulb_16
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 77%
               left: 53%
-          - type: state-icon #Door - Entrance
+          - type: state-icon # Door - Entrance
             entity: binary_sensor.door_window_sensor_158d000238694e
             style:
               top: 92%
               left: 47.8%
-          - type: state-icon #Door - Living room
+          - type: state-icon # Door - Living room
             entity: binary_sensor.door_window_sensor_158d00022bd3cb
             style:
               top: 50.5%
               left: 20%
-          - type: state-icon #Door - Kitchen
+          - type: state-icon # Door - Kitchen
             entity: binary_sensor.door_window_sensor_158d000232d8e8
             style:
               top: 43%
               left: 84.5%
-          - type: state-icon #Water leak
+          - type: state-icon # Water leak
             entity: binary_sensor.water_leak_sensor_158d00023aa4a9
             style:
               top: 74%
               left: 70%
-          - type: state-icon #Smoke detector
+          - type: state-icon # Smoke detector
             entity: binary_sensor.smoke_sensor_158d0002311b86
             style:
               top: 41%
@@ -229,12 +232,14 @@ views:
           - type: state-icon
             entity: light.light1
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 61%
               left: 50%
           - type: state-icon  # Bedroom - light
             entity: light.bulb_13 
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 50%
               left: 26%
@@ -246,6 +251,7 @@ views:
           - type: state-icon  # Bedroom - bed light
             entity: light.bed_led
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 18%
               left: 26%
@@ -259,9 +265,10 @@ views:
             style:
               top: 48%
               left: 50%
-          - type: state-icon
+          - type: state-icon # Workroom light
             entity: light.bulb_15
             tap_action: toggle
+            hold_action: more-info
             style:
               top: 70%
               left: 70%
@@ -270,11 +277,18 @@ views:
             style:
               top: 70%
               left: 80%
-          - type: state-icon #Water sensor
+          - type: state-icon # Water sensor
             entity: binary_sensor.water_leak_sensor_158d00023e90af
             style:
               top: 25%
               left: 49%
+          - type: state-icon # Room light
+            entity: light.bulb_17
+            tap_action: toggle
+            hold_action: more-info
+            style:
+              top: 33%
+              left: 74%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -504,7 +518,7 @@ views:
           title: First floor
           cards:
           - type: gauge
-            title: Temperature
+            title: "Temperature"
             entity: sensor.temperature_158d000245a9ee
             min: 0
             max: 50
@@ -513,7 +527,7 @@ views:
               green: 22
               red: 40
           - type: gauge
-            title: Humidity
+            title: "Humidity"
             entity: sensor.humidity_158d000245a9ee
             min: 0
             max: 100
@@ -525,30 +539,32 @@ views:
           cards:
           - type: entity-button
             entity: light.bulb_12
-            name: Living room right
+            name: "Living room right"
             icon: mdi:ceiling-light
             tap_action: toggle
             hold_action: more-info
           - type: entity-button
             entity: light.bulb_14
-            name: Living room left
+            name: "Living room left"
             icon: mdi:ceiling-light
             tap_action: toggle
             hold_action: more-info
 
-        - type: entity-button
-          entity: light.gateway_light_7811dcb7f720
-          name: Xiaomi light
-          icon: mdi:flash-circle
-          tap_action: toggle
-          hold_action: more-info
+        - type: horizontal-stack
+          cards:
+          - type: entity-button
+            entity: light.gateway_light_7811dcb7f720
+            name: "Xiaomi light"
+            icon: mdi:flash-circle
+            tap_action: toggle
+            hold_action: more-info
 
-        - type: entity-button
-          entity: light.bulb_16
-          name: Entrance
-          icon: mdi:ceiling-light
-          tap_action: toggle
-          hold_action: more-info
+          - type: entity-button
+            entity: light.bulb_16
+            name: "Entrance"
+            icon: mdi:ceiling-light
+            tap_action: toggle
+            hold_action: more-info
 
       - type: vertical-stack
         cards:
@@ -558,7 +574,7 @@ views:
         - type: horizontal-stack
           cards:
           - type: gauge
-            title: Temperature
+            title: "Temperature"
             entity: sensor.temperature_158d0002320bc1
             min: 0
             max: 50
@@ -567,7 +583,7 @@ views:
               green: 22
               red: 40
           - type: gauge
-            title: Humidity
+            title: "Humidity"
             entity: sensor.humidity_158d0002320bc1
             min: 0
             max: 100
@@ -580,33 +596,36 @@ views:
           cards:
           - type: entity-button
             entity: light.bulb_13
-            name: Bedroom
+            name: "Bedroom"
             icon: mdi:ceiling-light
             tap_action: toggle
             hold_action: more-info
           - type: entity-button
             entity: light.bed_led
-            name: Bed light
+            name: "Bed light"
+            tap_action: toggle
+            hold_action: more-info
+            icon: mdi:bed-empty
+
+        - type: horizontal-stack
+          cards:
+          - type: entity-button
+            entity: light.light1
+            name: "Upstairs"
+            icon: mdi:ceiling-light
+            tap_action: toggle
+            hold_action: more-info
+
+          - type: entity-button
+            entity: light.bulb_15
+            name: "Work room"
+            icon: mdi:ceiling-light
             tap_action: toggle
             hold_action: more-info
 
         - type: entity-button
-          entity: light.light1
-          name: Upstairs
-          icon: mdi:ceiling-light
-          tap_action: toggle
-          hold_action: more-info
-
-        - type: entity-button
-          entity: light.bulb_15
-          name: Work room
-          icon: mdi:ceiling-light
-          tap_action: toggle
-          hold_action: more-info
-
-        - type: entity-button
           entity: switch.wifi_cord_1
-          name: WiFi cord
+          name: "WiFi cord"
           icon: mdi:power-socket-eu
           tap_action: toggle
              
