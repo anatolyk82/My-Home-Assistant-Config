@@ -3,6 +3,13 @@
   trigger:
   - platform: time
     at: "06:50:00"
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a59e
+      below: 20
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
   action:
   - service: light.turn_on
     entity_id: light.bed_led
