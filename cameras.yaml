@@ -3,3 +3,15 @@
   still_image_url: !secret yr_url_weather_location
   content_type: 'image/svg+xml'
 
+
+- platform: foscam
+  name: Foscam 1
+  ip: 192.168.1.31
+  username: !secret foscam_username1
+  password: !secret foscam_password1
+
+- platform: foscam
+  name: Foscam 2
+  ip: 192.168.1.32
+  username: !secret foscam_username2
+  password: !secret foscam_password2
