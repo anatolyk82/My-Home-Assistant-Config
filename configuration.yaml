@@ -74,6 +74,12 @@ mqtt:
   broker: 127.0.0.1
   username: !secret mqtt_username
   password: !secret mqtt_password
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
 
 
 xiaomi_aqara:
