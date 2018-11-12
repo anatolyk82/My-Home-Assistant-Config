@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: 'Keypad'
+  state_topic: "alarm/keypad"
+  icon: mdi:dialpad
+  availability_topic: "alarm/keypad/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  value_template: "{{ value_json.ip }}"
+  json_attributes:
+    - mac
+    - rssi
+    - uptime

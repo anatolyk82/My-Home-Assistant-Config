@@ -33,6 +33,7 @@ views:
       - type: entities
         entities:
           - alarm_control_panel.house
+          - sensor.keypad
 
       - type: entities
         entities:
@@ -89,17 +90,11 @@ views:
       - type: entities
         entities:
         - binary_sensor.door_window_sensor_158d00022da733
-#      - type: entities
-#        title: Reminder
-#        show_header_toggle: false
-#        entities:
-#        - input_boolean.run_reminder
-#        - input_number.reminder_timer_hours
-#        - input_number.reminder_timer_minutes
-#        - input_number.reminder_timer_seconds
-#        - input_text.text_reminder
-#        - sensor.reminder_remaining_time
 
+#      - type: picture-entity
+#        entity: camera.foscam_1
+#      - type: picture-entity
+#        entity: camera.foscam_2
 
   - title: "First floor"
     id: floor1
@@ -623,10 +618,10 @@ views:
             tap_action: toggle
             hold_action: more-info
 
-        - type: entity-button
-          entity: switch.wifi_cord_1
-          name: "WiFi cord"
-          icon: mdi:power-socket-eu
-          tap_action: toggle
+#        - type: entity-button
+#          entity: switch.wifi_cord_1
+#          name: "WiFi cord"
+#          icon: mdi:power-socket-eu
+#          tap_action: toggle
              
 
