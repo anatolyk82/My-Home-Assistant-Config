@@ -1,4 +1,4 @@
-- alias: "Toggle WiFi cord"
+- alias: "Toggle bed light"
   trigger:
     platform: event
     event_type: click
@@ -6,17 +6,17 @@
       entity_id: binary_sensor.switch_158d0002130dec
       click_type: single
   action:
-  - service: switch.toggle
-    entity_id: switch.wifi_cord_1
-
-
-- alias: "Toggle Bed LED strip"
-  trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.switch_158d0002130dec
-      click_type: double
-  action:
   - service: light.toggle
     entity_id: light.bed_led
+
+
+#- alias: "Toggle Bed LED strip"
+#  trigger:
+#    platform: event
+#    event_type: click
+#    event_data:
+#      entity_id: binary_sensor.switch_158d0002130dec
+#      click_type: double
+#  action:
+#  - service: light.toggle
+#    entity_id: light.bed_led
