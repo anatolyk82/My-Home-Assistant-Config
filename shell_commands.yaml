@@ -1,5 +1,5 @@
 
-alarm_sound_pending: "/usr/bin/play --volume 0.5 /home/homeassistant/.homeassistant/media/alarm_pending.wav"
+alarm_pending_sound: "/usr/bin/play --volume 0.5 /home/homeassistant/.homeassistant/media/alarm_pending.wav"
     
 alarm_sound_rpi_speaker: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm.wav"
 

@@ -490,7 +490,7 @@ views:
               title: Debug card
               entities:
                 - automation.alarm_sound_rpi_speaker
-                - automation.alarm_sound_pending
+                - automation.alarm_pending_sound
                 - script.test_pushover
                 - script.alarm_light_xiaomi_gateway
                 - script.alarm_light_xiaomi_gateway_loop
