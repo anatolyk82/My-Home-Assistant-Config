@@ -1,10 +1,10 @@
-- id: update_notification
-  alias: 'Update Available Notifications'
+- alias: 'Update Available Notifications'
+  initial_state: true
   trigger:
-  - platform: state
+    platform: state
     entity_id: updater.updater
   action:
-  - service: notify.pushover
+    service: notify.pushover
     data:
       message: 'Update {{ states.updater.updater.state }} for Home Assistant
                 is available and check 
