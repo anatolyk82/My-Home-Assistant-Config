@@ -291,7 +291,7 @@ light.gateway_light_7811dcb7f720:
 
 light.xiaomi_philips_desklamp:
   friendly_name: Desktop lamp
-  icon: desk-lamp
+  icon: mdi:desk-lamp
 
 
 #============================= Other sensors
