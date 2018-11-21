@@ -500,6 +500,7 @@ views:
                 - script.alarm_light_xiaomi_gateway_loop
                 - script.alarm_on
                 - script.alarm_off
+                - switch.alarm_switch
             - type: entities
               title: Xiaomi Alarm settings
               show_header_toggle: false

@@ -23,3 +23,7 @@
   payload_available: "Online"
   payload_not_available: "Offline"
   retain: false
+
+- platform: rpi_gpio
+  ports:
+    4: Alarm switch
