@@ -251,11 +251,6 @@ views:
             style:
               top: 18%
               left: 26%
-          - type: state-icon
-            entity: binary_sensor.motion_sensor_158d000236a581
-            style:
-              top: 70%
-              left: 80%
           - type: state-label
             entity: sensor.temperature_158d0002320bc1
             style:
@@ -266,13 +261,20 @@ views:
             tap_action: toggle
             hold_action: more-info
             style:
-              top: 70%
+              top: 67%
               left: 70%
+          - type: state-icon # Workroom desklight
+            entity: light.xiaomi_philips_desklamp
+            tap_action: toggle
+            hold_action: more-info
+            style:
+              top: 67%
+              left: 82%
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000236a581
             style:
-              top: 70%
-              left: 80%
+              top: 78%
+              left: 76%
           - type: state-icon # Water sensor
             entity: binary_sensor.water_leak_sensor_158d00023e90af
             style:

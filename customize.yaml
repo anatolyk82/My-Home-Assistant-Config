@@ -48,12 +48,6 @@ device_tracker.nmap_google_home:
 
 
 # ===================================
-sensor.hass_available_version:
-  hidden: true
-
-sensor.hass_installed_version:
-  hidden: true
-# ===================================
 
 sensor.ping_xiaomi_gateway:
   hidden: true
@@ -173,21 +167,14 @@ sensor.tradfri_remote_control_battery_level:
 sensor.ikea_switch_2_battery_level:
   hidden: true
   friendly_name: IKEA button 2 battery
-#======================================================
 
-sensor.installed_version:
-  hidden: true
-
+#=========================== Switches
 binary_sensor.switch_158d0002130dec:
   hidden: true
 
 binary_sensor.switch_158d00028c93bf:
   hidden: true
   friendly_name: Work room switch
-
-sensor.daylight:
-  hidden: true
-  friendly_name: Daylight
 
 #=========================== Second floor
 sensor.humidity_158d0002320bc1:
@@ -252,6 +239,7 @@ binary_sensor.motion_sensor_158d000236a581:
 binary_sensor.motion_sensor_158d000236a59e:
   friendly_name: Bedroom
 
+
 #============================ Illumination
 sensor.illumination_7811dcb7f720:
   hidden: true
@@ -286,8 +274,8 @@ sensor.vasttrafik_linje_176_mot_rannebergen:
 sensor.vasttrafik_linje_75_mot_angered:
   hidden: true
 
-#============================= Water leak sensors
 
+#============================= Water leak sensors
 binary_sensor.water_leak_sensor_158d00023aa4a9:
   hidden: true
   friendly_name: Water leak 1
@@ -296,10 +284,17 @@ binary_sensor.water_leak_sensor_158d00023e90af:
   hidden: true
   friendly_name: Water leak 2
 
+
 #============================= Lights
 light.gateway_light_7811dcb7f720:
   friendly_name: Xiaomi Gateway Light
 
+light.xiaomi_philips_desklamp:
+  friendly_name: Desktop lamp
+  icon: desk-lamp
+
+
+#============================= Other sensors
 binary_sensor.smoke_sensor_158d0002311b86:
   hidden: true
   friendly_name: Smoke detector
@@ -311,6 +306,19 @@ sensor.homeassistantlog:
 sensor.homeassistant_v2db:
   hidden: true
   friendly_name: Database
+
+sensor.daylight:
+  hidden: true
+  friendly_name: Daylight
+
+sensor.installed_version:
+  hidden: true
+
+sensor.hass_available_version:
+  hidden: true
+
+sensor.hass_installed_version:
+  hidden: true
 
 
 #===================== dark sky sensors
@@ -333,6 +341,21 @@ sensor.dark_sky_icon_5:
   hidden: true
 
 sensor.dark_sky_summary:
+  hidden: true
+
+sensor.dark_sky_summary_1:
+  hidden: true
+
+sensor.dark_sky_summary_2:
+  hidden: true
+
+sensor.dark_sky_summary_3:
+  hidden: true
+
+sensor.dark_sky_summary_4:
+  hidden: true
+
+sensor.dark_sky_summary_5:
   hidden: true
 
 sensor.dark_sky_nearest_storm_distance:
