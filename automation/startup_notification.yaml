@@ -1,0 +1,11 @@
+- alias: "Startup Notification"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: homeassistant_start
+  action:
+    - delay: "00:01:00"
+    - service: notify.pushover
+      data:
+        title: "Warning"
+        message: "Home Assistant restarted"

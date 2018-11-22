@@ -1,6 +1,6 @@
 
-alarm_pending_sound: "/usr/bin/play --volume 0.5 /home/homeassistant/.homeassistant/media/alarm_pending.wav"
+alarm_pending_sound: "/usr/bin/play --volume 0.7 /home/homeassistant/.homeassistant/media/alarm_pending.wav"
     
-alarm_sound_rpi_speaker: "/usr/bin/play /home/homeassistant/.homeassistant/media/alarm.wav"
+alarm_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/alarm.wav"
 
-entrance_door_open: "/usr/bin/play --volume 0.1 /home/homeassistant/.homeassistant/media/door_open.wav"
+entrance_door_open: "/usr/bin/play --volume 0.4 /home/homeassistant/.homeassistant/media/door_open.wav"
