@@ -286,7 +286,12 @@ views:
             hold_action: more-info
             style:
               top: 33%
-              left: 74%
+              left: 70%
+          - type: state-icon #Room motion sensor
+            entity: binary_sensor.motion_sensor_158d000236be32
+            style:
+              top: 33%
+              left: 80%
       - type: glance
         column_width: calc(100% / 3)
         entities:
@@ -294,11 +299,12 @@ views:
           - sensor.humidity_158d0002320bc1
           - sensor.pressure_158d0002320bc1
       - type: glance
-        column_width: calc(100% / 3)
+        column_width: calc(100% / 4)
         entities:
           - sensor.illumination_158d000236a19b
           - sensor.illumination_158d000236a59e
           - sensor.illumination_158d000236a581
+          - sensor.illumination_158d000236be32
       - type: vertical-stack
         cards:
         - type: entities
@@ -322,6 +328,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.xiaomi_philips_desklamp_ambient_light
               name: Desklamp ambient
+            - type: custom:slider-entity-row
+              entity: light.bulb_17
+              name: Room
 
 
   - title: "Weather"

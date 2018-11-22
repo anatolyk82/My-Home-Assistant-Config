@@ -49,9 +49,6 @@ device_tracker.nmap_google_home:
 
 # ===================================
 
-sensor.ping_xiaomi_gateway:
-  hidden: true
-
 #sensor.ping_avg_xiaomi:
 #  hidden: true
 #
@@ -104,20 +101,6 @@ sensor.yr_symbol:
   hidden: true
   friendly_name: Symbol
 
-sensor.sunset_time:
-  hidden: true
-
-sensor.sunrise_time:
-  hidden: true
-
-sensor.solar_angle:
-  hidden: true
-
-script.play_sel_sound_loop:
-  hidden: true
-
-sensor.ssh_attack:
-  hidden: true
 
 #========================================== batteries
 sensor.battery_temperature_sensor_floor1:
@@ -239,6 +222,8 @@ binary_sensor.motion_sensor_158d000236a581:
 binary_sensor.motion_sensor_158d000236a59e:
   friendly_name: Bedroom
 
+binary_sensor.motion_sensor_158d000236be32:
+  friendly_name: Room
 
 #============================ Illumination
 sensor.illumination_7811dcb7f720:
@@ -262,6 +247,10 @@ sensor.illumination_158d000236a581:
 
 sensor.illumination_158d000236a59e:
   friendly_name: Bedroom
+
+sensor.illumination_158d000236be32:
+  friendly_name: Bedroom
+
 
 #============================= Västtrafik
 
@@ -294,10 +283,37 @@ light.xiaomi_philips_desklamp:
   icon: mdi:desk-lamp
 
 
-#============================= Other sensors
+#============================= Sun sensors
+sensor.sunset_time:
+  hidden: true
+
+sensor.sunrise_time:
+  hidden: true
+
+sensor.solar_angle:
+  hidden: true
+
+sensor.daylight:
+  hidden: true
+  friendly_name: Daylight
+
+
+#============================= Smoke sensors
 binary_sensor.smoke_sensor_158d0002311b86:
   hidden: true
   friendly_name: Smoke detector
+
+
+#============================= Other sensors
+
+script.play_sel_sound_loop:
+  hidden: true
+
+sensor.ssh_attack:
+  hidden: true
+
+sensor.ping_xiaomi_gateway:
+  hidden: true
 
 sensor.homeassistantlog:
   hidden: true
@@ -306,10 +322,6 @@ sensor.homeassistantlog:
 sensor.homeassistant_v2db:
   hidden: true
   friendly_name: Database
-
-sensor.daylight:
-  hidden: true
-  friendly_name: Daylight
 
 sensor.installed_version:
   hidden: true
