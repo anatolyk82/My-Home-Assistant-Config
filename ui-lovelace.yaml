@@ -502,6 +502,7 @@ views:
                 - script.alarm_on
                 - script.alarm_off
                 - switch.alarm_switch
+                - input_boolean.all_lights_on_to_warm_color
             - type: entities
               title: Xiaomi Alarm settings
               show_header_toggle: false

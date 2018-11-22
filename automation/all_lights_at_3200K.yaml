@@ -1,0 +1,33 @@
+- alias: 'Turn on all lights at 3200K'
+  trigger:
+    platform: state
+    entity_id: input_boolean.all_lights_on_to_warm_color
+    to: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_12
+      kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_13
+      kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_14
+      kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_15
+      kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_16
+      kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_17
+      kelvin: 3200
+
+
+
