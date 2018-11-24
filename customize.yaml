@@ -249,7 +249,7 @@ sensor.illumination_158d000236a59e:
   friendly_name: Bedroom
 
 sensor.illumination_158d000236be32:
-  friendly_name: Bedroom
+  friendly_name: Room
 
 
 #============================= Västtrafik

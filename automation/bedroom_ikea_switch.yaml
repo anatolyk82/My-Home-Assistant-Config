@@ -42,33 +42,33 @@
 #  - service: light.turn_off
 #    entity_id: light.bulb_13
 
-
-- alias: "Increase brightness bedroom"
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_2
-      event: 2002
-  action:
-  - service: light.turn_on
-    entity_id: light.bulb_13
-    data_template: 
-      brightness: '{{ states.light.bulb_13.attributes.brightness + 25 }}'
-
-
-- alias: "Decrease brightness bedroom"
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_2
-      event: 3002
-  action:
-  - service: light.turn_on
-    entity_id: light.bulb_13
-    data_template: 
-      brightness: '{{ states.light.bulb_13.attributes.brightness - 25 }}'
+#---------------------------------------
+#- alias: "Increase brightness bedroom"
+#  trigger:
+#    platform: event
+#    event_type: deconz_event
+#    event_data:
+#      id: ikea_switch_2
+#      event: 2002
+#  action:
+#  - service: light.turn_on
+#    entity_id: light.bulb_13
+#    data_template: 
+#      brightness: '{{ states.light.bulb_13.attributes.brightness + 25 }}'
+#
+#
+#- alias: "Decrease brightness bedroom"
+#  trigger:
+#    platform: event
+#    event_type: deconz_event
+#    event_data:
+#      id: ikea_switch_2
+#      event: 3002
+#  action:
+#  - service: light.turn_on
+#    entity_id: light.bulb_13
+#    data_template: 
+#      brightness: '{{ states.light.bulb_13.attributes.brightness - 25 }}'
 
 - alias: "Increase brightness bedroom to maximum"
   trigger:
@@ -76,12 +76,13 @@
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
-      event: 2001
+      #event: 2001 # press and hold the button "light up"
+      event: 2002  # press the button "light up"
   action:
   - service: light.turn_on
     entity_id: light.bulb_13
     data_template: 
-      brightness_pct: 100 #'{{ states.light.bulb_13.attributes.brightness + 25 }}'
+      brightness_pct: 100
 
 - alias: "Decrease brightness bedroom to minimum"
   trigger:
@@ -89,10 +90,11 @@
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
-      event: 3001
+      #event: 3001 # press and hold the button "light down"
+      event: 3002  # press the button "light down"
   action:
   - service: light.turn_on
     entity_id: light.bulb_13
     data_template: 
-      brightness_pct: 5 #'{{ states.light.bulb_13.attributes.brightness - 25 }}'
+      brightness_pct: 5
 
