@@ -90,7 +90,7 @@ views:
 
       - type: entities
         entities:
-        - binary_sensor.door_window_sensor_158d00022da733
+        - binary_sensor.openclose_4
 
 #      - type: picture-entity
 #        entity: camera.foscam_1
@@ -438,7 +438,6 @@ views:
           - sensor.battery_door_sensor_entrance
           - sensor.battery_door_sensor_kitchen
           - sensor.battery_door_sensor_living_room
-          - sensor.battery_door_sensor_storehouse
       - type: vertical-stack
         cards:
         - type: entities
