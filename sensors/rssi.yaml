@@ -1,0 +1,19 @@
+- platform: mqtt
+  name: 'Bed light RSSI'
+  state_topic: "light/bed"
+  icon: mdi:wifi
+  availability_topic: "light/bed/status"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  value_template: "{{ value_json.rssi }}"
+  unit_of_measurement: "dBm"
+
+- platform: mqtt
+  name: 'Keypad RSSI'
+  state_topic: "alarm/keypad"
+  icon: mdi:wifi
+  availability_topic: "alarm/keypad/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  value_template: "{{ value_json.rssi }}"
+  unit_of_measurement: "dBm"
