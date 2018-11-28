@@ -470,6 +470,7 @@ views:
               - automation.bed_led_sunrise
               - automation.home_assistant_certificate_notification
               - automation.startup_notification
+              - automation.notify_on_unavailable_wifi_device
       - type: vertical-stack
         cards:
           - type: entities
