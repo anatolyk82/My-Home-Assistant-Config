@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: 'Bed light RSSI'
+  name: 'RSSI Bed light'
   state_topic: "light/bed"
   icon: mdi:wifi
   availability_topic: "light/bed/status"
@@ -9,7 +9,7 @@
   unit_of_measurement: "dBm"
 
 - platform: mqtt
-  name: 'Keypad RSSI'
+  name: 'RSSI Keypad'
   state_topic: "alarm/keypad"
   icon: mdi:wifi
   availability_topic: "alarm/keypad/status"

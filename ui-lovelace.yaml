@@ -87,8 +87,7 @@ views:
         - switch.wifi_cord_1
         - switch.tasmota_sonoff1
         - sensor.illumination_7811dcb7f720
-        - sensor.bed_light_rssi
-        - sensor.keypad_rssi
+        - binary_sensor.all_in_bed
 
       - type: entities
         entities:
@@ -421,6 +420,10 @@ views:
         entities:
           - sensor.ssh_attack
           - sensor.ssl_certificate_expiry
+      - type: entities
+        entities:
+          - sensor.rssi_bed_light
+          - sensor.rssi_keypad
       - type: entities
         show_header_toggle: false
         title: Batteries
