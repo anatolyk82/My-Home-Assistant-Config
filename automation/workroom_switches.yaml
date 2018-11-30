@@ -1,7 +1,7 @@
 - alias: 'Toggle light in the work room'
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d00028c93bf
       click_type: single
