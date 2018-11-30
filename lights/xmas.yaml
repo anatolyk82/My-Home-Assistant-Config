@@ -1,0 +1,3 @@
+- platform: switch
+  name: Christmas Lights
+  entity_id: switch.wifi_cord_1
