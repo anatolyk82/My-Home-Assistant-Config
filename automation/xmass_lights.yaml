@@ -1,0 +1,14 @@
+- alias: 'Turn on christmas lights when disarmed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'disarmed'
+  condition:
+  - condition: sun
+    after: sunset
+  action:
+  - service: light.turn_on
+    entity_id: light.christmas_lights
+

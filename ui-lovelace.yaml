@@ -473,6 +473,7 @@ views:
               - automation.entrance_light_turn_on_at_723
               - automation.entrance_light_turn_on_when_the_door_opens
               - automation.entrance_light_whatsapp_effect_before_the_buss
+              - automation.turn_on_christmas_lights_when_disarmed
       - type: vertical-stack
         cards:
           - type: entities
