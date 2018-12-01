@@ -1,37 +1,85 @@
-- alias: 'Entrance light before the buss'
+- alias: '[Entrance light] Force to update västtrafik sensor'
   hide_entity: true
   initial_state: true
   trigger:
-    # If it's 10 mins (600 secs) to the next 176 bus
-    - platform: template
-      value_template: '{{ ((as_timestamp(now()) + 600 ) | timestamp_custom("%H:%M")) == states.sensor.vasttrafik_linje_176_mot_lindholmen.state }}'
+  - platform: time
+    minutes: '/1'
+    seconds: 00
   condition:
-    # (Time is between 07:20 - 07:50) AND (the illumination sensor at the entrance shows a value below 30) AND (it's a work day) AND (the alarm is not on)
-    - condition: time
-      after:  '07:20:00'
-      before: '07:50:00'
-    - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a817
-      below: 30
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: 'on'
-    - condition: state
-      entity_id: alarm_control_panel.house
-      state: 'disarmed'
-    - condition: state
-      entity_id: light.bulb_16
-      state: 'off'
+  - condition: time
+    after:  '07:10:00'
+    before: '07:50:00'
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: template
+    value_template: '{{ (as_timestamp(now()) | timestamp_custom("%H:%M")) == states.sensor.vasttrafik_linje_176_mot_lindholmen.state }}'
   action:
-    - service: light.turn_on
-      entity_id: light.bulb_16
-      data:
-        brightness_pct: 100
-        #kelvin: 2700
-      #  rgb_color: [255, 255, 255]
+  - delay: '00:02:00'
+  - service: homeassistant.update_entity
+    entity_id: sensor.vasttrafik_linje_176_mot_lindholmen
 
 
-- alias: 'Entrance light is on when the door is open'
+- alias: '[Entrance light] WhatsApp effect before the buss'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  # If it's 10 mins (600 secs) to the next 176 bus
+  - platform: template
+    value_template: '{{ ((as_timestamp(now()) + 600 ) | timestamp_custom("%H:%M")) == states.sensor.vasttrafik_linje_176_mot_lindholmen.state }}'
+  condition:
+  # (Time is between 07:20 - 07:50) AND (the illumination sensor at the entrance shows a value below 30) AND (it's a work day) AND (the alarm is not on)
+  - condition: time
+    after:  '07:15:00'
+    before: '07:50:00'
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: state
+    entity_id: light.bulb_16
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_16
+    data:
+      effect: "WhatsApp"
+
+
+- alias: '[Entrance light] Turn on at 7:23'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time
+    at: "07:23:00"
+  condition:
+  # (the illumination sensor at the entrance shows a value below 30) AND (it's a work day) AND (the alarm is not on)
+  - condition: numeric_state
+    entity_id: sensor.illumination_158d000236a817
+    below: 30
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: state
+    entity_id: light.bulb_16
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_16
+    data:
+      brightness_pct: 100
+      transition: 3
+
+
+- alias: '[Entrance light] Turn on when the door opens'
   hide_entity: true
   initial_state: true
   trigger:
@@ -50,7 +98,7 @@
       transition: 3
 
 
-- alias: 'Turn off the entrance light in 5 minutes after the door was closed'
+- alias: '[Entrance light] Turn off in 5 minutes after the door is closed'
   hide_entity: true
   initial_state: true
   trigger:
@@ -63,3 +111,4 @@
   action:
   - service: light.turn_off
     entity_id: light.bulb_16
+
