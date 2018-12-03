@@ -1,6 +1,7 @@
+# https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/
 # sensor.ssl_certificate_expiry
 
-- alias: 'Home Assistant Certificate Notification'
+- alias: '[HASS Certificate] Notification on update'
   initial_state: 'on'
   trigger:
     platform: template
@@ -16,3 +17,11 @@
       message: >
         Home Assistant's certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days.
 
+
+- alias: '[HASS Certificate] Auto Renew'
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.ssl_cert_expiry
+    below: 20
+  action:
+  - service: shell_command.renew_ssl
