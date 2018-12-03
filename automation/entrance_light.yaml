@@ -18,7 +18,7 @@
   - condition: template
     value_template: '{{ (as_timestamp(now()) | timestamp_custom("%H:%M")) == states.sensor.vasttrafik_linje_176_mot_lindholmen.state }}'
   action:
-  - delay: '00:02:00'
+  - delay: '00:01:00'
   - service: homeassistant.update_entity
     entity_id: sensor.vasttrafik_linje_176_mot_lindholmen
 
