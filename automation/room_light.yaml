@@ -1,0 +1,36 @@
+- alias: 'Turn on room light on movement'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236be32
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.illumination_158d000236be32
+    below: 10
+  action:
+  - service: light.turn_on
+    entity_id: light.bulb_17
+    data:
+      brightness_pct: 100
+      transition: 5
+
+- alias: 'Turn off room light in 5 minutes'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_158d000236be32
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 300
+  condition:
+  - condition: state
+    entity_id: light.bulb_17
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.bulb_17
+    data:
+      transition: 5
