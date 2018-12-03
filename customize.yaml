@@ -49,15 +49,6 @@ device_tracker.nmap_google_home:
 
 # ===================================
 
-#sensor.ping_avg_xiaomi:
-#  hidden: true
-#
-#sensor.ping_min_xiaomi:
-#  hidden: true
-#
-#sensor.ping_max_xiaomi:
-#  hidden: true
-
 sensor.yr_temperature:
 #  hidden: true
   friendly_name: Temperature
@@ -159,7 +150,7 @@ binary_sensor.switch_158d00028c93bf:
   hidden: true
   friendly_name: Work room switch
 
-#=========================== Second floor
+#=========================== Temperature sensor - Second floor
 sensor.humidity_158d0002320bc1:
   friendly_name: Humidity
 
@@ -169,7 +160,7 @@ sensor.temperature_158d0002320bc1:
 sensor.pressure_158d0002320bc1:
   friendly_name: Pressure
 
-#=========================== Outside
+#=========================== Temperature sensor - Outside
 sensor.humidity_158d0002478a68:
   friendly_name: Humidity
 
@@ -179,7 +170,7 @@ sensor.temperature_158d0002478a68:
 sensor.pressure_158d0002478a68:
   friendly_name: Pressure
 
-#=========================== First floor
+#=========================== Temperature sensor - First floor
 sensor.humidity_158d000245a9ee:
   friendly_name: Humidity
 
@@ -332,6 +323,9 @@ sensor.hass_available_version:
 sensor.hass_installed_version:
   hidden: true
 
+#--
+sensor.keypad:
+  hidden: true
 
 #===================== dark sky sensors
 sensor.dark_sky_icon:

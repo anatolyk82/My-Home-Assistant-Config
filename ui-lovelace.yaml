@@ -88,13 +88,15 @@ views:
         - switch.tasmota_sonoff1
         - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
+        - switch.foscam1_motion
 
       - type: entities
         entities:
         - binary_sensor.openclose_4
 
-#      - type: picture-entity
-#        entity: camera.foscam_1
+      - type: picture-entity
+        entity: camera.foscam_1
+        show_state: false
 #      - type: picture-entity
 #        entity: camera.foscam_2
 
@@ -104,6 +106,12 @@ views:
       - type: picture-elements
         image: /local/images/first_floor_ext.jpg
         elements:
+          - type: icon
+            entity: camera.foscam_1
+            icon: mdi:cctv
+            style:
+              top: 14%
+              left: 17%
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000236a817
             style:
@@ -221,6 +229,12 @@ views:
       - type: picture-elements
         image: /local/images/second_floor_ext.jpg
         elements:
+          - type: icon # Foscam camera 1
+            entity: camera.foscam_1
+            icon: mdi:cctv
+            style:
+              top: 14%
+              left: 7%
           - type: state-icon
             entity: binary_sensor.motion_sensor_158d000236a19b
             style:

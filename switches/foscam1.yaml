@@ -1,0 +1,8 @@
+- platform: command_line
+  switches:
+    foscam1_motion:
+      friendly_name: "Foscam 1 motion detection"
+      command_on: !secret foscam1_url_motion_detect_on
+      command_off: !secret foscam1_url_motion_detect_off
+      command_state: !secret foscam1_url_motion_detect_state
+      value_template: '{{ value == "1" }}'
