@@ -458,6 +458,9 @@ views:
           - sensor.battery_motion_sensor_kitchen
           - sensor.battery_motion_sensor_entrance
           - sensor.battery_motion_sensor_second_floor
+          - sensor.battery_motion_sensor_workroom
+          - sensor.battery_motion_sensor_room
+          - sensor.battery_motion_sensor_bedroom
           - sensor.battery_water_leak_sensor
           - sensor.battery_smoke_sensor
           - sensor.battery_door_sensor_entrance

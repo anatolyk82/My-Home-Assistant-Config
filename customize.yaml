@@ -112,6 +112,15 @@ sensor.battery_motion_sensor_kitchen:
 sensor.battery_motion_sensor_entrance:
   hidden: true
 
+sensor.battery_motion_sensor_room:
+  hidden: true
+
+sensor.battery_motion_sensor_workroom:
+  hidden: true
+
+sensor.battery_motion_sensor_bedroom:
+  hidden: true
+
 sensor.battery_water_leak_sensor:
   hidden: true
 
