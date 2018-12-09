@@ -1,0 +1,53 @@
+#- alias: '[Camera] Set sensitivity for Foscam1'
+#  hide_entity: true
+#  initial_state: true
+#  trigger:
+#  - platform: state
+#    entity_id: input_select.foscam1_motion_sensitivity
+#  action:
+#    service: shell_command.foscam1_set_sensitivity
+
+
+#  trigger:
+#  - platform: state
+#    entity_id: input_select.foscam1_motion_sensitivity
+
+
+- alias: '[Camera] Take a snapshot on detected motion'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.foscam_1_motion
+    to: 'on'
+  action:
+  - service: camera.snapshot
+    data:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+  - delay:
+      seconds: 1
+  - service: camera.snapshot
+    data:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+  - delay:
+      seconds: 1
+  - service: camera.snapshot
+    data:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+  - delay:
+      seconds: 1
+  - service: notify.pushover
+    data:
+      message: "Foscam1: Motion detected."
+
+#  - service: notify.pushover
+#    data_template:
+#      title: "Alarm"
+#      message: "Motion detected! A snapshot taken"
+#      data:
+#        file:
+#          path: '/home/homeassistant/snapshots/foscam1_motion.jpg'
+#      message: "Sensitivity: {{ states.input_select.foscam1_motion_sensitivity.state.split('-')[1] }}"

@@ -13,6 +13,8 @@ homeassistant:
   packages: !include_dir_named packages
   whitelist_external_dirs:
     - /home/homeassistant/.homeassistant   
+    - /tmp
+    - /home/homeassistant/snapshots
 
 # Show links to resources in log and frontend
 # introduction:
@@ -123,6 +125,7 @@ binary_sensor: !include_dir_merge_list binary_sensors/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
+input_select: !include input_select.yaml
 camera: !include cameras.yaml
 cast: !include media.yaml
 #weather: !include weather.yaml
