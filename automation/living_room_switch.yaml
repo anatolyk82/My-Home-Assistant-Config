@@ -20,8 +20,12 @@
   action:
   - service: light.turn_on
     entity_id: light.bulb_12
+    data:
+      kelvin: 3200
   - service: light.turn_on
     entity_id: light.bulb_14
+    data:
+      kelvin: 3200
 
 - alias: 'Turn off all lights the living room'
   trigger:
