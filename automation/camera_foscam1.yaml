@@ -21,24 +21,11 @@
     entity_id: binary_sensor.foscam_1_motion
     to: 'on'
   action:
-  - service: camera.snapshot
-    data:
-      entity_id: camera.foscam_1
-      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
-  - delay:
-      seconds: 1
-  - service: camera.snapshot
-    data:
-      entity_id: camera.foscam_1
-      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
-  - delay:
-      seconds: 1
-  - service: camera.snapshot
-    data:
-      entity_id: camera.foscam_1
-      filename: '/home/homeassistant/snapshots/foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
-  - delay:
-      seconds: 1
+  - service: script.take_snapshots
+    data_template:
+      camera: camera.foscam_1
+      name: "Foscam1"
+      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
   - service: notify.pushover
     data:
       message: "Foscam1: Motion detected."

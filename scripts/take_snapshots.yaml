@@ -1,0 +1,78 @@
+# Variables:
+# camera - entity_id of the camera
+# name - the name of the camera
+# detect_time - time when the motion was detected
+
+take_snapshots:
+  alias: "Take snapshots for 10 secs"
+  sequence:
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_0.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_1.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_2.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_3.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_4.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_5.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_6.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_7.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_8.jpg'
+  - delay:
+      seconds: 1
+
+  - service: camera.snapshot
+    data_template:
+      entity_id: "{{ camera }}"
+      filename: '/home/homeassistant/snapshots/{{ name }}_{{ detect_time }}_9.jpg'
+  - delay:
+      seconds: 1
+
