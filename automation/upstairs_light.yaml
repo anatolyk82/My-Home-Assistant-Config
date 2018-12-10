@@ -18,8 +18,9 @@
     - service: light.turn_on
       entity_id: light.light1
       data:
-        brightness_pct: 90
+        brightness_pct: 95
         transition: 5
+        kelvin: 3200
 
 
 - alias: 'Turn on upstairs light if movements (23:00 - 06:30)'
@@ -43,6 +44,7 @@
       entity_id: light.light1
       data:
         brightness_pct: 5
+        kelvin: 2000
 
 
 - alias: 'Turn off upstairs light in 5 minutes (06:30 - 00:00)'
