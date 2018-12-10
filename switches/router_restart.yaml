@@ -3,6 +3,7 @@
     router_restart:
       friendly_name: "Restart router"
       command_on: !secret router_restart
-      command_state: '{{ false }}'
-      value_template: '{{ false }}'
+      command_off: '#'
+      command_state: false
+      #value_template: '{{ false }}'
 
