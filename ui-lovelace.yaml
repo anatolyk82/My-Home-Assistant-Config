@@ -135,21 +135,24 @@ views:
               left: 39%
           - type: state-icon
             entity: light.bulb_12
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 45%
               left: 32%
           - type: state-icon
             entity: light.bulb_14
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 45%
               left: 47%
           - type: state-icon # Light - Entrance
             entity: light.bulb_16
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 77%
@@ -248,14 +251,16 @@ views:
               left: 50%
           - type: state-icon
             entity: light.light1
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 61%
               left: 50%
           - type: state-icon  # Bedroom - light
             entity: light.bulb_13 
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 50%
@@ -267,7 +272,8 @@ views:
               left: 26%
           - type: state-icon  # Bedroom - bed light
             entity: light.bed_led
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 18%
@@ -279,14 +285,16 @@ views:
               left: 50%
           - type: state-icon # Workroom light
             entity: light.bulb_15
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 67%
               left: 70%
           - type: state-icon # Workroom desklight
             entity: light.xiaomi_philips_desklamp
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 67%
@@ -303,7 +311,8 @@ views:
               left: 49%
           - type: state-icon # Room light
             entity: light.bulb_17
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             style:
               top: 33%
@@ -608,13 +617,15 @@ views:
             entity: light.bulb_12
             name: "Living room right"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
           - type: entity-button
             entity: light.bulb_14
             name: "Living room left"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
         - type: horizontal-stack
@@ -623,14 +634,16 @@ views:
             entity: light.gateway_light_7811dcb7f720
             name: "Xiaomi light"
             icon: mdi:flash-circle
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
           - type: entity-button
             entity: light.bulb_16
             name: "Entrance"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
         - type: horizontal-stack
@@ -638,14 +651,16 @@ views:
           - type: entity-button
             entity: light.christmas_lights
             icon: mdi:star-face
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
             #- type: entity-button
             #entity: light.bulb_16
             #name: "Entrance"
             #icon: mdi:ceiling-light
-            #tap_action: toggle
+            #tap_action:
+            #  action: toggle
             #hold_action: more-info
 
       - type: vertical-stack
@@ -680,12 +695,14 @@ views:
             entity: light.bulb_13
             name: "Bedroom"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
           - type: entity-button
             entity: light.bed_led
             name: "Bed light"
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
             icon: mdi:bed-empty
 
@@ -695,35 +712,40 @@ views:
             entity: light.light1
             name: "Upstairs"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
           - type: entity-button
             entity: light.bulb_15
             name: "Work room"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
 #        - type: entity-button
 #          entity: switch.wifi_cord_1
 #          name: "WiFi cord"
 #          icon: mdi:power-socket-eu
-#          tap_action: toggle
+#          tap_action:
+#            action: toggle
 #
         - type: horizontal-stack
           cards:
           - type: entity-button
             entity: light.xiaomi_philips_desklamp
             icon: mdi:desk-lamp
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
 
           - type: entity-button
             entity: light.bulb_17
             name: "Room"
             icon: mdi:ceiling-light
-            tap_action: toggle
+            tap_action:
+              action: toggle
             hold_action: more-info
              
 
