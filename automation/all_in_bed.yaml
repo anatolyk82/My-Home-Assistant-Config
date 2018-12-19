@@ -56,6 +56,27 @@
     - condition: state
       entity_id: alarm_control_panel.house
       state: 'disarmed'
+    - condition: state
+      entity_id: light.bulb_16 #Entrance light
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_12 #Living room light
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_14 #Living room light
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_15 #Work room light
+      state: 'off'
+    - condition: state
+      entity_id: light.light1 #Second floor light
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_17 #Room light
+      state: 'off'
+    - condition: state
+      entity_id: light.bulb_13 #Bedroom light
+      state: 'off'
   action:
     - service: python_script.all_in_bed
 
