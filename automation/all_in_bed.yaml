@@ -1,5 +1,6 @@
-- alias: 'All in bed'
+- alias: '[All in bed] Set the sensor to on'
   hide_entity: true
+  initial_state: true
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
@@ -80,3 +81,32 @@
   action:
     - service: python_script.all_in_bed
 
+
+- alias: '[All in bed] Set the sensor to off'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a581 #Work room
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236be32 #Room
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.all_in_bed
+      state: 'on'
+  action:
+    - service: python_script.all_in_bed
