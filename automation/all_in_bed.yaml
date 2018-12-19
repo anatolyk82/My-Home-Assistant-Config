@@ -1,0 +1,61 @@
+- alias: 'All in bed'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a581 #Work room
+      to: 'off'
+      for:
+        minutes: 15
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236be32 #Room
+      to: 'off'
+      for:
+        minutes: 15
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a817 #Entrance
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000200ce6a #Kitchen
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d00023e8333 #Living room
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a19b #Second floor
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a581 #Work room
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236be32 #Room
+      below: 10
+    - condition: numeric_state
+      entity_id: sensor.illumination_158d000236a59e #Bedroom
+      below: 10
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'disarmed'
+  action:
+    - service: python_script.all_in_bed
+

@@ -332,6 +332,10 @@ sensor.hass_available_version:
 sensor.hass_installed_version:
   hidden: true
 
+binary_sensor.all_in_bed:
+  icon: mdi:hotel
+  hidden: true
+
 #--
 sensor.keypad:
   hidden: true

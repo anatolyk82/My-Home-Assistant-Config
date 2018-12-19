@@ -104,6 +104,7 @@ logger:
     #custom_components.xiaomi: debug
     #homeassistant.components.shell_command: debug
     homeassistant.components.mqtt: debug
+    homeassistant.components.python_script: debug
 
 python_script:
 
