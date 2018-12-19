@@ -1,12 +1,13 @@
-- platform: mqtt_json
-  name: Bed LED
+- platform: mqtt
+  name: 'Bed LED'
+  schema: json
   rgb: true
   brightness: true
   brightness_scale: 1023
-  optimistic: false
-  qos: 0
   command_topic: "light/bed/set"
   state_topic: "light/bed"
   availability_topic: "light/bed/status"
   payload_available: "Online"
   payload_not_available: "Offline"
+  optimistic: false
+  qos: 0

@@ -105,6 +105,7 @@ logger:
     #homeassistant.components.shell_command: debug
     homeassistant.components.mqtt: debug
 
+python_script:
 
 duckdns:
   domain: !secret duckdns_domain
@@ -113,6 +114,8 @@ duckdns:
 #freedns:
 #  access_token: !secret freedns_token
  
+lovelace:
+  mode: yaml
 
 notify: !include notify.yaml
 group: !include groups.yaml

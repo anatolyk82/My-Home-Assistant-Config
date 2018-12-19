@@ -6,12 +6,12 @@
 
 - platform: foscam
   name: Foscam 1
-  ip: 192.168.1.31
-  username: !secret foscam_username1
-  password: !secret foscam_password1
+  ip: !secret foscam1_ip
+  username: !secret foscam1_username
+  password: !secret foscam1_password
 
 - platform: foscam
   name: Foscam 2
-  ip: 192.168.1.32
-  username: !secret foscam_username2
-  password: !secret foscam_password2
+  ip: !secret foscam2_ip
+  username: !secret foscam2_username
+  password: !secret foscam2_password

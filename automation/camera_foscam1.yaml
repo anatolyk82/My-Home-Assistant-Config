@@ -5,7 +5,13 @@
 #  - platform: state
 #    entity_id: input_select.foscam1_motion_sensitivity
 #  action:
-#    service: shell_command.foscam1_set_sensitivity
+#  - service: python_script.foscam_config
+#    data:
+#      action: 'sensitivity'
+#      ip: !secret foscam1_ip
+#      username: !secret foscam1_username
+#      password: !secret foscam1_password
+#      input_select: 'input_select.foscam1_motion_sensitivity'
 
 
 #  trigger:

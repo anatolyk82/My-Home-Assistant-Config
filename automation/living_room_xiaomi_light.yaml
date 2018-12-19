@@ -1,4 +1,4 @@
-- alias: Turn on Xiaomi gateway as nightlight
+- alias: 'Turn on Xiaomi gateway as nightlight'
   hide_entity: true
   trigger:
   - platform: state
@@ -20,7 +20,7 @@
       entity_id: automation.MOTION_OFF
 
 
-- alias: Turn off the nightlight
+- alias: 'Turn off the nightlight'
   hide_entity: true
   trigger:
     platform: state
