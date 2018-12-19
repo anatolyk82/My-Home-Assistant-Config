@@ -10,6 +10,9 @@
     - condition: state
       entity_id: binary_sensor.workday_sensor
       state: 'on'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'disarmed'
   action:
   - service: light.turn_on
     entity_id: light.bed_led
