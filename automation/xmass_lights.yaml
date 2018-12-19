@@ -1,4 +1,4 @@
-- alias: 'Turn on christmas lights when disarmed'
+- alias: '[X-Mas lights] Turn on when disarmed'
   hide_entity: true
   initial_state: true
   trigger:
@@ -13,7 +13,7 @@
     entity_id: light.christmas_lights
 
 
-- alias: '[Vacation] Christmas lights are on at sunset'
+- alias: '[X-Mas lights] Turn on at sunset if vacation'
   hide_entity: true
   initial_state: true
   trigger:
@@ -31,7 +31,7 @@
   - service: light.turn_on
     entity_id: light.christmas_lights
 
-- alias: '[Vacation] Christmas lights are off at sunrise'
+- alias: '[X-Mas lights] Turn off at sunrise if vacation'
   hide_entity: true
   initial_state: true
   trigger:

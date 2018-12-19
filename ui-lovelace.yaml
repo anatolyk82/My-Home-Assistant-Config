@@ -470,8 +470,8 @@ views:
         show_header_toggle: false
         entities:
           - input_boolean.vacation_mode
-          - automation.vacation_christmas_lights_are_off_at_sunrise
-          - automation.vacation_christmas_lights_are_on_at_sunset
+          - automation.xmas_lights_turn_off_at_sunrise_if_vacation
+          - automation.xmas_lights_turn_on_at_sunset_if_vacation
           - automation.vacation_lights_start_on_sunset
           - automation.vacation_lights_stop_at_midnight
           - script.vacation_lights
@@ -506,8 +506,8 @@ views:
               - automation.entrance_light_whatsapp_effect_before_the_buss
               - automation.hass_certificate_notification_on_update
               - automation.hass_certificate_auto_renew
-              - automation.turn_on_christmas_lights_when_disarmed
               - automation.camera_take_a_snapshot_on_detected_motion
+              - automation.xmas_lights_turn_on_when_disarmed
       - type: vertical-stack
         cards:
           - type: entities
