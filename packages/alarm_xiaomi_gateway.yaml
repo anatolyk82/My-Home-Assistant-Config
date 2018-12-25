@@ -88,7 +88,7 @@ automation:
 input_number:
   gateway_volume:
     name: Volume
-    initial: 10
+    initial: 90
     min: 0
     max: 100
     step: 5
