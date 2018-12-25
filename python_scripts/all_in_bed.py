@@ -16,6 +16,8 @@ if all_in_bed == 'on':
             if entity_id.find('7811dcb7f720') >= 0:
                 continue
             illumination_state = hass.states.get(entity_id)
+            if illumination_state.state == 'unknown':
+                continue
             if float(illumination_state.state) > 10:
                 all_in_bed = 'off'
                 logger.debug("AllInBed: Illumination for '%s' is above 10. Set the sensor to off", entity_id)
