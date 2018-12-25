@@ -18,10 +18,10 @@
         Home Assistant's certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days.
 
 
-- alias: '[HASS Certificate] Auto Renew'
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.ssl_cert_expiry
-    below: 20
-  action:
-  - service: shell_command.renew_ssl
+#- alias: '[HASS Certificate] Auto Renew'
+#  trigger:
+#  - platform: numeric_state
+#    entity_id: sensor.ssl_cert_expiry
+#    below: 20
+#  action:
+#  - service: shell_command.renew_ssl
