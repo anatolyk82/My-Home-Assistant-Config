@@ -366,38 +366,16 @@ views:
   - title: "Weather"
     id: weather
     cards:
-#      - type: iframe
-#        url: https://embed.windy.com/embed2.html?lat=58.356&lon=13.535&zoom=4
-#        aspect_ratio: 75%
-      - type: picture-elements
-        image: https://www.yr.no/place/Sweden/V%C3%A4stra_G%C3%B6taland/Gothenburg/meteogram.svg
-        elements:
-        - type: state-icon
-#      - type: custom:dark-sky-weather-card
-#        entity_sun: sun.sun
-#        entity_daily_summary: sensor.dark_sky_daily_summary
-#        entity_current_conditions: sensor.dark_sky_icon  
-#        entity_humidity: sensor.dark_sky_humidity
-#        entity_pressure: sensor.dark_sky_pressure
-#        entity_temperature: sensor.dark_sky_temperature
-#        entity_visibility: sensor.dark_sky_visibility
-#        entity_wind_bearing: sensor.dark_sky_wind_bearing
-#        entity_wind_speed: sensor.dark_sky_wind_speed
-#        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
-#        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
-#        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
-#        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
-#        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
-#        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
-#        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
-#        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
-#        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
-#        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
-#        entity_forecast_icon_1: sensor.dark_sky_icon_1
-#        entity_forecast_icon_2: sensor.dark_sky_icon_2
-#        entity_forecast_icon_3: sensor.dark_sky_icon_3
-#        entity_forecast_icon_4: sensor.dark_sky_icon_4
-#        entity_forecast_icon_5: sensor.dark_sky_icon_5
+      - type: vertical-stack
+        cards:
+        - type: weather-forecast
+          entity: weather.dark_sky
+        - type: glance
+          column_width: calc(100% / 3)
+          entities:
+          - sensor.temperature_158d0002478a68
+          - sensor.humidity_158d0002478a68
+          - sensor.pressure_158d0002478a68
       - type: history-graph
         title: Temperature history
         hours_to_show: 48
@@ -422,12 +400,6 @@ views:
             name: Yr pressure
           - entity: sensor.pressure_158d0002478a68
             name: Pressure sensor
-      - type: glance
-        column_width: calc(100% / 3)
-        entities:
-          - sensor.temperature_158d0002478a68
-          - sensor.humidity_158d0002478a68
-          - sensor.pressure_158d0002478a68
 
 
   - title: "Settings"
@@ -514,7 +486,7 @@ views:
               - automation.entrance_light_turn_on_when_the_door_opens
               - automation.entrance_light_whatsapp_effect_before_the_buss
               - automation.hass_certificate_notification_on_update
-              - automation.hass_certificate_auto_renew
+              #- automation.hass_certificate_auto_renew
               - automation.camera_take_a_snapshot_on_detected_motion
               - automation.xmas_lights_turn_on_when_disarmed
       - type: vertical-stack
@@ -553,6 +525,7 @@ views:
           cards:
             - type: entities
               title: Debug card
+              show_header_toggle: false
               entities:
                 - automation.alarm_sound_rpi_speaker
                 - automation.alarm_pending_sound
