@@ -1,17 +1,22 @@
 title: My Home
 # Include external resources
 resources:
-  - url: /local/custom_ui/alarm_control_panel-card.js
-    type: js
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=6
-    type: js
-  - url: /local/custom_ui/dark-sky-weather-card.css
-    type: css
-  - url: /local/custom_ui/bignumber-card.js
-    type: js
-  - url: /local/custom_ui/gauge-card.js
-    type: js
+    #  - url: /local/custom_ui/alarm_control_panel-card.js
+    #type: js
+    #  - url: /local/custom_ui/dark-sky-weather-card.js?v=6
+    #type: js
+    #  - url: /local/custom_ui/dark-sky-weather-card.css
+    #type: css
+    #- url: /local/custom_ui/bignumber-card.js
+    #type: js
+    #  - url: /local/custom_ui/gauge-card.js
+    #type: js
   - url: /local/custom_ui/slider-entity-row.js
+    type: js
+    #https://github.com/thomasloven/lovelace-fold-entity-row
+  - url: /local/custom_ui/card-tools.js #required for fold-entity-row
+    type: js
+  - url: /local/custom_ui/fold-entity-row.js #custom:fold-entity-row
     type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
@@ -369,7 +374,8 @@ views:
       - type: vertical-stack
         cards:
         - type: weather-forecast
-          entity: weather.dark_sky
+          #entity: weather.dark_sky
+          entity: weather.smhi_home
         - type: glance
           column_width: calc(100% / 3)
           entities:
@@ -426,27 +432,47 @@ views:
           - sensor.rssi_bed_light
           - sensor.rssi_keypad
       - type: entities
-        show_header_toggle: false
         title: Batteries
+        show_header_toggle: false
         entities:
-          - sensor.tradfri_remote_control_battery_level
-          #- sensor.ikea_switch_1_battery_level
-          - sensor.ikea_switch_2_battery_level
-          - sensor.battery_temperature_sensor_floor1
-          - sensor.battery_temperature_sensor_floor2
-          - sensor.battery_temperature_sensor_outside
-          - sensor.battery_motion_sensor_living_room
-          - sensor.battery_motion_sensor_kitchen
-          - sensor.battery_motion_sensor_entrance
-          - sensor.battery_motion_sensor_second_floor
-          - sensor.battery_motion_sensor_workroom
-          - sensor.battery_motion_sensor_room
-          - sensor.battery_motion_sensor_bedroom
-          - sensor.battery_water_leak_sensor
-          - sensor.battery_smoke_sensor
-          - sensor.battery_door_sensor_entrance
-          - sensor.battery_door_sensor_kitchen
-          - sensor.battery_door_sensor_living_room
+        - type: custom:fold-entity-row
+          head:
+            type: section
+            label: Door sensors
+          items:
+            - sensor.battery_door_sensor_entrance
+            - sensor.battery_door_sensor_kitchen
+            - sensor.battery_door_sensor_living_room
+        - type: custom:fold-entity-row
+          head:
+            type: section
+            label: Motion sensors
+          items:
+            - sensor.battery_motion_sensor_living_room
+            - sensor.battery_motion_sensor_kitchen
+            - sensor.battery_motion_sensor_entrance
+            - sensor.battery_motion_sensor_second_floor
+            - sensor.battery_motion_sensor_workroom
+            - sensor.battery_motion_sensor_room
+            - sensor.battery_motion_sensor_bedroom
+        - type: custom:fold-entity-row
+          head:
+            type: section
+            label: Temperature sensors
+          items:
+            - sensor.battery_temperature_sensor_floor1
+            - sensor.battery_temperature_sensor_floor2
+            - sensor.battery_temperature_sensor_outside
+        - type: custom:fold-entity-row
+          head:
+            type: section
+            label: Other sensors
+          items:
+            - sensor.battery_water_leak_sensor
+            - sensor.battery_smoke_sensor
+            - sensor.tradfri_remote_control_battery_level
+            #- sensor.ikea_switch_1_battery_level
+            - sensor.ikea_switch_2_battery_level
       - type: entities
         show_header_toggle: false
         entities:
@@ -547,6 +573,27 @@ views:
                 - input_number.loop_delay
                 - script.alarm_sound_xiaomi_gateway
                 - script.alarm_sound_xiaomi_gateway_once
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_boolean.show_system_info
+      - type: conditional
+        conditions:
+          - entity: input_boolean.show_system_info
+            state: "on"
+        card: 
+          type: vertical-stack
+          cards:
+            - type: entities
+              title: System Information
+              show_header_toggle: false
+              entities:
+              - sensor.processor_use
+              - sensor.cpu_temp
+              - sensor.memory_free
+              - sensor.memory_use_percent
+              - sensor.disk_use_percent_
+              - sensor.last_boot
 
 
   - title: "Kiosk"
