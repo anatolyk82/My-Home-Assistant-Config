@@ -1,4 +1,5 @@
 title: My Home
+#background: center / cover no-repeat url("/local/images/background.jpg") fixed
 # Include external resources
 resources:
     #  - url: /local/custom_ui/alarm_control_panel-card.js
@@ -20,7 +21,7 @@ resources:
     type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/background.png") fixed
+#background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view
 excluded_entities:
   - weblink.router
@@ -30,7 +31,7 @@ views:
     # Optional unique id for direct access /lovelace/${id}
     id: overview
     # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
+    #background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
     theme: dark-mode
     # The cards to show on this view.
