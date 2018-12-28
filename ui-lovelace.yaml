@@ -504,7 +504,6 @@ views:
               - automation.turn_off_upstairs_light_in_10_seconds_0000__0630
               - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
               - automation.bed_led_sunrise
-              - automation.startup_notification
               - automation.notify_on_unavailable_wifi_device
               - automation.entrance_light_force_to_update_vasttrafik_sensor
               - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
@@ -512,6 +511,9 @@ views:
               - automation.entrance_light_turn_on_when_the_door_opens
               - automation.entrance_light_whatsapp_effect_before_the_buss
               - automation.hass_certificate_notification_on_update
+              - automation.hass_new_version_available
+              - automation.hass_notification_on_start
+              - automation.hass_notification_on_stop
               #- automation.hass_certificate_auto_renew
               - automation.camera_take_a_snapshot_on_detected_motion
               - automation.xmas_lights_turn_on_when_disarmed

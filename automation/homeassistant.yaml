@@ -1,0 +1,30 @@
+- alias: "[HASS] Notification on start"
+  initial_state: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: "00:01:00"
+    - service: notify.pushover
+      data:
+        message: "Home Assistant has started"
+
+- alias: "[HASS] Notification on stop"
+  initial_state: true
+  trigger:
+    platform: homeassistant
+    event: shutdown
+  action:
+    - service: notify.pushover
+      data:
+        message: "Home Assistant has stopped"
+
+- alias: "[HASS] New Version available"
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.hass_available_version
+  action:
+  - service: notify.pushover
+    data:
+      message: "Home Assistant version {{ states.sensor.hass_available_version.state }} is available!"
