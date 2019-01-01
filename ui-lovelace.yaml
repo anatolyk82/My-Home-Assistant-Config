@@ -193,32 +193,28 @@ views:
             style:
               top: 15%
               left: 50%
-      - type: vertical-stack
+          - type: state-icon
+            tap_action:
+              action: toggle
+            hold_action: more-info
+            entity: light.christmas_lights
+            style:
+              top: 17%
+              left: 25%
+      - type: horizontal-stack
         cards:
-        - type: glance
-          column_width: calc(100% / 3)
-          entities:
-            - binary_sensor.motion_sensor_158d000236a817
-            - binary_sensor.motion_sensor_158d00023e8333
-            - binary_sensor.motion_sensor_158d000200ce6a
-        - type: glance
-          column_width: calc(100% / 3)
-          entities:
-            - binary_sensor.door_window_sensor_158d000238694e
-            - binary_sensor.door_window_sensor_158d00022bd3cb
-            - binary_sensor.door_window_sensor_158d000232d8e8
-        - type: glance
-          column_width: calc(100% / 3)
-          entities:
-            - sensor.illumination_158d000236a817
-            - sensor.illumination_158d00023e8333
-            - sensor.illumination_158d000200ce6a
+        - type: sensor
+          entity: sensor.temperature_158d000245a9ee
+          graph: line
+        - type: sensor
+          entity: sensor.humidity_158d000245a9ee
+          graph: line
       - type: glance
         column_width: calc(100% / 3)
         entities:
-          - sensor.temperature_158d000245a9ee
-          - sensor.humidity_158d000245a9ee
-          - sensor.pressure_158d000245a9ee
+          - sensor.illumination_158d000236a817
+          - sensor.illumination_158d00023e8333
+          - sensor.illumination_158d000200ce6a
       - type: vertical-stack
         cards:
         - type: entities
@@ -328,12 +324,14 @@ views:
             style:
               top: 33%
               left: 80%
-      - type: glance
-        column_width: calc(100% / 3)
-        entities:
-          - sensor.temperature_158d0002320bc1
-          - sensor.humidity_158d0002320bc1
-          - sensor.pressure_158d0002320bc1
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.temperature_158d0002320bc1
+          graph: line
+        - type: sensor
+          entity: sensor.humidity_158d0002320bc1
+          graph: line
       - type: glance
         column_width: calc(100% / 4)
         entities:
