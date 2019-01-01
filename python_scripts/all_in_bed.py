@@ -9,7 +9,10 @@ if alarm_state == 'armed_away':
 
 
 # Check all illumination sensors if their values are below 10
-if all_in_bed == 'on':
+# Illumination is checked only if the sensor is off. It allows to avoid
+# unexpecting turning off in the morning whenn all are still in bed
+all_in_bed_current_state = hass.states.get('binary_sensor.all_in_bed').state
+if all_in_bed_current_state == 'off' and all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('sensor'):
         if entity_id.find('illumination') >= 0:
             # Ignore Xiaomi gateway
