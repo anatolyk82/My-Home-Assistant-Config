@@ -290,8 +290,8 @@ sensor.sunset_time:
 sensor.sunrise_time:
   hidden: true
 
-sensor.solar_angle:
-  hidden: true
+#sensor.solar_angle:
+#  hidden: true
 
 sensor.daylight:
   hidden: true
