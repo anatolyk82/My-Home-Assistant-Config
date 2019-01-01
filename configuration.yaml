@@ -99,7 +99,7 @@ logger:
   default: warning
   logs:
     pydeconz: debug
-    #homeassistant.components.deconz: debug
+    homeassistant.components.deconz: debug
     #custom_components.xiaomi: debug
     #homeassistant.components.shell_command: debug
     homeassistant.components.mqtt: debug
