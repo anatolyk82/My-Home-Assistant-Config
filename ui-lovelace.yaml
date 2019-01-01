@@ -430,6 +430,17 @@ views:
           - sensor.ssl_certificate_expiry
       - type: entities
         entities:
+        - sensor.entrance_lamp_on_today
+        - sensor.living_room_right_lamp_on_today
+        - sensor.living_room_left_lamp_on_today
+        - sensor.upstairs_lamp_on_today
+        - sensor.bedroom_lamp_on_today
+        - sensor.bed_led_on_today
+        - sensor.room_lamp_on_today
+        - sensor.desktop_lamp_on_today
+        - sensor.workroom_lamp_on_today
+      - type: entities
+        entities:
           - sensor.rssi_bed_light
           - sensor.rssi_keypad
       - type: entities
