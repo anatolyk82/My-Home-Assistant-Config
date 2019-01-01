@@ -1,5 +1,6 @@
-- alias: Too many failed ssh logins
+- alias: 'Too many failed ssh logins'
   hide_entity: true
+  initial_state: true
   trigger:
     - platform: state
       entity_id: sensor.ssh_attack

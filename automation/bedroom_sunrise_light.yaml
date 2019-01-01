@@ -1,18 +1,18 @@
 - alias: "Bed LED sunrise"
-  initial_state: 'on'
+  initial_state: true
   trigger:
   - platform: time
     at: "06:50:00"
   condition:
-    - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a59e
-      below: 20
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: 'on'
-    - condition: state
-      entity_id: alarm_control_panel.house
-      state: 'disarmed'
+  - condition: numeric_state
+    entity_id: sensor.illumination_158d000236a59e
+    below: 20
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
   action:
   - service: light.turn_on
     entity_id: light.bed_led

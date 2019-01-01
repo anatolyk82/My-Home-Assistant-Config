@@ -1,8 +1,9 @@
 # Ikea switch 2
 
 - alias: 'Toggle bedroom light'
+  initial_state: true
   trigger:
-    platform: event
+  - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
@@ -71,8 +72,9 @@
 #      brightness: '{{ states.light.bulb_13.attributes.brightness - 25 }}'
 
 - alias: "Increase brightness bedroom to maximum"
+  initial_state: true
   trigger:
-    platform: event
+  - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
@@ -85,8 +87,9 @@
       brightness_pct: 100
 
 - alias: "Decrease brightness bedroom to minimum"
+  initial_state: true
   trigger:
-    platform: event
+  - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_2

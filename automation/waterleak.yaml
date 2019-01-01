@@ -1,5 +1,5 @@
 - alias: 'Water leakage floor 1'
-  initial_state: True
+  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.water_leak_sensor_158d00023aa4a9
@@ -11,7 +11,7 @@
 
 
 - alias: 'Water leakage floor 2'
-  initial_state: True
+  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.water_leak_sensor_158d00023e90af

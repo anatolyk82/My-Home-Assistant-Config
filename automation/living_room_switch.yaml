@@ -2,6 +2,7 @@
 # The bulb closer to the window is the right light - bulb_12
 #
 - alias: 'Turn on all lights in the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -28,6 +29,7 @@
       kelvin: 3200
 
 - alias: 'Turn off all lights the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -52,6 +54,7 @@
 
 
 - alias: 'Turn on the left light in the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -67,6 +70,7 @@
     entity_id: light.bulb_14
 
 - alias: 'Turn off the left light in the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -84,6 +88,7 @@
 
 
 - alias: 'Turn on the right light in the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -99,6 +104,7 @@
     entity_id: light.bulb_12
 
 - alias: 'Turn off the right light in the living room'
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -116,6 +122,7 @@
 
 
 - alias: "Increase brightness of the right light in the living room"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -133,6 +140,7 @@
       brightness: '{{ states.light.bulb_12.attributes.brightness + 50 }}'
 
 - alias: "Decrease brightness of the right light in the living room"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -152,6 +160,7 @@
 
 
 - alias: "Increase brightness of the left light in the living room"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -169,6 +178,7 @@
       brightness: '{{ states.light.bulb_14.attributes.brightness + 50 }}'
 
 - alias: "Decrease brightness of the left light in the living room"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -188,6 +198,7 @@
 
 
 - alias: "The right light brightness in the living room to maximum"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -205,6 +216,7 @@
       brightness_pct: 100
 
 - alias: "The right light brightness in the living room to minimum"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -224,6 +236,7 @@
 
 
 - alias: "The left light brightness in the living room to maximum"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -241,6 +254,7 @@
       brightness_pct: 100
 
 - alias: "The left light brightness in the living room to minimum"
+  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event

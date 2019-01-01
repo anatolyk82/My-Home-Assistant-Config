@@ -2,47 +2,15 @@
   hide_entity: true
   initial_state: true
   trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
-      to: 'off'
-      for:
-        minutes: 15
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
-      to: 'off'
-      for:
-        minutes: 15
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
-      to: 'off'
-      for:
-        minutes: 15
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
-      to: 'off'
-      for:
-        minutes: 15
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a581 #Work room
-      to: 'off'
-      for:
-        minutes: 15
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236be32 #Room
-      to: 'off'
-      for:
-        minutes: 15
-#    - platform: state
-#      entity_id: binary_sensor.motion_sensor_158d000236a59e #Bedroom
-#      to: 'off'
-#      for:
-#        minutes: 15
+  - platform: time
+    minutes: '/10'
+    seconds: 00
   condition:
-    - condition: state
-      entity_id: binary_sensor.all_in_bed
-      state: 'off'
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'off'
   action:
-    - service: python_script.all_in_bed
+  - service: python_script.all_in_bed
 
 
 - alias: '[All in bed] Set the sensor to off'
@@ -73,3 +41,12 @@
       state: 'on'
   action:
     - service: python_script.all_in_bed
+
+
+- alias: "[All in bed] Run script on start"
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: python_script.all_in_bed

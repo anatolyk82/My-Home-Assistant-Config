@@ -2,17 +2,17 @@
 # sensor.ssl_certificate_expiry
 
 - alias: '[HASS Certificate] Notification on update'
-  initial_state: 'on'
+  initial_state: true
   trigger:
-    platform: template
+  - platform: template
     value_template: >
       {{ states.sensor.ssl_certificate_expiry.state | int  <= 10 }}
   condition:
-    condition: template
+  - condition: template
     value_template: >
       {{ states.sensor.ssl_certificate_expiry.state != "unknown" }}
   action:
-    service: notify.pushover
+  - service: notify.pushover
     data_template:
       message: >
         Home Assistant's certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days.
