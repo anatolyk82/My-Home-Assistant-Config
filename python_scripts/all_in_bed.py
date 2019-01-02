@@ -43,7 +43,7 @@ if hass.states.get('light.bulb_16').state == 'on' and all_in_bed == 'on':
     all_in_bed = 'off'
 
 # Second floor
-if hass.states.get('light.light1').state == 'on' and all_in_bed == 'on':
+if hass.states.get('light.lamp_i1').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Second floor light is on. Set the sensor to off")
     all_in_bed = 'off'
 

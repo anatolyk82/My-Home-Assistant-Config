@@ -3,7 +3,7 @@
   trigger:
     platform: state
     entity_id: light.bed_led, light.bulb_12, light.bulb_13, light.bulb_14, light.bulb_15,
-               light.bulb_16, light.bulb_17, light.gateway_light_7811dcb7f720, light.light1,
+               light.bulb_16, light.bulb_17, light.gateway_light_7811dcb7f720, light.lamp_i1,
                light.xiaomi_philips_desklamp, light.xiaomi_philips_desklamp_ambient_light, 
                light.christmas_lights
     to: 'unavailable'

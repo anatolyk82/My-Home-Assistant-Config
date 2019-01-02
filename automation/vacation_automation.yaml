@@ -50,4 +50,4 @@
   - service: light.turn_off
     entity_id: light.xiaomi_philips_desklamp
   - service: light.turn_off
-    entity_id: light.light1
+    entity_id: light.lamp_i1

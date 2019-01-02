@@ -17,7 +17,7 @@
       before: "22:59"
   action:
     - service: light.turn_on
-      entity_id: light.light1
+      entity_id: light.lamp_i1
       data:
         brightness_pct: 95
         #kelvin: 3200
@@ -43,7 +43,7 @@
       before: "06:29"
   action:
     - service: light.turn_on
-      entity_id: light.light1
+      entity_id: light.lamp_i1
       data:
         brightness_pct: 5
         #kelvin: 2000
@@ -63,14 +63,14 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: light.light1
+      entity_id: light.lamp_i1
       state: 'on'
     - condition: time
       after: "06:30"
       before: "23:59"
   action:
     - service: light.turn_off
-      entity_id: light.light1
+      entity_id: light.lamp_i1
       data:
         transition: 10
 
@@ -89,11 +89,11 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: light.light1
+      entity_id: light.lamp_i1
       state: 'on'
     - condition: time
       after: "00:00"
       before: "06:29"
   action:
     - service: light.turn_off
-      entity_id: light.light1
+      entity_id: light.lamp_i1
