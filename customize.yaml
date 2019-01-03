@@ -282,6 +282,22 @@ light.xiaomi_philips_desklamp:
   friendly_name: Desktop lamp
   icon: mdi:desk-lamp
 
+light.christmas_lights:
+  icon: mdi:pine-tree
+
+#============================= Input boolean
+
+input_boolean.vacation_mode:
+  icon: mdi:beach
+
+input_boolean.show_system_info:
+  icon: mdi:memory
+
+input_boolean.all_lights_on_to_warm_color:
+  icon: mdi:lightbulb-on
+
+input_boolean.debug_mode:
+  icon: mdi:settings
 
 #============================= Sun sensors
 sensor.sunset_time:
@@ -289,9 +305,6 @@ sensor.sunset_time:
 
 sensor.sunrise_time:
   hidden: true
-
-#sensor.solar_angle:
-#  hidden: true
 
 sensor.daylight:
   hidden: true
@@ -339,6 +352,8 @@ binary_sensor.all_in_bed:
 #--
 sensor.keypad:
   hidden: true
+
+
 
 #===================== dark sky sensors
 sensor.dark_sky_icon:
