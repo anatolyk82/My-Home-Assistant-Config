@@ -445,44 +445,24 @@ views:
         title: Batteries
         show_header_toggle: false
         entities:
-        - type: custom:fold-entity-row
-          head:
-            type: section
-            label: Door sensors
-          items:
-            - sensor.battery_door_sensor_entrance
-            - sensor.battery_door_sensor_kitchen
-            - sensor.battery_door_sensor_living_room
-        - type: custom:fold-entity-row
-          head:
-            type: section
-            label: Motion sensors
-          items:
-            - sensor.battery_motion_sensor_living_room
-            - sensor.battery_motion_sensor_kitchen
-            - sensor.battery_motion_sensor_entrance
-            - sensor.battery_motion_sensor_second_floor
-            - sensor.battery_motion_sensor_workroom
-            - sensor.battery_motion_sensor_room
-            - sensor.battery_motion_sensor_bedroom
-        - type: custom:fold-entity-row
-          head:
-            type: section
-            label: Temperature sensors
-          items:
-            - sensor.battery_temperature_sensor_floor1
-            - sensor.battery_temperature_sensor_floor2
-            - sensor.battery_temperature_sensor_outside
-        - type: custom:fold-entity-row
-          head:
-            type: section
-            label: Other sensors
-          items:
-            - sensor.battery_water_leak_sensor
-            - sensor.battery_smoke_sensor
-            - sensor.tradfri_remote_control_battery_level
-            #- sensor.ikea_switch_1_battery_level
-            - sensor.ikea_switch_2_battery_level
+        - sensor.battery_door_sensor_entrance
+        - sensor.battery_door_sensor_kitchen
+        - sensor.battery_door_sensor_living_room
+        - sensor.battery_motion_sensor_living_room
+        - sensor.battery_motion_sensor_kitchen
+        - sensor.battery_motion_sensor_entrance
+        - sensor.battery_motion_sensor_second_floor
+        - sensor.battery_motion_sensor_workroom
+        - sensor.battery_motion_sensor_room
+        - sensor.battery_motion_sensor_bedroom
+        - sensor.battery_temperature_sensor_floor1
+        - sensor.battery_temperature_sensor_floor2
+        - sensor.battery_temperature_sensor_outside
+        - sensor.battery_water_leak_sensor
+        - sensor.battery_smoke_sensor
+        - sensor.tradfri_remote_control_battery_level
+        #- sensor.ikea_switch_1_battery_level
+        - sensor.ikea_switch_2_battery_level
       - type: entities
         show_header_toggle: false
         entities:
@@ -524,6 +504,7 @@ views:
               - automation.hass_new_version_available
               - automation.hass_notification_on_start
               - automation.hass_notification_on_stop
+              - automation.hass_turn_off_notifications_on_stop
               #- automation.hass_certificate_auto_renew
               - automation.camera_take_a_snapshot_on_detected_motion
               - automation.xmas_lights_turn_on_when_disarmed
