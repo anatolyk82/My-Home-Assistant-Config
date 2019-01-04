@@ -95,22 +95,24 @@ views:
         - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
         - switch.foscam1_motion
-        #- input_select.foscam1_motion_sensitivity
+        - switch.foscam2_motion
+        - input_boolean.foscam1_snapshot
+        - input_boolean.foscam2_snapshot
 
       - type: entities
         entities:
         - binary_sensor.openclose_4
 
       - type: picture-glance
-        title: "Bakgård"
+        title: "Bakgård (Foscam1)"
         camera_image: camera.foscam_1
         entities:
         - binary_sensor.foscam_1_motion
       - type: picture-glance
-        title: "Ej sätt"
+        title: "Gården (Foscam2)"
         camera_image: camera.foscam_2
         entities:
-        - binary_sensor.foscam_1_motion
+        - binary_sensor.foscam_2_motion
 
   - title: "First floor"
     id: floor1
@@ -505,8 +507,8 @@ views:
               - automation.hass_notification_on_start
               - automation.hass_notification_on_stop
               - automation.hass_turn_off_notifications_on_stop
-              #- automation.hass_certificate_auto_renew
-              - automation.camera_take_a_snapshot_on_detected_motion
+              - automation.camera_take_a_snapshot_from_foscam1_if_motion
+              - automation.camera_take_a_snapshot_from_foscam2_if_motion
               - automation.xmas_lights_turn_on_when_disarmed
       - type: vertical-stack
         cards:

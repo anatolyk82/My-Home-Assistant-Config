@@ -19,7 +19,7 @@
 #    entity_id: input_select.foscam1_motion_sensitivity
 
 
-- alias: '[Camera] Take a snapshot on detected motion'
+- alias: '[Camera] Take a snapshot from Foscam1 if motion'
   hide_entity: true
   initial_state: true
   trigger:
@@ -35,6 +35,24 @@
   - service: notify.pushover
     data:
       message: "Foscam1: Motion detected."
+
+
+- alias: '[Camera] Take snapshot on Foscam1'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam1_snapshot
+    to: 'on'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.foscam1_snapshot
+
 
 #  - service: notify.pushover
 #    data_template:

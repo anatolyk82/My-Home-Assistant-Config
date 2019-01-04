@@ -1,7 +1,0 @@
-- platform: command_line
-  name: "Foscam 1 motion"
-  device_class: motion
-  scan_interval: 3
-  command: 'curl -k --silent "https://192.168.1.31:443/cgi-bin/CGIProxy.fcgi?cmd=getDevState&usr=anatoly&pwd=190My182" | grep -oP "(?<=motionDetectAlarm>).*?(?=</motionDetectAlarm>)"'
-  payload_on: 2
-  payload_off: 1

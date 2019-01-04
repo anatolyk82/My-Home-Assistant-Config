@@ -285,6 +285,9 @@ light.xiaomi_philips_desklamp:
 light.christmas_lights:
   icon: mdi:pine-tree
 
+light.lamp_i1:
+  icon: mdi:ceiling-light
+
 #============================= Input boolean
 
 input_boolean.vacation_mode:
@@ -298,6 +301,12 @@ input_boolean.all_lights_on_to_warm_color:
 
 input_boolean.debug_mode:
   icon: mdi:settings
+
+input_boolean.foscam1_snapshot:
+  icon: mdi:camera
+
+input_boolean.foscam2_snapshot:
+  icon: mdi:camera
 
 #============================= Sun sensors
 sensor.sunset_time:

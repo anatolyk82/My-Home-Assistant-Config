@@ -22,3 +22,11 @@ all_lights_on_to_warm_color:
 show_system_info:
   name: System info
   initial: off
+
+foscam1_snapshot:
+  name: 'Foscam1 Snapshot'
+  initial: off
+
+foscam2_snapshot:
+  name: 'Foscam2 Snapshot'
+  initial: off
