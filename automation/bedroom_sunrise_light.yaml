@@ -13,6 +13,9 @@
   - condition: state
     entity_id: alarm_control_panel.house
     state: 'disarmed'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.bed_led
