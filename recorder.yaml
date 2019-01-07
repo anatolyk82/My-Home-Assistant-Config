@@ -11,9 +11,14 @@ exclude:
     - zone
     - media_player
     - sun
-    - moon
+    - input_number
+    - input_select
   entities:
     - camera.weather
     - sensor.homeassistantlog
     - sensor.homeassistant_v2db
+    - sensor.ssl_certificate_expiry
+    - sensor.last_boot
+    - sensor.moonphases
+    - sensor.moon
 
