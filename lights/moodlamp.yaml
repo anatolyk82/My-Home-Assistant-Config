@@ -1,0 +1,17 @@
+- platform: mqtt
+  name: 'Mood Lamp'
+  schema: json
+  rgb: true
+  brightness: true
+  command_topic: "light/moodlamp/set"
+  state_topic: "light/moodlamp"
+  availability_topic: "light/moodlamp/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  optimistic: false
+  qos: 0
+  effect: true
+  effect_list:
+  - Sparkles
+  - Stop
+
