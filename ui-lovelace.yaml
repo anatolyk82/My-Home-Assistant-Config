@@ -91,28 +91,10 @@ views:
       - type: entities
         entities:
         - switch.wifi_cord_1
-        - switch.tasmota_sonoff1
         - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
-        - switch.foscam1_motion
-        - switch.foscam2_motion
-        - input_boolean.foscam1_snapshot
-        - input_boolean.foscam2_snapshot
+        - light.mood_lamp
 
-      - type: entities
-        entities:
-        - binary_sensor.openclose_4
-
-      - type: picture-glance
-        title: "Bakgård (Foscam1)"
-        camera_image: camera.foscam_1
-        entities:
-        - binary_sensor.foscam_1_motion
-      - type: picture-glance
-        title: "Gården (Foscam2)"
-        camera_image: camera.foscam_2
-        entities:
-        - binary_sensor.foscam_2_motion
 
   - title: "First floor"
     id: floor1
@@ -369,6 +351,46 @@ views:
               name: Room
 
 
+  - title: "Yard"
+    id: yard
+    cards:
+      - type: entities
+        entities:
+        - switch.tasmota_sonoff1
+
+
+      - type: vertical-stack
+        cards:
+        - type: picture-glance
+          title: "Bakgård (Foscam1)"
+          camera_image: camera.foscam_1
+          entities:
+          - binary_sensor.foscam_1_motion
+
+        - type: entities
+          entities:
+          - switch.foscam1_motion
+          - input_boolean.foscam1_snapshot
+
+      - type: entities
+        entities:
+        - binary_sensor.openclose_4
+
+      - type: vertical-stack
+        cards:
+        - type: picture-glance
+          title: "Gården (Foscam2)"
+          camera_image: camera.foscam_2
+          entities:
+          - binary_sensor.foscam_2_motion
+
+        - type: entities
+          entities:
+          - switch.foscam2_motion
+          - input_boolean.foscam2_snapshot
+
+
+
   - title: "Weather"
     id: weather
     cards:
@@ -443,6 +465,7 @@ views:
         entities:
           - sensor.rssi_bed_light
           - sensor.rssi_keypad
+          - sensor.rssi_mood_lamp
       - type: entities
         title: Batteries
         show_header_toggle: false
