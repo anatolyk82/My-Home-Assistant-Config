@@ -17,3 +17,13 @@
   payload_not_available: "offline"
   value_template: "{{ value_json.rssi }}"
   unit_of_measurement: "dBm"
+
+- platform: mqtt
+  name: 'RSSI Mood lamp'
+  state_topic: "light/moodlamp"
+  icon: mdi:wifi
+  availability_topic: "light/moodlamp/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  value_template: "{{ value_json.rssi }}"
+  unit_of_measurement: "dBm"
