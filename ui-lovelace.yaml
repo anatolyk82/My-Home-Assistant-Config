@@ -485,8 +485,7 @@ views:
         - sensor.battery_temperature_sensor_outside
         - sensor.battery_water_leak_sensor
         - sensor.battery_smoke_sensor
-        - sensor.tradfri_remote_control_battery_level
-        #- sensor.ikea_switch_1_battery_level
+        - sensor.ikea_switch_1_battery_level
         - sensor.ikea_switch_2_battery_level
       - type: entities
         show_header_toggle: false
