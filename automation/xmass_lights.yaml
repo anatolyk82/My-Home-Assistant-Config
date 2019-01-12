@@ -1,6 +1,6 @@
 - alias: '[X-Mas lights] Turn on when disarmed'
   hide_entity: true
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -15,7 +15,7 @@
 
 - alias: '[X-Mas lights] Turn on at sunset if vacation'
   hide_entity: true
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: sun
     event: sunset
@@ -33,7 +33,7 @@
 
 - alias: '[X-Mas lights] Turn off at sunrise if vacation'
   hide_entity: true
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: sun
     event: sunrise

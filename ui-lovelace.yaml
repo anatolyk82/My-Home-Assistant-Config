@@ -177,14 +177,6 @@ views:
             style:
               top: 15%
               left: 50%
-          - type: state-icon
-            tap_action:
-              action: toggle
-            hold_action: more-info
-            entity: light.christmas_lights
-            style:
-              top: 17%
-              left: 25%
       - type: horizontal-stack
         cards:
         - type: sensor
@@ -528,7 +520,6 @@ views:
               - automation.hass_new_version_available
               - automation.hass_notification_on_start
               - automation.hass_notification_on_stop
-              - automation.hass_turn_off_notifications_on_stop
               - automation.camera_take_a_snapshot_from_foscam1_if_motion
               - automation.camera_take_a_snapshot_from_foscam2_if_motion
               - automation.xmas_lights_turn_on_when_disarmed
