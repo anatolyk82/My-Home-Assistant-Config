@@ -635,26 +635,22 @@ views:
               red: 80
         - type: horizontal-stack
           cards:
-#          - type: light
-#            entity: light.bulb_12
-#            name: "Living room right"
-#          - type: light
-#            entity: light.bulb_14
-#            name: "Living room left"
           - type: entity-button
             entity: light.bulb_12
             name: "Living room right"
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
           - type: entity-button
             entity: light.bulb_14
             name: "Living room left"
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
         - type: horizontal-stack
           cards:
@@ -664,7 +660,8 @@ views:
             icon: mdi:flash-circle
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
           - type: entity-button
             entity: light.bulb_16
@@ -672,24 +669,27 @@ views:
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
         - type: horizontal-stack
           cards:
           - type: entity-button
-            entity: light.christmas_lights
-            icon: mdi:star-face
+            entity: light.mood_lamp
+            icon: mdi:lava-lamp
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
-            #- type: entity-button
-            #entity: light.bulb_16
-            #name: "Entrance"
-            #icon: mdi:ceiling-light
-            #tap_action:
-            #  action: toggle
-            #hold_action: more-info
+          - type: entity-button
+            entity: light.mood_lamp #light.stairs_light
+            name: "Stairs"
+            icon: mdi:stairs
+            tap_action:
+              action: toggle
+            hold_action: 
+              action: more-info
 
       - type: vertical-stack
         cards:
@@ -725,13 +725,15 @@ views:
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
           - type: entity-button
             entity: light.bed_led
             name: "Bed light"
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
             icon: mdi:bed-empty
 
         - type: horizontal-stack
@@ -742,7 +744,8 @@ views:
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
           - type: entity-button
             entity: light.bulb_15
@@ -750,15 +753,9 @@ views:
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
-#        - type: entity-button
-#          entity: switch.wifi_cord_1
-#          name: "WiFi cord"
-#          icon: mdi:power-socket-eu
-#          tap_action:
-#            action: toggle
-#
         - type: horizontal-stack
           cards:
           - type: entity-button
@@ -766,7 +763,8 @@ views:
             icon: mdi:desk-lamp
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
 
           - type: entity-button
             entity: light.bulb_17
@@ -774,6 +772,7 @@ views:
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-            hold_action: more-info
+            hold_action: 
+              action: more-info
              
 
