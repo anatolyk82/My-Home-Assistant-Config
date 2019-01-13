@@ -348,8 +348,7 @@ views:
     cards:
       - type: entities
         entities:
-        - switch.tasmota_sonoff1
-
+        - switch.cameras
 
       - type: vertical-stack
         cards:

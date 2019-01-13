@@ -13,7 +13,7 @@
 
 
 - platform: mqtt
-  name: "Tasmota sonoff1"
+  name: "Cameras"
   state_topic: "stat/sonoff1/POWER"
   command_topic: "cmnd/sonoff1/POWER"
   availability_topic: "tele/sonoff1/LWT"
