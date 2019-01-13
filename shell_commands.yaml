@@ -6,3 +6,5 @@ alarm_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeas
 entrance_door_open: "/usr/bin/play --volume 0.4 /home/homeassistant/.homeassistant/media/door_open.wav"
 
 renew_ssl: "/home/homeassistant/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01"
+
+router_restart: !secret router_restart
