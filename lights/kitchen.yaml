@@ -1,0 +1,6 @@
+- platform: group
+  name: Kitchen Lights 1
+  entities:
+  - light.ikea_lamp_4
+  - light.ikea_lamp_5
+  - light.ikea_lamp_6

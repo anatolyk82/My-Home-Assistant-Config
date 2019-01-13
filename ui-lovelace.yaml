@@ -113,10 +113,10 @@ views:
             style:
               top: 77%
               left: 46%
-          - type: state-icon
+          - type: state-icon  # Motion - kitchen
             entity: binary_sensor.motion_sensor_158d000200ce6a
             style:
-              top: 35%
+              top: 25%
               left: 73%
           - type: state-icon # Motion - Living room
             entity: binary_sensor.motion_sensor_158d00023e8333
@@ -177,6 +177,15 @@ views:
             style:
               top: 15%
               left: 50%
+          - type: state-icon  # Kitchen lamps
+            entity: light.kitchen_lights_1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              top: 43%
+              left: 76%
       - type: horizontal-stack
         cards:
         - type: sensor
@@ -208,6 +217,15 @@ views:
             - type: custom:slider-entity-row
               entity: light.bulb_16
               name: Entrance
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_4
+              name: Kitchen Lamp 1
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_5
+              name: Kitchen Lamp 2
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_6
+              name: Kitchen Lamp 3
 
 
   - title: "Second floor"
@@ -510,6 +528,7 @@ views:
               - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
               - automation.bed_led_sunrise
               - automation.notify_on_unavailable_wifi_device
+              - automation.notify_on_unavailable_zigbee_lights
               - automation.entrance_light_force_to_update_vasttrafik_sensor
               - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
               - automation.entrance_light_turn_on_at_723
@@ -682,9 +701,9 @@ views:
               action: more-info
 
           - type: entity-button
-            entity: light.mood_lamp #light.stairs_light
-            name: "Stairs"
-            icon: mdi:stairs
+            entity: light.kitchen_lights_1
+            name: "Kitchen 1"
+            icon: mdi:track-light
             tap_action:
               action: toggle
             hold_action: 

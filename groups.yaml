@@ -1,3 +1,11 @@
+kitchen_lamps_1:
+  view: no
+  name: Kitchen Lamps 1
+  icon: mdi:track-light
+  entities:
+  - light.ikea_lamp_4
+  - light.ikea_lamp_5
+  - light.ikea_lamp_6
 
 weather_sensor_outside:
   view: no

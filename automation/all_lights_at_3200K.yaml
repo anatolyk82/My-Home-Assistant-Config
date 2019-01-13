@@ -29,6 +29,10 @@
     data:
       entity_id: light.bulb_17
       kelvin: 3200
+  - service: light.turn_on
+    data:
+      entity_id: light.kitchen_lights_1
+      kelvin: 3200
 
 
 

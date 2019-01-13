@@ -287,6 +287,9 @@ light.christmas_lights:
 light.lamp_i1:
   icon: mdi:ceiling-light
 
+light.kitchen_lights_1:
+  icon: mdi:track-light
+
 #============================= Input boolean
 
 input_boolean.vacation_mode:
