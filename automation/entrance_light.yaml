@@ -17,6 +17,9 @@
     state: 'disarmed'
   - condition: template
     value_template: '{{ (as_timestamp(now()) | timestamp_custom("%H:%M")) == states.sensor.vasttrafik_linje_176_mot_lindholmen.state }}'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
   - delay: '00:01:00'
   - service: homeassistant.update_entity
@@ -44,6 +47,9 @@
   - condition: state
     entity_id: light.bulb_16
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.bulb_16
@@ -70,6 +76,9 @@
     state: 'disarmed'
   - condition: state
     entity_id: light.bulb_16
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.vacation_mode
     state: 'off'
   action:
   - service: light.turn_on
