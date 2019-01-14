@@ -375,6 +375,7 @@ views:
           camera_image: camera.foscam_1
           entities:
           - binary_sensor.foscam_1_motion
+          - binary_sensor.foscam1
 
         - type: entities
           entities:
@@ -392,6 +393,7 @@ views:
           camera_image: camera.foscam_2
           entities:
           - binary_sensor.foscam_2_motion
+          - binary_sensor.foscam2
 
         - type: entities
           entities:
@@ -496,6 +498,7 @@ views:
         - sensor.battery_smoke_sensor
         - sensor.ikea_switch_1_battery_level
         - sensor.ikea_switch_2_battery_level
+        - sensor.ikea_switch_3_battery_level
       - type: entities
         show_header_toggle: false
         entities:
@@ -538,8 +541,10 @@ views:
               - automation.hass_new_version_available
               - automation.hass_notification_on_start
               - automation.hass_notification_on_stop
-              - automation.camera_take_a_snapshot_from_foscam1_if_motion
-              - automation.camera_take_a_snapshot_from_foscam2_if_motion
+              - automation.camera__foscam1_restart_power_if_unavailable
+              - automation.camera__foscam1_take_a_snapshot_if_motion
+              - automation.camera__foscam2_restart_power_if_unavailable
+              - automation.camera__foscam2_take_a_snapshot_if_motion
               - automation.xmas_lights_turn_on_when_disarmed
       - type: vertical-stack
         cards:

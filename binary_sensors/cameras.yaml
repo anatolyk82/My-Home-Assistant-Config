@@ -1,0 +1,11 @@
+- platform: ping
+  name: Foscam1
+  host: !secret foscam1_ip
+  count: 2
+  scan_interval: 30
+
+- platform: ping
+  name: Foscam2
+  host: !secret foscam1_ip
+  count: 2
+  scan_interval: 30

@@ -19,7 +19,7 @@
 #    entity_id: input_select.foscam1_motion_sensitivity
 
 
-- alias: '[Camera] Take a snapshot from Foscam1 if motion'
+- alias: '[Camera - Foscam1] Take a snapshot if motion'
   hide_entity: true
   initial_state: true
   trigger:
@@ -37,7 +37,7 @@
       message: "Foscam1: Motion detected."
 
 
-- alias: '[Camera] Take snapshot on Foscam1'
+- alias: '[Camera - Foscam1] Take snapshot'
   hide_entity: true
   initial_state: true
   trigger:
@@ -53,6 +53,28 @@
     data:
       entity_id: input_boolean.foscam1_snapshot
 
+
+- alias: '[Camera - Foscam1] Restart power if unavailable'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.foscam1
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.cameras
+  - delay:
+      seconds: 5
+  - service: switch.turn_on
+    data:
+      entity_id: switch.cameras
+  - service: notify.pushover
+    data:
+      message: "Foscam1 is unavailable. Restart power."
 
 #  - service: notify.pushover
 #    data_template:

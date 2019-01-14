@@ -46,6 +46,11 @@ sensor.nmap_google_home:
 device_tracker.nmap_google_home:
   hidden: true
 
+binary_sensor.foscam1:
+    icon: mdi:cctv
+
+binary_sensor.foscam2:
+    icon: mdi:cctv
 
 # ===================================
 
@@ -149,6 +154,10 @@ sensor.ikea_switch_1_battery_level:
 sensor.ikea_switch_2_battery_level:
   hidden: true
   friendly_name: IKEA button 2 battery
+
+sensor.ikea_switch_3_battery_level:
+  hidden: true
+  friendly_name: IKEA button 3 battery
 
 #=========================== Switches
 binary_sensor.switch_158d0002130dec:
