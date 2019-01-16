@@ -1,0 +1,6 @@
+- platform: group
+  name: Living room
+  entities:
+  - light.bulb_12
+  - light.bulb_14
+
