@@ -76,11 +76,3 @@
     data:
       message: "Foscam1 is unavailable. Restart power."
 
-#  - service: notify.pushover
-#    data_template:
-#      title: "Alarm"
-#      message: "Motion detected! A snapshot taken"
-#      data:
-#        file:
-#          path: '/home/homeassistant/snapshots/foscam1_motion.jpg'
-#      message: "Sensitivity: {{ states.input_select.foscam1_motion_sensitivity.state.split('-')[1] }}"
