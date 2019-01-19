@@ -1,18 +1,57 @@
-- alias: 'Notify on unavailable wifi device'
+- alias: '[WiFi Control] Notify if unavailable'
   initial_state: true
   trigger:
   - platform: state
     entity_id: light.bed_led, light.bulb_12, light.bulb_13, light.bulb_14, light.bulb_15,
                light.bulb_16, light.bulb_17, light.gateway_light_7811dcb7f720,
-               light.xiaomi_philips_desklamp, light.xiaomi_philips_desklamp_ambient_light
+               light.xiaomi_philips_desklamp
     to: 'unavailable'
+    for:
+      seconds: 15
   action:
   - service: notify.pushover
     data:
       title: "Unavailable device"
       message: "The following wifi devices are not available: {% for entity_id in states.group.all_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
-  - delay: '00:00:40'
   - service: python_script.wifi_problem
+
+
+- alias: '[WiFi Control] Check if a device comes from "unavailable"'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: light.bed_led, light.bulb_12, light.bulb_13, light.bulb_14, light.bulb_15,
+               light.bulb_16, light.bulb_17, light.gateway_light_7811dcb7f720,
+               light.xiaomi_philips_desklamp
+    from: 'unavailable'
+  action:
+  - service: python_script.wifi_problem
+
+
+- alias: "[WiFi Control] Run script on start"
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: python_script.wifi_problem
+
+
+- alias: "[WiFi Control] Restart router if too many unavailable"
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.wifi_problem
+    to: 'on'
+    for:
+      seconds: 45
+  action:
+  - service: notify.pushover
+    data:
+      title: "Warning"
+      message: "Too many unavailable WiFi devices. Restart the router."
+  - service: shell_command.router_restart
+
 
 
 - alias: 'Notify on unavailable zigbee lights'
@@ -21,8 +60,9 @@
   - platform: state
     entity_id: light.lamp_i1, light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6
     to: 'unavailable'
+    for:
+      seconds: 45
   action:
-  - delay: '00:01:00'
   - service: notify.pushover
     data:
       title: "Unavailable lights"

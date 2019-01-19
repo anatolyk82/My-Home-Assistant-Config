@@ -94,6 +94,7 @@ views:
         - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
         - light.mood_lamp
+        - binary_sensor.wifi_problem
 
 
   - title: "First floor"
@@ -173,10 +174,10 @@ views:
               top: 41%
               left: 57%
           - type: state-label
-            entity: sensor.temperature_158d000245a9ee
+            entity: sensor.temperature_158d000245a9ee #Living room temperature
             style:
               top: 15%
-              left: 50%
+              left: 27%
           - type: state-icon  # Kitchen lamps
             entity: light.kitchen_lights_1
             tap_action:
@@ -186,6 +187,15 @@ views:
             style:
               top: 43%
               left: 76%
+          - type: state-icon  # MoodLamp
+            entity: light.mood_lamp
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              top: 14%
+              left: 53%
       - type: horizontal-stack
         cards:
         - type: sensor
@@ -220,6 +230,9 @@ views:
             - type: custom:slider-entity-row
               entity: light.bulb_16
               name: Entrance
+            - type: custom:slider-entity-row
+              entity: light.kitchen_lights_1
+              name: Kitchen1
             - type: custom:slider-entity-row
               entity: light.ikea_lamp_4
               name: Kitchen Lamp 1
@@ -511,6 +524,8 @@ views:
           - automation.vacation_lights_start_on_sunset
           - automation.vacation_lights_stop_at_midnight
           - script.vacation_lights
+          - automation.moodlamp_turn_on_at_sunset_if_vacation
+          - automation.moodlamp_turn_off_at_sunrise_if_vacation
       - type: vertical-stack
         cards:
         - type: entities
@@ -533,7 +548,6 @@ views:
               - automation.turn_off_upstairs_light_in_10_seconds_0000__0630
               - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
               - automation.bed_led_sunrise
-              - automation.notify_on_unavailable_wifi_device
               - automation.notify_on_unavailable_zigbee_lights
               - automation.entrance_light_force_to_update_vasttrafik_sensor
               - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
@@ -549,6 +563,13 @@ views:
               - automation.camera__foscam2_restart_power_if_unavailable
               - automation.camera__foscam2_take_a_snapshot_if_motion
               - automation.xmas_lights_turn_on_when_disarmed
+              - automation.moodlamp_turn_on_when_disarmed
+              - automation.moodlamp_turn_on_if_motion_at_night
+              - automation.moodlamp_turn_off_if_no_motion_at_night
+              - automation.wifi_control_check_if_a_device_comes_from_unavailable
+              - automation.wifi_control_notify_if_unavailable
+              - automation.wifi_control_restart_router_if_too_many_unavailable
+              - automation.wifi_control_run_script_on_start
       - type: vertical-stack
         cards:
           - type: entities
