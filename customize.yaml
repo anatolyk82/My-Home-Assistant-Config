@@ -299,6 +299,18 @@ light.lamp_i1:
 light.kitchen_lights_1:
   icon: mdi:track-light
 
+light.bulb_12:
+  icon: mdi:ceiling-light
+
+light.bulb_14:
+  icon: mdi:ceiling-light
+
+light.bulb_16:
+  icon: mdi:ceiling-light
+
+light.mood_lamp:
+  icon: mdi:lava-lamp
+
 #============================= Input boolean
 
 input_boolean.vacation_mode:
