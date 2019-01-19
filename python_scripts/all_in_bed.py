@@ -72,7 +72,7 @@ if hass.states.get('light.bulb_17').state == 'on' and all_in_bed == 'on':
 
 
 # Check the media player
-if hass.states.get('media_player.sirius').state == 'on' and all_in_bed == 'on':
+if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
     logger.debug("AllInBed: The media player 'Sirius' is on. Set the sensor to off")
     all_in_bed = 'off'
 
