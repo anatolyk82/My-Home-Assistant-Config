@@ -30,3 +30,4 @@ logs:
   homeassistant.components.mqtt: debug
   homeassistant.components.python_script: debug
   homeassistant.components.sensor.command_line: warn
+  homeassistant.components.sensor.vasttrafik: error
