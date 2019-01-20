@@ -560,7 +560,11 @@ views:
           - automation.upstairs_light_turn_on_if_movements_23_00_06_30
           - automation.upstairs_light_turn_off_in_10_seconds_00_00_06_30
           - automation.upstairs_light_turn_off_in_5_minutes_06_30_00_00
-          - automation.bed_led_sunrise
+          - automation.bedroom_bed_led_sunrise
+          - automation.bedroom_toggle_bed_light
+          - automation.bedroom_toggle_light
+          - automation.bedroom_increase_brightness_to_maximum
+          - automation.bedroom_decrease_brightness_to_minimum
           - automation.notify_on_unavailable_zigbee_lights
           - automation.entrance_light_force_to_update_vasttrafik_sensor
           - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed

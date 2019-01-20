@@ -1,4 +1,4 @@
-- alias: "Toggle bed light"
+- alias: "[Bedroom] Toggle bed light"
   initial_state: true
   trigger:
   - platform: event

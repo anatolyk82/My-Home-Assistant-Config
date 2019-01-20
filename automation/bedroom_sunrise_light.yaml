@@ -1,4 +1,4 @@
-- alias: "Bed LED sunrise"
+- alias: "[Bedroom] Bed LED sunrise"
   initial_state: true
   trigger:
   - platform: time

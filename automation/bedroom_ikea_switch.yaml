@@ -1,6 +1,6 @@
 # Ikea switch 2
 
-- alias: 'Toggle bedroom light'
+- alias: '[Bedroom] Toggle light'
   initial_state: true
   trigger:
   - platform: event
@@ -13,65 +13,7 @@
     entity_id: light.bulb_13
 
 
-#- alias: 'Turn on bedroom'
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_2
-#      event: 1002
-#  condition:
-#  - condition: state
-#    entity_id: light.bulb_13
-#    state: 'off'
-#  action:
-#  - service: light.turn_on
-#    entity_id: light.bulb_13
-#
-#- alias: 'Turn off bedroom'
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_2
-#      event: 1002
-#  condition:
-#  - condition: state
-#    entity_id: light.bulb_13
-#    state: 'on'
-#  action:
-#  - service: light.turn_off
-#    entity_id: light.bulb_13
-
-#---------------------------------------
-#- alias: "Increase brightness bedroom"
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_2
-#      event: 2002
-#  action:
-#  - service: light.turn_on
-#    entity_id: light.bulb_13
-#    data_template: 
-#      brightness: '{{ states.light.bulb_13.attributes.brightness + 25 }}'
-#
-#
-#- alias: "Decrease brightness bedroom"
-#  trigger:
-#    platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: ikea_switch_2
-#      event: 3002
-#  action:
-#  - service: light.turn_on
-#    entity_id: light.bulb_13
-#    data_template: 
-#      brightness: '{{ states.light.bulb_13.attributes.brightness - 25 }}'
-
-- alias: "Increase brightness bedroom to maximum"
+- alias: "[Bedroom] Increase brightness to maximum"
   initial_state: true
   trigger:
   - platform: event
@@ -86,7 +28,7 @@
     data_template: 
       brightness_pct: 100
 
-- alias: "Decrease brightness bedroom to minimum"
+- alias: "[Bedroom] Decrease brightness to minimum"
   initial_state: true
   trigger:
   - platform: event
