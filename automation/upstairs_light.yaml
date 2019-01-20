@@ -1,4 +1,4 @@
-- alias: 'Turn on upstairs light if movements (06:30 - 23:00)'
+- alias: '[Upstairs light] Turn on if movements (06:30 - 23:00)'
   hide_entity: true
   initial_state: true
   trigger:
@@ -24,7 +24,7 @@
         transition: 5
 
 
-- alias: 'Turn on upstairs light if movements (23:00 - 06:30)'
+- alias: '[Upstairs light] Turn on if movements (23:00 - 06:30)'
   hide_entity: true
   initial_state: true
   trigger:
@@ -49,7 +49,7 @@
         #kelvin: 2000
 
 
-- alias: 'Turn off upstairs light in 5 minutes (06:30 - 00:00)'
+- alias: '[Upstairs light] Turn off in 5 minutes (06:30 - 00:00)'
   hide_entity: true
   initial_state: true
   trigger:
@@ -75,7 +75,7 @@
         transition: 10
 
 
-- alias: 'Turn off upstairs light in 10 seconds (00:00 - 06:30)'
+- alias: '[Upstairs light] Turn off in 10 seconds (00:00 - 06:30)'
   hide_entity: true
   initial_state: true
   trigger:

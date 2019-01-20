@@ -94,6 +94,7 @@ views:
         - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
         - light.mood_lamp
+        - light.stairs
         - binary_sensor.wifi_problem
 
 
@@ -464,19 +465,19 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - sensor.hass_available_version
-          - sensor.hass_installed_version
+        - sensor.hass_available_version
+        - sensor.hass_installed_version
       - type: entities
         show_header_toggle: false
         title: HA Files
         entities:
-          - sensor.homeassistant_v2db
-          - sensor.homeassistantlog
+        - sensor.home_assistant_v2_db
+        - sensor.home_assistant_log
       - type: entities
         show_header_toggle: false
         entities:
-          - sensor.ssh_attack
-          - sensor.ssl_certificate_expiry
+        - sensor.ssh_attack
+        - sensor.ssl_certificate_expiry
       - type: entities
         entities:
         - sensor.entrance_lamp_on_today
@@ -515,119 +516,134 @@ views:
         - sensor.ikea_switch_1_battery_level
         - sensor.ikea_switch_2_battery_level
         - sensor.ikea_switch_3_battery_level
-      - type: entities
-        show_header_toggle: false
-        entities:
+
+      - type: vertical-stack
+        cards:
+        - type: entities
+          show_header_toggle: false
+          entities:
           - input_boolean.vacation_mode
-          - automation.xmas_lights_turn_off_at_sunrise_if_vacation
-          - automation.xmas_lights_turn_on_at_sunset_if_vacation
-          - automation.vacation_lights_start_on_sunset
-          - automation.vacation_lights_stop_at_midnight
-          - script.vacation_lights
-          - automation.moodlamp_turn_on_at_sunset_if_vacation
-          - automation.moodlamp_turn_off_at_sunrise_if_vacation
+        - type: conditional
+          conditions:
+          - entity: input_boolean.vacation_mode
+            state: "on"
+          card: 
+            type: entities
+            show_header_toggle: false
+            entities:
+            - script.vacation_lights
+            - automation.xmas_lights_turn_off_at_sunrise_if_vacation
+            - automation.xmas_lights_turn_on_at_sunset_if_vacation
+            - automation.vacation_lights_start_on_sunset
+            - automation.vacation_lights_stop_at_midnight
+            - automation.moodlamp_turn_on_at_sunset_if_vacation
+            - automation.moodlamp_turn_off_at_sunrise_if_vacation
+
       - type: vertical-stack
         cards:
         - type: entities
           show_header_toggle: false
           title: Alarms
           entities:
-            - automation.water_leakage_floor_1
-            - automation.water_leakage_floor_2
-            - automation.too_high_temperature_at_the_first_floor
-            - automation.too_high_temperature_at_the_second_floor
-            - automation.smoke_alarm
+          - automation.water_leakage_floor_1
+          - automation.water_leakage_floor_2
+          - automation.too_high_temperature_at_the_first_floor
+          - automation.too_high_temperature_at_the_second_floor
+          - automation.smoke_alarm
         - type: entities
           show_header_toggle: false
           title: Automations
           entities:
-              - automation.update_available_notifications
-              - automation.entrance_door_sound
-              - automation.turn_on_upstairs_light_if_movements_2300__0630
-              - automation.turn_on_upstairs_light_if_movements_0630__2300
-              - automation.turn_off_upstairs_light_in_10_seconds_0000__0630
-              - automation.turn_off_upstairs_light_in_5_minutes_0630__0000
-              - automation.bed_led_sunrise
-              - automation.notify_on_unavailable_zigbee_lights
-              - automation.entrance_light_force_to_update_vasttrafik_sensor
-              - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
-              - automation.entrance_light_turn_on_at_723
-              - automation.entrance_light_turn_on_when_the_door_opens
-              - automation.entrance_light_whatsapp_effect_before_the_buss
-              - automation.hass_certificate_notification_on_update
-              - automation.hass_new_version_available
-              - automation.hass_notification_on_start
-              - automation.hass_notification_on_stop
-              - automation.camera__foscam1_restart_power_if_unavailable
-              - automation.camera__foscam1_take_a_snapshot_if_motion
-              - automation.camera__foscam2_restart_power_if_unavailable
-              - automation.camera__foscam2_take_a_snapshot_if_motion
-              - automation.xmas_lights_turn_on_when_disarmed
-              - automation.moodlamp_turn_on_when_disarmed
-              - automation.moodlamp_turn_on_if_motion_at_night
-              - automation.moodlamp_turn_off_if_no_motion_at_night
-              - automation.wifi_control_check_if_a_device_comes_from_unavailable
-              - automation.wifi_control_notify_if_unavailable
-              - automation.wifi_control_restart_router_if_too_many_unavailable
-              - automation.wifi_control_run_script_on_start
+          - automation.update_available_notifications
+          - automation.entrance_door_sound
+          - automation.upstairs_light_turn_on_if_movements_06_30_23_00
+          - automation.upstairs_light_turn_on_if_movements_23_00_06_30
+          - automation.upstairs_light_turn_off_in_10_seconds_00_00_06_30
+          - automation.upstairs_light_turn_off_in_5_minutes_06_30_00_00
+          - automation.bed_led_sunrise
+          - automation.notify_on_unavailable_zigbee_lights
+          - automation.entrance_light_force_to_update_vasttrafik_sensor
+          - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
+          - automation.entrance_light_turn_on_at_7_23
+          - automation.entrance_light_turn_on_when_the_door_opens
+          - automation.entrance_light_whatsapp_effect_before_the_buss
+          - automation.hass_certificate_notification_on_update
+          - automation.hass_new_version_available
+          - automation.hass_notification_on_start
+          - automation.hass_notification_on_stop
+          - automation.camera_foscam1_restart_power_if_unavailable
+          - automation.camera_foscam1_take_a_snapshot_if_motion
+          - automation.camera_foscam2_restart_power_if_unavailable
+          - automation.camera_foscam2_take_a_snapshot_if_motion
+          - automation.christmas_lights_turn_on_when_disarmed
+          - automation.moodlamp_turn_on_when_disarmed
+          - automation.moodlamp_turn_on_if_motion_at_night
+          - automation.moodlamp_turn_off_if_no_motion_at_night
+          - automation.wifi_control_check_if_a_device_comes_from_unavailable
+          - automation.wifi_control_notify_if_unavailable
+          - automation.wifi_control_restart_router_if_too_many_unavailable
+          - automation.wifi_control_run_script_on_start
+
       - type: vertical-stack
         cards:
           - type: entities
             title: Network
             show_header_toggle: false
             entities:
-              - sensor.nmap_router
-              - sensor.nmap_xiaomi_gateway
-              - sensor.nmap_google_home
-              - sensor.nmap_laptop_dell_xps15
-              - sensor.nmap_laptop_dell_xps13
-              - sensor.nmap_iphone
-              - sensor.nmap_galaxy_s9
-              - sensor.nmap_galaxy_tablet
+            - sensor.nmap_router
+            - sensor.nmap_xiaomi_gateway
+            - sensor.nmap_google_home
+            - sensor.nmap_laptop_dell_xps15
+            - sensor.nmap_laptop_dell_xps13
+            - sensor.nmap_iphone
+            - sensor.nmap_galaxy_s9
+            - sensor.nmap_galaxy_tablet
           - type: history-graph
             title: 'Ping'
             hours_to_show: 24
             entities:
-              - sensor.ping_min_xiaomi
-              - sensor.ping_avg_xiaomi
-              - sensor.ping_max_xiaomi
+            - sensor.ping_min_xiaomi
+            - sensor.ping_avg_xiaomi
+            - sensor.ping_max_xiaomi
+
       - type: entities
         show_header_toggle: false
         entities:
-          - input_boolean.debug_mode
+        - input_boolean.debug_mode
       - type: conditional
         conditions:
-          - entity: input_boolean.debug_mode
-            state: "on"
-          - entity: alarm_control_panel.house
-            state: "disarmed"
+        - entity: input_boolean.debug_mode
+          state: "on"
+        - entity: alarm_control_panel.house
+          state: "disarmed"
         card: 
           type: vertical-stack
           cards:
-            - type: entities
-              title: Debug card
-              show_header_toggle: false
-              entities:
-                - automation.alarm_sound_rpi_speaker
-                - automation.alarm_pending_sound
-                - script.test_pushover
-                - script.alarm_light_xiaomi_gateway
-                - script.alarm_light_xiaomi_gateway_loop
-                - script.alarm_on
-                - script.alarm_off
-                - switch.alarm_switch
-                - input_boolean.all_lights_on_to_warm_color
-                - switch.router_restart
-            - type: entities
-              title: Xiaomi Alarm settings
-              show_header_toggle: false
-              entities:
-                - input_select.gateway_sound
-                - input_boolean.mute_gateway_sounds
-                - input_number.gateway_volume
-                - input_number.loop_delay
-                - script.alarm_sound_xiaomi_gateway
-                - script.alarm_sound_xiaomi_gateway_once
+          - type: entities
+            title: Debug card
+            show_header_toggle: false
+            entities:
+            - automation.alarm_sound_rpi_speaker
+            - automation.alarm_pending_sound
+            - script.test_pushover
+            - script.alarm_light_xiaomi_gateway
+            - script.alarm_light_xiaomi_gateway_loop
+            - script.alarm_on
+            - script.alarm_off
+            - switch.alarm_switch
+            - input_boolean.all_lights_on_to_warm_color
+            - switch.router_restart
+          - type: entities
+            title: Xiaomi Alarm settings
+            show_header_toggle: false
+            entities:
+            - input_select.gateway_sound
+            - input_boolean.mute_gateway_sounds
+            - input_number.gateway_volume
+            - input_number.loop_delay
+            - script.alarm_sound_xiaomi_gateway
+            - script.alarm_sound_xiaomi_gateway_once
+
       - type: entities
         show_header_toggle: false
         entities:
@@ -647,7 +663,7 @@ views:
               - sensor.cpu_temp
               - sensor.memory_free
               - sensor.memory_use_percent
-              - sensor.disk_use_percent_
+              - sensor.disk_use_percent
               - sensor.last_boot
 
 

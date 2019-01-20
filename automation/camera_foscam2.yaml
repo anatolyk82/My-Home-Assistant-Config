@@ -1,4 +1,4 @@
-- alias: '[Camera - Foscam2] Take a snapshot if motion'
+- alias: '[Camera Foscam2] Take a snapshot if motion'
   hide_entity: true
   initial_state: true
   trigger:
@@ -15,7 +15,7 @@
     data:
       message: "Foscam2: Motion detected."
 
-- alias: '[Camera - Foscam2] Take snapshot'
+- alias: '[Camera Foscam2] Take snapshot'
   hide_entity: true
   initial_state: true
   trigger:
@@ -32,7 +32,7 @@
       entity_id: input_boolean.foscam2_snapshot
 
 
-- alias: '[Camera - Foscam2] Restart power if unavailable'
+- alias: '[Camera Foscam2] Restart power if unavailable'
   hide_entity: true
   initial_state: true
   trigger:
