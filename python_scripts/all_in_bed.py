@@ -37,8 +37,13 @@ if hass.states.get('light.bulb_14').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Living room light is on. Set the sensor to off")
     all_in_bed = 'off'
 
+# Entrance
+if hass.states.get('light.ikea_lamp_2').state == 'on' and all_in_bed == 'on':
+    logger.debug("AllInBed: Entrance light is on. Set the sensor to off")
+    all_in_bed = 'off'
+
 # Second floor
-if hass.states.get('light.lamp_i1').state == 'on' and all_in_bed == 'on':
+if hass.states.get('light.ikea_lamp_1').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Second floor light is on. Set the sensor to off")
     all_in_bed = 'off'
 

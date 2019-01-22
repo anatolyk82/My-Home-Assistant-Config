@@ -263,7 +263,7 @@ views:
               top: 77%
               left: 50%
           - type: state-icon
-            entity: light.lamp_i1
+            entity: light.ikea_lamp_1
             tap_action:
               action: toggle
             hold_action: more-info
@@ -356,7 +356,7 @@ views:
           title: Lights
           entities:
             - type: custom:slider-entity-row
-              entity: light.lamp_i1
+              entity: light.ikea_lamp_1
               name: Upstairs
             - type: custom:slider-entity-row
               entity: light.bulb_13
@@ -806,7 +806,7 @@ views:
         - type: horizontal-stack
           cards:
           - type: entity-button
-            entity: light.lamp_i1
+            entity: light.ikea_lamp_1
             name: "Upstairs"
             icon: mdi:ceiling-light
             tap_action:

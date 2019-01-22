@@ -58,7 +58,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: light.lamp_i1, light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6
+    entity_id: light.ikea_lamp_1, light.ikea_lamp_2, light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6
     to: 'unavailable'
     for:
       seconds: 45

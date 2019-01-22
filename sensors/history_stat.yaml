@@ -48,7 +48,7 @@
 
 - platform: history_stats
   name: Upstairs Lamp On Today
-  entity_id: light.lamp_i1
+  entity_id: light.ikea_lamp_1
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
