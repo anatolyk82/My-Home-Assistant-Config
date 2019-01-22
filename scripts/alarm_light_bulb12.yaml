@@ -1,8 +1,0 @@
-alarm_light_bulb12:
-  alias: "Bulb 12 in The Police effect"
-  sequence:
-    - service: light.turn_on
-      data:
-        entity_id: light.bulb_12
-        effect: "Police"
-

@@ -1,5 +1,5 @@
 # The bulb closer to the kitchen is the left light - bulb_14
-# The bulb closer to the window is the right light - bulb_12
+# The bulb closer to the window is the right light - bulb_16
 #
 - alias: '[Living room] Turn on all lamps'
   initial_state: true
@@ -11,14 +11,14 @@
       event: 1002
   condition:
   - condition: state
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     state: 'off'
   - condition: state
     entity_id: light.bulb_14
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     data:
       kelvin: 3200
   - service: light.turn_on
@@ -38,14 +38,14 @@
     condition: or
     conditions:
     - condition: state
-      entity_id: light.bulb_12
+      entity_id: light.bulb_16
       state: 'on'
     - condition: state
       entity_id: light.bulb_14
       state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
   - service: light.turn_off
     entity_id: light.bulb_14
 
@@ -74,7 +74,7 @@
       event: 5002
   action:
   - service: light.toggle
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
 
 
 - alias: "[Living room] Increase brightness of the right lamp"
@@ -87,13 +87,13 @@
       event: 2002
   condition:
   - condition: state
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     data_template: 
-      brightness: '{{ states.light.bulb_12.attributes.brightness + 75 }}'
+      brightness: '{{ states.light.bulb_16.attributes.brightness + 75 }}'
 
 - alias: "[Living room] Decrease brightness of the right lamp"
   initial_state: true
@@ -105,13 +105,13 @@
       event: 3002
   condition:
   - condition: state
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     data_template: 
-      brightness: '{{ states.light.bulb_12.attributes.brightness - 75 }}'
+      brightness: '{{ states.light.bulb_16.attributes.brightness - 75 }}'
         
 
 
@@ -163,11 +163,11 @@
       event: 2001
   condition:
   - condition: state
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     data_template: 
       brightness_pct: 100
 
@@ -181,11 +181,11 @@
       event: 3001
   condition:
   - condition: state
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
     data_template: 
       brightness_pct: 5
 

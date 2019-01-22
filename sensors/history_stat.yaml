@@ -8,7 +8,7 @@
 
 - platform: history_stats
   name: Entrance Lamp On Today
-  entity_id: light.bulb_16
+  entity_id: light.ikea_lamp_2
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
@@ -24,7 +24,7 @@
 
 - platform: history_stats
   name: Living room left Lamp On Today
-  entity_id: light.bulb_12
+  entity_id: light.bulb_16
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'

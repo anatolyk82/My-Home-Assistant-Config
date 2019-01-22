@@ -21,10 +21,6 @@ alarm_on:
       entity_id: automation.alarm_sound_rpi_speaker
     - service: light.turn_on
       data:
-        entity_id: light.bulb_12
-        effect: "Police"
-    - service: light.turn_on
-      data:
         entity_id: light.bulb_13
         effect: "Police"
     - service: light.turn_on

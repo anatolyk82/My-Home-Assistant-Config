@@ -29,17 +29,12 @@ if all_in_bed_current_state == 'off' and all_in_bed == 'on':
 
 # Check some lamps if they are on
 # Living room
-if hass.states.get('light.bulb_12').state == 'on' and all_in_bed == 'on':
+if hass.states.get('light.bulb_16').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Living room light is on. Set the sensor to off")
     all_in_bed = 'off'
 
 if hass.states.get('light.bulb_14').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Living room light is on. Set the sensor to off")
-    all_in_bed = 'off'
-
-# Entrance
-if hass.states.get('light.bulb_16').state == 'on' and all_in_bed == 'on':
-    logger.debug("AllInBed: Entrance light is on. Set the sensor to off")
     all_in_bed = 'off'
 
 # Second floor

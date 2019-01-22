@@ -2,18 +2,18 @@ vacation_lights:
   alias: "Automatic lights if the vacation mode is on"
   sequence:
   - service: light.turn_on
-    entity_id: light.bulb_16 #Entrance
+    entity_id: light.ikea_lamp_2 #Entrance
   - delay: '00:25:00'
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
   - service: light.turn_on
     entity_id: light.bulb_14
   - delay: '00:05:00'
   - service: light.turn_off
-    entity_id: light.bulb_16
+    entity_id: light.ikea_lamp_2
   - delay: '00:05:00'
   - service: light.turn_off
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
   - delay: '00:15:00'
   - service: light.turn_off
     entity_id: light.bulb_14
@@ -44,12 +44,12 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.xiaomi_philips_desklamp
   - service: light.turn_on
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
   - service: light.turn_on
     entity_id: light.bulb_14
   - delay: '00:15:00'
   - service: light.turn_off
-    entity_id: light.bulb_12
+    entity_id: light.bulb_16
   - delay: '00:35:00'
   - service: light.turn_on
     entity_id: light.lamp_i1

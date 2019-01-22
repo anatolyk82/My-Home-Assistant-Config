@@ -8,7 +8,6 @@ wifi_devices = [
         'light.mood_lamp',
         'light.xiaomi_philips_desklamp',
         'light.bed_led',
-        'light.bulb_12',
         'light.bulb_13',
         'light.bulb_14',
         'light.bulb_17',

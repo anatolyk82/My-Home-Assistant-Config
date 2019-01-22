@@ -299,9 +299,6 @@ light.lamp_i1:
 light.kitchen_lights_1:
   icon: mdi:track-light
 
-light.bulb_12:
-  icon: mdi:ceiling-light
-
 light.bulb_14:
   icon: mdi:ceiling-light
 
@@ -360,11 +357,11 @@ sensor.ssh_attack:
 sensor.ping_xiaomi_gateway:
   hidden: true
 
-sensor.homeassistantlog:
+sensor.home_assistant_log:
   hidden: true
   friendly_name: Log File
 
-sensor.homeassistant_v2db:
+sensor.home_assistant_v2_db:
   hidden: true
   friendly_name: Database
 

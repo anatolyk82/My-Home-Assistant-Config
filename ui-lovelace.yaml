@@ -126,7 +126,7 @@ views:
               top: 25%
               left: 39%
           - type: state-icon
-            entity: light.bulb_12
+            entity: light.bulb_16
             tap_action:
               action: toggle
             hold_action: more-info
@@ -142,7 +142,7 @@ views:
               top: 45%
               left: 47%
           - type: state-icon # Light - Entrance
-            entity: light.bulb_16
+            entity: light.ikea_lamp_2
             tap_action:
               action: toggle
             hold_action: more-info
@@ -223,13 +223,13 @@ views:
               entity: light.living_room
               name: Living room
             - type: custom:slider-entity-row
-              entity: light.bulb_12
+              entity: light.bulb_16
               name: Living room right
             - type: custom:slider-entity-row
               entity: light.bulb_14
               name: Living room left
             - type: custom:slider-entity-row
-              entity: light.bulb_16
+              entity: light.ikea_lamp_2
               name: Entrance
             - type: custom:slider-entity-row
               entity: light.kitchen_lights_1
@@ -703,7 +703,7 @@ views:
         - type: horizontal-stack
           cards:
           - type: entity-button
-            entity: light.bulb_12
+            entity: light.bulb_16
             name: "Living room right"
             icon: mdi:ceiling-light
             tap_action:
@@ -731,7 +731,7 @@ views:
               action: more-info
 
           - type: entity-button
-            entity: light.bulb_16
+            entity: light.ikea_lamp_2
             name: "Entrance"
             icon: mdi:ceiling-light
             tap_action:
