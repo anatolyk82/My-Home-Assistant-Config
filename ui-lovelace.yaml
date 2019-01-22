@@ -550,6 +550,7 @@ views:
           - automation.too_high_temperature_at_the_first_floor
           - automation.too_high_temperature_at_the_second_floor
           - automation.smoke_alarm
+          - automation.allinbed_alarm_trigger_if_any_door_is_open
         - type: entities
           show_header_toggle: false
           title: Automations
@@ -570,7 +571,6 @@ views:
           - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
           - automation.entrance_light_turn_on_at_7_23
           - automation.entrance_light_turn_on_when_the_door_opens
-          - automation.entrance_light_whatsapp_effect_before_the_buss
           - automation.hass_certificate_notification_on_update
           - automation.hass_new_version_available
           - automation.hass_notification_on_start
@@ -587,6 +587,11 @@ views:
           - automation.wifi_control_notify_if_unavailable
           - automation.wifi_control_restart_router_if_too_many_unavailable
           - automation.wifi_control_run_script_on_start
+          - automation.allinbed_alarm_turn_off_xiaomi_light_when_all_in_bed_is_off
+          - automation.allinbed_alarm_turn_on_xiaomi_light_when_all_in_bed_is_on
+          - automation.all_in_bed_run_script_on_start
+          - automation.all_in_bed_run_script_every_10_minutes_if_off
+          - automation.all_in_bed_run_script_if_motion_and_sensor_is_on
 
       - type: vertical-stack
         cards:

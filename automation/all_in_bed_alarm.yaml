@@ -1,0 +1,62 @@
+- alias: '[AllInBed Alarm] Turn on Xiaomi light when all_in_bed is on'
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    from: 'off'
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.gateway_light_7811dcb7f720
+    data:
+      brightness_pct: 40
+      rgb_color: [255, 0, 0]
+
+
+- alias: '[AllInBed Alarm] Turn off Xiaomi light when all_in_bed is off'
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.gateway_light_7811dcb7f720
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.gateway_light_7811dcb7f720
+
+
+- alias: '[AllInBed Alarm] Trigger if any door is open'
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.door_window_sensor_158d00022bd3cb #Living room door
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.door_window_sensor_158d000238694e #Entrance door
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.door_window_sensor_158d000232d8e8 #Kitchen door
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.openclose_4 #Storagehouse door
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: group.all_lights
+  - service: notify.pushover
+    data:
+      title: "Warning"
+      message: "A door is open while everyone is sleeping"
+
