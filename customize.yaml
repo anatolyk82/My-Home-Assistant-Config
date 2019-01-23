@@ -299,6 +299,9 @@ light.ikea_lamp_1:
 light.kitchen_lights_1:
   icon: mdi:track-light
 
+light.kitchen_lights_2:
+  icon: mdi:track-light
+
 light.bulb_14:
   icon: mdi:ceiling-light
 

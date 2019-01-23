@@ -179,7 +179,7 @@ views:
             style:
               top: 15%
               left: 27%
-          - type: state-icon  # Kitchen lamps
+          - type: state-icon  # Kitchen lamps 1
             entity: light.kitchen_lights_1
             tap_action:
               action: toggle
@@ -188,6 +188,15 @@ views:
             style:
               top: 43%
               left: 76%
+          - type: state-icon  # Kitchen lamps 2
+            entity: light.kitchen_lights_2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            style:
+              top: 43%
+              left: 66%
           - type: state-icon  # MoodLamp
             entity: light.mood_lamp
             tap_action:
@@ -243,6 +252,18 @@ views:
             - type: custom:slider-entity-row
               entity: light.ikea_lamp_6
               name: Kitchen Lamp 3
+            - type: custom:slider-entity-row
+              entity: light.kitchen_lights_2
+              name: Kitchen2
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_7
+              name: Kitchen Lamp 7
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_8
+              name: Kitchen Lamp 8
+            - type: custom:slider-entity-row
+              entity: light.ikea_lamp_9
+              name: Kitchen Lamp 9
 
 
   - title: "Second floor"
