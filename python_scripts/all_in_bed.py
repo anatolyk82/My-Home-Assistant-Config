@@ -70,6 +70,15 @@ if hass.states.get('light.bulb_17').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Room light is on. Set the sensor to off")
     all_in_bed = 'off'
 
+# Kitchen 1
+if hass.states.get('light.kitchen_lights_1').state == 'on' and all_in_bed == 'on':
+    logger.debug("AllInBed: Kitchen lights 1 is on. Set the sensor to off")
+    all_in_bed = 'off'
+
+# Kitchen 2
+if hass.states.get('light.kitchen_lights_2').state == 'on' and all_in_bed == 'on':
+    logger.debug("AllInBed: Kitchen lights 2 is on. Set the sensor to off")
+    all_in_bed = 'off'
 
 # Check the media player
 if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
