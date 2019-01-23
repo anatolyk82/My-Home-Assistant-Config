@@ -510,6 +510,8 @@ views:
         - sensor.room_lamp_on_today
         - sensor.desktop_lamp_on_today
         - sensor.workroom_lamp_on_today
+        - sensor.kitchen_1_on_today
+        - sensor.kitchen_2_on_today
       - type: entities
         entities:
           - sensor.rssi_bed_light
