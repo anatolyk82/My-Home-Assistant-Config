@@ -83,6 +83,13 @@ mqtt:
     payload: 'offline'
 
 
+vacuum:
+- platform: xiaomi_miio
+  name: 'Roborock'
+  host: 192.168.1.25
+  token: !secret xiaomi_vacuum_token
+
+
 xiaomi_aqara:
   discovery_retry: 8
   gateways:

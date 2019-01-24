@@ -96,6 +96,7 @@ views:
         - light.mood_lamp
         - light.stairs
         - binary_sensor.wifi_problem
+        - vacuum.roborock
 
 
   - title: "First floor"
@@ -750,9 +751,8 @@ views:
         - type: horizontal-stack
           cards:
           - type: entity-button
-            entity: light.gateway_light_7811dcb7f720
-            name: "Xiaomi light"
-            icon: mdi:flash-circle
+            entity: light.mood_lamp
+            icon: mdi:lava-lamp
             tap_action:
               action: toggle
             hold_action: 
@@ -770,16 +770,17 @@ views:
         - type: horizontal-stack
           cards:
           - type: entity-button
-            entity: light.mood_lamp
-            icon: mdi:lava-lamp
+            entity: light.kitchen_lights_1
+            name: "Kitchen 1"
+            icon: mdi:track-light
             tap_action:
               action: toggle
             hold_action: 
               action: more-info
 
           - type: entity-button
-            entity: light.kitchen_lights_1
-            name: "Kitchen 1"
+            entity: light.kitchen_lights_2
+            name: "Kitchen 2"
             icon: mdi:track-light
             tap_action:
               action: toggle
