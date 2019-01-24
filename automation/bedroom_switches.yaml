@@ -1,4 +1,4 @@
-- alias: "[Bedroom] Toggle bed light"
+- alias: "[Bedroom] Turn on bed light after sunset"
   initial_state: true
   trigger:
   - platform: event
@@ -6,8 +6,73 @@
     event_data:
       entity_id: binary_sensor.switch_158d0002130dec
       click_type: single
+  condition:
+  - condition: sun
+    after: sunset
+  - condition: state
+    entity_id: light.bed_led
+    state: 'off'
   action:
-  - service: light.toggle
+  - service: light.turn_on
+    entity_id: light.bed_led
+    data:
+      rgb_color: [255, 63, 0]
+
+
+- alias: "[Bedroom] Turn on bed light before sunrise"
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002130dec
+      click_type: single
+  condition:
+  - condition: sun
+    before: sunrise
+  - condition: state
+    entity_id: light.bed_led
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.bed_led
+    data:
+      rgb_color: [255, 63, 0]
+
+
+- alias: "[Bedroom] Turn on bed light in daylight"
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002130dec
+      click_type: single
+  condition:
+  - condition: sun
+    after: sunrise
+  - condition: state
+    entity_id: light.bed_led
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.bed_led
+
+
+- alias: "[Bedroom] Turn off bed light"
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002130dec
+      click_type: single
+  condition:
+  - condition: state
+    entity_id: light.bed_led
+    state: 'on'
+  action:
+  - service: light.turn_off
     entity_id: light.bed_led
 
 
