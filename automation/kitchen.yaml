@@ -29,10 +29,9 @@
       entity_id: light.ikea_lamp_9
       state: 'on'
   action:
-  - service: light.turn_off
-    entity_id: light.kitchen_lights_1
-  - service: light.turn_off
-    entity_id: light.kitchen_lights_2
+  - service: python_script.kitchen_lights
+    data:
+      state: 'off'
 
 
 - alias: '[Kitchen] Turn on all lights'
@@ -63,12 +62,9 @@
     entity_id: light.ikea_lamp_9
     state: 'off'
   action:
-  - service: light.turn_on
-    entity_id: light.kitchen_lights_1
+  - service: python_script.kitchen_lights
     data:
-      kelvin: 3200
-  - service: light.turn_on
-    entity_id: light.kitchen_lights_2
+      state: 'on'
 
 
 - alias: "[Kitchen] Toggle lights 1"
