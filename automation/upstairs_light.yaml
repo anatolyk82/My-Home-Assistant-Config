@@ -1,4 +1,4 @@
-- alias: '[Upstairs light] Turn on if movements (06:30 - 23:00)'
+- alias: '[Upstairs light] Turn on if motion (06:30 - 23:00)'
   hide_entity: true
   initial_state: true
   trigger:
@@ -24,7 +24,7 @@
         transition: 5
 
 
-- alias: '[Upstairs light] Turn on if movements (23:00 - 06:30)'
+- alias: '[Upstairs light] Turn on if motion (23:00 - 00:00)'
   hide_entity: true
   initial_state: true
   trigger:
@@ -40,7 +40,7 @@
       below: 10
     - condition: time
       after: "23:00"
-      before: "06:29"
+      before: "23:59"
   action:
     - service: light.turn_on
       entity_id: light.ikea_lamp_1
@@ -49,7 +49,7 @@
         #kelvin: 2000
 
 
-- alias: '[Upstairs light] Turn off in 5 minutes (06:30 - 00:00)'
+- alias: '[Upstairs light] Turn off in 5 minutes after motion'
   hide_entity: true
   initial_state: true
   trigger:
@@ -75,25 +75,26 @@
         transition: 10
 
 
-- alias: '[Upstairs light] Turn off in 10 seconds (00:00 - 06:30)'
-  hide_entity: true
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.presence_upstairs
-    from: 'on'
-    to: 'off'
-    for:
-      seconds: 10
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: light.ikea_lamp_1
-      state: 'on'
-    - condition: time
-      after: "00:00"
-      before: "06:29"
-  action:
-    - service: light.turn_off
-      entity_id: light.ikea_lamp_1
+#- alias: '[Upstairs light] Turn off in 10 seconds (00:00 - 06:30)'
+#  hide_entity: true
+#  initial_state: true
+#  trigger:
+#    platform: state
+#    entity_id: binary_sensor.presence_upstairs
+#    from: 'on'
+#    to: 'off'
+#    for:
+#      seconds: 10
+#  condition:
+#    condition: and
+#    conditions:
+#    - condition: state
+#      entity_id: light.ikea_lamp_1
+#      state: 'on'
+#    - condition: time
+#      after: "00:00"
+#      before: "06:29"
+#  action:
+#    - service: light.turn_off
+#      entity_id: light.ikea_lamp_1
+
