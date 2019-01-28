@@ -335,7 +335,7 @@ views:
               top: 67%
               left: 82%
           - type: state-icon
-            entity: binary_sensor.motion_sensor_158d000236a581
+            entity: binary_sensor.presence_workroom
             style:
               top: 78%
               left: 76%
@@ -370,7 +370,7 @@ views:
         entities:
           - sensor.lightlevel_upstairs
           - sensor.illumination_158d000236a59e
-          - sensor.illumination_158d000236a581
+          - sensor.lightlevel_workroom
           - sensor.illumination_158d000236be32
       - type: vertical-stack
         cards:

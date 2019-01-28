@@ -47,8 +47,8 @@ work_room:
   name: Work room
   control: hidden
   entities:
-    - sensor.illumination_158d000236a581
-    - binary_sensor.motion_sensor_158d000236a581
+    - sensor.lightlevel_workroom
+    - binary_sensor.presence_workroom
 
 living_room:
   view: no

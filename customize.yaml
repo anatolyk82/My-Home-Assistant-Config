@@ -224,7 +224,7 @@ binary_sensor.motion_sensor_158d000200ce6a:
 binary_sensor.presence_upstairs:
   friendly_name: Second floor 
  
-binary_sensor.motion_sensor_158d000236a581:
+binary_sensor.presence_workroom:
   friendly_name: Work room
   
 binary_sensor.motion_sensor_158d000236a59e:
@@ -250,7 +250,7 @@ sensor.illumination_158d000200ce6a:
 sensor.lightlevel_upstairs:
   friendly_name: Second floor 
 
-sensor.illumination_158d000236a581:
+sensor.lightlevel_workroom:
   friendly_name: Work room
 
 sensor.illumination_158d000236a59e:
