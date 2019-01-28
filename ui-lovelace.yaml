@@ -423,7 +423,7 @@ views:
 
       - type: entities
         entities:
-        - binary_sensor.openclose_4
+        - binary_sensor.openclose_storehouse
 
       - type: vertical-stack
         cards:
