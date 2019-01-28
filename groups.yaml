@@ -71,8 +71,8 @@ second_floor:
   name: Second floor
   control: hidden
   entities:
-    - sensor.illumination_158d000236a19b
-    - binary_sensor.motion_sensor_158d000236a19b
+    - sensor.lightlevel_upstairs
+    - binary_sensor.presence_upstairs
 
 doors:
   view: no

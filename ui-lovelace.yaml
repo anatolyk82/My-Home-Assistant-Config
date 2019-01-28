@@ -280,7 +280,7 @@ views:
               top: 14%
               left: 7%
           - type: state-icon
-            entity: binary_sensor.motion_sensor_158d000236a19b
+            entity: binary_sensor.presence_upstairs
             style:
               top: 77%
               left: 50%
@@ -368,7 +368,7 @@ views:
       - type: glance
         column_width: calc(100% / 4)
         entities:
-          - sensor.illumination_158d000236a19b
+          - sensor.lightlevel_upstairs
           - sensor.illumination_158d000236a59e
           - sensor.illumination_158d000236a581
           - sensor.illumination_158d000236be32

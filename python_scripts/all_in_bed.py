@@ -25,6 +25,14 @@ if all_in_bed_current_state == 'off' and all_in_bed == 'on':
                 all_in_bed = 'off'
                 logger.debug("AllInBed: Illumination for '%s' is above 10. Set the sensor to off", entity_id)
                 break
+        elif entity_id.find('lightlevel') >= 0:
+            lightlevel_state = hass.states.get(entity_id)
+            if lightlevel_state.state == 'unknown':
+                continue
+            if float(lightlevel_state.state) > 10:
+                all_in_bed = 'off'
+                logger.debug("AllInBed: Illumination for '%s' is above 10. Set the sensor to off", entity_id)
+                break
 
 
 # Check some lamps if they are on
@@ -87,16 +95,23 @@ if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
 
 
 # Check if there is any motion except the bedroom
-for entity_id in hass.states.entity_ids('binary_sensor'):
-    if entity_id.find('motion_sensor') >= 0:
-        # Ignore motion sensor in the bedroom  
-        if entity_id.find('158d000236a59e') >= 0:
-            continue
-        motion_state = hass.states.get(entity_id)
-        if motion_state.state == 'on':
-            logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)
-            all_in_bed = 'off'
-            break
+if all_in_bed == 'on':
+    for entity_id in hass.states.entity_ids('binary_sensor'):
+        if entity_id.find('motion_sensor') >= 0:
+            # Ignore motion sensor in the bedroom  
+            if entity_id.find('158d000236a59e') >= 0:
+                continue
+            motion_state = hass.states.get(entity_id)
+            if motion_state.state == 'on':
+                logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)
+                all_in_bed = 'off'
+                break
+        elif entity_id.find('presence') >= 0:
+            motion_state = hass.states.get(entity_id)
+            if motion_state.state == 'on':
+                logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)
+                all_in_bed = 'off'
+                break
 
 
 logger.debug("AllInBed: Set binary_sensor.all_in_bed to %s", all_in_bed)

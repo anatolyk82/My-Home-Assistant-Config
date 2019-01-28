@@ -27,7 +27,7 @@
       entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a19b #Second floor
+      entity_id: binary_sensor.presence_upstairs
       to: 'on'
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d000236a581 #Work room

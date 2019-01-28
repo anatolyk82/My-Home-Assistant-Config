@@ -3,14 +3,14 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    entity_id: binary_sensor.presence_upstairs
     from: 'off'
     to: 'on'
   condition:
     condition: and
     conditions:
     - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a19b
+      entity_id: sensor.lightlevel_upstairs
       below: 10
     - condition: time
       after: "06:30"
@@ -29,14 +29,14 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    entity_id: binary_sensor.presence_upstairs
     from: 'off'
     to: 'on'
   condition:
     condition: and
     conditions:
     - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a19b
+      entity_id: sensor.lightlevel_upstairs
       below: 10
     - condition: time
       after: "23:00"
@@ -54,7 +54,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    entity_id: binary_sensor.presence_upstairs
     from: 'on'
     to: 'off'
     for:
@@ -80,7 +80,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236a19b
+    entity_id: binary_sensor.presence_upstairs
     from: 'on'
     to: 'off'
     for:

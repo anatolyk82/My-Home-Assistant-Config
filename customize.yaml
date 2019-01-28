@@ -221,7 +221,7 @@ binary_sensor.motion_sensor_158d000236a817:
 binary_sensor.motion_sensor_158d000200ce6a:  
   friendly_name: Kitchen
  
-binary_sensor.motion_sensor_158d000236a19b:
+binary_sensor.presence_upstairs:
   friendly_name: Second floor 
  
 binary_sensor.motion_sensor_158d000236a581:
@@ -247,7 +247,7 @@ sensor.illumination_158d000236a817:
 sensor.illumination_158d000200ce6a:  
   friendly_name: Kitchen
  
-sensor.illumination_158d000236a19b:
+sensor.lightlevel_upstairs:
   friendly_name: Second floor 
 
 sensor.illumination_158d000236a581:
