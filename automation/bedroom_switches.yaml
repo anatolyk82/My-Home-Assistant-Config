@@ -17,6 +17,7 @@
     entity_id: light.bed_led
     data:
       rgb_color: [255, 63, 0]
+      brightness_pct: 100
 
 
 - alias: "[Bedroom] Turn on bed light before sunrise"
@@ -38,6 +39,7 @@
     entity_id: light.bed_led
     data:
       rgb_color: [255, 63, 0]
+      brightness_pct: 100
 
 
 - alias: "[Bedroom] Turn on bed light in daylight"
