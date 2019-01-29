@@ -480,67 +480,113 @@ views:
           - entity: sensor.pressure_158d0002478a68
             name: Pressure sensor
 
+  - title: "State"
+    id: state
+    cards:
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - sensor.hass_available_version
+      - sensor.hass_installed_version
+    - type: entities
+      show_header_toggle: false
+      title: HA Files
+      entities:
+      - sensor.home_assistant_v2_db
+      - sensor.home_assistant_log
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - sensor.ssh_attack
+      - sensor.ssl_certificate_expiry
+    - type: entities
+      entities:
+      - sensor.entrance_lamp_on_today
+      - sensor.living_room_right_lamp_on_today
+      - sensor.living_room_left_lamp_on_today
+      - sensor.upstairs_lamp_on_today
+      - sensor.bedroom_lamp_on_today
+      - sensor.bed_led_on_today
+      - sensor.room_lamp_on_today
+      - sensor.desktop_lamp_on_today
+      - sensor.workroom_lamp_on_today
+      - sensor.kitchen_1_on_today
+      - sensor.kitchen_2_on_today
+    - type: entities
+      entities:
+        - sensor.rssi_bed_light
+        - sensor.rssi_keypad
+        - sensor.rssi_mood_lamp
+    - type: entities
+      title: Batteries
+      show_header_toggle: false
+      entities:
+      - sensor.battery_door_sensor_entrance
+      - sensor.battery_door_sensor_kitchen
+      - sensor.battery_door_sensor_living_room
+      - sensor.battery_motion_sensor_living_room
+      - sensor.battery_motion_sensor_kitchen
+      - sensor.battery_motion_sensor_entrance
+      #- sensor.battery_motion_sensor_second_floor
+      #- sensor.battery_motion_sensor_workroom
+      - sensor.battery_motion_sensor_room
+      - sensor.battery_motion_sensor_bedroom
+      - sensor.battery_temperature_sensor_floor1
+      - sensor.battery_temperature_sensor_floor2
+      - sensor.battery_temperature_sensor_outside
+      - sensor.battery_water_leak_sensor
+      - sensor.battery_smoke_sensor
+      - sensor.ikea_switch_1_battery_level
+      - sensor.ikea_switch_2_battery_level
+      - sensor.ikea_switch_3_battery_level
+      - sensor.ikea_switch_4_battery_level
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: "Network"
+        show_header_toggle: false
+        entities:
+        - sensor.nmap_router
+        - sensor.nmap_xiaomi_gateway
+        - sensor.nmap_google_home
+        - sensor.nmap_laptop_dell_xps15
+        - sensor.nmap_laptop_dell_xps13
+        - sensor.nmap_iphone
+        - sensor.nmap_galaxy_s9
+        - sensor.nmap_galaxy_tablet
+      - type: history-graph
+        title: 'Ping'
+        hours_to_show: 24
+        entities:
+        - sensor.ping_min_xiaomi
+        - sensor.ping_avg_xiaomi
+        - sensor.ping_max_xiaomi
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - input_boolean.show_system_info
+    - type: conditional
+      conditions:
+      - entity: input_boolean.show_system_info
+        state: "on"
+      card: 
+        type: vertical-stack
+        cards:
+        - type: entities
+          title: System Information
+          show_header_toggle: false
+          entities:
+          - sensor.processor_use
+          - sensor.cpu_temp
+          - sensor.memory_free
+          - sensor.memory_use_percent
+          - sensor.disk_use_percent
+          - sensor.last_boot
+
 
   - title: "Settings"
     id: settings
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-        - sensor.hass_available_version
-        - sensor.hass_installed_version
-      - type: entities
-        show_header_toggle: false
-        title: HA Files
-        entities:
-        - sensor.home_assistant_v2_db
-        - sensor.home_assistant_log
-      - type: entities
-        show_header_toggle: false
-        entities:
-        - sensor.ssh_attack
-        - sensor.ssl_certificate_expiry
-      - type: entities
-        entities:
-        - sensor.entrance_lamp_on_today
-        - sensor.living_room_right_lamp_on_today
-        - sensor.living_room_left_lamp_on_today
-        - sensor.upstairs_lamp_on_today
-        - sensor.bedroom_lamp_on_today
-        - sensor.bed_led_on_today
-        - sensor.room_lamp_on_today
-        - sensor.desktop_lamp_on_today
-        - sensor.workroom_lamp_on_today
-        - sensor.kitchen_1_on_today
-        - sensor.kitchen_2_on_today
-      - type: entities
-        entities:
-          - sensor.rssi_bed_light
-          - sensor.rssi_keypad
-          - sensor.rssi_mood_lamp
-      - type: entities
-        title: Batteries
-        show_header_toggle: false
-        entities:
-        - sensor.battery_door_sensor_entrance
-        - sensor.battery_door_sensor_kitchen
-        - sensor.battery_door_sensor_living_room
-        - sensor.battery_motion_sensor_living_room
-        - sensor.battery_motion_sensor_kitchen
-        - sensor.battery_motion_sensor_entrance
-        - sensor.battery_motion_sensor_second_floor
-        - sensor.battery_motion_sensor_workroom
-        - sensor.battery_motion_sensor_room
-        - sensor.battery_motion_sensor_bedroom
-        - sensor.battery_temperature_sensor_floor1
-        - sensor.battery_temperature_sensor_floor2
-        - sensor.battery_temperature_sensor_outside
-        - sensor.battery_water_leak_sensor
-        - sensor.battery_smoke_sensor
-        - sensor.ikea_switch_1_battery_level
-        - sensor.ikea_switch_2_battery_level
-        - sensor.ikea_switch_3_battery_level
-
       - type: vertical-stack
         cards:
         - type: entities
@@ -562,82 +608,105 @@ views:
             - automation.vacation_lights_stop_at_midnight
             - automation.moodlamp_turn_on_at_sunset_if_vacation
             - automation.moodlamp_turn_off_at_sunrise_if_vacation
+      - type: entities
+        show_header_toggle: false
+        title: Alarms
+        entities:
+        - automation.water_leakage_floor_1
+        - automation.water_leakage_floor_2
+        - automation.too_high_temperature_at_the_first_floor
+        - automation.too_high_temperature_at_the_second_floor
+        - automation.smoke_alarm
+        - automation.allinbed_alarm_trigger_if_any_door_is_open
 
-      - type: vertical-stack
-        cards:
-        - type: entities
-          show_header_toggle: false
-          title: Alarms
-          entities:
-          - automation.water_leakage_floor_1
-          - automation.water_leakage_floor_2
-          - automation.too_high_temperature_at_the_first_floor
-          - automation.too_high_temperature_at_the_second_floor
-          - automation.smoke_alarm
-          - automation.allinbed_alarm_trigger_if_any_door_is_open
-        - type: entities
-          show_header_toggle: false
-          title: Automations
-          entities:
-          - automation.update_available_notifications
-          - automation.entrance_door_sound
-          - automation.upstairs_light_turn_on_if_movements_06_30_23_00
-          - automation.upstairs_light_turn_on_if_movements_23_00_06_30
-          - automation.upstairs_light_turn_off_in_10_seconds_00_00_06_30
-          - automation.upstairs_light_turn_off_in_5_minutes_06_30_00_00
-          - automation.bedroom_bed_led_sunrise
-          - automation.bedroom_toggle_bed_light
-          - automation.bedroom_toggle_light
-          - automation.bedroom_increase_brightness_to_maximum
-          - automation.bedroom_decrease_brightness_to_minimum
-          - automation.notify_on_unavailable_zigbee_lights
-          - automation.entrance_light_force_to_update_vasttrafik_sensor
-          - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
-          - automation.entrance_light_turn_on_at_7_23
-          - automation.entrance_light_turn_on_when_the_door_opens
-          - automation.hass_certificate_notification_on_update
-          - automation.hass_new_version_available
-          - automation.hass_notification_on_start
-          - automation.hass_notification_on_stop
-          - automation.camera_foscam1_restart_power_if_unavailable
-          - automation.camera_foscam1_take_a_snapshot_if_motion
-          - automation.camera_foscam2_restart_power_if_unavailable
-          - automation.camera_foscam2_take_a_snapshot_if_motion
-          - automation.christmas_lights_turn_on_when_disarmed
-          - automation.moodlamp_turn_on_when_disarmed
-          - automation.moodlamp_turn_on_if_motion_at_night
-          - automation.moodlamp_turn_off_if_no_motion_at_night
-          - automation.wifi_control_check_if_a_device_comes_from_unavailable
-          - automation.wifi_control_notify_if_unavailable
-          - automation.wifi_control_restart_router_if_too_many_unavailable
-          - automation.wifi_control_run_script_on_start
-          - automation.allinbed_alarm_turn_off_xiaomi_light_when_all_in_bed_is_off
-          - automation.allinbed_alarm_turn_on_xiaomi_light_when_all_in_bed_is_on
-          - automation.all_in_bed_run_script_on_start
-          - automation.all_in_bed_run_script_every_10_minutes_if_off
-          - automation.all_in_bed_run_script_if_motion_and_sensor_is_on
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.upstairs_light_turn_on_if_motion_06_30_23_00
+        - automation.upstairs_light_turn_on_if_motion_23_00_00_00
+        - automation.upstairs_light_turn_off_00_00_06_30
+        - automation.upstairs_light_turn_off_in_5_minutes_after_motion
 
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Network
-            show_header_toggle: false
-            entities:
-            - sensor.nmap_router
-            - sensor.nmap_xiaomi_gateway
-            - sensor.nmap_google_home
-            - sensor.nmap_laptop_dell_xps15
-            - sensor.nmap_laptop_dell_xps13
-            - sensor.nmap_iphone
-            - sensor.nmap_galaxy_s9
-            - sensor.nmap_galaxy_tablet
-          - type: history-graph
-            title: 'Ping'
-            hours_to_show: 24
-            entities:
-            - sensor.ping_min_xiaomi
-            - sensor.ping_avg_xiaomi
-            - sensor.ping_max_xiaomi
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.bedroom_turn_on_bed_light_in_daylight
+        - automation.bedroom_turn_on_bed_light_before_sunrise
+        - automation.bedroom_turn_on_bed_light_after_sunset
+        - automation.bedroom_turn_off_bed_light
+        - automation.bedroom_toggle_light
+        - automation.bedroom_increase_brightness_to_maximum
+        - automation.bedroom_decrease_brightness_to_minimum
+        - automation.bedroom_bed_led_sunrise
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.entrance_light_force_to_update_vasttrafik_sensor
+        - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
+        - automation.entrance_light_turn_on_at_7_23
+        - automation.entrance_light_turn_on_when_the_door_opens
+        - automation.entrance_door_sound
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.hass_certificate_notification_on_update
+        - automation.hass_new_version_available
+        - automation.hass_notification_on_start
+        - automation.hass_notification_on_stop
+        - automation.update_available_notifications
+        - automation.notify_on_unavailable_zigbee_lights
+        - automation.christmas_lights_turn_on_when_disarmed
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.camera_foscam1_restart_power_if_unavailable
+        - automation.camera_foscam1_take_a_snapshot_if_motion
+        - automation.camera_foscam2_restart_power_if_unavailable
+        - automation.camera_foscam2_take_a_snapshot_if_motion
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.moodlamp_turn_on_when_disarmed
+        - automation.moodlamp_turn_on_if_motion_at_night
+        - automation.moodlamp_turn_off_if_no_motion_at_night
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.wifi_control_check_if_a_device_comes_from_unavailable
+        - automation.wifi_control_notify_if_unavailable
+        - automation.wifi_control_restart_router_if_too_many_unavailable
+        - automation.wifi_control_run_script_on_start
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.allinbed_alarm_turn_off_xiaomi_light_when_all_in_bed_is_off
+        - automation.allinbed_alarm_turn_on_xiaomi_light_when_all_in_bed_is_on
+        - automation.all_in_bed_run_script_on_start
+        - automation.all_in_bed_run_script_every_10_minutes_if_off
+        - automation.all_in_bed_run_script_if_motion_and_sensor_is_on
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.living_room_decrease_brightness_of_the_left_lamp
+        - automation.living_room_decrease_brightness_of_the_right_lamp
+        - automation.living_room_increase_brightness_of_the_left_lamp
+        - automation.living_room_increase_brightness_of_the_right_lamp
+        - automation.living_room_set_max_brightness_to_the_left_lamp
+        - automation.living_room_set_max_brightness_to_the_right_lamp
+        - automation.living_room_set_min_brightness_to_the_left_lamp
+        - automation.living_room_set_min_brightness_to_the_right_lamp
+        - automation.living_room_toggle_the_left_lamp
+        - automation.living_room_toggle_the_right_lamp
+        - automation.living_room_turn_off_all_lamps
+        - automation.living_room_turn_on_all_lamps
+
 
       - type: entities
         show_header_toggle: false
@@ -677,27 +746,6 @@ views:
             - script.alarm_sound_xiaomi_gateway
             - script.alarm_sound_xiaomi_gateway_once
 
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - input_boolean.show_system_info
-      - type: conditional
-        conditions:
-          - entity: input_boolean.show_system_info
-            state: "on"
-        card: 
-          type: vertical-stack
-          cards:
-            - type: entities
-              title: System Information
-              show_header_toggle: false
-              entities:
-              - sensor.processor_use
-              - sensor.cpu_temp
-              - sensor.memory_free
-              - sensor.memory_use_percent
-              - sensor.disk_use_percent
-              - sensor.last_boot
 
 
   - title: "Kiosk"
