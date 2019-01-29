@@ -9,7 +9,7 @@
       entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
       to: 'on'
     - platform: state 
-      entity_id: binary_sensor.motion_sensor_158d000200ce6a #Kitchen
+      entity_id: binary_sensor.presence_kitchen
       to: 'on'
 #    - platform: state 
 #      entity_id: binary_sensor.presence_upstairs #Second floor

@@ -117,7 +117,7 @@ views:
               top: 77%
               left: 46%
           - type: state-icon  # Motion - kitchen
-            entity: binary_sensor.motion_sensor_158d000200ce6a
+            entity: binary_sensor.presence_kitchen
             style:
               top: 25%
               left: 73%
@@ -220,7 +220,7 @@ views:
         entities:
           - sensor.illumination_158d000236a817
           - sensor.illumination_158d00023e8333
-          - sensor.illumination_158d000200ce6a
+          - sensor.lightlevel_kitchen
       - type: vertical-stack
         cards:
         - type: entities
@@ -525,7 +525,7 @@ views:
       - sensor.battery_door_sensor_kitchen
       - sensor.battery_door_sensor_living_room
       - sensor.battery_motion_sensor_living_room
-      - sensor.battery_motion_sensor_kitchen
+      #- sensor.battery_motion_sensor_kitchen
       - sensor.battery_motion_sensor_entrance
       #- sensor.battery_motion_sensor_second_floor
       #- sensor.battery_motion_sensor_workroom
@@ -608,6 +608,7 @@ views:
             - automation.vacation_lights_stop_at_midnight
             - automation.moodlamp_turn_on_at_sunset_if_vacation
             - automation.moodlamp_turn_off_at_sunrise_if_vacation
+
       - type: entities
         show_header_toggle: false
         title: Alarms
@@ -707,6 +708,17 @@ views:
         - automation.living_room_turn_off_all_lamps
         - automation.living_room_turn_on_all_lamps
 
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - automation.kitchen_toggle_lights_1
+        - automation.kitchen_toggle_lights_2
+        - automation.kitchen_decrease_brightness_for_lights_1
+        - automation.kitchen_decrease_brightness_for_lights_2
+        - automation.kitchen_increase_brightness_for_lights_1
+        - automation.kitchen_increase_brightness_for_lights_2
+        - automation.kitchen_turn_on_all_lights
+        - automation.kitchen_turn_off_all_lights
 
       - type: entities
         show_header_toggle: false

@@ -218,7 +218,7 @@ binary_sensor.motion_sensor_158d00023e8333:
 binary_sensor.motion_sensor_158d000236a817:
   friendly_name: Entrance
 
-binary_sensor.motion_sensor_158d000200ce6a:  
+binary_sensor.presence_kitchen:
   friendly_name: Kitchen
  
 binary_sensor.presence_upstairs:
@@ -244,7 +244,7 @@ sensor.illumination_158d00023e8333:
 sensor.illumination_158d000236a817:
   friendly_name: Entrance
 
-sensor.illumination_158d000200ce6a:  
+sensor.lightlevel_kitchen:
   friendly_name: Kitchen
  
 sensor.lightlevel_upstairs:
