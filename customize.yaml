@@ -230,7 +230,7 @@ binary_sensor.presence_workroom:
 binary_sensor.presence_bedroom:
   friendly_name: Bedroom
 
-binary_sensor.motion_sensor_158d000236be32:
+binary_sensor.presence_room:
   friendly_name: Room
 
 #============================ Illumination
@@ -256,7 +256,7 @@ sensor.lightlevel_workroom:
 sensor.lightlevel_bedroom:
   friendly_name: Bedroom
 
-sensor.illumination_158d000236be32:
+sensor.lightlevel_room:
   friendly_name: Room
 
 

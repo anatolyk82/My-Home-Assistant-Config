@@ -3,12 +3,12 @@
   hide_entity: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236be32
+    entity_id: binary_sensor.presence_room
     from: 'off'
     to: 'on'
   condition:
   - condition: numeric_state
-    entity_id: sensor.illumination_158d000236be32
+    entity_id: sensor.lightlevel_room
     below: 10
   action:
   - service: light.turn_on
@@ -22,7 +22,7 @@
   hide_entity: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d000236be32
+    entity_id: binary_sensor.presence_room
     from: 'on'
     to: 'off'
     for:

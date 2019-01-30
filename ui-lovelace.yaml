@@ -353,7 +353,7 @@ views:
               top: 33%
               left: 70%
           - type: state-icon #Room motion sensor
-            entity: binary_sensor.motion_sensor_158d000236be32
+            entity: binary_sensor.presence_room
             style:
               top: 33%
               left: 80%
@@ -371,7 +371,7 @@ views:
           - sensor.lightlevel_upstairs
           - sensor.lightlevel_bedroom
           - sensor.lightlevel_workroom
-          - sensor.illumination_158d000236be32
+          - sensor.lightlevel_room
       - type: vertical-stack
         cards:
         - type: entities
