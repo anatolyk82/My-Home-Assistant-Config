@@ -1,0 +1,11 @@
+- platform: command_line
+  command: python3 -c "import requests; print(requests.get('https://api.github.com/repos/dresden-elektronik/deconz-rest-plugin/releases/latest').json()['tag_name'])"
+  name: 'deCONZ Available Version'
+  icon: mdi:github-circle
+  scan_interval: 3600
+
+- platform: command_line
+  command: "dpkg-query --showformat='${Version}' --show deconz"
+  name: 'deCONZ Installed Version'
+  icon: mdi:folder-download
+  scan_interval: 3600
