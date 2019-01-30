@@ -31,7 +31,7 @@
       entity_id: binary_sensor.presence_workroom
       to: 'on'
     - platform: state 
-      entity_id: binary_sensor.motion_sensor_158d000236a59e #Bedroom
+      entity_id: binary_sensor.presence_bedroom
       to: 'on'
     - platform: state 
       entity_id: binary_sensor.motion_sensor_158d000236be32 #Room

@@ -5,7 +5,7 @@
     at: "06:50:00"
   condition:
   - condition: numeric_state
-    entity_id: sensor.illumination_158d000236a59e
+    entity_id: sensor.lightlevel_bedroom
     below: 20
   - condition: state
     entity_id: binary_sensor.workday_sensor

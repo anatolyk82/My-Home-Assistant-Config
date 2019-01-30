@@ -107,6 +107,9 @@ if all_in_bed == 'on':
                 all_in_bed = 'off'
                 break
         elif entity_id.find('presence') >= 0:
+            # Ignore motion sensor in the bedroom  
+            if entity_id.find('bedroom') >= 0:
+                continue
             motion_state = hass.states.get(entity_id)
             if motion_state.state == 'on':
                 logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)

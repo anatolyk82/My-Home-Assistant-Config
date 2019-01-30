@@ -301,7 +301,7 @@ views:
               top: 50%
               left: 26%
           - type: state-icon  # Bedroom - Motion sensor
-            entity: binary_sensor.motion_sensor_158d000236a59e
+            entity: binary_sensor.presence_bedroom
             style:
               top: 35%
               left: 26%
@@ -369,7 +369,7 @@ views:
         column_width: calc(100% / 4)
         entities:
           - sensor.lightlevel_upstairs
-          - sensor.illumination_158d000236a59e
+          - sensor.lightlevel_bedroom
           - sensor.lightlevel_workroom
           - sensor.illumination_158d000236be32
       - type: vertical-stack
@@ -524,13 +524,13 @@ views:
       - sensor.battery_door_sensor_entrance
       - sensor.battery_door_sensor_kitchen
       - sensor.battery_door_sensor_living_room
-      - sensor.battery_motion_sensor_living_room
+      #- sensor.battery_motion_sensor_living_room
       #- sensor.battery_motion_sensor_kitchen
-      - sensor.battery_motion_sensor_entrance
+      #- sensor.battery_motion_sensor_entrance
       #- sensor.battery_motion_sensor_second_floor
       #- sensor.battery_motion_sensor_workroom
-      - sensor.battery_motion_sensor_room
-      - sensor.battery_motion_sensor_bedroom
+      #- sensor.battery_motion_sensor_room
+      #- sensor.battery_motion_sensor_bedroom
       - sensor.battery_temperature_sensor_floor1
       - sensor.battery_temperature_sensor_floor2
       - sensor.battery_temperature_sensor_outside
