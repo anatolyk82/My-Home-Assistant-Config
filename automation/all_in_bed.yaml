@@ -24,7 +24,7 @@
       entity_id: binary_sensor.presence_kitchen
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
+      entity_id: binary_sensor.presence_livingroom
       to: 'on'
     - platform: state
       entity_id: binary_sensor.presence_upstairs

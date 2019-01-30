@@ -23,11 +23,11 @@
     entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room
+    entity_id: binary_sensor.presence_livingroom
     to: 'on'
   condition:
   - condition: numeric_state
-    entity_id: sensor.illumination_158d00023e8333
+    entity_id: sensor.lightlevel_livingroom
     below: 10
   - condition: state
     entity_id: light.mood_lamp
@@ -53,7 +53,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_sensor_158d00023e8333
+    entity_id: binary_sensor.presence_livingroom
     from: 'on'
     to: 'off'
     for:

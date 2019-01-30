@@ -16,7 +16,7 @@
       to: 'on'
 
     - platform: state 
-      entity_id: binary_sensor.motion_sensor_158d00023e8333 #Living room motion
+      entity_id: binary_sensor.presence_livingroom
       to: 'on'
     - platform: state 
       entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance

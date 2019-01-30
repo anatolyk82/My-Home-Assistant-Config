@@ -55,8 +55,8 @@ living_room:
   name: Living room
   control: hidden
   entities:
-    - sensor.illumination_158d00023e8333
-    - binary_sensor.motion_sensor_158d00023e8333
+    - sensor.lightlevel_livingroom
+    - binary_sensor.presence_livingroom
 
 entrance:
   view: no

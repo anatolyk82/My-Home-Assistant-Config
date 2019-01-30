@@ -122,7 +122,7 @@ views:
               top: 25%
               left: 73%
           - type: state-icon # Motion - Living room
-            entity: binary_sensor.motion_sensor_158d00023e8333
+            entity: binary_sensor.presence_livingroom
             style:
               top: 25%
               left: 39%
@@ -219,7 +219,7 @@ views:
         column_width: calc(100% / 3)
         entities:
           - sensor.illumination_158d000236a817
-          - sensor.illumination_158d00023e8333
+          - sensor.lightlevel_livingroom
           - sensor.lightlevel_kitchen
       - type: vertical-stack
         cards:
