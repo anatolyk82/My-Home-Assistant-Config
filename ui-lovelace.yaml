@@ -728,6 +728,12 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+        - automation.zigbee_notify_if_unavailable_zigbee_device
+        - automation.deconz_new_version_available
+
+      - type: entities
+        show_header_toggle: false
+        entities:
         - input_boolean.debug_mode
       - type: conditional
         conditions:

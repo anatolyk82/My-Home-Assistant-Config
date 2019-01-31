@@ -53,18 +53,3 @@
   - service: shell_command.router_restart
 
 
-
-- alias: 'Notify on unavailable zigbee lights'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: light.ikea_lamp_1, light.ikea_lamp_2, light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6
-    to: 'unavailable'
-    for:
-      seconds: 45
-  action:
-  - service: notify.pushover
-    data:
-      title: "Unavailable lights"
-      message: "The following zigbee lights are not available: {% for entity_id in states.group.all_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
-
