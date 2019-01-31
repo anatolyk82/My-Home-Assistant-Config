@@ -215,7 +215,7 @@ binary_sensor.door_window_sensor_158d00022da733:
 binary_sensor.presence_livingroom:
   friendly_name: Living room
 
-binary_sensor.motion_sensor_158d000236a817:
+binary_sensor.presence_entrance:
   friendly_name: Entrance
 
 binary_sensor.presence_kitchen:
@@ -241,7 +241,7 @@ sensor.illumination_7811dcb7f720:
 sensor.lightlevel_livingroom:
   friendly_name: Living room
 
-sensor.illumination_158d000236a817:
+sensor.lightlevel_entrance:
   friendly_name: Entrance
 
 sensor.lightlevel_kitchen:

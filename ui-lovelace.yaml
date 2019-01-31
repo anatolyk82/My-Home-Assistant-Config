@@ -112,7 +112,7 @@ views:
               top: 14%
               left: 17%
           - type: state-icon
-            entity: binary_sensor.motion_sensor_158d000236a817
+            entity: binary_sensor.presence_entrance
             style:
               top: 77%
               left: 46%
@@ -218,7 +218,7 @@ views:
       - type: glance
         column_width: calc(100% / 3)
         entities:
-          - sensor.illumination_158d000236a817
+          - sensor.lightlevel_entrance
           - sensor.lightlevel_livingroom
           - sensor.lightlevel_kitchen
       - type: vertical-stack

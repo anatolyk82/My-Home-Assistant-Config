@@ -18,7 +18,7 @@
   initial_state: true
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a817 #Entrance
+      entity_id: binary_sensor.presence_entrance
       to: 'on'
     - platform: state
       entity_id: binary_sensor.presence_kitchen

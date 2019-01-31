@@ -63,8 +63,8 @@ entrance:
   name: Entrance
   control: hidden
   entities:
-    - sensor.illumination_158d000236a817
-    - binary_sensor.motion_sensor_158d000236a817
+    - sensor.lightlevel_entrance
+    - binary_sensor.presence_entrance
 
 second_floor:
   view: no
