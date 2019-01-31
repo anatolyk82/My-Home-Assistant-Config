@@ -1,0 +1,10 @@
+- alias: "[deCONZ] New Version available"
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.hass_available_version
+  action:
+  - service: notify.pushover
+    data:
+      message: "deCONZ version {{ sensor.deconz_available_version }} is available!"
+
