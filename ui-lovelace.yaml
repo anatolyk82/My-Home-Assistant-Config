@@ -97,6 +97,7 @@ views:
         - light.stairs
         - binary_sensor.wifi_problem
         - vacuum.roborock
+        - switch.ikea_plug_1
 
 
   - title: "First floor"
@@ -607,8 +608,6 @@ views:
             show_header_toggle: false
             entities:
             - script.vacation_lights
-            - automation.xmas_lights_turn_off_at_sunrise_if_vacation
-            - automation.xmas_lights_turn_on_at_sunset_if_vacation
             - automation.vacation_lights_start_on_sunset
             - automation.vacation_lights_stop_at_midnight
             - automation.moodlamp_turn_on_at_sunset_if_vacation

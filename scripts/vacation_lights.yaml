@@ -19,13 +19,19 @@ vacation_lights:
     entity_id: light.bulb_14
   - service: light.turn_on
     entity_id: light.ikea_lamp_1
-  - delay: '00:35:00'
+  - delay: '00:30:00'
+  - service: light.turn_on
+    entity_id: light.kitchen_1
+  - delay: '00:05:00'
   - service: light.turn_on
     entity_id: light.xiaomi_philips_desklamp
   - delay: '00:05:00'
   - service: light.turn_off
     entity_id: light.ikea_lamp_1
-  - delay: '01:10:00'
+  - delay: '00:25:00'
+  - service: light.turn_off
+    entity_id: light.kitchen_1
+  - delay: '00:45:00'
   - service: light.turn_off
     entity_id: light.xiaomi_philips_desklamp
   - service: light.turn_on
@@ -35,7 +41,13 @@ vacation_lights:
   - delay: '00:15:00'
   - service: light.turn_off
     entity_id: light.bulb_17
-  - delay: '00:55:00'
+  - delay: '00:10:00'
+  - service: light.turn_on
+    entity_id: light.kitchen_2
+  - delay: '00:25:00'
+  - service: light.turn_off
+    entity_id: light.kitchen_2
+  - delay: '00:25:00'
   - service: light.turn_off
     entity_id: light.bulb_13
   - service: light.turn_on
@@ -56,7 +68,11 @@ vacation_lights:
   - delay: '00:05:00'
   - service: light.turn_off
     entity_id: light.bulb_14
+  - service: light.turn_on
+    entity_id: light.kitchen_2
   - delay: '00:20:00'
+  - service: light.turn_off
+    entity_id: light.kitchen_2
   - service: light.turn_on
     entity_id: light.bulb_15
   - service: light.turn_off
@@ -82,7 +98,10 @@ vacation_lights:
     entity_id: light.ikea_lamp_1
   - service: light.turn_on
     entity_id: light.xiaomi_philips_desklamp
-  - delay: '00:25:00'
+  - delay: '00:10:00'
+  - service: light.turn_on
+    entity_id: light.kitchen_1
+  - delay: '00:15:00'
   - service: light.turn_on
     entity_id: light.bulb_14
   - delay: '00:15:00'
@@ -90,6 +109,8 @@ vacation_lights:
     entity_id: light.bulb_14
   - service: light.turn_off
     entity_id: light.xiaomi_philips_desklamp
+  - service: light.turn_off
+    entity_id: light.kitchen_1
   - service: light.turn_on
     entity_id: light.ikea_lamp_1
   - delay: '00:10:00'
