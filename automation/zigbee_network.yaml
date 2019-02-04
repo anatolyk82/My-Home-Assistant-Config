@@ -4,7 +4,17 @@
   - platform: state
     entity_id: light.ikea_lamp_1, light.ikea_lamp_2, light.ikea_lamp_3,
                light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6,
-               light.ikea_lamp_7, light.ikea_lamp_8, light.ikea_lamp_9
+               light.ikea_lamp_7, light.ikea_lamp_8, light.ikea_lamp_9,
+               binary_sensors.openclose_entrance,   binary_sensors.openclose_kitchen, 
+               binary_sensors.openclose_livingroom, binary_sensors.openclose_storehouse,
+               binary_sensor.presence_bedroom,  binary_sensor.presence_entrance, 
+               binary_sensor.presence_kitchen,  binary_sensor.presence_livingroom, 
+               binary_sensor.presence_room,     binary_sensor.presence_upstairs, 
+               binary_sensor.presence_workroom,
+               sensor.lightlevel_entrance,  sensor.lightlevel_livingroom,
+               sensor.lightlevel_kitchen,   sensor.lightlevel_upstairs,
+               sensor.lightlevel_workroom,  sensor.lightlevel_room,
+               sensor.lightlevel_bedroom
     to: 'unavailable'
     for:
       seconds: 45
@@ -12,5 +22,10 @@
   - service: notify.pushover
     data:
       title: "Unavailable ZigBee device"
-      message: "The following zigbee devices are not available: {% for entity_id in states.group.all_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
+      message: "The following zigbee devices are not available: 
+{% for entity_id in states.group.zigbee_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
+{% for entity_id in states.group.zigbee_door_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
+{% for entity_id in states.group.zigbee_motion_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
+{% for entity_id in states.group.zigbee_lightlevel_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
+"
 

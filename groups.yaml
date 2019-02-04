@@ -34,55 +34,59 @@ weather_sensor_2:
     - sensor.humidity_158d0002320bc1
     - sensor.pressure_158d0002320bc1
 
-kitchen:
+# ------------------------------------------------
+zigbee_lights:
   view: no
-  name: Kitchen
+  name: ZigBee Lights
   control: hidden
   entities:
-    - sensor.lightlevel_kitchen
-    - binary_sensor.presence_kitchen
+  - light.ikea_lamp_1
+  - light.ikea_lamp_2
+  - light.ikea_lamp_3
+  - light.ikea_lamp_4
+  - light.ikea_lamp_5
+  - light.ikea_lamp_6
+  - light.ikea_lamp_7
+  - light.ikea_lamp_8
+  - light.ikea_lamp_9
 
-work_room:
+zigbee_door_sensors:
   view: no
-  name: Work room
+  name: ZigBee Door sensors
   control: hidden
   entities:
-    - sensor.lightlevel_workroom
-    - binary_sensor.presence_workroom
+  - binary_sensor.openclose_entrance
+  - binary_sensor.openclose_livingroom
+  - binary_sensor.openclose_kitchen
+  - binary_sensor.openclose_storehouse
 
-living_room:
+zigbee_motion_sensors:
   view: no
-  name: Living room
+  name: ZigBee Motion sensors
   control: hidden
   entities:
-    - sensor.lightlevel_livingroom
-    - binary_sensor.presence_livingroom
+  - binary_sensor.presence_entrance
+  - binary_sensor.presence_livingroom
+  - binary_sensor.presence_kitchen
+  - binary_sensor.presence_upstairs
+  - binary_sensor.presence_workroom
+  - binary_sensor.presence_room
+  - binary_sensor.presence_bedroom
 
-entrance:
+zigbee_lightlevel_sensors:
   view: no
-  name: Entrance
+  name: ZigBee Light level sensors
   control: hidden
   entities:
-    - sensor.lightlevel_entrance
-    - binary_sensor.presence_entrance
+  - sensor.lightlevel_entrance
+  - sensor.lightlevel_livingroom
+  - sensor.lightlevel_kitchen
+  - sensor.lightlevel_upstairs
+  - sensor.lightlevel_workroom
+  - sensor.lightlevel_room
+  - sensor.lightlevel_bedroom
 
-second_floor:
-  view: no
-  name: Second floor
-  control: hidden
-  entities:
-    - sensor.lightlevel_upstairs
-    - binary_sensor.presence_upstairs
-
-doors:
-  view: no
-  name: Doors
-  control: hidden
-  entities:
-    - binary_sensor.openclose_entrance
-    - binary_sensor.openclose_livingroom
-    - binary_sensor.openclose_kitchen
-
+# ------------------------------------------------
 
 ping_xiaomi_gateway:
   view: no
