@@ -198,10 +198,10 @@ sensor.pressure_158d000245a9ee:
   friendly_name: Pressure
 
 #=========================== Doors
-binary_sensor.door_window_sensor_158d00022bd3cb:
+binary_sensor.openclose_livingroom:
   friendly_name: Living room
   
-binary_sensor.door_window_sensor_158d000238694e:
+binary_sensor.openclose_entrance:
   friendly_name: Entrance 
 
 binary_sensor.openclose_kitchen:

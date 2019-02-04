@@ -79,8 +79,8 @@ doors:
   name: Doors
   control: hidden
   entities:
-    - binary_sensor.door_window_sensor_158d000238694e
-    - binary_sensor.door_window_sensor_158d00022bd3cb
+    - binary_sensor.openclose_entrance
+    - binary_sensor.openclose_livingroom
     - binary_sensor.openclose_kitchen
 
 

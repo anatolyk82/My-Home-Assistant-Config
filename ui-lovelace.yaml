@@ -157,12 +157,12 @@ views:
               top: 77%
               left: 53%
           - type: state-icon # Door - Entrance
-            entity: binary_sensor.door_window_sensor_158d000238694e
+            entity: binary_sensor.openclose_entrance
             style:
               top: 92%
               left: 47.8%
           - type: state-icon # Door - Living room
-            entity: binary_sensor.door_window_sensor_158d00022bd3cb
+            entity: binary_sensor.openclose_livingroom
             style:
               top: 50.5%
               left: 20%
