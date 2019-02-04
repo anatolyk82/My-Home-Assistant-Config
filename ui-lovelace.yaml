@@ -113,6 +113,11 @@ views:
               top: 14%
               left: 17%
           - type: state-icon
+            entity: binary_sensor.motion_downstairs
+            style:
+              top: 70%
+              left: 25%
+          - type: state-icon
             entity: binary_sensor.presence_entrance
             style:
               top: 77%
@@ -280,6 +285,11 @@ views:
             style:
               top: 14%
               left: 7%
+          - type: state-icon
+            entity: binary_sensor.motion_upstairs
+            style:
+              top: 82%
+              left: 32%
           - type: state-icon
             entity: binary_sensor.presence_upstairs
             style:
