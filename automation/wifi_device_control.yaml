@@ -12,7 +12,7 @@
   - service: notify.pushover
     data:
       title: "Unavailable device"
-      message: "The following wifi devices are not available: {% for entity_id in states.group.all_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
+      message: "The following wifi devices are not available: {% for entity_id in states.group.wifi_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
   - service: python_script.wifi_problem
 
 
