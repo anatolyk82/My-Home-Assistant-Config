@@ -2,10 +2,10 @@
   initial_state: true
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.switch_158d00028c93bf
-      click_type: single
+      id: xiaomi_switch_workroom 
+      event: 1002
   action:
   - service: light.toggle
     entity_id: light.bulb_15

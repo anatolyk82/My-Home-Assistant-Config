@@ -2,10 +2,10 @@
   initial_state: true
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.switch_158d0002130dec
-      click_type: single
+      id: xiaomi_switch_bedroom
+      event: 1002
   condition:
   - condition: sun
     after: sunset
@@ -24,10 +24,10 @@
   initial_state: true
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.switch_158d0002130dec
-      click_type: single
+      id: xiaomi_switch_bedroom
+      event: 1002
   condition:
   - condition: sun
     before: sunrise
@@ -46,10 +46,10 @@
   initial_state: true
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.switch_158d0002130dec
-      click_type: single
+      id: xiaomi_switch_bedroom
+      event: 1002
   condition:
   - condition: sun
     after: sunrise
@@ -65,10 +65,10 @@
   initial_state: true
   trigger:
   - platform: event
-    event_type: xiaomi_aqara.click
+    event_type: deconz_event
     event_data:
-      entity_id: binary_sensor.switch_158d0002130dec
-      click_type: single
+      id: xiaomi_switch_bedroom
+      event: 1002
   condition:
   - condition: state
     entity_id: light.bed_led
