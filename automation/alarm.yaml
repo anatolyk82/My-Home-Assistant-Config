@@ -8,7 +8,7 @@
     to: 'pending'
   action:
   - service: light.turn_on
-    entity_id: light.gateway_light_7811dcb7f720
+    entity_id: light.mood_lamp
     data:
       brightness: 255
       rgb_color: [0, 0, 255]

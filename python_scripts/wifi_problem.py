@@ -3,7 +3,6 @@ counter_unavailable = 0
 wifi_problem = 'off'
 
 wifi_devices = [
-        'light.gateway_light_7811dcb7f720',
         'light.xiaomi_philips_desklamp_ambient_light',
         'light.mood_lamp',
         'light.xiaomi_philips_desklamp',

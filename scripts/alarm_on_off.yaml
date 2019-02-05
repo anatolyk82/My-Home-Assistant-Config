@@ -4,16 +4,10 @@ alarm_on:
     - service: automation.turn_off
       entity_id: automation.alarm_pending_sound
     - service: light.turn_on
-      entity_id: light.gateway_light_7811dcb7f720
+      entity_id: light.mood_lamp
       data:
         brightness: 255
         rgb_color: [255, 0, 0]
-    - service: script.turn_on
-      data:
-        entity_id: script.alarm_sound_xiaomi_gateway
-    - service: script.turn_on
-      data:
-        entity_id: script.alarm_light_xiaomi_gateway
     - service: automation.turn_on
       entity_id: automation.alarm_sound_rpi_speaker
     - service: light.turn_on
@@ -67,24 +61,9 @@ alarm_off:
       entity_id: alarm_control_panel.house
       state: disarmed
     - service: light.turn_off
-      entity_id: light.gateway_light_7811dcb7f720
+      entity_id: light.mood_lamp
     - service: automation.turn_off
       entity_id: automation.alarm_pending_sound
-    - service: script.turn_off
-      data:
-        entity_id: script.alarm_sound_xiaomi_gateway
-    - service: script.turn_off
-      data:
-        entity_id: script.alarm_sound_xiaomi_gateway_loop
-    - service: script.turn_off
-      data:
-        entity_id: script.alarm_light_xiaomi_gateway
-    - service: script.turn_off
-      data:
-        entity_id: script.alarm_light_xiaomi_gateway_loop
-    - service: xiaomi_aqara.stop_ringtone
-      data_template:
-        gw_mac: !secret xiaomi_gateway_mac
     - service: automation.turn_off
       entity_id: automation.alarm_sound_rpi_speaker
     - service: switch.turn_off

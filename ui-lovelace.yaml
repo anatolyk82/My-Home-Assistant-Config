@@ -91,7 +91,6 @@ views:
       - type: entities
         entities:
         - switch.wifi_cord_1
-        - sensor.illumination_7811dcb7f720
         - binary_sensor.all_in_bed
         - light.mood_lamp
         - light.stairs
@@ -232,9 +231,6 @@ views:
         - type: entities
           title: Lights
           entities:
-            - type: custom:slider-entity-row
-              entity: light.gateway_light_7811dcb7f720
-              name: Xiaomi Gateway
             - type: custom:slider-entity-row
               entity: light.living_room
               name: Living room
@@ -570,13 +566,6 @@ views:
         - sensor.nmap_iphone
         - sensor.nmap_galaxy_s9
         - sensor.nmap_galaxy_tablet
-      - type: history-graph
-        title: 'Ping'
-        hours_to_show: 24
-        entities:
-        - sensor.ping_min_xiaomi
-        - sensor.ping_avg_xiaomi
-        - sensor.ping_max_xiaomi
     - type: entities
       show_header_toggle: false
       entities:
@@ -699,8 +688,6 @@ views:
         show_header_toggle: false
         entities:
         - automation.all_in_bed_alarm_trigger_if_any_door_is_open
-        - automation.all_in_bed_alarm_turn_off_xiaomi_light_when_all_in_bed_is_off
-        - automation.all_in_bed_alarm_turn_on_xiaomi_light_when_all_in_bed_is_on
         - automation.all_in_bed_run_script_on_start
         - automation.all_in_bed_run_script_every_10_minutes_if_off
         - automation.all_in_bed_run_script_if_motion_and_sensor_is_on
@@ -759,23 +746,11 @@ views:
             - automation.alarm_sound_rpi_speaker
             - automation.alarm_pending_sound
             - script.test_pushover
-            - script.alarm_light_xiaomi_gateway
-            - script.alarm_light_xiaomi_gateway_loop
             - script.alarm_on
             - script.alarm_off
             - switch.alarm_switch
             - input_boolean.all_lights_on_to_warm_color
             - switch.router_restart
-          - type: entities
-            title: Xiaomi Alarm settings
-            show_header_toggle: false
-            entities:
-            - input_select.gateway_sound
-            - input_boolean.mute_gateway_sounds
-            - input_number.gateway_volume
-            - input_number.loop_delay
-            - script.alarm_sound_xiaomi_gateway
-            - script.alarm_sound_xiaomi_gateway_once
 
 
 

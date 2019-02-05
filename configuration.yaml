@@ -126,8 +126,8 @@ weblink: !include weblink.yaml
 binary_sensor: !include_dir_merge_list binary_sensors/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include input_boolean.yaml
-input_number: !include input_number.yaml
-input_select: !include input_select.yaml
+#input_number: !include input_number.yaml
+#input_select: !include input_select.yaml
 camera: !include cameras.yaml
 cast: !include media.yaml
 weather: !include weather.yaml

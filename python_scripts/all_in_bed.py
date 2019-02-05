@@ -16,6 +16,7 @@ if all_in_bed_current_state == 'off' and all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('sensor'):
         if entity_id.find('lightlevel') >= 0:
             lightlevel_state = hass.states.get(entity_id)
+            logger.debug("AllInBed: Illumination for '%s' is %s", entity_id, lightlevel_state.state)
             if lightlevel_state.state == 'unknown':
                 continue
             if float(lightlevel_state.state) > 10:

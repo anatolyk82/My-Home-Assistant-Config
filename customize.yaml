@@ -234,10 +234,6 @@ binary_sensor.presence_room:
   friendly_name: Room
 
 #============================ Illumination
-sensor.illumination_7811dcb7f720:
-  hidden: true
-  friendly_name: Illumination Xiaomi gateway
-
 sensor.lightlevel_livingroom:
   friendly_name: Living room
 
@@ -283,9 +279,6 @@ binary_sensor.water_second_floor:
 
 
 #============================= Lights
-light.gateway_light_7811dcb7f720:
-  friendly_name: Xiaomi Gateway Light
-
 light.xiaomi_philips_desklamp:
   friendly_name: Desktop lamp
   icon: mdi:desk-lamp
@@ -355,9 +348,6 @@ script.play_sel_sound_loop:
   hidden: true
 
 sensor.ssh_attack:
-  hidden: true
-
-sensor.ping_xiaomi_gateway:
   hidden: true
 
 sensor.home_assistant_log:
