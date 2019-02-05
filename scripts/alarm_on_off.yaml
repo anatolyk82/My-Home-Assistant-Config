@@ -8,9 +8,6 @@ alarm_on:
       data:
         brightness: 255
         rgb_color: [255, 0, 0]
-    - service: notify.pushover
-      data:
-        message: "WARNING! The home alarm has been triggered."
     - service: script.turn_on
       data:
         entity_id: script.alarm_sound_xiaomi_gateway
@@ -38,6 +35,30 @@ alarm_on:
     - service: switch.turn_on
       data:
         entity_id: switch.alarm_switch
+    - service: notify.pushover
+      data:
+        title: "ALARM"
+        message: "WARNING! Th alarm has been triggered."
+    - delay: '00:00:03'
+    - service: notify.pushover
+      data:
+        title: "ALARM"
+        message: "WARNING! The alarm has been triggered."
+    - delay: '00:00:03'
+    - service: notify.pushover
+      data:
+        title: "ALARM"
+        message: "WARNING! The alarm has been triggered."
+    - delay: '00:00:03'
+    - service: notify.pushover
+      data:
+        title: "ALARM"
+        message: "WARNING! The alarm has been triggered."
+    - delay: '00:00:03'
+    - service: notify.pushover
+      data:
+        title: "ALARM"
+        message: "WARNING! The alarm has been triggered."
 
 alarm_off:
   alias: "Deactivate alarm"
