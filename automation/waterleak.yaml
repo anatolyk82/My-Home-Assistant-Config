@@ -2,7 +2,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.water_leak_sensor_158d00023aa4a9
+    entity_id: binary_sensor.water_first_floor
     to: 'on'
   action:
   - service: notify.pushover
@@ -14,7 +14,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.water_leak_sensor_158d00023e90af
+    entity_id: binary_sensor.water_second_floor
     to: 'on'
   action:
   - service: notify.pushover

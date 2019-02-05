@@ -16,6 +16,14 @@ wifi_lights:
   - light.xiaomi_philips_desklamp_ambient_light
 
 # ------------------------------------------------
+zigbee_water_sensors:
+  view: no
+  name: ZigBee Water sensors
+  control: hidden
+  entities:
+  - sensor.water_first_floor
+  - sensor.water_second_floor
+
 zigbee_weather_sensors:
   view: no
   name: ZigBee Weather sensors

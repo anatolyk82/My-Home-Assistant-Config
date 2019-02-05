@@ -17,7 +17,8 @@
                sensor.lightlevel_bedroom,
                sensor.temperature_first_floor, sensor.temperature_second_floor, sensor.temperature_outdoor,
                sensor.pressure_first_floor, sensor.pressure_second_floor, sensor.pressure_outdoor,
-               sensor.humidity_first_floor, sensor.humidity_second_floor, sensor.humidity_outdoor
+               sensor.humidity_first_floor, sensor.humidity_second_floor, sensor.humidity_outdoor,
+               sensor.water_first_floor, sensor.water_second_floor
     to: 'unavailable'
     for:
       seconds: 45
@@ -31,5 +32,6 @@
 {% for entity_id in states.group.zigbee_motion_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
 {% for entity_id in states.group.zigbee_lightlevel_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
 {% for entity_id in states.group.zigbee_weather_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
+{% for entity_id in states.group.zigbee_water_sensors.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}
 "
 

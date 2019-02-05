@@ -273,11 +273,11 @@ sensor.vasttrafik_linje_75_mot_angered:
 
 
 #============================= Water leak sensors
-binary_sensor.water_leak_sensor_158d00023aa4a9:
+binary_sensor.water_first_floor:
   hidden: true
   friendly_name: Water leak 1
 
-binary_sensor.water_leak_sensor_158d00023e90af:
+binary_sensor.water_second_floor:
   hidden: true
   friendly_name: Water leak 2
 

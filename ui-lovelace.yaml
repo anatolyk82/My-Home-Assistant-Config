@@ -172,7 +172,7 @@ views:
               top: 43%
               left: 84.5%
           - type: state-icon # Water leak
-            entity: binary_sensor.water_leak_sensor_158d00023aa4a9
+            entity: binary_sensor.water_first_floor
             style:
               top: 74%
               left: 70%
@@ -351,7 +351,7 @@ views:
               top: 78%
               left: 76%
           - type: state-icon # Water sensor
-            entity: binary_sensor.water_leak_sensor_158d00023e90af
+            entity: binary_sensor.water_second_floor
             style:
               top: 25%
               left: 49%
