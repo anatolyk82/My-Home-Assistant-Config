@@ -177,7 +177,7 @@ views:
               top: 74%
               left: 70%
           - type: state-icon # Smoke detector
-            entity: binary_sensor.smoke_sensor_158d0002311b86
+            entity: binary_sensor.smoke_first_floor
             style:
               top: 41%
               left: 57%
@@ -550,8 +550,8 @@ views:
       #- sensor.battery_temperature_sensor_floor1
       #- sensor.battery_temperature_sensor_floor2
       #- sensor.battery_temperature_sensor_outside
-      - sensor.battery_water_leak_sensor
-      - sensor.battery_smoke_sensor
+      #- sensor.battery_water_leak_sensor
+      #- sensor.battery_smoke_sensor
       - sensor.ikea_switch_1_battery_level
       - sensor.ikea_switch_2_battery_level
       - sensor.ikea_switch_3_battery_level

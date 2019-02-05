@@ -2,7 +2,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.smoke_sensor_158d0002311b86
+    entity_id: binary_sensor.smoke_first_floor
     to: 'on'
   action:
   - service: notify.pushover
