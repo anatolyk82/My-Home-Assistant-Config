@@ -1,4 +1,4 @@
-- alias: '[AllInBed Alarm] Turn on Xiaomi light when all_in_bed is on'
+- alias: '[All In Bed Alarm] Turn on Xiaomi light when all_in_bed is on'
   initial_state: true
   hide_entity: true
   trigger:
@@ -14,7 +14,7 @@
       rgb_color: [255, 0, 0]
 
 
-- alias: '[AllInBed Alarm] Turn off Xiaomi light when all_in_bed is off'
+- alias: '[All In Bed Alarm] Turn off Xiaomi light when all_in_bed is off'
   initial_state: true
   hide_entity: true
   trigger:
@@ -31,7 +31,7 @@
       entity_id: light.gateway_light_7811dcb7f720
 
 
-- alias: '[AllInBed Alarm] Trigger if any door is open'
+- alias: '[All In Bed Alarm] Trigger if any door is open'
   initial_state: true
   hide_entity: true
   trigger:
@@ -57,6 +57,26 @@
       entity_id: group.all_lights
   - service: notify.pushover
     data:
-      title: "Warning"
+      title: "ALARM"
+      message: "A door is open while everyone is sleeping"
+  - delay: '00:00:03'
+  - service: notify.pushover
+    data:
+      title: "ALARM"
+      message: "A door is open while everyone is sleeping"
+  - delay: '00:00:03'
+  - service: notify.pushover
+    data:
+      title: "ALARM"
+      message: "A door is open while everyone is sleeping"
+  - delay: '00:00:03'
+  - service: notify.pushover
+    data:
+      title: "ALARM"
+      message: "A door is open while everyone is sleeping"
+  - delay: '00:00:03'
+  - service: notify.pushover
+    data:
+      title: "ALARM"
       message: "A door is open while everyone is sleeping"
 

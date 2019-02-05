@@ -1,4 +1,4 @@
-- alias: '[All in bed] Run script every 10 minutes if off'
+- alias: '[All In Bed] Run script every 10 minutes if off'
   hide_entity: true
   initial_state: true
   trigger:
@@ -13,7 +13,7 @@
   - service: python_script.all_in_bed
 
 
-- alias: '[All in bed] Run script if motion and sensor is on'
+- alias: '[All In Bed] Run script if motion and sensor is on'
   hide_entity: true
   initial_state: true
   trigger:
@@ -43,7 +43,7 @@
     - service: python_script.all_in_bed
 
 
-- alias: "[All in bed] Run script on start"
+- alias: "[All In Bed] Run script on start"
   initial_state: true
   trigger:
   - platform: homeassistant

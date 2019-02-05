@@ -156,17 +156,17 @@ views:
             style:
               top: 77%
               left: 53%
-          - type: state-icon # Door - Entrance
+          - type: state-icon
             entity: binary_sensor.openclose_entrance
             style:
               top: 92%
               left: 47.8%
-          - type: state-icon # Door - Living room
+          - type: state-icon
             entity: binary_sensor.openclose_livingroom
             style:
               top: 50.5%
               left: 20%
-          - type: state-icon # Door - Kitchen
+          - type: state-icon
             entity: binary_sensor.openclose_kitchen
             style:
               top: 43%
@@ -186,7 +186,7 @@ views:
             style:
               top: 15%
               left: 27%
-          - type: state-icon  # Kitchen lamps 1
+          - type: state-icon
             entity: light.kitchen_lights_1
             tap_action:
               action: toggle
@@ -195,7 +195,7 @@ views:
             style:
               top: 43%
               left: 76%
-          - type: state-icon  # Kitchen lamps 2
+          - type: state-icon
             entity: light.kitchen_lights_2
             tap_action:
               action: toggle
@@ -204,7 +204,7 @@ views:
             style:
               top: 43%
               left: 66%
-          - type: state-icon  # MoodLamp
+          - type: state-icon
             entity: light.mood_lamp
             tap_action:
               action: toggle
@@ -537,9 +537,9 @@ views:
       title: Batteries
       show_header_toggle: false
       entities:
-      - sensor.battery_door_sensor_entrance
-      - sensor.battery_door_sensor_kitchen
-      - sensor.battery_door_sensor_living_room
+      #- sensor.battery_door_sensor_entrance
+      #- sensor.battery_door_sensor_kitchen
+      #- sensor.battery_door_sensor_living_room
       #- sensor.battery_motion_sensor_living_room
       #- sensor.battery_motion_sensor_kitchen
       #- sensor.battery_motion_sensor_entrance
@@ -671,7 +671,6 @@ views:
         - automation.hass_notification_on_start
         - automation.hass_notification_on_stop
         - automation.update_available_notifications
-        - automation.notify_on_unavailable_zigbee_lights
         - automation.christmas_lights_turn_on_when_disarmed
 
       - type: entities
@@ -737,8 +736,8 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-        - automation.zigbee_notify_if_unavailable_zigbee_device
         - automation.deconz_new_version_available
+        - automation.zigbee_notify_if_unavailable_zigbee_device
 
       - type: entities
         show_header_toggle: false
