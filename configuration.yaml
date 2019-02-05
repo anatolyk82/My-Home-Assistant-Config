@@ -90,11 +90,11 @@ vacuum:
   token: !secret xiaomi_vacuum_token
 
 
-xiaomi_aqara:
-  discovery_retry: 8
-  gateways:
-    - key: !secret xiaomi_gateway_key
-      mac: !secret xiaomi_gateway_mac
+#xiaomi_aqara:
+#  discovery_retry: 8
+#  gateways:
+#    - key: !secret xiaomi_gateway_key
+#      mac: !secret xiaomi_gateway_mac
 
 
 deconz:
