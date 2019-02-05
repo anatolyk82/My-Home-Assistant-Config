@@ -14,18 +14,7 @@ if alarm_state == 'armed_away':
 all_in_bed_current_state = hass.states.get('binary_sensor.all_in_bed').state
 if all_in_bed_current_state == 'off' and all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('sensor'):
-        if entity_id.find('illumination') >= 0:
-            # Ignore Xiaomi gateway
-            if entity_id.find('7811dcb7f720') >= 0:
-                continue
-            illumination_state = hass.states.get(entity_id)
-            if illumination_state.state == 'unknown':
-                continue
-            if float(illumination_state.state) > 10:
-                all_in_bed = 'off'
-                logger.debug("AllInBed: Illumination for '%s' is above 10. Set the sensor to off", entity_id)
-                break
-        elif entity_id.find('lightlevel') >= 0:
+        if entity_id.find('lightlevel') >= 0:
             lightlevel_state = hass.states.get(entity_id)
             if lightlevel_state.state == 'unknown':
                 continue
@@ -97,16 +86,7 @@ if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
 # Check if there is any motion except the bedroom
 if all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('binary_sensor'):
-        if entity_id.find('motion_sensor') >= 0:
-            # Ignore motion sensor in the bedroom  
-            if entity_id.find('158d000236a59e') >= 0:
-                continue
-            motion_state = hass.states.get(entity_id)
-            if motion_state.state == 'on':
-                logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)
-                all_in_bed = 'off'
-                break
-        elif entity_id.find('presence') >= 0:
+        if entity_id.find('presence') >= 0:
             # Ignore motion sensor in the bedroom  
             if entity_id.find('bedroom') >= 0:
                 continue
