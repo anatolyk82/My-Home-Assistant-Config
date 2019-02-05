@@ -2,8 +2,8 @@
   initial_state: true
   trigger:
     platform: numeric_state
-    entity_id: sensor.temperature_158d0002320bc1
-    above: 50
+    entity_id: sensor.temperature_second_floor
+    above: 40
   action:
     service: notify.pushover
     data:
@@ -13,8 +13,8 @@
   initial_state: true
   trigger:
     platform: numeric_state
-    entity_id: sensor.temperature_158d000245a9ee
-    above: 50
+    entity_id: sensor.temperature_first_floor
+    above: 40
   action:
     service: notify.pushover
     data:

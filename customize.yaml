@@ -168,33 +168,33 @@ binary_sensor.switch_158d00028c93bf:
   friendly_name: Work room switch
 
 #=========================== Temperature sensor - Second floor
-sensor.humidity_158d0002320bc1:
+sensor.humidity_second_floor:
   friendly_name: Humidity
 
-sensor.temperature_158d0002320bc1:
+sensor.temperature_second_floor:
   friendly_name: Temperature
 
-sensor.pressure_158d0002320bc1:
+sensor.pressure_second_floor:
   friendly_name: Pressure
 
 #=========================== Temperature sensor - Outside
-sensor.humidity_158d0002478a68:
+sensor.humidity_outdoor:
   friendly_name: Humidity
 
-sensor.temperature_158d0002478a68:
+sensor.temperature_outdoor:
   friendly_name: Temperature
 
-sensor.pressure_158d0002478a68:
+sensor.pressure_outdoor:
   friendly_name: Pressure
 
 #=========================== Temperature sensor - First floor
-sensor.humidity_158d000245a9ee:
+sensor.humidity_first_floor:
   friendly_name: Humidity
 
-sensor.temperature_158d000245a9ee:
+sensor.temperature_first_floor:
   friendly_name: Temperature
 
-sensor.pressure_158d000245a9ee:
+sensor.pressure_first_floor:
   friendly_name: Pressure
 
 #=========================== Doors
