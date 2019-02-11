@@ -723,6 +723,12 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+        - automation.stairs_turn_on_up
+        - automation.stairs_turn_on_down
+
+      - type: entities
+        show_header_toggle: false
+        entities:
         - automation.deconz_new_version_available
         - automation.zigbee_notify_if_unavailable_zigbee_device
 

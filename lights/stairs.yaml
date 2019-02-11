@@ -1,0 +1,18 @@
+- platform: mqtt
+  name: 'Stairs'
+  schema: json
+  rgb: true
+  brightness: true
+  command_topic: "light/stairs/set"
+  state_topic: "light/stairs"
+  availability_topic: "light/stairs/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  optimistic: false
+  qos: 0
+  effect: true
+  effect_list:
+  - LightUp
+  - LightDown
+  - Stop
+

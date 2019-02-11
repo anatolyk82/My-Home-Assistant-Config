@@ -1,0 +1,46 @@
+- alias: '[Stairs] Turn on up'
+  hide_entity: true
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_downstairs
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.stairs
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.stairs
+    data:
+      brightness: 255
+      rgb_color: [255, 63, 0]
+      effect: "LightUp"
+  - delay:
+      minutes: 1
+  - service: light.turn_off
+    entity_id: light.stairs
+
+
+- alias: '[Stairs] Turn on down'
+  hide_entity: true
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_upstairs
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.stairs
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.stairs
+    data:
+      brightness: 255
+      rgb_color: [255, 63, 0]
+      effect: "LightDown"
+  - delay:
+      minutes: 1
+  - service: light.turn_off
+    entity_id: light.stairs
