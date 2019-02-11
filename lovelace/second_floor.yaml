@@ -1,0 +1,138 @@
+
+title: "Second floor"
+id: floor2
+cards:
+  - type: picture-elements
+    image: /local/images/second_floor_ext.jpg
+    elements:
+      - type: icon # Foscam camera 1
+        entity: camera.foscam_1
+        icon: mdi:cctv
+        style:
+          top: 14%
+          left: 7%
+      - type: state-icon
+        entity: binary_sensor.motion_upstairs
+        style:
+          top: 82%
+          left: 32%
+      - type: state-icon
+        entity: binary_sensor.presence_upstairs
+        style:
+          top: 77%
+          left: 50%
+      - type: state-icon
+        entity: light.ikea_lamp_1
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 61%
+          left: 50%
+      - type: state-icon  # Bedroom - light
+        entity: light.bulb_13 
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 50%
+          left: 26%
+      - type: state-icon  # Bedroom - Motion sensor
+        entity: binary_sensor.presence_bedroom
+        style:
+          top: 35%
+          left: 26%
+      - type: state-icon  # Bedroom - bed light
+        entity: light.bed_led
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 18%
+          left: 26%
+      - type: state-label
+        entity: sensor.temperature_second_floor
+        style:
+          top: 48%
+          left: 50%
+      - type: state-icon # Workroom light
+        entity: light.bulb_15
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 67%
+          left: 70%
+      - type: state-icon # Workroom desklight
+        entity: light.xiaomi_philips_desklamp
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 67%
+          left: 82%
+      - type: state-icon
+        entity: binary_sensor.presence_workroom
+        style:
+          top: 78%
+          left: 76%
+      - type: state-icon # Water sensor
+        entity: binary_sensor.water_second_floor
+        style:
+          top: 25%
+          left: 49%
+      - type: state-icon # Room light
+        entity: light.bulb_17
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 33%
+          left: 70%
+      - type: state-icon #Room motion sensor
+        entity: binary_sensor.presence_room
+        style:
+          top: 33%
+          left: 80%
+  - type: horizontal-stack
+    cards:
+    - type: sensor
+      entity: sensor.temperature_second_floor
+      graph: line
+    - type: sensor
+      entity: sensor.humidity_second_floor
+      graph: line
+  - type: glance
+    column_width: calc(100% / 4)
+    entities:
+      - sensor.lightlevel_upstairs
+      - sensor.lightlevel_bedroom
+      - sensor.lightlevel_workroom
+      - sensor.lightlevel_room
+  - type: vertical-stack
+    cards:
+    - type: entities
+      title: Lights
+      entities:
+        - type: custom:slider-entity-row
+          entity: light.ikea_lamp_1
+          name: Upstairs
+        - type: custom:slider-entity-row
+          entity: light.bulb_13
+          name: Bedroom
+        - type: custom:slider-entity-row
+          entity: light.bed_led
+          name: Bed LED
+        - type: custom:slider-entity-row
+          entity: light.bulb_15
+          name: Work room
+        - type: custom:slider-entity-row
+          entity: light.xiaomi_philips_desklamp
+          name: Desklamp
+        - type: custom:slider-entity-row
+          entity: light.xiaomi_philips_desklamp_ambient_light
+          name: Desklamp ambient
+        - type: custom:slider-entity-row
+          entity: light.bulb_17
+          name: Room
+

@@ -1,0 +1,101 @@
+title: "State"
+id: state
+cards:
+- type: entities
+  show_header_toggle: false
+  entities:
+  - sensor.hass_available_version
+  - sensor.hass_installed_version
+- type: entities
+  show_header_toggle: false
+  entities:
+  - sensor.deconz_available_version
+  - sensor.deconz_installed_version
+- type: entities
+  show_header_toggle: false
+  title: HA Files
+  entities:
+  - sensor.home_assistant_v2_db
+  - sensor.home_assistant_log
+- type: entities
+  show_header_toggle: false
+  entities:
+  - sensor.ssh_attack
+  - sensor.ssl_certificate_expiry
+- type: entities
+  entities:
+  - sensor.entrance_lamp_on_today
+  - sensor.living_room_right_lamp_on_today
+  - sensor.living_room_left_lamp_on_today
+  - sensor.upstairs_lamp_on_today
+  - sensor.bedroom_lamp_on_today
+  - sensor.bed_led_on_today
+  - sensor.room_lamp_on_today
+  - sensor.desktop_lamp_on_today
+  - sensor.workroom_lamp_on_today
+  - sensor.kitchen_1_on_today
+  - sensor.kitchen_2_on_today
+- type: entities
+  entities:
+    - sensor.rssi_bed_light
+    - sensor.rssi_keypad
+    - sensor.rssi_mood_lamp
+- type: entities
+  title: Batteries
+  show_header_toggle: false
+  entities:
+  #- sensor.battery_door_sensor_entrance
+  #- sensor.battery_door_sensor_kitchen
+  #- sensor.battery_door_sensor_living_room
+  #- sensor.battery_motion_sensor_living_room
+  #- sensor.battery_motion_sensor_kitchen
+  #- sensor.battery_motion_sensor_entrance
+  #- sensor.battery_motion_sensor_second_floor
+  #- sensor.battery_motion_sensor_workroom
+  #- sensor.battery_motion_sensor_room
+  #- sensor.battery_motion_sensor_bedroom
+  #- sensor.battery_temperature_sensor_floor1
+  #- sensor.battery_temperature_sensor_floor2
+  #- sensor.battery_temperature_sensor_outside
+  #- sensor.battery_water_leak_sensor
+  #- sensor.battery_smoke_sensor
+  - sensor.ikea_switch_1_battery_level
+  - sensor.ikea_switch_2_battery_level
+  - sensor.ikea_switch_3_battery_level
+  - sensor.ikea_switch_4_battery_level
+- type: vertical-stack
+  cards:
+  - type: entities
+    title: "Network"
+    show_header_toggle: false
+    entities:
+    - sensor.nmap_router
+    - sensor.nmap_xiaomi_gateway
+    - sensor.nmap_google_home
+    - sensor.nmap_laptop_dell_xps15
+    - sensor.nmap_laptop_dell_xps13
+    - sensor.nmap_iphone
+    - sensor.nmap_galaxy_s9
+    - sensor.nmap_galaxy_tablet
+- type: entities
+  show_header_toggle: false
+  entities:
+  - input_boolean.show_system_info
+- type: conditional
+  conditions:
+  - entity: input_boolean.show_system_info
+    state: "on"
+  card: 
+    type: vertical-stack
+    cards:
+    - type: entities
+      title: System Information
+      show_header_toggle: false
+      entities:
+      - sensor.processor_use
+      - sensor.cpu_temp
+      - sensor.memory_free
+      - sensor.memory_use_percent
+      - sensor.disk_use_percent
+      - sensor.last_boot
+

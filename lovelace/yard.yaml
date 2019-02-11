@@ -1,0 +1,39 @@
+title: "Yard"
+id: yard
+cards:
+- type: entities
+  entities:
+  - switch.cameras
+
+- type: vertical-stack
+  cards:
+  - type: picture-glance
+    title: "Bakgård (Foscam1)"
+    camera_image: camera.foscam_1
+    entities:
+    - binary_sensor.foscam_1_motion
+    - binary_sensor.foscam1
+
+  - type: entities
+    entities:
+    - switch.foscam1_motion
+    - input_boolean.foscam1_snapshot
+
+- type: entities
+  entities:
+  - binary_sensor.openclose_storehouse
+
+- type: vertical-stack
+  cards:
+  - type: picture-glance
+    title: "Gården (Foscam2)"
+    camera_image: camera.foscam_2
+    entities:
+    - binary_sensor.foscam_2_motion
+    - binary_sensor.foscam2
+
+  - type: entities
+    entities:
+    - switch.foscam2_motion
+    - input_boolean.foscam2_snapshot
+

@@ -1,0 +1,70 @@
+title: "Overview"
+id: overview
+# Optional background (overwrites the global background).
+#background: radial-gradient(crimson, skyblue)
+# Each view can have a different theme applied. Theme should be defined in the frontend.
+theme: dark-mode
+# The cards to show on this view.
+cards:
+- type: entities
+  entities:
+    - alarm_control_panel.house
+    - sensor.keypad
+
+- type: entities
+  entities:
+  - device_tracker.google_maps_104206738568170616102
+
+- type: entities
+  entities:
+  - sensor.moonphases
+
+- type: entities
+  entities:
+  - sensor.sunrise_time
+  - sensor.solar_angle
+  - sensor.sunset_time
+
+- type: entities
+  entities:
+  - sensor.vasttrafik_linje_176_mot_lindholmen
+  - sensor.vasttrafik_linje_176_mot_rannebergen
+  - sensor.vasttrafik_linje_75_mot_angered
+
+- type: vertical-stack
+  cards:
+  - type: glance
+    title: Current weather
+    column_width: calc(100% / 4)
+    entities:
+    - sensor.yr_temperature
+    - sensor.yr_humidity
+    - sensor.yr_pressure
+    - sensor.yr_cloudiness
+  - type: glance
+    column_width: calc(100% / 4)
+    entities:
+    - sensor.yr_precipitation
+    - sensor.yr_wind_speed
+    - sensor.yr_wind_direction
+    - sensor.yr_fog
+
+- type: entity-filter
+  entities:
+    - device_tracker.google_maps_104206738568170616102
+  state_filter:
+    - 'home'
+  card:
+    type: media-control
+    entity: media_player.sirius
+
+- type: entities
+  entities:
+  - switch.wifi_cord_1
+  - binary_sensor.all_in_bed
+  - light.mood_lamp
+  - light.stairs
+  - binary_sensor.wifi_problem
+  - vacuum.roborock
+  - switch.ikea_plug_1
+

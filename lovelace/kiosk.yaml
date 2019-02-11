@@ -1,0 +1,172 @@
+
+title: "Kiosk"
+id: kiosk
+cards:
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: >
+      # First floor
+  - type: horizontal-stack
+    title: First floor
+    cards:
+    - type: gauge
+      title: "Temperature"
+      entity: sensor.temperature_first_floor
+      min: 0
+      max: 50
+      severity:
+        yellow: 0
+        green: 22
+        red: 40
+    - type: gauge
+      title: "Humidity"
+      entity: sensor.humidity_first_floor
+      min: 0
+      max: 100
+      severity:
+        yellow: 0
+        green: 40
+        red: 80
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.bulb_16
+      name: "Living room right"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+    - type: entity-button
+      entity: light.bulb_14
+      name: "Living room left"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.mood_lamp
+      icon: mdi:lava-lamp
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+    - type: entity-button
+      entity: light.ikea_lamp_2
+      name: "Entrance"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.kitchen_lights_1
+      name: "Kitchen 1"
+      icon: mdi:track-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+    - type: entity-button
+      entity: light.kitchen_lights_2
+      name: "Kitchen 2"
+      icon: mdi:track-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: >
+      # Second floor
+  - type: horizontal-stack
+    cards:
+    - type: gauge
+      title: "Temperature"
+      entity: sensor.temperature_second_floor
+      min: 0
+      max: 50
+      severity:
+        yellow: 0
+        green: 22
+        red: 40
+    - type: gauge
+      title: "Humidity"
+      entity: sensor.humidity_second_floor
+      min: 0
+      max: 100
+      severity:
+        yellow: 0
+        green: 40
+        red: 80
+
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.bulb_13
+      name: "Bedroom"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+    - type: entity-button
+      entity: light.bed_led
+      name: "Bed light"
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+      icon: mdi:bed-empty
+
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.ikea_lamp_1
+      name: "Upstairs"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+    - type: entity-button
+      entity: light.bulb_15
+      name: "Work room"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+  - type: horizontal-stack
+    cards:
+    - type: entity-button
+      entity: light.xiaomi_philips_desklamp
+      icon: mdi:desk-lamp
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
+    - type: entity-button
+      entity: light.bulb_17
+      name: "Room"
+      icon: mdi:ceiling-light
+      tap_action:
+        action: toggle
+      hold_action: 
+        action: more-info
+
