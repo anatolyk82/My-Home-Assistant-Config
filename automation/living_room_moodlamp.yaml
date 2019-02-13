@@ -1,4 +1,4 @@
-- alias: '[MoodLamp] Turn on when disarmed'
+- alias: '[MoodLamp] Turn on when disarmed after sunset'
   hide_entity: true
   initial_state: true
   trigger:
@@ -13,6 +13,41 @@
     entity_id: light.mood_lamp
     data:
       effect: "Rainbow"
+
+
+- alias: '[MoodLamp] Turn off when disarmed before sunset'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'disarmed'
+  condition:
+  - condition: sun
+    before: sunset
+  action:
+  - service: light.turn_on
+    entity_id: light.mood_lamp
+    data:
+      rgb_color: [255, 255, 255]
+  - delay:
+      seconds: 1
+  - service: light.turn_off
+    entity_id: light.mood_lamp
+
+
+- alias: '[MoodLamp] Police effect while pending'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'pending'
+  action:
+  - service: light.turn_on
+    entity_id: light.mood_lamp
+    data:
+      effect: "Police"
 
 
 - alias: '[MoodLamp] Turn on if motion at night'
@@ -111,4 +146,5 @@
   action:
   - service: light.turn_off
     entity_id: light.mood_lamp
+
 

@@ -7,11 +7,6 @@
     entity_id: alarm_control_panel.house
     to: 'pending'
   action:
-  - service: light.turn_on
-    entity_id: light.mood_lamp
-    data:
-      brightness: 255
-      rgb_color: [0, 0, 255]
   - service: automation.turn_on
     entity_id: automation.alarm_pending_sound
 

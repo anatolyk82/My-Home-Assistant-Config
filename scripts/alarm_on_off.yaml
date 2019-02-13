@@ -60,8 +60,6 @@ alarm_off:
     - condition: state
       entity_id: alarm_control_panel.house
       state: disarmed
-    - service: light.turn_off
-      entity_id: light.mood_lamp
     - service: automation.turn_off
       entity_id: automation.alarm_pending_sound
     - service: automation.turn_off

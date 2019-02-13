@@ -81,9 +81,11 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - automation.moodlamp_turn_on_when_disarmed
+    - automation.moodlamp_police_effect_while_pending
     - automation.moodlamp_turn_on_if_motion_at_night
     - automation.moodlamp_turn_off_if_no_motion_at_night
+    - automation.moodlamp_turn_off_when_disarmed_before_sunset
+    - automation.moodlamp_turn_on_when_disarmed_after_sunset
 
   - type: entities
     show_header_toggle: false
