@@ -159,6 +159,10 @@ sensor.ikea_switch_3_battery_level:
   hidden: true
   friendly_name: IKEA button 3 battery
 
+sensor.ikea_switch_4_battery_level:
+  hidden: true
+  friendly_name: IKEA button 4 battery
+
 #=========================== Switches
 binary_sensor.switch_158d0002130dec:
   hidden: true
@@ -289,6 +293,9 @@ light.christmas_lights:
 light.ikea_lamp_1:
   icon: mdi:ceiling-light
 
+light.ikea_lamp_2:
+  icon: mdi:ceiling-light
+
 light.kitchen_lights_1:
   icon: mdi:track-light
 
@@ -304,6 +311,14 @@ light.bulb_16:
 light.mood_lamp:
   icon: mdi:lava-lamp
 
+light.bulb_13:
+  icon: mdi:ceiling-light
+
+light.bulb_15:
+  icon: mdi:ceiling-light
+
+light.bulb_17:
+  icon: mdi:ceiling-light
 #============================= Input boolean
 
 input_boolean.vacation_mode:
