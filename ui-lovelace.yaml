@@ -2,22 +2,11 @@ title: My Home
 #background: center / cover no-repeat url("/local/images/background.jpg") fixed
 # Include external resources
 resources:
-    #  - url: /local/custom_ui/alarm_control_panel-card.js
-    #type: js
-    #  - url: /local/custom_ui/dark-sky-weather-card.js?v=6
-    #type: js
-    #  - url: /local/custom_ui/dark-sky-weather-card.css
-    #type: css
-    #- url: /local/custom_ui/bignumber-card.js
-    #type: js
-    #  - url: /local/custom_ui/gauge-card.js
-    #type: js
   - url: /local/custom_ui/slider-entity-row.js
     type: js
-    #https://github.com/thomasloven/lovelace-fold-entity-row
-  - url: /local/custom_ui/card-tools.js #required for fold-entity-row
+  - url: /local/custom_ui/card-tools.js?v=2
     type: js
-  - url: /local/custom_ui/fold-entity-row.js #custom:fold-entity-row
+  - url: /local/custom_ui/popup-card.js
     type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
