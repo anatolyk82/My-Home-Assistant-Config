@@ -27,22 +27,22 @@
     data:
       title: "ALARM"
       message: "A door is open while everyone is sleeping"
-  - delay: '00:00:03'
+  - delay: '00:00:10'
   - service: notify.pushover
     data:
       title: "ALARM"
       message: "A door is open while everyone is sleeping"
-  - delay: '00:00:03'
+  - delay: '00:00:10'
   - service: notify.pushover
     data:
       title: "ALARM"
       message: "A door is open while everyone is sleeping"
-  - delay: '00:00:03'
+  - delay: '00:00:10'
   - service: notify.pushover
     data:
       title: "ALARM"
       message: "A door is open while everyone is sleeping"
-  - delay: '00:00:03'
+  - delay: '00:00:10'
   - service: notify.pushover
     data:
       title: "ALARM"
