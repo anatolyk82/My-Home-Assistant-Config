@@ -160,6 +160,7 @@ cards:
         title: Debug card
         show_header_toggle: false
         entities:
+        - automation.warning_sound_rpi_speaker
         - automation.alarm_sound_rpi_speaker
         - automation.alarm_pending_sound
         - script.test_pushover

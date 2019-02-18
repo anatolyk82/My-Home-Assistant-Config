@@ -5,7 +5,20 @@
     entity_id: binary_sensor.smoke_first_floor
     to: 'on'
   action:
+  - service: automation.turn_on
+    entity_id: automation.warning_sound_rpi_speaker
   - service: notify.pushover
     data:
+      title: "Smoke Alarm"
+      message: "WARNING! Smoke detected!"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Smoke Alarm"
+      message: "WARNING! Smoke detected!"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Smoke Alarm"
       message: "WARNING! Smoke detected!"
 

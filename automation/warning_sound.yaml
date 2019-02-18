@@ -1,0 +1,9 @@
+- alias: 'Warning Sound RPi Speaker'
+  hide_entity: true
+  initial_state: false
+  trigger:
+  - platform: time_pattern
+    seconds: "/30"
+  action:
+  - service: shell_command.warning_sound_rpi_speaker
+

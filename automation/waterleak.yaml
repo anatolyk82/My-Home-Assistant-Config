@@ -5,8 +5,21 @@
     entity_id: binary_sensor.water_first_floor
     to: 'on'
   action:
+  - service: automation.turn_on
+    entity_id: automation.warning_sound_rpi_speaker
   - service: notify.pushover
     data:
+      title: "Water leak!"
+      message: "WARNING! A water leakage is detected on the first floor"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Water leak!"
+      message: "WARNING! A water leakage is detected on the first floor"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Water leak!"
       message: "WARNING! A water leakage is detected on the first floor"
 
 
@@ -17,6 +30,21 @@
     entity_id: binary_sensor.water_second_floor
     to: 'on'
   action:
+  - service: automation.turn_on
+    entity_id: automation.warning_sound_rpi_speaker
   - service: notify.pushover
     data:
+      title: "Water leak!"
       message: "WARNING! A water leakage is detected on the second floor"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Water leak!"
+      message: "WARNING! A water leakage is detected on the second floor"
+  - delay: '00:00:10'
+  - service: notify.pushover
+    data:
+      title: "Water leak!"
+      message: "WARNING! A water leakage is detected on the second floor"
+
+
