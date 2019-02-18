@@ -2,9 +2,11 @@
 title: "First floor"
 id: floor1
 cards:
-  - type: picture-elements
-    image: /local/images/first_floor_ext.jpg
-    elements:
+  - type: vertical-stack
+    cards:
+    - type: picture-elements
+      image: /local/images/first_floor_ext.jpg
+      elements:
       - type: icon
         entity: camera.foscam_1
         icon: mdi:cctv
@@ -112,59 +114,70 @@ cards:
         style:
           top: 14%
           left: 53%
-  - type: horizontal-stack
-    cards:
-    - type: sensor
-      entity: sensor.temperature_first_floor
-      graph: line
-    - type: sensor
-      entity: sensor.humidity_first_floor
-      graph: line
-  - type: glance
-    column_width: calc(100% / 3)
-    entities:
-      - sensor.lightlevel_entrance
-      - sensor.lightlevel_livingroom
-      - sensor.lightlevel_kitchen
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        entity: sensor.temperature_first_floor
+        graph: line
+      - type: sensor
+        entity: sensor.humidity_first_floor
+        graph: line
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        entity: sensor.lightlevel_entrance
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_livingroom
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_kitchen
+        graph: line
+
   - type: vertical-stack
     cards:
     - type: entities
-      title: Lights
       entities:
-        - type: custom:slider-entity-row
-          entity: light.living_room
-          name: Living room
-        - type: custom:slider-entity-row
-          entity: light.bulb_16
-          name: Living room right
-        - type: custom:slider-entity-row
-          entity: light.bulb_14
-          name: Living room left
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_2
-          name: Entrance
-        - type: custom:slider-entity-row
-          entity: light.kitchen_lights_1
-          name: Kitchen1
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_4
-          name: Kitchen Lamp 1
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_5
-          name: Kitchen Lamp 2
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_6
-          name: Kitchen Lamp 3
-        - type: custom:slider-entity-row
-          entity: light.kitchen_lights_2
-          name: Kitchen2
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_7
-          name: Kitchen Lamp 7
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_8
-          name: Kitchen Lamp 8
-        - type: custom:slider-entity-row
-          entity: light.ikea_lamp_9
-          name: Kitchen Lamp 9
-
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_2
+        name: Entrance
+    - type: entities
+      entities:
+      - type: custom:slider-entity-row
+        entity: light.mood_lamp
+        name: Mood Lamp
+      - type: custom:slider-entity-row
+        entity: light.living_room
+        name: Living room
+      - type: custom:slider-entity-row
+        entity: light.bulb_16
+        name: Living room right
+      - type: custom:slider-entity-row
+        entity: light.bulb_14
+        name: Living room left
+    - type: entities
+      entities:
+      - type: custom:slider-entity-row
+        entity: light.kitchen_lights_1
+        name: Kitchen1
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_4
+        name: Kitchen Lamp 1
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_5
+        name: Kitchen Lamp 2
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_6
+        name: Kitchen Lamp 3
+      - type: custom:slider-entity-row
+        entity: light.kitchen_lights_2
+        name: Kitchen2
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_7
+        name: Kitchen Lamp 7
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_8
+        name: Kitchen Lamp 8
+      - type: custom:slider-entity-row
+        entity: light.ikea_lamp_9
+        name: Kitchen Lamp 9
