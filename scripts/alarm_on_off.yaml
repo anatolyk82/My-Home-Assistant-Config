@@ -33,22 +33,22 @@ alarm_on:
       data:
         title: "ALARM"
         message: "WARNING! Th alarm has been triggered."
-    - delay: '00:00:03'
+    - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
-    - delay: '00:00:03'
+    - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
-    - delay: '00:00:03'
+    - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
-    - delay: '00:00:03'
+    - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
