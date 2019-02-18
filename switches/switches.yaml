@@ -1,5 +1,4 @@
 - platform: mqtt
-  entity_id: wifi_cord_1
   name: "WiFi Cord 1"
   state_topic: "stat/sonoff2/POWER"
   command_topic: "cmnd/sonoff2/POWER"
