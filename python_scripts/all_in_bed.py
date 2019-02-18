@@ -1,6 +1,15 @@
 
 all_in_bed = 'on'
 
+# Check time (only between 22:00 - 10:00 it starts checking)
+now = datetime.datetime.now()
+today_10_00 = now.replace(hour=10, minute=0, second=0, microsecond=0)
+today_22_00 = now.replace(hour=22, minute=0, second=0, microsecond=0)
+if now > today_10_00 and now < today_22_00:
+    all_in_bed = 'off'
+    logger.debug("AllInBed: Current time is between 10:00 and 22:00. Set the sensor to off")
+
+
 # Check the alarm state
 alarm_state = hass.states.get('alarm_control_panel.house').state
 if alarm_state == 'armed_away':
