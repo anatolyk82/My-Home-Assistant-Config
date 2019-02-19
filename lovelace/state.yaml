@@ -44,25 +44,12 @@ cards:
   title: Batteries
   show_header_toggle: false
   entities:
-  #- sensor.battery_door_sensor_entrance
-  #- sensor.battery_door_sensor_kitchen
-  #- sensor.battery_door_sensor_living_room
-  #- sensor.battery_motion_sensor_living_room
-  #- sensor.battery_motion_sensor_kitchen
-  #- sensor.battery_motion_sensor_entrance
-  #- sensor.battery_motion_sensor_second_floor
-  #- sensor.battery_motion_sensor_workroom
-  #- sensor.battery_motion_sensor_room
-  #- sensor.battery_motion_sensor_bedroom
-  #- sensor.battery_temperature_sensor_floor1
-  #- sensor.battery_temperature_sensor_floor2
-  #- sensor.battery_temperature_sensor_outside
-  #- sensor.battery_water_leak_sensor
-  #- sensor.battery_smoke_sensor
   - sensor.ikea_switch_1_battery_level
   - sensor.ikea_switch_2_battery_level
   - sensor.ikea_switch_3_battery_level
   - sensor.ikea_switch_4_battery_level
+  - sensor.switch_bedroom_battery_level
+  - sensor.switch_workroom_battery_level
 - type: vertical-stack
   cards:
   - type: entities
