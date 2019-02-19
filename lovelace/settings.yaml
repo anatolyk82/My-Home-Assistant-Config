@@ -30,6 +30,7 @@ cards:
     - automation.too_high_temperature_at_the_first_floor
     - automation.too_high_temperature_at_the_second_floor
     - automation.smoke_alarm
+    - automation.stop_warning_signal_with_code_0000
 
   - type: entities
     show_header_toggle: false

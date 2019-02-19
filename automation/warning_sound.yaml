@@ -3,7 +3,18 @@
   initial_state: false
   trigger:
   - platform: time_pattern
-    seconds: "/30"
+    seconds: "/2"
   action:
   - service: shell_command.warning_sound_rpi_speaker
 
+
+- alias: 'Stop warning signal with code 0000'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: mqtt
+    topic: 'alarm/keypad/code'
+    payload: '0000'
+  action:
+  - service: automation.turn_off
+    entity_id: automation.warning_sound_rpi_speaker
