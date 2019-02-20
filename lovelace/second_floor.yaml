@@ -94,6 +94,13 @@ cards:
         style:
           top: 33%
           left: 80%
+      - type: state-icon
+        entity: light.stairs
+        tap_action:
+          action: more-info
+        style:
+          top: 83%
+          left: 15%
   - type: horizontal-stack
     cards:
     - type: sensor
