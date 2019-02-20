@@ -14,5 +14,7 @@
   effect_list:
   - LightUp
   - LightDown
+  - DimUp
+  - DimDown
   - Stop
 
