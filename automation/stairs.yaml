@@ -1,6 +1,94 @@
-- alias: '[Stairs] Turn on up'
+
+- alias: '[Stairs] Turn on after midnight if motion upstairs'
   hide_entity: true
-  initial_state: false
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_upstairs
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: time
+    after: "00:00"
+    before: "06:29"
+  - condition: state
+    entity_id: light.stairs
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.stairs
+    data:
+      #brightness: 255
+      rgb_color: [255, 63, 0]
+      transition: 2
+
+
+- alias: '[Stairs] Turn off after midnight if no motion for 1 min'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_upstairs
+    to: 'off'
+    for:
+      seconds: 60
+  condition:
+  - condition: time
+    after: "00:00"
+    before: "06:29"
+  - condition: state
+    entity_id: light.stairs
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.motion_upstairs
+    state: 'off'
+    for:
+      seconds: 30
+  - condition: state
+    entity_id: binary_sensor.motion_downstairs
+    state: 'off'
+    for:
+      seconds: 30
+  action:
+  - service: light.turn_off
+    entity_id: light.stairs
+    data:
+      transition: 3
+
+
+- alias: '[Stairs] Turn off after midnight if no motion for 5 min'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_upstairs
+    to: 'off'
+    for:
+      seconds: 300
+  condition:
+  - condition: time
+    after: "00:00"
+    before: "06:29"
+  - condition: state
+    entity_id: light.stairs
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.motion_upstairs
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.motion_downstairs
+    state: 'off'
+  action:
+  - service: light.turn_off
+    entity_id: light.stairs
+    data:
+      transition: 3
+
+
+#---------------------------------------------------------
+- alias: '[Stairs] Turn on up if upstairs in dark'
+  hide_entity: true
+  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.motion_downstairs
@@ -9,22 +97,27 @@
   - condition: state
     entity_id: light.stairs
     state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.lightlevel_upstairs
+    below: 10
   action:
   - service: light.turn_on
     entity_id: light.stairs
     data:
-      brightness: 255
+      #brightness: 60
       rgb_color: [255, 63, 0]
       effect: "LightUp"
   - delay:
-      minutes: 1
+      seconds: 10
   - service: light.turn_off
     entity_id: light.stairs
+    data:
+      transition: 10
 
 
-- alias: '[Stairs] Turn on down'
+- alias: '[Stairs] Turn on down if downstairs in dark'
   hide_entity: true
-  initial_state: false
+  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.motion_upstairs
@@ -33,14 +126,20 @@
   - condition: state
     entity_id: light.stairs
     state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.lightlevel_livingroom
+    below: 10
   action:
   - service: light.turn_on
     entity_id: light.stairs
     data:
-      brightness: 255
+      #brightness: 60
       rgb_color: [255, 63, 0]
       effect: "LightDown"
   - delay:
-      minutes: 1
+      seconds: 10
   - service: light.turn_off
     entity_id: light.stairs
+    data:
+      transition: 10
+

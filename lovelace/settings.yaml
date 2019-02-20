@@ -135,8 +135,11 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - automation.stairs_turn_on_up
-    - automation.stairs_turn_on_down
+    - automation.stairs_turn_off_after_midnight_if_no_motion_for_1_min
+    - automation.stairs_turn_off_after_midnight_if_no_motion_for_5_min
+    - automation.stairs_turn_on_after_midnight_if_motion_upstairs
+    - automation.stairs_turn_on_down_if_downstairs_in_dark
+    - automation.stairs_turn_on_up_if_upstairs_in_dark
 
   - type: entities
     show_header_toggle: false
