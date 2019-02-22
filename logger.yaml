@@ -27,7 +27,7 @@ logs:
   homeassistant.components.deconz: info
   #custom_components.xiaomi: debug
   #homeassistant.components.shell_command: debug
-  homeassistant.components.mqtt: debug
+  homeassistant.components.mqtt: warning
   homeassistant.components.python_script: debug
   homeassistant.components.sensor.command_line: warn
   homeassistant.components.sensor.vasttrafik: error
