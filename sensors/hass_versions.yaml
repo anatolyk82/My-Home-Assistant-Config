@@ -1,12 +1,10 @@
 - platform: command_line
   command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
   name: HASS Available Version
-  icon: mdi:github-circle
   scan_interval: 3600
 
 
 - platform: command_line
   command: "/srv/homeassistant/bin/hass --version"
   name: 'HASS Installed Version'
-  icon: mdi:folder-download
   scan_interval: 3600

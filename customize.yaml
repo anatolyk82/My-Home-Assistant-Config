@@ -378,13 +378,23 @@ sensor.installed_version:
 
 sensor.hass_available_version:
   hidden: true
+  icon: mdi:github-circle
 
 sensor.hass_installed_version:
   hidden: true
+  icon: mdi:folder-download
 
 binary_sensor.all_in_bed:
   icon: mdi:hotel
   hidden: true
+
+sensor.deconz_available_version:
+  hidden: true
+  icon: mdi:github-circle
+
+sensor.deconz_installed_version:
+  hidden: true
+  icon: mdi:folder-download
 
 #--
 sensor.keypad:
