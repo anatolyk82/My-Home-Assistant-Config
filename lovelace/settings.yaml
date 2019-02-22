@@ -58,6 +58,7 @@ cards:
     - automation.entrance_light_force_to_update_vasttrafik_sensor
     - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
     - automation.entrance_light_turn_on_at_7_23
+    - automation.entrance_light_turn_off_at_7_45_if_no_motion
     - automation.entrance_light_turn_on_when_the_door_opens
     - automation.entrance_door_sound
 
@@ -135,11 +136,9 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - automation.stairs_turn_off_after_midnight_if_no_motion_for_1_min
-    - automation.stairs_turn_off_after_midnight_if_no_motion_for_5_min
-    - automation.stairs_turn_on_after_midnight_if_motion_upstairs
-    - automation.stairs_turn_on_down_if_downstairs_in_dark
-    - automation.stairs_turn_on_up_if_upstairs_in_dark
+    - automation.stairs_run_stairs_effects_script_if_motions
+    - automation.stairs_run_stairs_effects_script_if_no_motions_for_20_secs
+    - automation.stairs_run_stairs_nightlight_script_if_motions
 
   - type: entities
     show_header_toggle: false

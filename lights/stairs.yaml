@@ -16,5 +16,7 @@
   - LightDown
   - DimUp
   - DimDown
+  - StartLight
+  - EndLight
   - Stop
 
