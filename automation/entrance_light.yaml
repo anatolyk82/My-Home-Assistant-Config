@@ -88,6 +88,34 @@
       transition: 3
 
 
+- alias: '[Entrance light] Turn off at 7:45 if no motion'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time
+    at: "07:45:00"
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: state
+    entity_id: light.ikea_lamp_2
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.presence_entrance
+    state: 'off'
+    for:
+      minutes: 5
+  action:
+  - service: light.turn_off
+    entity_id: light.ikea_lamp_2
+    data:
+      transition: 3
+
+
 - alias: '[Entrance light] Turn on when the door opens'
   hide_entity: true
   initial_state: true
