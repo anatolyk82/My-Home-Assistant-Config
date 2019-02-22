@@ -80,7 +80,7 @@
   - service: light.turn_on
     entity_id: light.mood_lamp
     data:
-      effect: "Rainbow"
+      effect: "Chaos"
 
 
 - alias: '[MoodLamp] Turn off if no motion at night'
