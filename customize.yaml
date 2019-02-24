@@ -364,14 +364,17 @@ script.play_sel_sound_loop:
 
 sensor.ssh_attack:
   hidden: true
+  icon: mdi:ssh
 
 sensor.home_assistant_log:
   hidden: true
-  friendly_name: Log File
+  friendly_name: "HASS Logfile"
+  icon: mdi:file-document-box-outline
 
 sensor.home_assistant_v2_db:
   hidden: true
-  friendly_name: Database
+  friendly_name: "HASS Database"
+  icon: mdi:database
 
 sensor.installed_version:
   hidden: true

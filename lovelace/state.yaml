@@ -13,7 +13,6 @@ cards:
   - sensor.deconz_installed_version
 - type: entities
   show_header_toggle: false
-  title: HA Files
   entities:
   - sensor.home_assistant_v2_db
   - sensor.home_assistant_log
@@ -52,14 +51,16 @@ cards:
   - sensor.switch_workroom_battery_level
 - type: vertical-stack
   cards:
-  - type: entities
-    title: "Network"
-    show_header_toggle: false
+  - type: glance
+    column_width: calc(100% / 4)
     entities:
     - sensor.nmap_router
     - sensor.nmap_xiaomi_gateway
     - sensor.nmap_google_home
     - sensor.nmap_laptop_dell_xps15
+  - type: glance
+    column_width: calc(100% / 4)
+    entities:
     - sensor.nmap_laptop_dell_xps13
     - sensor.nmap_iphone
     - sensor.nmap_galaxy_s9
