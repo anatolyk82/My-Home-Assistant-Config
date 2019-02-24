@@ -50,7 +50,7 @@ if now > today_00_00 and now < today_07_30:
 
 # Check if it's dark enough to turn on the light
 if to_state == 'on' and is_upstairs_dark and is_downstairs_dark:
-    if light_stairs.state == 'on' and light_stairs.attributes.effect != 'StartLight' and light_stairs.attributes.effect != 'EndLight':
+    if light_stairs.state == 'on' and light_stairs.attributes["effect"] != 'StartLight' and light_stairs.attributes["effect"] != 'EndLight':
         logger.debug("[StairsLight]: The light is already on")
     else:
         logger.debug("[StairsLight]: Turn on the light")
@@ -66,11 +66,13 @@ elif to_state == 'on':
 
 
 if to_state == 'off':
-    if light_stairs.state == 'on':
+    if light_stairs.state == 'on' and (light_stairs.attributes["effect"] == "LightDown" or light_stairs.attributes["effect"] == "LightUp"):
         if motion_entity_id == 'binary_sensor.motion_downstairs' and motion_downstairs_last_updated > motion_upstairs_last_updated:
+            logger.debug("[StairsLight] Apply the DimDown effect to turn off the light")
             dimDown(hass)
 
         elif motion_entity_id == 'binary_sensor.motion_upstairs' and motion_upstairs_last_updated > motion_downstairs_last_updated:
+            logger.debug("[StairsLight] Apply the DimUp effect to turn off the light")
             dimUp(hass)
 
 
