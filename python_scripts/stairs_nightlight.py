@@ -45,6 +45,6 @@ if now > today_00_00 and now < today_06_30:
             logger.debug("[StairsLight: NightLight]: Detected motion upstairs but it's not dark enough")
     elif to_state == 'on' and light_stairs_state == 'on':
         logger.debug("[StairsLight: NightLight]: Detected motion upstairs but the stairs light is on")
-    elif to_state == 'off' and light_stairs_state == 'on':
+    elif to_state == 'off' and light_stairs_state == 'on' and (light_stairs.attributes["effect"] == 'EndLight' or light_stairs.attributes["effect"] == 'StartLight'):
         logger.debug("[StairsLight: NightLight]: Turn off the stairs light")
         hass.services.call('light', 'turn_off', {'entity_id':'light.stairs'}, False)
