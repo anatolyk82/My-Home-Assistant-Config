@@ -1,7 +1,7 @@
 - platform: command_line
   name: "Foscam 1 motion"
   device_class: motion
-  scan_interval: 3
+  scan_interval: 5
   command: !secret foscam1_url_motion_detect_alarm
   payload_on: 2
   payload_off: 1
@@ -9,7 +9,7 @@
 - platform: command_line
   name: "Foscam 2 motion"
   device_class: motion
-  scan_interval: 3
+  scan_interval: 5
   command: !secret foscam2_url_motion_detect_alarm
   payload_on: 2
   payload_off: 1
