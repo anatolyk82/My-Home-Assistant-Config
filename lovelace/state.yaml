@@ -49,6 +49,13 @@ cards:
   - sensor.ikea_switch_4_battery_level
   - sensor.switch_bedroom_battery_level
   - sensor.switch_workroom_battery_level
+- type: entities
+  entities:
+  - sensor.bulb14_disconnects_today
+  - sensor.bulb16_disconnects_today
+  - sensor.bulb13_disconnects_today
+  - sensor.bulb15_disconnects_today
+  - sensor.bulb17_disconnects_today
 - type: vertical-stack
   cards:
   - type: glance

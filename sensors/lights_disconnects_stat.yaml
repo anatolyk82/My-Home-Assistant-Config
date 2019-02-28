@@ -1,0 +1,39 @@
+- platform: history_stats
+  name: 'Bulb14 disconnects today'
+  entity_id: light.bulb_14
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: 'Bulb16 disconnects today'
+  entity_id: light.bulb_16
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: 'Bulb13 disconnects today'
+  entity_id: light.bulb_13
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: 'Bulb15 disconnects today'
+  entity_id: light.bulb_15
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: 'Bulb17 disconnects today'
+  entity_id: light.bulb_17
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
