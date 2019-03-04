@@ -50,7 +50,7 @@
   - service: switch.turn_on
     data:
       entity_id: switch.cameras
-  - service: notify.pushover
-    data:
-      message: "Foscam2 is unavailable. Restart power."
+#  - service: notify.pushover
+#    data:
+#      message: "Foscam2 is unavailable. Restart power."
 

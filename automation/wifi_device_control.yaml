@@ -1,5 +1,5 @@
 - alias: '[WiFi Control] Notify if unavailable'
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: state
     entity_id: light.bed_led, light.bulb_13, light.bulb_14, light.bulb_15,
