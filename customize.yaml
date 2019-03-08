@@ -319,6 +319,9 @@ light.bulb_15:
 
 light.bulb_17:
   icon: mdi:ceiling-light
+
+light.ikea_lamp_10:
+  friendly_name: Backyard
 #============================= Input boolean
 
 input_boolean.vacation_mode:

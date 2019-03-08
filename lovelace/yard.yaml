@@ -37,3 +37,7 @@ cards:
     - switch.foscam2_motion
     - input_boolean.foscam2_snapshot
 
+  - type: entities
+    entities:
+    - light.ikea_lamp_10
+
