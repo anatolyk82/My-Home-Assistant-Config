@@ -14,7 +14,8 @@ homeassistant:
   whitelist_external_dirs:
     - /home/homeassistant/.homeassistant   
     - /tmp
-    - /home/homeassistant/snapshots
+    - /mnt/ssd/homeassistant
+    - /mnt/ssd/homeassistant/snapshots
 
 # Show links to resources in log and frontend
 # introduction:

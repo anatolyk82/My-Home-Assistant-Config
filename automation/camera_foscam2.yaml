@@ -26,7 +26,7 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_2
-      filename: '/home/homeassistant/snapshots/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
+      filename: '/mnt/ssd/homeassistant/snapshots/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.foscam2_snapshot
