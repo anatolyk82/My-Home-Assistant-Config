@@ -53,6 +53,7 @@ zigbee_lights:
   - light.ikea_lamp_7
   - light.ikea_lamp_8
   - light.ikea_lamp_9
+  - light.ikea_lamp_10
 
 zigbee_door_sensors:
   view: no
