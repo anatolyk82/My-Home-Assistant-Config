@@ -6,6 +6,9 @@
   action:
   - service: light.turn_on
     entity_id: light.ikea_lamp_10
+    data:
+      kelvin: 2700
+      transition: 30
 
 
 - alias: '[Yard] Turn off the backyard light at sunrise'
@@ -16,3 +19,5 @@
   action:
   - service: light.turn_off
     entity_id: light.ikea_lamp_10
+    data:
+      transition: 30
