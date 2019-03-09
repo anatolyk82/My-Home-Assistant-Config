@@ -30,3 +30,20 @@ foscam1_snapshot:
 foscam2_snapshot:
   name: 'Foscam2 Snapshot'
   initial: off
+
+logger_python_script:
+  name: "[Logger] Python scripts debug"
+  initial: off
+
+logger_deconz:
+  name: "[Logger] deConz events debug"
+  initial: off
+
+logger_shell_commands:
+  name: "[Logger] Shell commands debug"
+  initial: off
+
+logger_mqtt:
+  name: "[Logger] Mqtt debug"
+  initial: off
+

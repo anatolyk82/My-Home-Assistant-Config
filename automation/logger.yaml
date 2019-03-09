@@ -1,0 +1,105 @@
+- alias: '[Logger] Switch loglevel for pyhton scripts to debug'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_python_script
+    to: 'on'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.python_script: debug
+
+- alias: '[Logger] Switch loglevel for pyhton scripts to warning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_python_script
+    to: 'off'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.python_script: warning
+
+#---------------------------- deconz
+
+- alias: '[Logger] Switch loglevel for deconz to debug'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_deconz
+    to: 'on'
+  action:
+  - service: logger.set_level
+    data:
+      pydeconz: debug
+      homeassistant.components.deconz: debug
+
+- alias: '[Logger] Switch loglevel for deconz to warning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_deconz
+    to: 'off'
+  action:
+  - service: logger.set_level
+    data:
+      pydeconz: warning
+      homeassistant.components.deconz: warning
+
+#---------------------------- mqtt
+ 
+- alias: '[Logger] Switch loglevel for mqtt to debug'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_mqtt
+    to: 'on'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.mqtt: debug
+
+- alias: '[Logger] Switch loglevel for mqtt to warning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_mqtt
+    to: 'off'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.mqtt: warning
+
+
+#---------------------------- shell commands
+
+- alias: '[Logger] Switch loglevel for shell commands to debug'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_shell_commands
+    to: 'on'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.shell_command: debug
+
+- alias: '[Logger] Switch loglevel for shell commands to warning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_shell_commands
+    to: 'off'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.components.shell_command: warning
+

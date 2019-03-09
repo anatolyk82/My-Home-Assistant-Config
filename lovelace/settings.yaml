@@ -178,3 +178,11 @@ cards:
     entities:
     - automation.yard_turn_on_the_backyard_light_at_sunset
     - automation.yard_turn_off_the_backyard_light_at_sunrise
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - input_boolean.logger_deconz
+    - input_boolean.logger_mqtt
+    - input_boolean.logger_python_script
+    - input_boolean.logger_shell_commands
