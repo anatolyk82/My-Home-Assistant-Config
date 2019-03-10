@@ -14,8 +14,9 @@ homeassistant:
   whitelist_external_dirs:
     - /home/homeassistant/.homeassistant   
     - /tmp
-    - /mnt/ssd/homeassistant
-    - /mnt/ssd/homeassistant/snapshots
+    #- /mnt/ssd/homeassistant
+    #- /mnt/ssd/homeassistant/snapshots
+    - /home/homeassistant/snapshots
 
 # Show links to resources in log and frontend
 # introduction:
@@ -31,8 +32,8 @@ http:
   #api_password: !secret http_password
   trusted_proxies: 
     - 172.16.0.0/12
-  trusted_networks:
-    - 172.16.0.0/12
+#  trusted_networks:
+#    - 172.16.0.0/12
   use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 3
