@@ -1,0 +1,1 @@
+/home/homeassistant/cards/bar-card/bar-card.js

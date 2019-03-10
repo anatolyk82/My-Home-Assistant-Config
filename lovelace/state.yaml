@@ -50,13 +50,28 @@ cards:
   - sensor.ikea_switch_4_battery_level
   - sensor.switch_bedroom_battery_level
   - sensor.switch_workroom_battery_level
-- type: entities
-  entities:
-  - sensor.bulb14_disconnects_today
-  - sensor.bulb16_disconnects_today
-  - sensor.bulb13_disconnects_today
-  - sensor.bulb15_disconnects_today
-  - sensor.bulb17_disconnects_today
+- type: vertical-stack
+  cards:
+  - type: custom:bar-card
+    title: 'Living room 1 Disconnects'
+    entity: sensor.bulb14_disconnects_today
+    max: 10
+  - type: custom:bar-card
+    title: 'Living room 2 Disconnects'
+    entity: sensor.bulb16_disconnects_today
+    max: 10
+  - type: custom:bar-card
+    title: 'Bedroom Disconnects'
+    entity: sensor.bulb13_disconnects_today
+    max: 10
+  - type: custom:bar-card
+    title: 'Workroom Disconnects'
+    entity: sensor.bulb15_disconnects_today
+    max: 10
+  - type: custom:bar-card
+    title: 'Guestroom Disconnects'
+    entity: sensor.bulb17_disconnects_today
+    max: 10
 - type: vertical-stack
   cards:
   - type: glance
