@@ -67,7 +67,7 @@
   # (the illumination sensor at the entrance shows a value below 30) AND (it's a work day) AND (the alarm is not on)
   - condition: numeric_state
     entity_id: sensor.lightlevel_entrance
-    below: 30
+    below: 10
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
