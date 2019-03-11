@@ -6,16 +6,12 @@
   trigger:
   - platform: template
     value_template: >
-      {{ states.sensor.ssl_certificate_expiry.state | int  <= 10 }}
-  condition:
-  - condition: template
-    value_template: >
-      {{ states.sensor.ssl_certificate_expiry.state != "unknown" }}
+      '{{ states.sensor.ssl_certificate_expiry.state | int  <= 10 }}'
   action:
   - service: notify.pushover
     data_template:
-      message: >
-        Home Assistant's certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days.
+      title: "Hass Certificate"
+      message: "Home Assistant's certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days."
 
 
 #- alias: '[HASS Certificate] Auto Renew'
