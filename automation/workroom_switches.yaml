@@ -1,4 +1,4 @@
-- alias: 'Toggle light in the work room'
+- alias: '[Work room] Toggle light'
   initial_state: true
   trigger:
   - platform: event
@@ -10,3 +10,15 @@
   - service: light.toggle
     entity_id: light.bulb_15
 
+- alias: '[Work room] Toggle color on double click'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      event: 1004
+  action:
+  - service: python_script.set_color
+    data:
+      entity_id: light.bulb_15
