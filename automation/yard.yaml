@@ -7,8 +7,8 @@
   - service: light.turn_on
     entity_id: light.ikea_lamp_10
     data:
-      kelvin: 2700
       transition: 30
+      brightness_pct: 95
 
 
 - alias: '[Yard] Turn off the backyard light at sunrise'
