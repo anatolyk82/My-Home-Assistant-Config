@@ -1,4 +1,4 @@
-- alias: 'Turn on room light on movement'
+- alias: '[Guest room] Turn on light on motion'
   initial_state: true
   hide_entity: true
   trigger:
@@ -17,7 +17,7 @@
       brightness_pct: 100
       transition: 5
 
-- alias: 'Turn off room light in 5 minutes'
+- alias: '[Guest room] Turn off light in 5 minutes after motion'
   initial_state: true
   hide_entity: true
   trigger:
