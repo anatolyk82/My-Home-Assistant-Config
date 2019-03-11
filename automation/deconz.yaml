@@ -5,7 +5,7 @@
     entity_id: sensor.deconz_available_version
   action:
   - service: notify.pushover
-    data:
+    data_template:
       title: "ZigBee"
-      message: "deCONZ version {{ sensor.deconz_available_version }} is available!"
+      message: "deCONZ version {{ states.sensor.deconz_available_version.state }} is available!"
 
