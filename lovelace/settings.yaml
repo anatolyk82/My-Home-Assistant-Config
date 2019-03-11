@@ -182,6 +182,18 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
+    - automation.guest_room_turn_on_light_on_motion
+    - automation.guest_room_turn_off_light_in_5_minutes_after_motion
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - automation.work_room_toggle_light
+    - automation.work_room_toggle_color_on_double_click
+
+  - type: entities
+    show_header_toggle: false
+    entities:
     - input_boolean.logger_deconz
     - input_boolean.logger_mqtt
     - input_boolean.logger_python_script
