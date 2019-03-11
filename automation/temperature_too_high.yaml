@@ -6,8 +6,8 @@
     above: 40
   action:
     service: notify.pushover
-    data:
-      message: "Warning! Temperature at the second floor is more than 50 degrees"
+    data_template:
+      message: "Warning! Temperature at the second floor is {{ states.sensor.temperature_second_floor.state }} degrees"
 
 - alias: 'Too high temperature at the first floor'
   initial_state: true
@@ -17,5 +17,5 @@
     above: 40
   action:
     service: notify.pushover
-    data:
-      message: "Warning! Temperature at the first floor is more than 50 degrees"
+    data_template:
+      message: "Warning! Temperature at the first floor is {{ states.sensor.temperature_first_floor.state }} degrees"
