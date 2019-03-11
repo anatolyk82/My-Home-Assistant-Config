@@ -1,4 +1,4 @@
-- alias: 'Entrance door sound'
+- alias: '[Entrance] Door sound'
   initial_state: True
   trigger:
   - platform: state
