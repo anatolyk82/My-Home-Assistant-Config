@@ -47,3 +47,6 @@ logger_mqtt:
   name: "[Logger] Mqtt debug"
   initial: off
 
+logger_helpers_script:
+  name: "[Logger] Helper script debug"
+  initial: off

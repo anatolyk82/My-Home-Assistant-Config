@@ -198,3 +198,5 @@ cards:
     - input_boolean.logger_mqtt
     - input_boolean.logger_python_script
     - input_boolean.logger_shell_commands
+    - input_boolean.logger_helpers_script
+

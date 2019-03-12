@@ -103,3 +103,29 @@
     data:
       homeassistant.components.shell_command: warning
 
+
+#---------------------------- helpers.script
+
+- alias: '[Logger] Switch loglevel for helpers.script to debug'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_helpers_script
+    to: 'on'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.helpers.script: debug
+
+- alias: '[Logger] Switch loglevel for helpers.script to warning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.logger_helpers_script
+    to: 'off'
+  action:
+  - service: logger.set_level
+    data:
+      homeassistant.helpers.script: warning
