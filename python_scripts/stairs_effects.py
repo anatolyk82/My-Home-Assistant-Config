@@ -50,7 +50,7 @@ if now > today_00_00 and now < today_07_30:
 
 # Check if it's dark enough to turn on the light
 if to_state == 'on' and is_upstairs_dark and is_downstairs_dark:
-    if light_stairs.state == 'on' and light_stairs.attributes["effect"] != 'StartLight' and light_stairs.attributes["effect"] != 'EndLight':
+    if light_stairs.state == 'on' and light_stairs.attributes["effect"] != 'StartLight' and light_stairs.attributes["effect"] != 'EndLight' and light_stairs.attributes["effect"] != 'NightLight':
         logger.debug("[StairsLight]: The light is already on")
     else:
         logger.debug("[StairsLight]: Turn on the light")

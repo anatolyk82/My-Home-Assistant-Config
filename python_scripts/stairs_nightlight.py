@@ -17,7 +17,7 @@ now = datetime.datetime.now()
 today_23_00 = now.replace(hour=23, minute=0, second=0, microsecond=0)
 today_06_30 = now.replace(hour=6, minute=30, second=0, microsecond=0)
 
-if now > today_23_00 and now < today_06_30:
+if now > today_23_00 or now < today_06_30:
     if to_state == 'on' and light_stairs_state == 'off':
         if motion_entity_id == 'binary_sensor.presence_livingroom' and is_downstairs_dark:
             logger.debug("[StairsLight: NightLight]: Turn on EndLight")
@@ -43,6 +43,6 @@ if now > today_23_00 and now < today_06_30:
             logger.debug("[StairsLight: NightLight]: Detected motion upstairs but it's not dark enough")
     elif to_state == 'on' and light_stairs_state == 'on':
         logger.debug("[StairsLight: NightLight]: Detected motion upstairs but the stairs light is on")
-    elif to_state == 'off' and light_stairs_state == 'on' and (light_stairs.attributes["effect"] == 'EndLight' or light_stairs.attributes["effect"] == 'StartLight'):
+    elif to_state == 'off' and light_stairs_state == 'on' and (light_stairs.attributes["effect"] == 'EndLight' or light_stairs.attributes["effect"] == 'StartLight' or light_stairs.attributes["effect"] == 'NightLight'):
         logger.debug("[StairsLight: NightLight]: Turn off the stairs light")
         hass.services.call('light', 'turn_off', {'entity_id':'light.stairs'}, False)
