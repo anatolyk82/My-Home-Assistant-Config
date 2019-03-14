@@ -1,0 +1,34 @@
+- alias: '[System] Daily report'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time
+    at: "23:59:55"
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: "Daily report"
+      message: "
+      ## Bulb disconnects\n
+Living room (14): {{ states.sensor.bulb14_disconnects_today.state }} \n
+Living room (16): {{ states.sensor.bulb16_disconnects_today.state }} \n
+Work room: {{ states.sensor.bulb15_disconnects_today.state }} \n
+Guest room: {{ states.sensor.bulb17_disconnects_today.state }} \n
+Bedroom: {{ states.sensor.bulb13_disconnects_today.state }} \n
+\n
+## Light hours \n
+Kitchen1: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
+Kitchen2: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
+Living room (14): {{ states.sensor.living_room_left_lamp_on_today.attributes.value }} \n
+Living room (16): {{ states.sensor.living_room_right_lamp_on_today.attributes.value }} \n
+Entrance: {{ states.sensor.entrance_lamp_on_today.attributes.value }} \n
+\n
+Desktop lamp: {{ states.sensor.desktop_lamp_on_today.attributes.value }} \n
+Workroom: {{ states.sensor.workroom_lamp_on_today.attributes.value }} \n
+Guest room: {{ states.sensor.room_lamp_on_today.attributes.value }} \n
+Bedroom: {{ states.sensor.bedroom_lamp_on_today.attributes.value }} \n
+\n
+Backyard: {{ states.sensor.backyard_on_today.attributes.value }} \n
+\n
+"
+
