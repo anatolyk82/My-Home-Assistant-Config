@@ -1,6 +1,8 @@
 - platform: filesize
   file_paths:
     - /home/homeassistant/.homeassistant/home-assistant_v2.db
+    #- /mnt/ssd/homeassistant/home-assistant_v2.db
     - /home/homeassistant/.homeassistant/home-assistant.log
+    #- /mnt/ssd/homeassistant/home-assistant.log
 
 

@@ -15,7 +15,6 @@ homeassistant:
     - /home/homeassistant/.homeassistant   
     - /tmp
     #- /mnt/ssd/homeassistant
-    #- /mnt/ssd/homeassistant/snapshots
     - /home/homeassistant/snapshots
 
 # Show links to resources in log and frontend
