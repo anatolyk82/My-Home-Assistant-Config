@@ -92,10 +92,11 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - automation.wifi_control_check_if_a_device_comes_from_unavailable
     - automation.wifi_control_notify_if_unavailable
+    - automation.wifi_control_run_wifi_problem_script_on_start
+    - automation.wifi_control_run_wifi_problem_script_if_unavailable
+    - automation.wifi_control_run_wifi_problem_script_if_a_device_becomes_available
     - automation.wifi_control_restart_router_if_too_many_unavailable
-    - automation.wifi_control_run_script_on_start
 
   - type: entities
     show_header_toggle: false

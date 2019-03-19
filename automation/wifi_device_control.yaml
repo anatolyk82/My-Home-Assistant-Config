@@ -13,10 +13,22 @@
     data:
       title: "Unavailable device"
       message: "The following wifi devices are not available: {% for entity_id in states.group.wifi_lights.attributes.entity_id %}{% set domain, device = entity_id.split('.') %}{% if states[domain][device].state == 'unavailable' %}{{ states[domain][device].attributes.friendly_name }}; {% endif %}{% endfor %}"
+
+- alias: '[WiFi Control] Run wifi problem script if unavailable'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: light.bed_led, light.bulb_13, light.bulb_14, light.bulb_15,
+               light.bulb_16, light.bulb_17,
+               light.xiaomi_philips_desklamp
+    to: 'unavailable'
+    for:
+      seconds: 15
+  action:
   - service: python_script.wifi_problem
 
 
-- alias: '[WiFi Control] Check if a device comes from "unavailable"'
+- alias: '[WiFi Control] Run wifi problem script if a device becomes available'
   initial_state: true
   trigger:
   - platform: state
@@ -28,7 +40,7 @@
   - service: python_script.wifi_problem
 
 
-- alias: "[WiFi Control] Run script on start"
+- alias: "[WiFi Control] Run wifi problem script on start"
   initial_state: true
   trigger:
   - platform: homeassistant
