@@ -67,4 +67,5 @@ cards:
   - binary_sensor.wifi_problem
   - vacuum.roborock
   - switch.ikea_plug_1
+  - sensor.rpi_power_status
 
