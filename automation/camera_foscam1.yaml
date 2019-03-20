@@ -27,14 +27,21 @@
     entity_id: binary_sensor.foscam_1_motion
     to: 'on'
   action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/tmp/foscam1.jpg'
+  - service: notify.pushover
+    data:
+      message: "Foscam1: Motion detected."
+      data:
+        file:
+          path: '/tmp/foscam1.jpg'
   - service: script.take_snapshots
     data_template:
       camera: camera.foscam_1
       name: "Foscam1"
       detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
-  - service: notify.pushover
-    data:
-      message: "Foscam1: Motion detected."
 
 
 - alias: '[Camera Foscam1] Take snapshot'

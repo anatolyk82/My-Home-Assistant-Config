@@ -15,3 +15,16 @@
   ip: !secret foscam2_ip
   username: !secret foscam2_username
   password: !secret foscam2_password
+
+
+#- platform: myfoscam
+#  name: MyFoscam 1
+#  ip: !secret foscam1_ip
+#  username: !secret foscam1_username
+#  password: !secret foscam1_password
+#
+#- platform: myfoscam
+#  name: MyFoscam 2
+#  ip: !secret foscam2_ip
+#  username: !secret foscam2_username
+#  password: !secret foscam2_password
