@@ -5,11 +5,10 @@
   recipient: !secret notify_xmpp_recipient
 
 
-- name: pushover
-  platform: pushover
+- platform: pushover
+  name: pushover
   user_key: !secret pushover_user_key
   api_key: !secret pushover_api_key
-
 
 - name: hangouts
   platform: hangouts

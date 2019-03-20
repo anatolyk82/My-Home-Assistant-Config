@@ -3,6 +3,16 @@ test_pushover:
   sequence:
     - service: notify.pushover
       data: 
-        message: "This is a test message from Home Assistant"
+        title: "Home Assistant Test"
+        message: "This is a test message with a picture"
+        data:
+          file:
+            path: '/local/images/first_floor_ext.jpg'
+    - delay:
+        seconds: 5
+    - service: notify.pushover
+      data: 
+        title: "Home Assistant Test"
+        message: "This is a test message with no picture"
 
 
