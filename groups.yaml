@@ -6,9 +6,7 @@ wifi_lights:
   entities:
   - light.bed_led
   - light.bulb_13
-  - light.bulb_14
   - light.bulb_15
-  - light.bulb_16
   - light.bulb_17
   - light.mood_lamp
   - light.stairs
@@ -54,6 +52,8 @@ zigbee_lights:
   - light.ikea_lamp_8
   - light.ikea_lamp_9
   - light.ikea_lamp_10
+  - light.gledopto_lamp_1
+  - light.gledopto_lamp_2
 
 zigbee_door_sensors:
   view: no

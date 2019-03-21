@@ -34,7 +34,7 @@ cards:
           top: 25%
           left: 39%
       - type: state-icon
-        entity: light.bulb_16
+        entity: light.gledopto_lamp_1
         tap_action:
           action: toggle
         hold_action: more-info
@@ -42,7 +42,7 @@ cards:
           top: 45%
           left: 32%
       - type: state-icon
-        entity: light.bulb_14
+        entity: light.gledopto_lamp_2
         tap_action:
           action: toggle
         hold_action: more-info
@@ -157,10 +157,10 @@ cards:
         entity: light.living_room
         name: Living room
       - type: custom:slider-entity-row
-        entity: light.bulb_16
+        entity: light.gledopto_lamp_1
         name: Living room right
       - type: custom:slider-entity-row
-        entity: light.bulb_14
+        entity: light.gledopto_lamp_2
         name: Living room left
     - type: entities
       entities:

@@ -1,5 +1,5 @@
-# The bulb closer to the kitchen is the left light - bulb_14
-# The bulb closer to the window is the right light - bulb_16
+# The bulb closer to the kitchen is the left light - gledopto_lamp_2
+# The bulb closer to the window is the right light - gledopto_lamp_1
 #
 - alias: '[Living room] Turn on all lamps'
   initial_state: true
@@ -11,18 +11,18 @@
       event: 1002
   condition:
   - condition: state
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     state: 'off'
   - condition: state
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     data:
       kelvin: 3200
   - service: light.turn_on
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     data:
       kelvin: 3200
 
@@ -38,16 +38,16 @@
     condition: or
     conditions:
     - condition: state
-      entity_id: light.bulb_16
+      entity_id: light.gledopto_lamp_1
       state: 'on'
     - condition: state
-      entity_id: light.bulb_14
+      entity_id: light.gledopto_lamp_2
       state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
   - service: light.turn_off
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
 
 
 
@@ -61,7 +61,7 @@
       event: 4002
   action:
   - service: light.toggle
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
 
 
 - alias: '[Living room] Toggle the right lamp'
@@ -74,7 +74,7 @@
       event: 5002
   action:
   - service: light.toggle
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
 
 
 - alias: "[Living room] Increase brightness of the right lamp"
@@ -87,13 +87,13 @@
       event: 2002
   condition:
   - condition: state
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     data_template: 
-      brightness: '{{ states.light.bulb_16.attributes.brightness + 75 }}'
+      brightness: '{{ states.light.gledopto_lamp_1.attributes.brightness + 75 }}'
 
 - alias: "[Living room] Decrease brightness of the right lamp"
   initial_state: true
@@ -105,13 +105,13 @@
       event: 3002
   condition:
   - condition: state
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     data_template: 
-      brightness: '{{ states.light.bulb_16.attributes.brightness - 75 }}'
+      brightness: '{{ states.light.gledopto_lamp_1.attributes.brightness - 75 }}'
         
 
 
@@ -125,13 +125,13 @@
       event: 2002
   condition:
   - condition: state
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     data_template: 
-      brightness: '{{ states.light.bulb_14.attributes.brightness + 75 }}'
+      brightness: '{{ states.light.gledopto_lamp_2.attributes.brightness + 75 }}'
 
 - alias: "[Living room] Decrease brightness of the left lamp"
   initial_state: true
@@ -143,13 +143,13 @@
       event: 3002
   condition:
   - condition: state
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     data_template: 
-      brightness: '{{ states.light.bulb_14.attributes.brightness - 75 }}'
+      brightness: '{{ states.light.gledopto_lamp_2.attributes.brightness - 75 }}'
 
 
 
@@ -163,11 +163,11 @@
       event: 2001
   condition:
   - condition: state
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     data_template: 
       brightness_pct: 100
 
@@ -181,11 +181,11 @@
       event: 3001
   condition:
   - condition: state
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_16
+    entity_id: light.gledopto_lamp_1
     data_template: 
       brightness_pct: 5
 
@@ -201,11 +201,11 @@
       event: 2001
   condition:
   - condition: state
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     data_template: 
       brightness_pct: 100
 
@@ -219,10 +219,10 @@
       event: 3001
   condition:
   - condition: state
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_14
+    entity_id: light.gledopto_lamp_2
     data_template: 
       brightness_pct: 5

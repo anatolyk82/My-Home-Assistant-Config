@@ -302,10 +302,10 @@ light.kitchen_lights_1:
 light.kitchen_lights_2:
   icon: mdi:track-light
 
-light.bulb_14:
+light.gledopto_lamp_2:
   icon: mdi:ceiling-light
 
-light.bulb_16:
+light.gledopto_lamp_1:
   icon: mdi:ceiling-light
 
 light.mood_lamp:

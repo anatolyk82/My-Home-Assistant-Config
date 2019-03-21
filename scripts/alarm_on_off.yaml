@@ -16,16 +16,16 @@ alarm_on:
         effect: "Police"
     - service: light.turn_on
       data:
-        entity_id: light.bulb_14
-        effect: "Police"
+        entity_id: light.gledopto_lamp_2
+        rgb_color: [255, 0, 0]
     - service: light.turn_on
       data:
         entity_id: light.bulb_15
         effect: "Police"
     - service: light.turn_on
       data:
-        entity_id: light.bulb_16
-        effect: "Police"
+        entity_id: light.gledopto_lamp_1
+        rgb_color: [255, 0, 0]
     - service: switch.turn_on
       data:
         entity_id: switch.alarm_switch

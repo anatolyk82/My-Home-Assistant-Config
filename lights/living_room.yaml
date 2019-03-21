@@ -1,6 +1,6 @@
 - platform: group
   name: Living room
   entities:
-  - light.bulb_16
-  - light.bulb_14
+  - light.gledopto_lamp_1
+  - light.gledopto_lamp_2
 

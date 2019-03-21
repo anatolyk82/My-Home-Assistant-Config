@@ -31,7 +31,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity-button
-      entity: light.bulb_16
+      entity: light.gledopto_lamp_1
       name: "Living room right"
       icon: mdi:ceiling-light
       tap_action:
@@ -39,7 +39,7 @@ cards:
       hold_action: 
         action: more-info
     - type: entity-button
-      entity: light.bulb_14
+      entity: light.gledopto_lamp_2
       name: "Living room left"
       icon: mdi:ceiling-light
       tap_action:

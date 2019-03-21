@@ -11,7 +11,7 @@
       kelvin: 3200
   - service: light.turn_on
     data:
-      entity_id: light.bulb_14
+      entity_id: light.gledopto_lamp_2
       kelvin: 3200
   - service: light.turn_on
     data:
@@ -19,7 +19,7 @@
       kelvin: 3200
   - service: light.turn_on
     data:
-      entity_id: light.bulb_16
+      entity_id: light.gledopto_lamp_1
       kelvin: 3200
   - service: light.turn_on
     data:

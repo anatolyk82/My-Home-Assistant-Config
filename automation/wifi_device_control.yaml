@@ -2,9 +2,8 @@
   initial_state: false
   trigger:
   - platform: state
-    entity_id: light.bed_led, light.bulb_13, light.bulb_14, light.bulb_15,
-               light.bulb_16, light.bulb_17,
-               light.xiaomi_philips_desklamp
+    entity_id: light.bed_led, light.bulb_13, light.bulb_15,
+               light.bulb_17, light.xiaomi_philips_desklamp
     to: 'unavailable'
     for:
       seconds: 15
@@ -18,9 +17,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: light.bed_led, light.bulb_13, light.bulb_14, light.bulb_15,
-               light.bulb_16, light.bulb_17,
-               light.xiaomi_philips_desklamp
+    entity_id: light.bed_led, light.bulb_13, light.bulb_15,
+               light.bulb_17, light.xiaomi_philips_desklamp
     to: 'unavailable'
     for:
       seconds: 15
@@ -32,9 +30,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: light.bed_led, light.bulb_13, light.bulb_14, light.bulb_15,
-               light.bulb_16, light.bulb_17,
-               light.xiaomi_philips_desklamp
+    entity_id: light.bed_led, light.bulb_13, light.bulb_15,
+               light.bulb_17, light.xiaomi_philips_desklamp
     from: 'unavailable'
   action:
   - service: python_script.wifi_problem

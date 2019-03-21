@@ -8,9 +8,7 @@ wifi_devices = [
         'light.xiaomi_philips_desklamp',
         'light.bed_led',
         'light.bulb_13',
-        'light.bulb_14',
         'light.bulb_17',
-        'light.bulb_16',
         'light.bulb_15'
         ]
 
@@ -22,7 +20,7 @@ for entity_id in hass.states.entity_ids('light'):
             counter_unavailable = counter_unavailable + 1
             logger.debug("WiFiProblem: The device '%s' is not available", entity_id)
 
-if counter_unavailable > 6:
+if counter_unavailable > 4:
     wifi_problem = 'on'
 else:
     wifi_problem = 'off'

@@ -53,14 +53,6 @@ cards:
 - type: vertical-stack
   cards:
   - type: custom:bar-card
-    title: 'Living room 1 Disconnects'
-    entity: sensor.bulb14_disconnects_today
-    max: 10
-  - type: custom:bar-card
-    title: 'Living room 2 Disconnects'
-    entity: sensor.bulb16_disconnects_today
-    max: 10
-  - type: custom:bar-card
     title: 'Bedroom Disconnects'
     entity: sensor.bulb13_disconnects_today
     max: 10
