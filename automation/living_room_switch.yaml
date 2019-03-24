@@ -20,11 +20,11 @@
   - service: light.turn_on
     entity_id: light.gledopto_lamp_1
     data:
-      kelvin: 3200
+      color_temp: 380
   - service: light.turn_on
     entity_id: light.gledopto_lamp_2
     data:
-      kelvin: 3200
+      color_temp: 380
 
 - alias: '[Living room] Turn off all lamps'
   initial_state: true
