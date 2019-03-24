@@ -73,8 +73,8 @@ if hass.states.get('light.bed_led').state == 'on' and all_in_bed == 'on':
     all_in_bed = 'off'
 
 # Room
-if hass.states.get('light.bulb_17').state == 'on' and all_in_bed == 'on':
-    logger.debug("AllInBed: Room light is on. Set the sensor to off")
+if hass.states.get('light.gledopto_lamp_3').state == 'on' and all_in_bed == 'on':
+    logger.debug("AllInBed: Guest room light is on. Set the sensor to off")
     all_in_bed = 'off'
 
 # Kitchen 1

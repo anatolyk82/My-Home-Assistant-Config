@@ -60,10 +60,6 @@ cards:
     title: 'Workroom Disconnects'
     entity: sensor.bulb15_disconnects_today
     max: 10
-  - type: custom:bar-card
-    title: 'Guestroom Disconnects'
-    entity: sensor.bulb17_disconnects_today
-    max: 10
 - type: vertical-stack
   cards:
   - type: glance

@@ -317,7 +317,7 @@ light.bulb_13:
 light.bulb_15:
   icon: mdi:ceiling-light
 
-light.bulb_17:
+light.gledopto_lamp_3:
   icon: mdi:ceiling-light
 
 light.ikea_lamp_10:

@@ -162,7 +162,7 @@ cards:
         action: more-info
 
     - type: entity-button
-      entity: light.bulb_17
+      entity: light.gledopto_lamp_3
       name: "Room"
       icon: mdi:ceiling-light
       tap_action:

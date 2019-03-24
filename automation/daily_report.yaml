@@ -11,14 +11,13 @@
       message: "
       ## Bulb disconnects\n
 Work room: {{ states.sensor.bulb15_disconnects_today.state }} \n
-Guest room: {{ states.sensor.bulb17_disconnects_today.state }} \n
 Bedroom: {{ states.sensor.bulb13_disconnects_today.state }} \n
 \n
 ## Light hours \n
 Kitchen1: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
 Kitchen2: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
-Living room (14): {{ states.sensor.living_room_left_lamp_on_today.attributes.value }} \n
-Living room (16): {{ states.sensor.living_room_right_lamp_on_today.attributes.value }} \n
+Living room 1: {{ states.sensor.living_room_left_lamp_on_today.attributes.value }} \n
+Living room 2: {{ states.sensor.living_room_right_lamp_on_today.attributes.value }} \n
 Entrance: {{ states.sensor.entrance_lamp_on_today.attributes.value }} \n
 \n
 Desktop lamp: {{ states.sensor.desktop_lamp_on_today.attributes.value }} \n

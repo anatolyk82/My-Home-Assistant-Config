@@ -12,10 +12,11 @@
     below: 10
   action:
   - service: light.turn_on
-    entity_id: light.bulb_17
+    entity_id: light.gledopto_lamp_3
     data:
-      brightness_pct: 100
-      transition: 5
+      color_temp: 400
+#      transition: 5
+#      brightness: 255
 
 - alias: '[Guest room] Turn off light in 5 minutes after motion'
   initial_state: true
@@ -29,10 +30,10 @@
       seconds: 300
   condition:
   - condition: state
-    entity_id: light.bulb_17
+    entity_id: light.gledopto_lamp_3
     state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.bulb_17
-    data:
-      transition: 5
+    entity_id: light.gledopto_lamp_3
+#    data:
+#      transition: 5

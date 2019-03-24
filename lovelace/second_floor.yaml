@@ -84,7 +84,7 @@ cards:
           top: 25%
           left: 49%
       - type: state-icon # Room light
-        entity: light.bulb_17
+        entity: light.gledopto_lamp_3
         tap_action:
           action: toggle
         hold_action: more-info
@@ -147,6 +147,6 @@ cards:
     - type: entities
       entities:
       - type: custom:slider-entity-row
-        entity: light.bulb_17
+        entity: light.gledopto_lamp_3
         name: Room
 

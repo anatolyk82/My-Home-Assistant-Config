@@ -64,7 +64,7 @@
 
 - platform: history_stats
   name: Room Lamp On Today
-  entity_id: light.bulb_17
+  entity_id: light.gledopto_lamp_3
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'

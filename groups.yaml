@@ -7,7 +7,6 @@ wifi_lights:
   - light.bed_led
   - light.bulb_13
   - light.bulb_15
-  - light.bulb_17
   - light.mood_lamp
   - light.stairs
   - light.xiaomi_philips_desklamp
@@ -54,6 +53,7 @@ zigbee_lights:
   - light.ikea_lamp_10
   - light.gledopto_lamp_1
   - light.gledopto_lamp_2
+  - light.gledopto_lamp_3
 
 zigbee_door_sensors:
   view: no
