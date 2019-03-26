@@ -1,0 +1,148 @@
+- alias: '[Living room] Wallswitch - Turn on living room lights'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 2002 #Right Single Click
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_1
+    state: 'off'
+  - condition: state
+    entity_id: light.gledopto_lamp_2
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.gledopto_lamp_1
+    data:
+      color_temp: 380
+  - service: light.turn_on
+    entity_id: light.gledopto_lamp_2
+    data:
+      color_temp: 380
+
+
+- alias: '[Living room] Wallswitch - Turn off living room lights'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 2002 #Right Single Click
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: light.gledopto_lamp_1
+      state: 'on'
+    - condition: state
+      entity_id: light.gledopto_lamp_2
+      state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.gledopto_lamp_1
+  - service: light.turn_off
+    entity_id: light.gledopto_lamp_2
+
+
+- alias: '[Living room] Wallswitch - Toggle entrance light'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 1002 #Left Single Click
+  action:
+  - service: light.toggle
+    entity_id: light.ikea_lamp_2
+
+
+- alias: '[Living room] Wallswitch - Turn on Mood Lamp'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 2001 #Right Press And Hold
+  condition:
+  - condition: state
+    entity_id: light.mood_lamp
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.mood_lamp
+    data:
+      brightness_pct: 85
+      effect: "Colorloop"
+
+- alias: '[Living room] Wallswitch - Turn off Mood Lamp'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 2001 #Right Press And Hold
+  condition:
+  - condition: state
+    entity_id: light.mood_lamp
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.mood_lamp
+
+
+- alias: '[Living room] Wallswitch - Switch effect on Mood Lamp'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 2004 #Right Double Click
+  condition:
+  - condition: state
+    entity_id: light.mood_lamp
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.mood_lamp
+    data_template:
+      effect: '{% if states.light.mood_lamp.attributes.effect == "Fire" %}
+                 Sparkles
+               {% elif states.light.mood_lamp.attributes.effect == "Sparkles" %}
+                 Rainbow
+               {% elif states.light.mood_lamp.attributes.effect == "Rainbow" %}
+                 Colorloop
+               {% elif states.light.mood_lamp.attributes.effect == "Colorloop" %}
+                 Chaos
+               {% else %}
+                 Fire
+               {% endif %}'
+
+
+- alias: '[Living room] Wallswitch - Turn off entire living room'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 3001 #Both Press And Hold
+  action:
+  - service: light.turn_off
+    entity_id: light.gledopto_lamp_1
+  - service: light.turn_off
+    entity_id: light.gledopto_lamp_2
+  - service: light.turn_off
+    entity_id: light.mood_lamp
+  - service: light.turn_off
+    entity_id: light.ikea_lamp_2
+  - service: light.turn_off
+    entity_id: light.stairs
+
