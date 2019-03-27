@@ -10,7 +10,6 @@
       title: "Daily report"
       message: "
       ## Bulb disconnects\n
-Work room: {{ states.sensor.bulb15_disconnects_today.state }} \n
 Bedroom: {{ states.sensor.bulb13_disconnects_today.state }} \n
 \n
 ## Light hours \n

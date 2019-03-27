@@ -314,7 +314,7 @@ light.mood_lamp:
 light.bulb_13:
   icon: mdi:ceiling-light
 
-light.bulb_15:
+light.aqara_lamp_1:
   icon: mdi:ceiling-light
 
 light.gledopto_lamp_3:

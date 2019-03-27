@@ -6,11 +6,3 @@
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
 
-- platform: history_stats
-  name: 'Bulb15 disconnects today'
-  entity_id: light.bulb_15
-  state: 'unavailable'
-  type: count
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
-

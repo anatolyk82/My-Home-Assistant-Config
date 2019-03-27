@@ -6,7 +6,6 @@ wifi_lights:
   entities:
   - light.bed_led
   - light.bulb_13
-  - light.bulb_15
   - light.mood_lamp
   - light.stairs
   - light.xiaomi_philips_desklamp
@@ -54,6 +53,7 @@ zigbee_lights:
   - light.gledopto_lamp_1
   - light.gledopto_lamp_2
   - light.gledopto_lamp_3
+  - light.aqara_lamp_1
 
 zigbee_door_sensors:
   view: no

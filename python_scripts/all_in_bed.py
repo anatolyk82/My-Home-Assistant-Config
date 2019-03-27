@@ -55,7 +55,7 @@ if hass.states.get('light.ikea_lamp_1').state == 'on' and all_in_bed == 'on':
     all_in_bed = 'off'
 
 # Work room
-if hass.states.get('light.bulb_15').state == 'on' and all_in_bed == 'on':
+if hass.states.get('light.aqara_lamp_1').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Workroom light is on. Set the sensor to off")
     all_in_bed = 'off'
 
