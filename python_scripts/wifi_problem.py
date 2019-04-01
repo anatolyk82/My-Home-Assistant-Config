@@ -7,7 +7,6 @@ wifi_devices = [
         'light.mood_lamp',
         'light.xiaomi_philips_desklamp',
         'light.bed_led',
-        'light.bulb_13',
         ]
 
 for entity_id in hass.states.entity_ids('light'):

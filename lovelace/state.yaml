@@ -52,16 +52,6 @@ cards:
   - sensor.switch_workroom_battery_level
 - type: vertical-stack
   cards:
-  - type: custom:bar-card
-    title: 'Bedroom Disconnects'
-    entity: sensor.bulb13_disconnects_today
-    max: 10
-  - type: custom:bar-card
-    title: 'Workroom Disconnects'
-    entity: sensor.bulb15_disconnects_today
-    max: 10
-- type: vertical-stack
-  cards:
   - type: glance
     column_width: calc(100% / 4)
     entities:

@@ -1,6 +1,6 @@
 # Ikea switch 2
 
-- alias: '[Bedroom] Toggle light'
+- alias: '[Bedroom] Turn on light'
   initial_state: true
   trigger:
   - platform: event
@@ -8,38 +8,108 @@
     event_data:
       id: ikea_switch_2
       event: 1002
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'off'
   action:
-  - service: light.toggle
-    entity_id: light.bulb_13
+  - service: light.turn_on
+    data:
+      color_temp: 380
+      entity_id: light.gledopto_lamp_4
 
 
-- alias: "[Bedroom] Increase brightness to maximum"
+- alias: '[Bedroom] Turn off light'
   initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
-      #event: 2001 # press and hold the button "light up"
-      event: 2002  # press the button "light up"
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.gledopto_lamp_4
+
+
+    
+- alias: "[Bedroom] Increase brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 2002
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_13
+    data_template: 
+      entity_id: light.gledopto_lamp_4
+      brightness: '{{ states.light.gledopto_lamp_4.attributes.brightness + 75 }}'
+
+- alias: "[Bedroom] Decrease brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 3002
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data_template: 
+      entity_id: light.gledopto_lamp_4
+      brightness: '{{ states.light.gledopto_lamp_4.attributes.brightness - 75 }}'
+
+
+- alias: "[Bedroom] Set max brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_2
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.gledopto_lamp_4
     data_template: 
       brightness_pct: 100
 
-- alias: "[Bedroom] Decrease brightness to minimum"
+- alias: "[Bedroom] Set min brightness"
   initial_state: true
   trigger:
-  - platform: event
+    platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_2
-      #event: 3001 # press and hold the button "light down"
-      event: 3002  # press the button "light down"
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.gledopto_lamp_4
+    state: 'on'
   action:
   - service: light.turn_on
-    entity_id: light.bulb_13
+    entity_id: light.gledopto_lamp_4
     data_template: 
       brightness_pct: 5
+
+
 

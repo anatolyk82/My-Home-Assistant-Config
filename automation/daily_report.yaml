@@ -9,9 +9,6 @@
     data_template:
       title: "Daily report"
       message: "
-      ## Bulb disconnects\n
-Bedroom: {{ states.sensor.bulb13_disconnects_today.state }} \n
-\n
 ## Light hours \n
 Kitchen1: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
 Kitchen2: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n

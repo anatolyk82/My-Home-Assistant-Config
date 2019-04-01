@@ -121,6 +121,13 @@ cards:
     - automation.living_room_toggle_the_right_lamp
     - automation.living_room_turn_off_all_lamps
     - automation.living_room_turn_on_all_lamps
+    - automation.living_room_wallswitch_toggle_entrance_light
+    - automation.living_room_wallswitch_turn_on_living_room_lights
+    - automation.living_room_wallswitch_turn_off_living_room_lights
+    - automation.living_room_wallswitch_turn_on_mood_lamp
+    - automation.living_room_wallswitch_turn_off_mood_lamp
+    - automation.living_room_wallswitch_switch_effect_on_mood_lamp
+    - automation.living_room_wallswitch_turn_off_entire_living_room
 
   - type: entities
     show_header_toggle: false

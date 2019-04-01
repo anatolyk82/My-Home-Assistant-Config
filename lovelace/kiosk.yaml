@@ -115,7 +115,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity-button
-      entity: light.bulb_13
+      entity: light.gledopto_lamp_4
       name: "Bedroom"
       icon: mdi:ceiling-light
       tap_action:

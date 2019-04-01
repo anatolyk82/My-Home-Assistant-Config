@@ -1,3 +1,18 @@
+# Xiaomi Wallswitch
+#
+# Right Single Click - 2002
+# Right Double Click - 2004
+# Right Press And Hold - 2001
+#
+# Left Single Click - 1002
+# Left Double Click - 1004
+# Left Press And Hold - 1001
+#
+# Both One Click - 3002
+# Both Double Click - 3004
+# Both Press And Hold - 3001
+#
+
 - alias: '[Living room] Wallswitch - Turn on living room lights'
   initial_state: true
   trigger:

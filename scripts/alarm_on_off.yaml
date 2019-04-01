@@ -12,8 +12,9 @@ alarm_on:
       entity_id: automation.alarm_sound_rpi_speaker
     - service: light.turn_on
       data:
-        entity_id: light.bulb_13
-        effect: "Police"
+        entity_id: light.gledopto_lamp_4
+        rgb_color: [255, 0, 0]
+        brightness_pct: 100
     - service: light.turn_on
       data:
         entity_id: light.aqara_lamp_1
