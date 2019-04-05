@@ -47,10 +47,13 @@ cards:
     - automation.bedroom_turn_on_bed_light_before_sunrise
     - automation.bedroom_turn_on_bed_light_after_sunset
     - automation.bedroom_turn_off_bed_light
-    - automation.bedroom_toggle_light
-    - automation.bedroom_increase_brightness_to_maximum
-    - automation.bedroom_decrease_brightness_to_minimum
     - automation.bedroom_bed_led_sunrise
+    - automation.bedroom_decrease_brightness
+    - automation.bedroom_increase_brightness
+    - automation.bedroom_set_max_brightness
+    - automation.bedroom_set_min_brightness
+    - automation.bedroom_turn_off_light
+    - automation.bedroom_turn_on_light
 
   - type: entities
     show_header_toggle: false
@@ -197,7 +200,7 @@ cards:
     show_header_toggle: false
     entities:
     - automation.work_room_toggle_light
-    - automation.work_room_toggle_color_on_double_click
+    - automation.work_room_toggle_ikea_plug_1
 
   - type: entities
     show_header_toggle: false
