@@ -12,15 +12,15 @@
       entity_id: light.aqara_lamp_1
       color_temp: 250
 
-#- alias: '[Work room] Toggle color on double click'
-#  initial_state: true
-#  trigger:
-#  - platform: event
-#    event_type: deconz_event
-#    event_data:
-#      id: xiaomi_switch_workroom 
-#      event: 1004
-#  action:
-#  - service: python_script.set_color
-#    data:
-#      entity_id: light.aqara_lamp_1
+- alias: '[Work room] Toggle Ikea plug 1'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      event: 1004
+  action:
+  - service: switch.toggle
+    data:
+      entity_id: switch.ikea_plug_1
