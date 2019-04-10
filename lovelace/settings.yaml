@@ -18,8 +18,6 @@ cards:
         - script.vacation_lights
         - automation.vacation_lights_start_on_sunset
         - automation.vacation_lights_stop_at_midnight
-        - automation.moodlamp_turn_on_at_sunset_if_vacation
-        - automation.moodlamp_turn_off_at_sunrise_if_vacation
 
   - type: entities
     show_header_toggle: false
@@ -131,6 +129,8 @@ cards:
     - automation.living_room_wallswitch_turn_off_mood_lamp
     - automation.living_room_wallswitch_switch_effect_on_mood_lamp
     - automation.living_room_wallswitch_turn_off_entire_living_room
+    - automation.moodlamp_turn_on_at_sunset
+    - automation.moodlamp_turn_off_at_midnight
 
   - type: entities
     show_header_toggle: false

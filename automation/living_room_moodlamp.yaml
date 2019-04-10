@@ -108,7 +108,7 @@
     entity_id: light.mood_lamp
 
 
-- alias: '[MoodLamp] Turn on at sunset if vacation'
+- alias: '[MoodLamp] Turn on at sunset'
   hide_entity: true
   initial_state: true
   trigger:
@@ -117,32 +117,22 @@
     offset: '+00:00:00'
   condition:
   - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'on'
-  - condition: state
-    entity_id: alarm_control_panel.house
-    state: 'armed_away'
+    entity_id: light.mood_lamp
+    state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.mood_lamp
     data:
-      effect: "Chaos"
+      brightness_pct: 85
+      effect: "Colorloop"
 
 
-- alias: '[MoodLamp] Turn off at sunrise if vacation'
+- alias: '[MoodLamp] Turn off at midnight'
   hide_entity: true
   initial_state: true
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: '+00:30:00'
-  condition:
-  - condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'on'
-  - condition: state
-    entity_id: alarm_control_panel.house
-    state: 'armed_away'
+  - platform: time
+    at: "23:59:00"
   action:
   - service: light.turn_off
     entity_id: light.mood_lamp
