@@ -16,6 +16,17 @@
   username: !secret foscam2_username
   password: !secret foscam2_password
 
+#- platform: generic
+#  still_image_url: !secret foscam1_stillimage
+#  stream_source: !secret foscam1_stream
+#  name: "Foscam 1"
+#  verify_ssl: false
+
+#- platform: generic
+#  still_image_url: !secret foscam2_stillimage
+#  stream_source: !secret foscam2_stream
+#  name: "Foscam 2"
+#  verify_ssl: false
 
 #- platform: myfoscam
 #  name: MyFoscam 1

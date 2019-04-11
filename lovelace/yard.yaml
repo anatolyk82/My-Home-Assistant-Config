@@ -18,6 +18,7 @@ cards:
     entities:
     - switch.foscam1_motion
     - input_boolean.foscam1_snapshot
+    - input_boolean.foscam1_on_tv
 
   - type: entities
     entities:
@@ -40,6 +41,7 @@ cards:
     entities:
     - switch.foscam2_motion
     - input_boolean.foscam2_snapshot
+    - input_boolean.foscam2_on_tv
 
   - type: entities
     entities:

@@ -46,3 +46,12 @@ logger_mqtt:
 logger_helpers_script:
   name: "[Logger] Helper script debug"
   initial: off
+
+foscam1_on_tv:
+  name: "[Foscam1] Play on TV"
+  initial: off
+
+foscam2_on_tv:
+  name: "[Foscam2] Play on TV"
+  initial: off
+

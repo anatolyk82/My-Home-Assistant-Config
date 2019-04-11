@@ -67,6 +67,9 @@ map:
 # Track the sun
 sun:
 
+# Enable camera streams
+stream:
+
 # Text to speech
 #tts:
 #  - platform: google
