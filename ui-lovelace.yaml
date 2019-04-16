@@ -31,5 +31,5 @@ views:
 
   - !include lovelace/settings.yaml
 
-  - !include lovelace/kiosk.yaml
+#  - !include lovelace/kiosk.yaml
 

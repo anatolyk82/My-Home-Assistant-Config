@@ -19,10 +19,6 @@ all_lights_on_to_warm_color:
   name: Turn on all lights at 3200K
   initial: off
 
-show_system_info:
-  name: System info
-  initial: off
-
 foscam1_snapshot:
   name: 'Foscam1 Snapshot'
   initial: off

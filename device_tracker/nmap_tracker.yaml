@@ -1,6 +1,0 @@
-- platform: nmap_tracker
-  interval_seconds: 30
-  consider_home: 180
-  track_new_devices: 'no'
-  hosts:
-    - 192.168.1.0/24

@@ -50,41 +50,22 @@ cards:
   - sensor.ikea_switch_4_battery_level
   - sensor.switch_bedroom_battery_level
   - sensor.switch_workroom_battery_level
-- type: vertical-stack
-  cards:
-  - type: glance
-    column_width: calc(100% / 4)
-    entities:
-    - sensor.nmap_router
-    - sensor.nmap_xiaomi_gateway
-    - sensor.nmap_google_home
-    - sensor.nmap_laptop_dell_xps15
-  - type: glance
-    column_width: calc(100% / 4)
-    entities:
-    - sensor.nmap_laptop_dell_xps13
-    - sensor.nmap_iphone
-    - sensor.nmap_galaxy_s9
-    - sensor.nmap_galaxy_tablet
+- type: entities
+  title: System Information
+  show_header_toggle: false
+  entities:
+  - sensor.processor_use
+  - sensor.cpu_temp
+  - sensor.memory_free
+  - sensor.memory_use_percent
+  - sensor.disk_use_percent
+  - sensor.last_boot
 - type: entities
   show_header_toggle: false
   entities:
-  - input_boolean.show_system_info
-- type: conditional
-  conditions:
-  - entity: input_boolean.show_system_info
-    state: "on"
-  card: 
-    type: vertical-stack
-    cards:
-    - type: entities
-      title: System Information
-      show_header_toggle: false
-      entities:
-      - sensor.processor_use
-      - sensor.cpu_temp
-      - sensor.memory_free
-      - sensor.memory_use_percent
-      - sensor.disk_use_percent
-      - sensor.last_boot
+  - sensor.keypad
+  - sensor.rpi_power_status
+  - binary_sensor.wifi_problem
+- type: media-control
+  entity: media_player.sirius
 
