@@ -11,7 +11,7 @@
       message: "
 ## Light hours \n
 Kitchen1: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
-Kitchen2: {{ states.sensor.kitchen_1_on_today.attributes.value }} \n
+Kitchen2: {{ states.sensor.kitchen_2_on_today.attributes.value }} \n
 Living room 1: {{ states.sensor.living_room_left_lamp_on_today.attributes.value }} \n
 Living room 2: {{ states.sensor.living_room_right_lamp_on_today.attributes.value }} \n
 Entrance: {{ states.sensor.entrance_lamp_on_today.attributes.value }} \n
