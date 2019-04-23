@@ -50,16 +50,33 @@ cards:
   - sensor.ikea_switch_4_battery_level
   - sensor.switch_bedroom_battery_level
   - sensor.switch_workroom_battery_level
-- type: entities
-  title: System Information
-  show_header_toggle: false
-  entities:
-  - sensor.processor_use
-  - sensor.cpu_temp
-  - sensor.memory_free
-  - sensor.memory_use_percent
-  - sensor.disk_use_percent
-  - sensor.last_boot
+- type: vertical-stack
+  cards:
+  - type: entities
+    title: "System Information"
+    show_header_toggle: false
+    entities:
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.cpu_temp
+    - sensor.memory_free
+    - sensor.last_boot
+  - type: horizontal-stack
+    cards:
+    - type: gauge
+      name: 'CPU'
+      entity: sensor.processor_use
+    - type: gauge
+      name: 'Memory'
+      entity: sensor.memory_use_percent
+  - type: horizontal-stack
+    cards:
+    - type: gauge
+      name: 'Disk'
+      entity: sensor.disk_use_percent
+    - type: gauge
+      name: 'Swap'
+      entity: sensor.swap_use_percent
 - type: entities
   show_header_toggle: false
   entities:
