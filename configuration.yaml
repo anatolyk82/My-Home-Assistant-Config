@@ -20,6 +20,9 @@ homeassistant:
 # Show links to resources in log and frontend
 # introduction:
 
+# System health
+system_health:
+ 
 # Enables the frontend
 frontend: !include frontend.yaml
 
