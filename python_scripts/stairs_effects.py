@@ -8,7 +8,7 @@ logger.debug("[StairsLight]: %s is turning %s", motion_entity_id, to_state)
 # Get information about darkness
 lightlevel_upstairs = float(hass.states.get('sensor.lightlevel_upstairs').state)
 lightlevel_downstairs = float(hass.states.get('sensor.lightlevel_livingroom').state)
-lightlevel_threshold = 7
+lightlevel_threshold = 8
 is_upstairs_dark = lightlevel_upstairs < lightlevel_threshold 
 is_downstairs_dark = lightlevel_downstairs < lightlevel_threshold
 
@@ -44,7 +44,7 @@ today_07_30 = now.replace(hour=6, minute=30, second=0, microsecond=0)
 brightness = 255
 rgb_color = [255, 255, 0]
 if now > today_00_00 and now < today_07_30:
-    brightness = 180
+    brightness = 100
     rgb_color = [255, 0, 0]
 
 
