@@ -17,22 +17,6 @@ cards:
     'pending':    '/local/images/alarm/alarm_pending.png'
     'triggered':  '/local/images/alarm/alarm_triggered.png'
 
-- type: entities
-  entities:
-  - sensor.sunrise_time
-  - sensor.solar_angle
-  - sensor.sunset_time
-
-- type: entities
-  entities:
-  - sensor.moonphases
-
-- type: entities
-  entities:
-  - sensor.vasttrafik_linje_176_mot_lindholmen
-  - sensor.vasttrafik_linje_176_mot_rannebergen
-  - sensor.vasttrafik_linje_75_mot_angered
-
 - type: horizontal-stack
   cards:
   - type: sensor
@@ -47,6 +31,23 @@ cards:
     name: " "
     entity: sensor.pressure_outdoor
     graph: line
+
+- type: glance
+  show_name: false
+  entities:
+  - sensor.sunrise_time
+  - sensor.solar_angle
+  - sensor.sunset_time
+
+- type: entities
+  entities:
+  - sensor.moonphases
+
+- type: entities
+  entities:
+  - sensor.vasttrafik_linje_176_mot_lindholmen
+  - sensor.vasttrafik_linje_176_mot_rannebergen
+  - sensor.vasttrafik_linje_75_mot_angered
 
 - type: entities
   entities:
