@@ -1,0 +1,38 @@
+- platform: mqtt
+  name: 'Garden Lights 1'
+  schema: json
+  rgb: true
+  brightness: true
+  command_topic: "light/garden1/set"
+  state_topic: "light/garden1"
+  availability_topic: "light/garden/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  optimistic: false
+  qos: 0
+  effect: true
+  effect_list:
+  - Sparkles
+  - Colorloop
+  - Chaos
+  - Stop
+
+
+- platform: mqtt
+  name: 'Garden Lights 2'
+  schema: json
+  rgb: true
+  brightness: true
+  command_topic: "light/garden2/set"
+  state_topic: "light/garden2"
+  availability_topic: "light/garden/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  optimistic: false
+  qos: 0
+  effect: true
+  effect_list:
+  - Sparkles
+  - Colorloop
+  - Chaos
+  - Stop

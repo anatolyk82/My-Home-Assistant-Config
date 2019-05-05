@@ -19,6 +19,10 @@ cards:
     - switch.foscam1_motion
     - input_boolean.foscam1_snapshot
 
+  - type: entities
+    entities:
+    - light.garden_lights_1
+
 - type: entities
   entities:
   - binary_sensor.openclose_storehouse
