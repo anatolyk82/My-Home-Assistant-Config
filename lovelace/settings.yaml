@@ -189,6 +189,11 @@ cards:
     entities:
     - automation.yard_turn_on_the_backyard_light_at_sunset
     - automation.yard_turn_off_the_backyard_light_at_sunrise
+    - automation.yard_notify_if_motion_in_backyard_while_armed_away
+    - automation.yard_turn_on_living_room_if_motion_in_backyard_while_all_in_bed
+    - automation.yard_turn_off_living_room_in_3_minutes_after_motion_in_backyard
+    - automation.yard_turn_on_lights_if_motion_in_backyard_while_armed_away
+    - automation.yard_turn_off_lights_in_3_minutes_after_motion_in_backyard
 
   - type: entities
     show_header_toggle: false

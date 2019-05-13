@@ -1,6 +1,6 @@
 - alias: '[Garden Lights] Turn on at sunset'
   hide_entity: true
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: sun
     event: sunset
@@ -11,14 +11,14 @@
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.mood_lamp
+    entity_id: light.garden_lights_1
     data:
       effect: "RandomColorLamp"
 
 
 - alias: '[Garden Lights] Turn off at sunrise'
   hide_entity: true
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: sun
     event: sunrise

@@ -23,7 +23,14 @@ cards:
   - type: entities
     entities:
     - light.garden_lights_1
-    - light.garden_lights_2
+    - light.ikea_lamp_10
+
+  - type: entities
+    entities:
+    - binary_sensor.presence_backyard
+    - sensor.lightlevel_backyard
+
+#---------------
 
 - type: entities
   entities:
@@ -46,5 +53,4 @@ cards:
 
   - type: entities
     entities:
-    - light.ikea_lamp_10
-
+    - light.garden_lights_2
