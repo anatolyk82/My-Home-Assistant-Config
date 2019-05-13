@@ -23,6 +23,7 @@ cards:
   - type: entities
     entities:
     - light.garden_lights_1
+    - light.garden_lights_2
 
 - type: entities
   entities:

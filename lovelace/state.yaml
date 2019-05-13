@@ -82,6 +82,7 @@ cards:
   entities:
   - sensor.keypad
   - binary_sensor.wifi_problem
+  - sensor.garden_light_temperature
 - type: media-control
   entity: media_player.sirius
 

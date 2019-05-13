@@ -205,6 +205,12 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
+    - automation.garden_lights_turn_off_at_sunrise
+    - automation.garden_lights_turn_on_at_sunset
+
+  - type: entities
+    show_header_toggle: false
+    entities:
     - input_boolean.logger_deconz
     - input_boolean.logger_mqtt
     - input_boolean.logger_python_script
