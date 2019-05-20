@@ -121,6 +121,24 @@ cards:
         style:
           top: 85%
           left: 24%
+      - type: state-icon
+        entity: light.garden_lights_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 50%
+          left: 4%
+      - type: state-icon
+        entity: light.ikea_lamp_10
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 66%
+          left: 16%
     - type: horizontal-stack
       cards:
       - type: sensor
