@@ -11,9 +11,24 @@ wifi_lights:
   - light.xiaomi_philips_desklamp_ambient_light
 
 # ------------------------------------------------
+zigbee_devices:
+  view: no
+  name: 'All ZigBee Devices'
+  control: hidden
+  entities:
+  - group.zigbee_water_sensors
+  - group.zigbee_weather_sensors
+  - group.zigbee_lights
+  - group.zigbee_door_sensors
+  - group.zigbee_motion_sensors
+  - group.zigbee_lightlevel_sensors
+  - group.zigbee_plugs
+  - group.zigbee_switches
+  - group.zigbee_smoke_sensors
+
 zigbee_water_sensors:
   view: no
-  name: ZigBee Water sensors
+  name: 'ZigBee Water sensors'
   control: hidden
   entities:
   - sensor.water_first_floor
@@ -21,7 +36,7 @@ zigbee_water_sensors:
 
 zigbee_weather_sensors:
   view: no
-  name: ZigBee Weather sensors
+  name: 'ZigBee Weather sensors'
   control: hidden
   entities:
   - sensor.temperature_first_floor
@@ -36,7 +51,7 @@ zigbee_weather_sensors:
 
 zigbee_lights:
   view: no
-  name: ZigBee Lights
+  name: 'ZigBee Lights'
   control: hidden
   entities:
   - light.ikea_lamp_1
@@ -57,7 +72,7 @@ zigbee_lights:
 
 zigbee_door_sensors:
   view: no
-  name: ZigBee Door sensors
+  name: 'ZigBee Door sensors'
   control: hidden
   entities:
   - binary_sensor.openclose_entrance
@@ -67,7 +82,7 @@ zigbee_door_sensors:
 
 zigbee_motion_sensors:
   view: no
-  name: ZigBee Motion sensors
+  name: 'ZigBee Motion sensors'
   control: hidden
   entities:
   - binary_sensor.presence_entrance
@@ -77,10 +92,11 @@ zigbee_motion_sensors:
   - binary_sensor.presence_workroom
   - binary_sensor.presence_room
   - binary_sensor.presence_bedroom
+  - binary_sensor.presence_backyard
 
 zigbee_lightlevel_sensors:
   view: no
-  name: ZigBee Light level sensors
+  name: 'ZigBee Light level sensors'
   control: hidden
   entities:
   - sensor.lightlevel_entrance
@@ -90,14 +106,35 @@ zigbee_lightlevel_sensors:
   - sensor.lightlevel_workroom
   - sensor.lightlevel_room
   - sensor.lightlevel_bedroom
+  - sensor.lightlevel_backyard
+
+zigbee_plugs:
+  view: no
+  name: 'ZigBee Plugs'
+  control: hidden
+  entities:
+  - switch.ikea_plug_1
+  - switch.ikea_plug_2
+
+zigbee_switches:
+  view: no
+  name: 'ZigBee Switches'
+  control: hidden
+  entities:
+  - switch.ikea_switch_1
+  - switch.ikea_switch_2
+  - switch.ikea_switch_3
+  - switch.ikea_switch_4
+  - switch.xiaomi_switch_workroom
+  - switch.xiaomi_switch_bedroom
+  - switch.xiaomi_wallswitch_1
+
+zigbee_smoke_sensors:
+  view: no
+  name: 'ZigBee Smoke Sensors'
+  control: hidden
+  entities:
+  - binary_sensor.smoke_first_floor
 
 # ------------------------------------------------
 
-current_weather_yr:
-  view: no
-  name: Current weather
-  control: hidden
-  entities:
-    - sensor.yr_temperature
-    - sensor.yr_pressure
-    - sensor.yr_humidity
