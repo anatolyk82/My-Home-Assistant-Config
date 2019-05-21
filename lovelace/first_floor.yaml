@@ -139,6 +139,11 @@ cards:
         style:
           top: 66%
           left: 16%
+      - type: state-icon
+        entity: binary_sensor.presence_backyard
+        style:
+          top: 30%
+          left: 12%
     - type: horizontal-stack
       cards:
       - type: sensor
