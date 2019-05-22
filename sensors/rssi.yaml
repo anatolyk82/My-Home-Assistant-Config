@@ -27,3 +27,13 @@
   payload_not_available: "offline"
   value_template: "{{ value_json.rssi }}"
   unit_of_measurement: "dBm"
+
+- platform: mqtt
+  name: 'RSSI Garden Lights'
+  state_topic: "light/garden1"
+  icon: mdi:wifi
+  availability_topic: "light/garden/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  value_template: "{{ value_json.rssi }}"
+  unit_of_measurement: "dBm"

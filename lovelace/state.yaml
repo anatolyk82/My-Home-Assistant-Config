@@ -40,6 +40,7 @@ cards:
     - sensor.rssi_bed_light
     - sensor.rssi_keypad
     - sensor.rssi_mood_lamp
+    - sensor.rssi_garden_lights
 - type: entities
   title: Batteries
   show_header_toggle: false
