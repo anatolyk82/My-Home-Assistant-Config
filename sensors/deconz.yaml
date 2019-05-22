@@ -4,6 +4,6 @@
   scan_interval: 3600
 
 - platform: command_line
-  command: "dpkg-query --showformat='${Version}' --show deconz"
+  command: "dpkg-query --showformat='${Version}' --show deconz | cut -d'-' -f1"
   name: 'deCONZ Installed Version'
   scan_interval: 3600
