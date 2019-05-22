@@ -8,15 +8,14 @@ cards:
 - type: vertical-stack
   cards:
   - type: picture-glance
-    title: "Bakgård (Foscam1)"
+    title: "Bakgården (Foscam1)"
     camera_image: camera.foscam_1
     entities:
-    - binary_sensor.foscam_1_motion
+    - binary_sensor.presence_backyard
     - binary_sensor.foscam1
 
   - type: entities
     entities:
-    - switch.foscam1_motion
     - input_boolean.foscam1_snapshot
     - input_boolean.foscam1_on_tv
 
@@ -42,12 +41,10 @@ cards:
     title: "Gården (Foscam2)"
     camera_image: camera.foscam_2
     entities:
-    - binary_sensor.foscam_2_motion
     - binary_sensor.foscam2
 
   - type: entities
     entities:
-    - switch.foscam2_motion
     - input_boolean.foscam2_snapshot
     - input_boolean.foscam2_on_tv
 
