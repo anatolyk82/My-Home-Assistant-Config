@@ -1,7 +1,7 @@
 test_pushover:
   alias: "Send a test pushover message"
   sequence:
-    - service: notify.pushover
+    - service: notify.pushover_file
       data: 
         title: "Home Assistant Test"
         message: "This is a test message with a picture"

@@ -10,6 +10,11 @@
   user_key: !secret pushover_user_key
   api_key: !secret pushover_api_key
 
+- platform: pushover_file
+  name: pushover_file
+  user_key: !secret pushover_user_key
+  api_key: !secret pushover_api_key
+
 - name: hangouts
   platform: hangouts
   default_conversations:
