@@ -1,26 +1,3 @@
-- alias: '[Camera Foscam2] Take a snapshot if motion'
-  hide_entity: true
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.foscam_2_motion
-    to: 'on'
-  action:
-  - service: camera.snapshot
-    data_template:
-      entity_id: camera.foscam_2
-      filename: '/tmp/foscam2.jpg'
-  - service: notify.pushover
-    data:
-      message: "Foscam2: Motion detected."
-      data:
-        file:
-          path: '/tmp/foscam2.jpg'
-  - service: script.take_snapshots
-    data_template:
-      camera: camera.foscam_2
-      name: "Foscam2"
-      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
 - alias: '[Camera Foscam2] Take snapshot'
   hide_entity: true

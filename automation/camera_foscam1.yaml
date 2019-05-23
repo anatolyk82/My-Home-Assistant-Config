@@ -1,48 +1,3 @@
-#- alias: '[Camera] Set sensitivity for Foscam1'
-#  hide_entity: true
-#  initial_state: true
-#  trigger:
-#  - platform: state
-#    entity_id: input_select.foscam1_motion_sensitivity
-#  action:
-#  - service: python_script.foscam_config
-#    data:
-#      action: 'sensitivity'
-#      ip: !secret foscam1_ip
-#      username: !secret foscam1_username
-#      password: !secret foscam1_password
-#      input_select: 'input_select.foscam1_motion_sensitivity'
-
-
-#  trigger:
-#  - platform: state
-#    entity_id: input_select.foscam1_motion_sensitivity
-
-
-- alias: '[Camera Foscam1] Take a snapshot if motion'
-  hide_entity: true
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.foscam_1_motion
-    to: 'on'
-  action:
-  - service: camera.snapshot
-    data_template:
-      entity_id: camera.foscam_1
-      filename: '/tmp/foscam1.jpg'
-  - service: notify.pushover
-    data:
-      message: "Foscam1: Motion detected."
-      data:
-        file:
-          path: '/tmp/foscam1.jpg'
-  - service: script.take_snapshots
-    data_template:
-      camera: camera.foscam_1
-      name: "Foscam1"
-      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
-
 
 - alias: '[Camera Foscam1] Take snapshot'
   hide_entity: true
@@ -97,6 +52,7 @@
     data:
       entity_id: camera.foscam_1
       media_player: media_player.sirius
+
 
 - alias: '[Camera Foscam1] Stop stream on TV'
   hide_entity: true

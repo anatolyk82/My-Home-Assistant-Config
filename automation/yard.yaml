@@ -108,12 +108,12 @@
     entity_id: light.ikea_lamp_1
 
 # --------------------------------------------------------------
-
-- alias: '[Yard] Notify if motion in backyard while armed away'
+#
+- alias: '[Yard] Snapshot if motion in baclyard while armed away'
   hide_entity: true
   initial_state: true
   trigger:
-  - platform: state 
+  - platform: state
     entity_id: binary_sensor.presence_backyard
     to: 'on'
   condition:
@@ -121,8 +121,50 @@
     entity_id: alarm_control_panel.house
     state: armed_away
   action:
-  - service: notify.pushover
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/tmp/foscam1.jpg'
+  - service: notify.pushover_file
     data:
       title: "Backyard motion"
       message: "Motion detected in the backyard"
-#TODO: Add the camera to take a snapshot or a video record
+      data:
+        file:
+          path: '/tmp/foscam1.jpg'
+  - service: script.take_snapshots
+    data_template:
+      camera: camera.foscam_1
+      name: "Foscam1"
+      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
+
+
+- alias: '[Yard] Snapshot if motion in backyard while all in bed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_backyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'on'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/tmp/foscam1.jpg'
+  - service: notify.pushover_file
+    data:
+      title: "Backyard motion"
+      message: "Motion detected in the backyard"
+      data:
+        file:
+          path: '/tmp/foscam1.jpg'
+  - service: script.take_snapshots
+    data_template:
+      camera: camera.foscam_1
+      name: "Foscam1"
+      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
+
