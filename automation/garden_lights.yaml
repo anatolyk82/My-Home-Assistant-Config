@@ -11,8 +11,15 @@
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.garden_lights_1
     data:
+      entity_id: light.garden_lights_1
+      transition: 10
+      brightness_pct: 100
+      rgb_color: [255, 255, 255]
+  - delay: '00:00:12'
+  - service: light.turn_on
+    data:
+      entity_id: light.garden_lights_1
       effect: "RandomColorLamp"
 
 

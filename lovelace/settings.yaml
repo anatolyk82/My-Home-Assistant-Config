@@ -77,9 +77,7 @@ cards:
     show_header_toggle: false
     entities:
     - automation.camera_foscam1_restart_power_if_unavailable
-    - automation.camera_foscam1_take_a_snapshot_if_motion
     - automation.camera_foscam2_restart_power_if_unavailable
-    - automation.camera_foscam2_take_a_snapshot_if_motion
 
   - type: entities
     show_header_toggle: false
@@ -187,12 +185,16 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
+    - automation.garden_lights_turn_on_at_sunset
+    - automation.garden_lights_turn_off_at_sunrise
     - automation.yard_turn_on_the_backyard_light_at_sunset
     - automation.yard_turn_off_the_backyard_light_at_sunrise
     - automation.yard_turn_on_living_room_if_motion_in_backyard_while_all_in_bed
     - automation.yard_turn_off_living_room_in_3_minutes_after_motion_in_backyard
     - automation.yard_turn_on_lights_if_motion_in_backyard_while_armed_away
     - automation.yard_turn_off_lights_in_3_minutes_after_motion_in_backyard
+    - automation.yard_snapshot_if_motion_in_backyard_while_all_in_bed
+    - automation.yard_snapshot_if_motion_in_baclyard_while_armed_away
 
   - type: entities
     show_header_toggle: false
@@ -205,12 +207,6 @@ cards:
     entities:
     - automation.work_room_toggle_light
     - automation.work_room_toggle_ikea_plug_1
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.garden_lights_turn_off_at_sunrise
-    - automation.garden_lights_turn_on_at_sunset
 
   - type: entities
     show_header_toggle: false
