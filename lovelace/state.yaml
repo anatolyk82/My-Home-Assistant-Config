@@ -81,6 +81,7 @@ cards:
 - type: entities
   show_header_toggle: false
   entities:
+  - vacuum.roborock
   - sensor.keypad
   - binary_sensor.wifi_problem
   - sensor.garden_light_temperature
