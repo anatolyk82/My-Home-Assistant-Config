@@ -11,7 +11,7 @@
                binary_sensor.presence_bedroom,  binary_sensor.presence_entrance, 
                binary_sensor.presence_kitchen,  binary_sensor.presence_livingroom, 
                binary_sensor.presence_room,     binary_sensor.presence_upstairs, 
-               binary_sensor.presence_workroom,
+               binary_sensor.presence_workroom, binary_sensor.presence_backyard,
                sensor.lightlevel_entrance,  sensor.lightlevel_livingroom,
                sensor.lightlevel_kitchen,   sensor.lightlevel_upstairs,
                sensor.lightlevel_workroom,  sensor.lightlevel_room,
