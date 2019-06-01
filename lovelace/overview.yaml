@@ -54,5 +54,4 @@ cards:
   - binary_sensor.all_in_bed
   - switch.wifi_cord_1
   - switch.ikea_plug_1
-  - light.light_rgb_1
 
