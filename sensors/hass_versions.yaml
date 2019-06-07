@@ -1,5 +1,6 @@
 - platform: command_line
-  command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+  #command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+  command: python3 -c "import urllib.request; import json; url='https://pypi.python.org/pypi/homeassistant/json'; print( json.load(urllib.request.urlopen(url))['info']['version'] )"
   name: HASS Available Version
   scan_interval: 3600
 

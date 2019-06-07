@@ -1,5 +1,6 @@
 - platform: command_line
-  command: python3 -c "import requests; print(requests.get('https://api.github.com/repos/dresden-elektronik/deconz-rest-plugin/releases/latest').json()['tag_name'].replace('V', '').replace('_','.'))"
+  #command: python3 -c "import requests; print(requests.get('https://api.github.com/repos/dresden-elektronik/deconz-rest-plugin/releases/latest').json()['tag_name'].replace('V', '').replace('_','.'))"
+  command: python3 -c "import urllib.request; import json; url='https://api.github.com/repos/dresden-elektronik/deconz-rest-plugin/releases/latest'; print( json.load(urllib.request.urlopen(url))['tag_name'].replace('V', '').replace('_','.') )"
   name: 'deCONZ Available Version'
   scan_interval: 3600
 
