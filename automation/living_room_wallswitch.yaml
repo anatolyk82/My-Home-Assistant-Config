@@ -136,6 +136,8 @@
                  Colorloop
                {% elif states.light.mood_lamp.attributes.effect == "Colorloop" %}
                  Chaos
+               {% elif states.light.mood_lamp.attributes.effect == "Chaos" %}
+                 PlasmaLamp
                {% else %}
                  Fire
                {% endif %}'
