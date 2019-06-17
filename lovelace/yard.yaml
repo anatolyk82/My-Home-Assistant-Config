@@ -51,3 +51,8 @@ cards:
   - type: entities
     entities:
     - light.garden_lights_2
+
+  - type: entities
+    entities:
+    - switch.ikea_plug_2
+

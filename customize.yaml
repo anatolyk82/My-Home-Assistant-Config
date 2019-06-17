@@ -171,6 +171,9 @@ binary_sensor.switch_158d00028c93bf:
   hidden: true
   friendly_name: Work room switch
 
+switch.ikea_plug_2:
+  friendly_name: "Garden Power Supply"
+
 #=========================== Temperature sensor - Second floor
 sensor.humidity_second_floor:
   friendly_name: Humidity
