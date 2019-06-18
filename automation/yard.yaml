@@ -22,7 +22,7 @@
     data:
       transition: 30
 
-# --------------------------------------------------------------
+#==============================================================#
 
 - alias: '[Yard] Turn on living room if motion in backyard while all in bed'
   hide_entity: true
@@ -61,7 +61,7 @@
   - service: light.turn_off
     entity_id: light.living_room
 
-# --------------------------------------------------------------
+#==============================================================#
 
 - alias: '[Yard] Turn on lights if motion in backyard while armed away'
   hide_entity: true
@@ -107,8 +107,9 @@
   - service: light.turn_off
     entity_id: light.ikea_lamp_1
 
-# --------------------------------------------------------------
-#
+
+#==============================================================#
+
 - alias: '[Yard] Snapshot if motion in baclyard while armed away'
   hide_entity: true
   initial_state: true
@@ -167,4 +168,52 @@
       camera: camera.foscam_1
       name: "Foscam1"
       detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
+
+#==============================================================#
+
+- alias: '[Garden Lights] Turn on at sunset'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-00:00:30'
+  condition:
+  - condition: state
+    entity_id: light.garden_lights_1
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ikea_plug_2
+  - delay: '00:00:30'
+  - service: light.turn_on
+    data:
+      entity_id: light.garden_lights_1
+      transition: 10
+      brightness_pct: 100
+      rgb_color: [255, 255, 255]
+  - delay: '00:00:10'
+  - service: light.turn_on
+    data:
+      entity_id: light.garden_lights_1
+      effect: "RandomColorLamp"
+
+
+- alias: '[Garden Lights] Turn off at sunrise'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:30:00'
+  condition:
+  - condition: state
+    entity_id: light.garden_lights_1
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.garden_lights_1
+
+#==============================================================#
 
