@@ -37,3 +37,14 @@
   payload_not_available: "offline"
   value_template: "{{ value_json.rssi }}"
   unit_of_measurement: "dBm"
+
+- platform: mqtt
+  name: 'RSSI Informer'
+  state_topic: "informer/state"
+  icon: mdi:wifi
+  availability_topic: "informer/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  value_template: "{{ value_json.rssi }}"
+  unit_of_measurement: "dBm"
+

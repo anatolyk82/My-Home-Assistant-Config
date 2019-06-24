@@ -1,0 +1,171 @@
+- alias: '[Informer] Temperature outside'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: '/15'
+    seconds: 00
+#  condition:
+#  - condition: state
+#    entity_id: sensor.rssi_informer
+#    state: 'available'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/screen'
+      payload: "{'icon':[228,166,239,6,6,22,12,0], 'text':'{{ states.sensor.temperature_outdoor.state | round(0) }}^', 'id':1}"
+      retain: false
+      qos: 0
+
+- alias: '[Informer] Temperature on the 1 floor'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: '/15'
+    seconds: 0
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/screen'
+      payload: "{'icon':[8,28,54,127,34,34,62,0], 'text':'P1:{{ states.sensor.temperature_first_floor.state | round(0) }}^', 'id':2}"
+      retain: false
+      qos: 0
+
+- alias: '[Informer] Temperature on the 2 floor'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: time_pattern
+    minutes: '/15'
+    seconds: 0
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/screen'
+      payload: "{'icon':[8,28,54,127,34,34,62,0], 'text':'P2:{{ states.sensor.temperature_second_floor.state | round(0) }}^', 'id':3}"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Turn off screen while all in bed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.all_in_bed
+    to: 'on'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/settings'
+      payload: "{'state': 'false'}"
+      retain: false
+      qos: 0
+
+- alias: '[Informer] Turn on screen when awakening'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.all_in_bed
+    to: 'off'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/settings'
+      payload: "{'state': 'true'}"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Turn off screen when alarm armed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/settings'
+      payload: "{'state': 'false'}"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Turn on screen when alarm disarmed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'disarmed'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/settings'
+      payload: "{'state': 'true'}"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Notify sunset'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunset
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/notification'
+      payload: "{'icon':[8,42,28,127,0,54,28,8], 'text': 'sunset', 'timeout':60}"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Notify sunrise'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunrise
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/notification'
+      payload: "{'icon':[8,42,28,127,0,8,28,54], 'text': 'sunrise', 'timeout':60}"
+      retain: false
+      qos: 0
+
+
+
+- alias: "[Informer] HASS new version"
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.hass_available_version
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/notification'
+      payload: "{'icon':[15,17,33,45,33,45,33,63], 'text': 'Home Assistant version {{ states.sensor.hass_available_version.state }} is available', 'timeout':180}"
+      retain: false
+      qos: 0
+
+
+- alias: "[Informer] deCONZ new version"
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.deconz_available_version
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/notification'
+      payload: "{'icon':[15,17,33,45,33,45,33,63], 'text': 'deCONZ version {{ states.sensor.deconz_available_version.state }} is available', 'timeout':180}"
+      retain: false
+      qos: 0
+
