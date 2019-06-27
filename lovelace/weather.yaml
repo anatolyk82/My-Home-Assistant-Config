@@ -12,9 +12,6 @@ cards:
       - sensor.temperature_outdoor
       - sensor.humidity_outdoor
       - sensor.pressure_outdoor
-  - type: entities
-    entities:
-    - binary_sensor.meteoalarm
   - type: history-graph
     title: Temperature history
     hours_to_show: 48
