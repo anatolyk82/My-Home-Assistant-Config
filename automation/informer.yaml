@@ -169,3 +169,36 @@
       retain: false
       qos: 0
 
+
+- alias: "[Informer] Synchronize time"
+  initial_state: true
+  trigger:
+  - platform: time
+    at: "23:55:00"
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/time'
+      payload: "{'hour':{{ now().hour }}, 'minute':{{ now().minute }}, 'seconds':{{ now().second }}, 'year':{{ now().year }}, 'month':{{ now().month }}, 'day':{{ now().day }} }"
+      retain: false
+      qos: 0
+
+
+- alias: '[Informer] Good morning'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.all_in_bed
+    to: 'off'
+  condition:
+  - condition: time
+    after:  '06:00:00'
+    before: '12:00:00'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'informer/set/notification'
+      payload: "{'icon':[0,20,20,0,65,34,28,0], 'text':'Good morning!', 'timeout':180}"
+      retain: false
+      qos: 0
