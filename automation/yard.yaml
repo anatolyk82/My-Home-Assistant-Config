@@ -189,8 +189,7 @@
       state: 'unavailable'
   action:
   - service: switch.turn_on
-    data:
-      entity_id: switch.ikea_plug_2
+    entity_id: switch.ikea_plug_2
   - delay: '00:00:30'
   - service: light.turn_on
     data:
@@ -227,11 +226,11 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.garden_light_temperature
-    above: 40
+    above: 45
+    for: '00:01:00'
   action:
   - service: switch.turn_off
-    data:
-      entity_id: switch.ikea_plug_2
+    entity_id: switch.ikea_plug_2
   - service: notify.pushover
     data:
       message: "The garden power supply is turned off due to a risk of overheating."
