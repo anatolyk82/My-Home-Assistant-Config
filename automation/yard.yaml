@@ -169,6 +169,38 @@
       name: "Foscam1"
       detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
+
+- alias: '[Yard] Notify if motion after sunset'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_backyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'off'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - condition: state
+    entity_id: binary_sensor.openclose_livingroom
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.openclose_entrance
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.openclose_kitchen
+    state: 'off'
+  action:
+  - service: notify.pushover_file
+    data:
+      title: "Backyard motion"
+      message: "Motion detected in the backyard"
 #==============================================================#
 
 - alias: '[Garden Lights] Turn on at sunset'

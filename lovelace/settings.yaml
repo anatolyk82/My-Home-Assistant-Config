@@ -195,6 +195,7 @@ cards:
     - automation.yard_turn_off_lights_in_3_minutes_after_motion_in_backyard
     - automation.yard_snapshot_if_motion_in_backyard_while_all_in_bed
     - automation.yard_snapshot_if_motion_in_baclyard_while_armed_away
+    - automation.yard_notify_if_motion_after_sunset
 
   - type: entities
     show_header_toggle: false
