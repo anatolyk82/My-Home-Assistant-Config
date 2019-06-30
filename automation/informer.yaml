@@ -199,6 +199,6 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'
-      payload: "{'icon':[0,20,20,0,65,34,28,0], 'text':'Good morning!', 'timeout':180}"
+      payload: "{'icon':[0,20,20,0,65,34,28,0], 'text':'Good morning!', 'timeout':300}"
       retain: false
       qos: 0
