@@ -78,3 +78,19 @@
     entity_id: light.bed_led
 
 
+- alias: "[Bedroom] Random color on double click"
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_bedroom
+      event: 1004
+  condition:
+  - condition: state
+    entity_id: light.bed_led
+    state: 'on'
+  action:
+  - service: python_script.generate_color
+    entity_id: light.bed_led
+
