@@ -93,6 +93,25 @@ if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
     all_in_bed = 'off'
 
 
+# Check if all doors are closed. Nobody sleeps with open doors =)
+# Check all doors manually to avoid mixing with window sensors in future
+if hass.states.get('binary_sensor.openclose_entrance').state == 'on' and all_in_bed == 'on':
+    logger.debug("The entrance door is open. Set the sensor to off")
+    all_in_bed = 'off'
+
+if hass.states.get('binary_sensor.openclose_kitchen').state == 'on' and all_in_bed == 'on':
+    logger.debug("The kitchen door is open. Set the sensor to off")
+    all_in_bed = 'off'
+
+if hass.states.get('binary_sensor.openclose_livingroom').state == 'on' and all_in_bed == 'on':
+    logger.debug("The living room door is open. Set the sensor to off")
+    all_in_bed = 'off'
+
+if hass.states.get('binary_sensor.openclose_storehouse').state == 'on' and all_in_bed == 'on':
+    logger.debug("The store house door is open. Set the sensor to off")
+    all_in_bed = 'off'
+
+
 # Check if there is any motion except the bedroom
 if all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('binary_sensor'):
