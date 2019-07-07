@@ -269,3 +269,17 @@
 
 #==============================================================#
 
+- alias: '[Garden Lights] Fan slider'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: input_number.garden_powersupply_fan
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'light/garden/fan'
+      payload: "{{ trigger.to_state.state | int }}"
+      retain: false
+      qos: 0
+

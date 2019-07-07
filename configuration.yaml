@@ -138,7 +138,7 @@ weblink: !include weblink.yaml
 binary_sensor: !include_dir_merge_list binary_sensors/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include input_boolean.yaml
-#input_number: !include input_number.yaml
+input_number: !include input_number.yaml
 #input_select: !include input_select.yaml
 camera: !include cameras.yaml
 cast: !include media.yaml
@@ -148,4 +148,5 @@ device_tracker: !include_dir_merge_list device_tracker/
 light: !include_dir_merge_list lights/
 shell_command: !include shell_commands.yaml
 alarm_control_panel: !include alarm.yaml
+mysensors: !include mysensors.yaml
 
