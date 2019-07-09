@@ -5,3 +5,21 @@ garden_powersupply_fan:
   step: 10
   unit_of_measurement: "%"
   icon: mdi:fan
+
+foscam1_record_length:
+  name: "Foscam1 Record Length"
+  min: 5
+  max: 300
+  initial: 20
+  mode: 'box'
+  unit_of_measurement: "sec"
+  icon: mdi:filmstrip
+
+foscam2_record_length:
+  name: "Foscam2 Record Length"
+  min: 5
+  max: 300
+  initial: 20
+  mode: 'box'
+  unit_of_measurement: "sec"
+  icon: mdi:filmstrip

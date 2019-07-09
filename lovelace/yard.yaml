@@ -18,6 +18,8 @@ cards:
     entities:
     - input_boolean.foscam1_snapshot
     - input_boolean.foscam1_on_tv
+    - input_number.foscam1_record_length
+    - input_boolean.foscam1_record_video
 
   - type: entities
     entities:
@@ -47,6 +49,8 @@ cards:
     entities:
     - input_boolean.foscam2_snapshot
     - input_boolean.foscam2_on_tv
+    - input_number.foscam2_record_length
+    - input_boolean.foscam2_record_video
 
   - type: entities
     entities:

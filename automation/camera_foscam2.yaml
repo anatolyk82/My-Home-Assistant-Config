@@ -53,6 +53,7 @@
       entity_id: camera.foscam_2
       media_player: media_player.sirius
 
+
 - alias: '[Camera Foscam2] Stop stream on TV'
   hide_entity: true
   initial_state: true
@@ -64,4 +65,24 @@
   - service: media_player.turn_off
     data:
       entity_id: media_player.sirius
+
+
+- alias: '[Camera Foscam2] Record video'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam2_record_video
+    to: 'on'
+  action:
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/home/homeassistant/snapshots/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
+      duration: "{{ states('input_number.foscam2_record_length') | int }}"
+  - delay:
+      seconds: "{{ states('input_number.foscam2_record_length') | int }}"
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.foscam2_record_video
 

@@ -66,3 +66,23 @@
     data:
       entity_id: media_player.sirius
 
+
+- alias: '[Camera Foscam1] Record video'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam1_record_video
+    to: 'on'
+  action:
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
+      duration: "{{ states('input_number.foscam1_record_length') | int }}"
+  - delay:
+      seconds: "{{ states('input_number.foscam1_record_length') | int }}"
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.foscam1_record_video
+
