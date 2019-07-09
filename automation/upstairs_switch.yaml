@@ -1,0 +1,130 @@
+# Ikea switch 4
+
+- alias: '[Upstairs switch] Turn on light'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      #color_temp: 380
+      brightness_pct: 100
+      entity_id: light.ikea_lamp_1
+
+
+- alias: '[Upstairs switch] Turn off light'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.ikea_lamp_1
+
+
+    
+- alias: "[Upstairs switch] Increase brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 2002
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data_template: 
+      entity_id: light.ikea_lamp_1
+      brightness: '{{ states.light.ikea_lamp_1.attributes.brightness + 75 }}'
+
+
+- alias: "[Upstairs switch] Decrease brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 3002
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data_template: 
+      entity_id: light.ikea_lamp_1
+      brightness: '{{ states.light.ikea_lamp_1.attributes.brightness - 75 }}'
+
+
+- alias: "[Upstairs switch] Set max brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_1
+    data_template: 
+      brightness_pct: 100
+
+
+- alias: "[Upstairs switch] Set min brightness"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_1
+    data_template: 
+      brightness_pct: 5
+
+
+- alias: "[Upstairs switch] Toggle auto light"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_4
+      event: 1001
+  action:
+  - service: python_script.upstairs_automation
+    data:
+      action: 'toggle'
+
