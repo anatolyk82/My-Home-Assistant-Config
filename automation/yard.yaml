@@ -133,11 +133,16 @@
       data:
         file:
           path: '/tmp/foscam1.jpg'
-  - service: script.take_snapshots
+  - service: camera.record
     data_template:
-      camera: camera.foscam_1
-      name: "Foscam1"
-      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 30
+#  - service: script.take_snapshots
+#    data_template:
+#      camera: camera.foscam_1
+#      name: "Foscam1"
+#      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
 
 - alias: '[Yard] Snapshot if motion in backyard while all in bed'
@@ -163,11 +168,16 @@
       data:
         file:
           path: '/tmp/foscam1.jpg'
-  - service: script.take_snapshots
+  - service: camera.record
     data_template:
-      camera: camera.foscam_1
-      name: "Foscam1"
-      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 30
+#  - service: script.take_snapshots
+#    data_template:
+#      camera: camera.foscam_1
+#      name: "Foscam1"
+#      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
 
 - alias: '[Yard] Notify if motion after sunset'
