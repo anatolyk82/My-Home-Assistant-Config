@@ -74,8 +74,9 @@
   - condition: state
     entity_id: alarm_control_panel.house
     state: 'armed_away'
-  - condition: sun
-    after: sunset
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
   action:
   - service: light.turn_on
     entity_id: light.ikea_lamp_1
@@ -138,11 +139,6 @@
       entity_id: camera.foscam_1
       filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 30
-#  - service: script.take_snapshots
-#    data_template:
-#      camera: camera.foscam_1
-#      name: "Foscam1"
-#      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
 
 - alias: '[Yard] Snapshot if motion in backyard while all in bed'
@@ -173,11 +169,6 @@
       entity_id: camera.foscam_1
       filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 30
-#  - service: script.take_snapshots
-#    data_template:
-#      camera: camera.foscam_1
-#      name: "Foscam1"
-#      detect_time: '{{ now().strftime("%Y%m%d-%H%M%S") }}'
 
 
 - alias: '[Yard] Notify if motion after sunset'
@@ -207,10 +198,17 @@
     entity_id: binary_sensor.openclose_kitchen
     state: 'off'
   action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/tmp/foscam1.jpg'
   - service: notify.pushover_file
     data:
       title: "Backyard motion"
       message: "Motion detected in the backyard"
+      data:
+        file:
+          path: '/tmp/foscam1.jpg'
 #==============================================================#
 
 - alias: '[Garden Lights] Turn on at sunset'
