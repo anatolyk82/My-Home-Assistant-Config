@@ -60,3 +60,7 @@ cards:
     entities:
     - switch.ikea_plug_2
 
+  - type: entities
+    entities:
+    - sensor.number_of_records
+    - sensor.number_of_snapshots
