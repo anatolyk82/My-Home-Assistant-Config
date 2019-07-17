@@ -137,8 +137,8 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 30
+      filename: '/home/homeassistant/records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 40
 
 
 - alias: '[Yard] Snapshot if motion in backyard while all in bed'
@@ -168,7 +168,7 @@
     data_template:
       entity_id: camera.foscam_1
       filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 30
+      duration: 40
 
 
 - alias: '[Yard] Notify if motion after sunset'
