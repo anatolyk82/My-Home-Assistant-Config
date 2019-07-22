@@ -64,6 +64,7 @@ zigbee_lights:
   - light.ikea_lamp_8
   - light.ikea_lamp_9
   - light.ikea_lamp_10
+  - light.ikea_lamp_11
   - light.gledopto_lamp_1
   - light.gledopto_lamp_2
   - light.gledopto_lamp_3

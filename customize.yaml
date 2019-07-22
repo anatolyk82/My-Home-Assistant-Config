@@ -325,6 +325,9 @@ light.gledopto_lamp_3:
 
 light.ikea_lamp_10:
   friendly_name: Backyard
+
+light.ikea_lamp_11:
+  friendly_name: Porch
 #============================= Input boolean
 
 input_boolean.vacation_mode:

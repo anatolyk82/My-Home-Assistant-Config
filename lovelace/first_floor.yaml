@@ -5,33 +5,39 @@ cards:
   - type: vertical-stack
     cards:
     - type: picture-elements
-      image: /local/images/first_floor_ext.jpg
+      image: /local/images/first_floor_ext1.jpg
       elements:
-      - type: icon
+      - type: state-icon
         entity: camera.foscam_1
         icon: mdi:cctv
         style:
-          top: 14%
+          top: 8%
           left: 17%
+      - type: state-icon
+        entity: camera.foscam_2
+        icon: mdi:cctv
+        style:
+          top: 93%
+          left: 20%
       - type: state-icon
         entity: binary_sensor.motion_downstairs
         style:
-          top: 70%
+          top: 64%
           left: 25%
       - type: state-icon
         entity: binary_sensor.presence_entrance
         style:
-          top: 77%
+          top: 71%
           left: 46%
       - type: state-icon  # Motion - kitchen
         entity: binary_sensor.presence_kitchen
         style:
-          top: 25%
+          top: 19%
           left: 73%
       - type: state-icon # Motion - Living room
         entity: binary_sensor.presence_livingroom
         style:
-          top: 25%
+          top: 19%
           left: 39%
       - type: state-icon
         entity: light.gledopto_lamp_1
@@ -39,7 +45,7 @@ cards:
           action: toggle
         hold_action: more-info
         style:
-          top: 45%
+          top: 40%
           left: 32%
       - type: state-icon
         entity: light.gledopto_lamp_2
@@ -47,7 +53,7 @@ cards:
           action: toggle
         hold_action: more-info
         style:
-          top: 45%
+          top: 40%
           left: 47%
       - type: state-icon # Light - Entrance
         entity: light.ikea_lamp_2
@@ -55,37 +61,37 @@ cards:
           action: toggle
         hold_action: more-info
         style:
-          top: 77%
+          top: 71%
           left: 53%
       - type: state-icon
         entity: binary_sensor.openclose_entrance
         style:
-          top: 92%
+          top: 86%
           left: 47.8%
       - type: state-icon
         entity: binary_sensor.openclose_livingroom
         style:
-          top: 50.5%
+          top: 46%
           left: 20%
       - type: state-icon
         entity: binary_sensor.openclose_kitchen
         style:
-          top: 43%
+          top: 39%
           left: 84.5%
       - type: state-icon # Water leak
         entity: binary_sensor.water_first_floor
         style:
-          top: 74%
+          top: 70%
           left: 70%
       - type: state-icon # Smoke detector
         entity: binary_sensor.smoke_first_floor
         style:
-          top: 41%
+          top: 37%
           left: 57%
       - type: state-label
         entity: sensor.temperature_first_floor
         style:
-          top: 15%
+          top: 11%
           left: 27%
       - type: state-icon
         entity: light.kitchen_lights_1
@@ -94,7 +100,7 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 43%
+          top: 40%
           left: 76%
       - type: state-icon
         entity: light.kitchen_lights_2
@@ -103,7 +109,7 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 43%
+          top: 40%
           left: 66%
       - type: state-icon
         entity: light.mood_lamp
@@ -112,14 +118,14 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 14%
+          top: 11%
           left: 53%
       - type: state-icon
         entity: light.stairs
         tap_action:
           action: more-info
         style:
-          top: 85%
+          top: 78%
           left: 24%
       - type: state-icon
         entity: light.garden_lights_1
@@ -128,7 +134,7 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 50%
+          top: 44%
           left: 4%
       - type: state-icon
         entity: light.ikea_lamp_10
@@ -137,13 +143,21 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 66%
+          top: 60%
           left: 16%
       - type: state-icon
         entity: binary_sensor.presence_backyard
         style:
-          top: 30%
+          top: 24%
           left: 12%
+      - type: state-icon
+        entity: light.ikea_lamp_11
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 93%
+          left: 54%
     - type: horizontal-stack
       cards:
       - type: sensor

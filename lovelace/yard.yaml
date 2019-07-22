@@ -55,6 +55,7 @@ cards:
   - type: entities
     entities:
     - light.garden_lights_2
+    - light.ikea_lamp_11
 
   - type: entities
     entities:

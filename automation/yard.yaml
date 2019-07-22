@@ -1,4 +1,5 @@
-- alias: '[Yard] Turn on the backyard light at sunset'
+
+- alias: '[Yard] Turn on backyard light at sunset'
   initial_state: true
   trigger:
   - platform: sun
@@ -11,7 +12,7 @@
       brightness_pct: 95
 
 
-- alias: '[Yard] Turn off the backyard light at sunrise'
+- alias: '[Yard] Turn off backyard light at sunrise'
   initial_state: true
   trigger:
   - platform: sun
@@ -19,6 +20,32 @@
   action:
   - service: light.turn_off
     entity_id: light.ikea_lamp_10
+    data:
+      transition: 30
+
+#==============================================================#
+
+- alias: '[Yard] Turn on porch light at sunset'
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunset
+  action:
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_11
+    data:
+      transition: 30
+      brightness_pct: 100
+
+
+- alias: '[Yard] Turn off porch light at sunrise'
+  initial_state: true
+  trigger:
+  - platform: sun
+    event: sunrise
+  action:
+  - service: light.turn_off
+    entity_id: light.ikea_lamp_11
     data:
       transition: 30
 
@@ -111,7 +138,7 @@
 
 #==============================================================#
 
-- alias: '[Yard] Snapshot if motion in baclyard while armed away'
+- alias: '[Yard] Video if motion in baclyard while armed away'
   hide_entity: true
   initial_state: true
   trigger:
@@ -141,7 +168,7 @@
       duration: 40
 
 
-- alias: '[Yard] Snapshot if motion in backyard while all in bed'
+- alias: '[Yard] Video if motion in backyard while all in bed'
   hide_entity: true
   initial_state: true
   trigger:
@@ -167,7 +194,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
 
 
