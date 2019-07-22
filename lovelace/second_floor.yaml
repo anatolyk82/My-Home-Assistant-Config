@@ -7,7 +7,7 @@ cards:
     - type: picture-elements
       image: /local/images/second_floor_ext.jpg
       elements:
-      - type: icon # Foscam camera 1
+      - type: state-icon # Foscam camera 1
         entity: camera.foscam_1
         icon: mdi:cctv
         style:
