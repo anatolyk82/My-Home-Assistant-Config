@@ -59,9 +59,9 @@ if hass.states.get('light.aqara_lamp_1').state == 'on' and all_in_bed == 'on':
     logger.debug("AllInBed: Workroom light is on. Set the sensor to off")
     all_in_bed = 'off'
 
-if hass.states.get('light.xiaomi_philips_desklamp').state == 'on' and all_in_bed == 'on':
-    logger.debug("AllInBed: Desktop lamp is on. Set the sensor to off")
-    all_in_bed = 'off'
+#if hass.states.get('light.xiaomi_philips_desklamp').state == 'on' and all_in_bed == 'on':
+#    logger.debug("AllInBed: Desktop lamp is on. Set the sensor to off")
+#    all_in_bed = 'off'
 
 # Bedroom
 if hass.states.get('light.gledopto_lamp_4').state == 'on' and all_in_bed == 'on':
@@ -122,6 +122,24 @@ if all_in_bed == 'on':
             motion_state = hass.states.get(entity_id)
             if motion_state.state == 'on':
                 logger.debug("AllInBed: There is motion on %s. Set the sensor to off", entity_id)
+                all_in_bed = 'off'
+                break
+
+
+# All motion sensors show last update more than 10 minutes ago
+minutes_last_update = 10
+if all_in_bed == 'on':
+    for entity_id in hass.states.entity_ids('binary_sensor'):
+        if entity_id.find('presence') >= 0:
+            # Ignore motion sensor in the bedroom  
+            if entity_id.find('bedroom') >= 0:
+                continue
+            entityState = hass.states.get(entity_id)
+            lu = entityState.last_updated.replace(tzinfo=None)
+            now = datetime.datetime.now()
+            diff_secs = (now - lu).total_seconds()
+            if diff_secs < minutes_last_update * 60:
+                logger.debug("AllInBed: There was motion on %s less than %d minutes ago. Set the sensor to off", entity_id, minutes_last_update)
                 all_in_bed = 'off'
                 break
 
