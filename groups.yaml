@@ -1,14 +1,49 @@
 
 wifi_lights:
   view: no
-  name: WiFi Lights
+  name: 'WiFi Lights'
   control: hidden
   entities:
   - light.bed_led
   - light.mood_lamp
   - light.stairs
-  - light.xiaomi_philips_desklamp
-  - light.xiaomi_philips_desklamp_ambient_light
+  - light.garden_lights_1
+  - light.garden_lights_2
+
+# ------------------------------------------------
+
+outdoor_lights:
+  view: no
+  name: 'Outdoor Lights'
+  control: hidden
+  entities:
+  - light.garden_lights_1
+  - light.garden_lights_2
+  - light.ikea_lamp_10
+  - light.ikea_lamp_11
+
+
+indoor_lights:
+  view: no
+  name: 'Indoor Lights'
+  control: hidden
+  entities:
+  - light.ikea_lamp_1
+  - light.ikea_lamp_2
+  - light.ikea_lamp_4
+  - light.ikea_lamp_5
+  - light.ikea_lamp_6
+  - light.ikea_lamp_7
+  - light.ikea_lamp_8
+  - light.ikea_lamp_9
+  - light.gledopto_lamp_1
+  - light.gledopto_lamp_2
+  - light.gledopto_lamp_3
+  - light.gledopto_lamp_4
+  - light.aqara_lamp_1
+  - light.mood_lamp
+  - light.bed_led
+  - light.stairs
 
 # ------------------------------------------------
 zigbee_devices:
