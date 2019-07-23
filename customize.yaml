@@ -290,9 +290,6 @@ light.xiaomi_philips_desklamp:
   friendly_name: Desktop lamp
   icon: mdi:desk-lamp
 
-light.christmas_lights:
-  icon: mdi:pine-tree
-
 light.ikea_lamp_1:
   icon: mdi:ceiling-light
 

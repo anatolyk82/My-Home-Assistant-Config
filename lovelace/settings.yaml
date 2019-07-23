@@ -71,7 +71,6 @@ cards:
     - automation.hass_notification_on_start
     - automation.hass_notification_on_stop
     - automation.update_available_notifications
-    - automation.christmas_lights_turn_on_when_disarmed
 
   - type: entities
     show_header_toggle: false
