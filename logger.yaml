@@ -2,6 +2,10 @@
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 
 default: warn
+#logs:
+#  homeassistant.components.mysensors: debug
+#  mysensors: debug
+
 #default: warn
 #logs:
 #  aiohttp.access: critical
