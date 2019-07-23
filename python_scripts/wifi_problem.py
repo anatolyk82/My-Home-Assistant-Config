@@ -3,10 +3,9 @@ counter_unavailable = 0
 wifi_problem = 'off'
 
 wifi_devices = [
-        'light.xiaomi_philips_desklamp_ambient_light',
         'light.mood_lamp',
-        'light.xiaomi_philips_desklamp',
         'light.bed_led',
+        'sensor.keypad',
         ]
 
 for entity_id in hass.states.entity_ids('light'):
