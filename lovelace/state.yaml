@@ -41,6 +41,7 @@ cards:
     - sensor.rssi_keypad
     - sensor.rssi_mood_lamp
     - sensor.rssi_garden_lights
+    - sensor.rssi_informer
 - type: entities
   title: Batteries
   show_header_toggle: false
