@@ -1,10 +1,3 @@
-- platform: history_stats
-  name: Desktop Lamp On Today
-  entity_id: light.xiaomi_philips_desklamp
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
 
 - platform: history_stats
   name: Entrance Lamp On Today
@@ -89,6 +82,22 @@
 - platform: history_stats
   name: Backyard On Today
   entity_id: light.ikea_lamp_10
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: Porch On Today
+  entity_id: light.ikea_lamp_11
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: Garden1 On Today
+  entity_id: light.garden_lights_1
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'

@@ -30,11 +30,12 @@ cards:
   - sensor.bedroom_lamp_on_today
   - sensor.bed_led_on_today
   - sensor.room_lamp_on_today
-  - sensor.desktop_lamp_on_today
   - sensor.workroom_lamp_on_today
   - sensor.kitchen_1_on_today
   - sensor.kitchen_2_on_today
   - sensor.backyard_on_today
+  - sensor.porch_on_today
+  - sensor.garden1_on_today
 - type: entities
   entities:
     - sensor.rssi_bed_light
