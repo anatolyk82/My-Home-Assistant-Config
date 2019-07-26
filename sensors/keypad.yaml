@@ -6,8 +6,4 @@
   payload_available: "online"
   payload_not_available: "offline"
   value_template: "{{ value_json.ip }}"
-#  json_attributes:
-#    - mac
-#    - rssi
-#    - uptime
-#    - version
+  json_attributes_topic: "alarm/keypad"
