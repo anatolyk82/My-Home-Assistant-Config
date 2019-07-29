@@ -6,7 +6,7 @@ to_state = data.get('to_state')
 lightlevel_upstairs = float(hass.states.get('sensor.lightlevel_upstairs').state)
 lightlevel_livingroom = float(hass.states.get('sensor.lightlevel_livingroom').state)
 lightlevel_kitchen = float(hass.states.get('sensor.lightlevel_kitchen').state)
-lightlevel_threshold = 8
+lightlevel_threshold = 9
 is_upstairs_dark = lightlevel_upstairs < lightlevel_threshold 
 is_downstairs_dark = (lightlevel_livingroom < lightlevel_threshold) and (lightlevel_kitchen < 10)
 
