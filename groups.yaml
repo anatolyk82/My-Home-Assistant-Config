@@ -21,6 +21,7 @@ outdoor_lights:
   - light.garden_lights_2
   - light.ikea_lamp_10
   - light.ikea_lamp_11
+  - light.ikea_lamp_12
 
 
 indoor_lights:
@@ -100,6 +101,7 @@ zigbee_lights:
   - light.ikea_lamp_9
   - light.ikea_lamp_10
   - light.ikea_lamp_11
+  - light.ikea_lamp_12
   - light.gledopto_lamp_1
   - light.gledopto_lamp_2
   - light.gledopto_lamp_3

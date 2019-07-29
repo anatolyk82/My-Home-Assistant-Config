@@ -325,6 +325,9 @@ light.ikea_lamp_10:
 
 light.ikea_lamp_11:
   friendly_name: Porch
+
+light.ikea_lamp_12:
+  friendly_name: Front Yard
 #============================= Input boolean
 
 input_boolean.vacation_mode:

@@ -35,6 +35,7 @@ cards:
   - sensor.kitchen_2_on_today
   - sensor.backyard_on_today
   - sensor.porch_on_today
+  - sensor.front_yard_on_today
   - sensor.garden1_on_today
 - type: entities
   entities:

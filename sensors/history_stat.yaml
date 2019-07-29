@@ -96,6 +96,14 @@
   end: '{{ now() }}'
 
 - platform: history_stats
+  name: Front Yard On Today
+  entity_id: light.ikea_lamp_12
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
   name: Garden1 On Today
   entity_id: light.garden_lights_1
   state: 'on'

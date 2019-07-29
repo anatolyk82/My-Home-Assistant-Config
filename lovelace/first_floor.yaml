@@ -158,6 +158,14 @@ cards:
         style:
           top: 93%
           left: 54%
+      - type: state-icon
+        entity: light.ikea_lamp_12
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 57%
+          left: 88%
     - type: horizontal-stack
       cards:
       - type: sensor
