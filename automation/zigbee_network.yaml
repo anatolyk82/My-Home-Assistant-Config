@@ -2,10 +2,10 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: light.ikea_lamp_1, light.ikea_lamp_2, light.ikea_lamp_3,
-               light.ikea_lamp_4, light.ikea_lamp_5, light.ikea_lamp_6,
-               light.ikea_lamp_7, light.ikea_lamp_8, light.ikea_lamp_9,
-               light.ikea_lamp_10,
+    entity_id: light.ikea_lamp_1,  light.ikea_lamp_2,  light.ikea_lamp_3,
+               light.ikea_lamp_4,  light.ikea_lamp_5,  light.ikea_lamp_6,
+               light.ikea_lamp_7,  light.ikea_lamp_8,  light.ikea_lamp_9,
+               light.ikea_lamp_10, light.ikea_lamp_11, light.ikea_lamp_12,
                binary_sensors.openclose_entrance,   binary_sensors.openclose_kitchen, 
                binary_sensors.openclose_livingroom, binary_sensors.openclose_storehouse,
                binary_sensor.presence_bedroom,  binary_sensor.presence_entrance, 
