@@ -145,7 +145,7 @@ cards:
     show_header_toggle: false
     entities:
     - automation.stairs_run_stairs_effects_script_if_motions
-    - automation.stairs_run_stairs_effects_script_if_no_motions_for_20_secs
+    - automation.stairs_run_stairs_effects_when_timer_triggers
     - automation.stairs_run_stairs_nightlight_script_if_motions
 
   - type: entities

@@ -10,13 +10,11 @@
   action:
   - service: python_script.stairs_nightlight
     data_template:
-      entity_id: '{{ trigger.to_state.entity_id }}'
       to_state: '{{ trigger.to_state.state }}'
 
+#===========================================================================
 
 - alias: '[Stairs] Run stairs_effects script if motions'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id:
@@ -25,28 +23,18 @@
     to: 'on'
   action:
   - service: python_script.stairs_effects
-    data_template:
-      entity_id: '{{ trigger.to_state.entity_id }}'
-      to_state: '{{ trigger.to_state.state }}'
+  - service: timer.start
+    entity_id: timer.stairs_light_timeout
 
 
-- alias: '[Stairs] Run stairs_effects script if no motions for 20 secs'
-  hide_entity: true
-  initial_state: true
+- alias: '[Stairs] Run stairs_effects when timer triggers'
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.motion_upstairs
-    - binary_sensor.motion_downstairs
-    to: 'off'
-    for:
-      seconds: 20
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.stairs_light_timeout
   action:
   - service: python_script.stairs_effects
-    data_template:
-      entity_id: '{{ trigger.to_state.entity_id }}'
-      to_state: '{{ trigger.to_state.state }}'
-
 
 
 

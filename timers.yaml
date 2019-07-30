@@ -1,0 +1,4 @@
+stairs_light_timeout:
+  name: 'Stairs Light Timeout'
+  duration: '00:00:30'
+  icon: mdi:stairs
