@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: "Pump1"
+  icon: mdi:flower
+  state_topic: "irrigation/controller1"
+  state_on: "ON"
+  state_off: "OFF"
+  command_topic: "irrigation/controller1/set"
+  availability_topic: "irrigation/controller1/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  optimistic: false
+  json_attributes_topic: "irrigation/controller1/attributes"

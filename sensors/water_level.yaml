@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: 'Irrigation Water Level'
+  state_topic: "irrigation/controller1/waterlevel"
+  icon: mdi:cup-water
+  availability_topic: "irrigation/controller1/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "%"
+  json_attributes_topic: "irrigation/controller1/attributes"

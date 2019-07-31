@@ -54,4 +54,6 @@ cards:
   - binary_sensor.all_in_bed
   - switch.wifi_cord_1
   - switch.ikea_plug_1
+  - switch.pump1
+  - sensor.irrigation_water_level
 
