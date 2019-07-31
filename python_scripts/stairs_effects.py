@@ -54,13 +54,13 @@ if trigger_entity_id == 'binary_sensor.motion_upstairs':
 
 # Choose color and brightness
 now = datetime.datetime.now()
-today_23_30 = now.replace(hour=23, minute=30, second=0, microsecond=0)
+today_00_00 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 today_07_30 = now.replace(hour=6, minute=30, second=0, microsecond=0)
 
 brightness = 255
 rgb_color = [255, 255, 0]
-if now > today_23_30 and now < today_07_30:
-    brightness = 100
+if now > today_00_00 and now < today_07_30:
+    brightness = 20
     rgb_color = [255, 0, 0]
 
 
