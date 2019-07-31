@@ -23,8 +23,9 @@ cards:
 
   - type: entities
     entities:
+    - switch.ikea_plug_2
     - light.garden_lights_1
-    - light.ikea_lamp_10
+    - light.garden_lights_2
 
   - type: entities
     entities:
@@ -54,13 +55,9 @@ cards:
 
   - type: entities
     entities:
-    - light.garden_lights_2
+    - light.ikea_lamp_10
     - light.ikea_lamp_11
     - light.ikea_lamp_12
-
-  - type: entities
-    entities:
-    - switch.ikea_plug_2
 
   - type: entities
     entities:
