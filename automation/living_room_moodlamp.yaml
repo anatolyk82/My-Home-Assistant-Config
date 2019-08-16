@@ -47,7 +47,7 @@
   - service: light.turn_on
     entity_id: light.mood_lamp
     data:
-      effect: "Police"
+      effect: "Alarm"
 
 
 - alias: '[MoodLamp] Turn on if motion at night'
