@@ -1,0 +1,10 @@
+- alias: 'SMHI Alert'
+  trigger:
+    platform: state
+    entity_id: sensor.smhialert
+    to: "Alert"
+  action:
+  - service: notify.pushover
+    data_template:
+      title: "SMHI Alert!"
+      message: '{{states.sensor.smhialert.attributes.notice}}'

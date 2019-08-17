@@ -219,3 +219,7 @@ cards:
     - input_boolean.logger_shell_commands
     - input_boolean.logger_helpers_script
 
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - automation.smhi_alert
