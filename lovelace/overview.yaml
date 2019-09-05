@@ -47,7 +47,8 @@ cards:
   entities:
   - sensor.vasttrafik_linje_176_mot_lindholmen
   - sensor.vasttrafik_linje_176_mot_rannebergen
-  - sensor.vasttrafik_linje_75_mot_angered
+  - sensor.vasttrafik_linje_177_mot_lindholmen
+  - sensor.vasttrafik_linje_177_mot_lovgardet
 
 - type: entities
   entities:

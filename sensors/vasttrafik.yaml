@@ -3,20 +3,25 @@
   secret: !secret vasttrafik_secret
   departures:
   - name: "Västtrafik Linje 176 mot Lindholmen"
-    from: !secret vasttrafik_my_stop
+    from: !secret vasttrafik_my_stop1
     heading: "Hjalmar Brantingsplatsen"
     lines:
       - 176
-  - name: "Västtrafik Linje 75 mot Angered"
-    from: !secret vasttrafik_my_stop
-    heading: "Angered centrum"
-    lines:
-      - 75
   - name: "Västtrafik Linje 176 mot Rannebergen"
     from: "Hjalmar Brantingsplatsen"
-    heading: !secret vasttrafik_my_stop
+    heading: !secret vasttrafik_my_stop1
     lines:
       - 176
+  - name: "Västtrafik Linje 177 mot Lövgärdet"
+    from: "Hjalmar Brantingsplatsen"
+    heading: !secret vasttrafik_my_stop2
+    lines:
+      - 177
+  - name: "Västtrafik Linje 177 mot Lindholmen"
+    from: !secret vasttrafik_my_stop2
+    heading: "Hjalmar Brantingsplatsen"
+    lines:
+      - 177
 
 
 #- platform: template
