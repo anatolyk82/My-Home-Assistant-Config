@@ -31,7 +31,7 @@
   initial_state: true
   trigger:
   - platform: time
-    at: "07:23:00"
+    at: "07:18:00"
   condition:
   # (the illumination sensor at the entrance shows a value below 30) AND (it's a work day) AND (the alarm is not on)
   - condition: numeric_state
