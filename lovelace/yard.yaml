@@ -1,10 +1,6 @@
 title: "Yard"
 id: yard
 cards:
-- type: entities
-  entities:
-  - switch.cameras
-
 - type: vertical-stack
   cards:
   - type: picture-glance
@@ -32,11 +28,12 @@ cards:
     - binary_sensor.presence_backyard
     - sensor.lightlevel_backyard
 
-#---------------
+  - type: entities
+    entities:
+    - switch.cameras
 
-- type: entities
-  entities:
-  - binary_sensor.openclose_storehouse
+
+#---------------
 
 - type: vertical-stack
   cards:
@@ -63,3 +60,14 @@ cards:
     entities:
     - sensor.number_of_records
     - sensor.number_of_snapshots
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.openclose_storehouse
+      name: "Storehouse Door"
+      secondary_info: 'last-changed'
+    - entity: sensor.temperature_storehouse
+      name: "Storehouse Temperature"
+    - entity: sensor.humidity_storehouse
+      name: "Storehouse Humidity"
