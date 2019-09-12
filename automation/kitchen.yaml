@@ -165,3 +165,76 @@
     entity_id: light.kitchen_lights_2
     data_template: 
       brightness: '{{ states.light.kitchen_lights_2.attributes.brightness + 75 }}'
+
+- alias: "[Kitchen] Set max brightness for lights 1"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_3
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.kitchen_lights_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen_lights_1
+    data_template: 
+      brightness_pct: 100
+
+- alias: "[Kitchen] Set max brightness for lights 2"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_3
+      event: 2001
+  condition:
+  - condition: state
+    entity_id: light.kitchen_lights_2
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen_lights_2
+    data_template: 
+      brightness_pct: 100
+
+- alias: "[Kitchen] Set min brightness for lights 1"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_3
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.kitchen_lights_1
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen_lights_1
+    data_template: 
+      brightness_pct: 5
+
+- alias: "[Kitchen] Set min brightness for lights 2"
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_switch_3
+      event: 3001
+  condition:
+  - condition: state
+    entity_id: light.kitchen_lights_2
+    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen_lights_2
+    data_template: 
+      brightness_pct: 5
+

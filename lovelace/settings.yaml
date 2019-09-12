@@ -140,6 +140,10 @@ cards:
     - automation.kitchen_increase_brightness_for_lights_2
     - automation.kitchen_turn_on_all_lights
     - automation.kitchen_turn_off_all_lights
+    - automation.kitchen_set_min_brightness_for_lights_1
+    - automation.kitchen_set_min_brightness_for_lights_2
+    - automation.kitchen_set_max_brightness_for_lights_1
+    - automation.kitchen_set_max_brightness_for_lights_2
 
   - type: entities
     show_header_toggle: false
