@@ -6,8 +6,7 @@ alarm_on:
     - service: light.turn_on
       entity_id: light.mood_lamp
       data:
-        brightness: 255
-        rgb_color: [255, 0, 0]
+        effect: "Police"
     - service: automation.turn_on
       entity_id: automation.alarm_sound_rpi_speaker
     - service: light.turn_on
