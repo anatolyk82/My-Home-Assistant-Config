@@ -10,9 +10,14 @@
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
-  - condition: state
-    entity_id: alarm_control_panel.house
-    state: 'disarmed'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'disarmed'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'armed_night'
   - condition: state
     entity_id: input_boolean.vacation_mode
     state: 'off'

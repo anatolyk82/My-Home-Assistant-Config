@@ -1,6 +1,5 @@
 - alias: '[Entrance light] Force to update västtrafik sensor'
   hide_entity: true
-  initial_state: true
   trigger:
   - platform: time_pattern
     minutes: '/1'
@@ -24,11 +23,12 @@
   - delay: '00:01:00'
   - service: homeassistant.update_entity
     entity_id: sensor.vasttrafik_linje_176_mot_lindholmen
+  - service: homeassistant.update_entity
+    entity_id: sensor.vasttrafik_linje_177_mot_lindholmen
 
 
-- alias: '[Entrance light] Turn on at 7:23'
+- alias: '[Entrance light] Turn on at 7:18'
   hide_entity: true
-  initial_state: true
   trigger:
   - platform: time
     at: "07:18:00"
@@ -59,7 +59,6 @@
 
 - alias: '[Entrance light] Turn off at 7:45 if no motion'
   hide_entity: true
-  initial_state: true
   trigger:
   - platform: time
     at: "07:45:00"
@@ -87,7 +86,6 @@
 
 - alias: '[Entrance light] Turn on when the door opens'
   hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.openclose_entrance
@@ -106,7 +104,6 @@
 
 - alias: '[Entrance light] Turn off in 5 minutes after the door is closed'
   hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id: binary_sensor.openclose_entrance

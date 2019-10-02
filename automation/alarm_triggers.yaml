@@ -1,4 +1,4 @@
-- alias: 'Trigger alarm while armed away'
+- alias: '[Alarm] Trigger alarm while armed away'
   hide_entity: true
   initial_state: true
   trigger:
@@ -39,14 +39,14 @@
   condition:
     - condition: state
       entity_id: alarm_control_panel.house
-      state: armed_away
+      state: 'armed_away'
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.house
 
 
 
-- alias: 'Trigger alarm while armed home'
+- alias: '[Alarm] Trigger alarm if any door is open while armed home'
   hide_entity: true
   initial_state: true
   trigger:
@@ -65,8 +65,34 @@
   condition:
     - condition: state
       entity_id: alarm_control_panel.house
-      state: armed_home
+      state: 'armed_home'
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.house
+
+
+- alias: '[Alarm] Trigger alarm if any door is open while armed night'
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.openclose_livingroom
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.openclose_entrance
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.openclose_kitchen
+    to: 'on'
+  - platform: state 
+    entity_id: binary_sensor.openclose_storehouse #Storagehouse door
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_night'
+  action:
+  - service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.house
+
 

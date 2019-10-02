@@ -1,18 +1,94 @@
-# =========> Arming/Pending
-- alias: '[Alarm] Away Mode Arming'
+- alias: '[Alarm] Arm night automatically'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  action:
+  - service: alarm_control_panel.alarm_arm_night
+    entity_id: alarm_control_panel.house
+    data:
+      code: !secret alarm_code
+
+- alias: '[Alarm] Disarm night automatically'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_night'
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.house
+    data:
+      code: !secret alarm_code
+
+- alias: '[Alarm] Pending from night'
   hide_entity: true
   initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
+    from: 'armed_night'
+    to: 'pending'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.alarm_pending_sound
+  - service: light.turn_on
+    data:
+      entity_id: light.kitchen_lights_1
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.kitchen_lights_2
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.ikea_lamp_1
+      brightness_pct: 100
+  - service: light.turn_on
+    data:
+      entity_id: light.aqara_lamp_1
+      brightness_pct: 100
+
+
+# =========> Arming/Pending
+- alias: '[Alarm] Pending sound while pending from disarmed'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    from: 'disarmed'
     to: 'pending'
   action:
   - service: automation.turn_on
     entity_id: automation.alarm_pending_sound
 
 
+- alias: '[Alarm] Pending sound while pending from armed away'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    from: 'armed_away'
+    to: 'pending'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.alarm_pending_sound
+
 # =========> Armed Away
-- alias: '[Alarm] Armed Away'
+- alias: '[Alarm] Armed away activated'
   hide_entity: true
   initial_state: true
   trigger:
@@ -31,7 +107,7 @@
 
 
 # =========> Armed Home
-- alias: '[Alarm] Armed Home'
+- alias: '[Alarm] Armed home activated'
   hide_entity: true
   initial_state: true
   trigger:
@@ -72,3 +148,4 @@
   - service: script.turn_on
     data:
       entity_id: script.alarm_on
+
