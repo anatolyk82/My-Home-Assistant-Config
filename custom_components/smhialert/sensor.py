@@ -111,9 +111,19 @@ class SMHIAlert:
             self.data['state'] = "No Alerts"
             self.attributes['messages'] = []
             self.attributes['notice'] = ""
+
+            if len(jsondata) == 0:
+                return
+
             districts = {}
             notice = ""
-            for alert in jsondata['alert']:
+            alerts = []
+            if isinstance(jsondata['alert'], dict):
+                alerts.append(jsondata['alert'])
+            else:
+                alerts = jsondata['alert']
+
+            for alert in alerts:
                 if not (alert['status'] == 'Actual' or alert['status'] == 'System'):
                     continue
 
@@ -177,4 +187,5 @@ web: {link}?#ws=wpt-a,proxy=wpt-a,district={district_code},page=wpt-warning-alla
                 self.attributes['notice'] = notice
         except Exception as e:
             _LOGGER.error("Unable to fetch data from SMHI.")
+            _LOGGER.error(str(e))
             self.available = False
