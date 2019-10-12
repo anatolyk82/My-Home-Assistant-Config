@@ -45,15 +45,31 @@ cards:
     - sensor.rssi_garden_lights
     - sensor.rssi_informer
 - type: entities
-  title: Batteries
   show_header_toggle: false
+  title: "Batteries"
   entities:
-  - sensor.ikea_switch_1_battery_level
-  - sensor.ikea_switch_2_battery_level
-  - sensor.ikea_switch_3_battery_level
-  - sensor.ikea_switch_4_battery_level
-  - sensor.switch_bedroom_battery_level
-  - sensor.switch_workroom_battery_level
+  - entity: sensor.ikea_switch_1_battery_level
+    name: "IKEA Switch1"
+  - entity: sensor.ikea_switch_2_battery_level
+    name: "IKEA Switch2"
+  - entity: sensor.ikea_switch_3_battery_level
+    name: "IKEA Switch3"
+  - entity: sensor.ikea_switch_4_battery_level
+    name: "IKEA Switch4"
+  - entity: sensor.xiaomi_switch_bedroom_battery_level
+    name: "Bedroom Switch"
+  - entity: sensor.xiaomi_switch_workroom_battery_level
+    name: "Workroom Switch"
+  - entity: sensor.xiaomi_wallswitch_1_battery_level
+    name: "Wallswitch Living room"
+  - entity: sensor.weather_storehouse_battery_level
+    name: "Storehouse Weather"
+  - entity: sensor.weather_first_floor_battery_level
+    name: "First Floor Weather"
+  - entity: sensor.weather_second_floor_battery_level
+    name: "Second Floor Weather"
+  - entity: sensor.weather_outdoor_battery_level
+    name: "Outdoor Weather"
 - type: vertical-stack
   cards:
   - type: entities
