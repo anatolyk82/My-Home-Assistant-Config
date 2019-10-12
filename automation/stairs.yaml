@@ -1,7 +1,5 @@
 
 - alias: '[Stairs] Run stairs_nightlight script if motions'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id:

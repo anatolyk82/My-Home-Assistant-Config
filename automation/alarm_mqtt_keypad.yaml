@@ -1,4 +1,4 @@
-- alias: 'Arm alarm from MQTT Keypad'
+- alias: '[Keypad] Arm alarm in armed_away'
   hide_entity: true
   initial_state: true
   trigger:
@@ -16,7 +16,7 @@
       code: !secret alarm_code
 
 
-- alias: 'Disarm alarm from MQTT Keypad'
+- alias: '[Keypad] Disarm alarm from armed_away'
   hide_entity: true
   initial_state: true
   trigger:
@@ -34,7 +34,7 @@
       code: !secret alarm_code
 
 
-- alias: 'Disarm alarm from MQTT Keypad while pending'
+- alias: '[Keypad] Disarm alarm while pending'
   hide_entity: true
   initial_state: true
   trigger:
@@ -51,7 +51,7 @@
     data:
       code: !secret alarm_code
 
-- alias: 'Disarm alarm from MQTT Keypad while triggered'
+- alias: '[Keypad] Disarm alarm while triggered'
   hide_entity: true
   initial_state: true
   trigger:

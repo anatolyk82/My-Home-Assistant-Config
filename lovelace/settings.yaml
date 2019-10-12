@@ -1,229 +1,30 @@
 title: "Settings"
 id: settings
 cards:
-  - type: vertical-stack
-    cards:
-    - type: entities
-      show_header_toggle: false
-      entities:
-      - input_boolean.vacation_mode
-    - type: conditional
-      conditions:
-      - entity: input_boolean.vacation_mode
-        state: "on"
-      card: 
-        type: entities
-        show_header_toggle: false
-        entities:
-        - script.vacation_lights
-        - automation.vacation_lights_start_on_sunset
-        - automation.vacation_lights_stop_at_midnight
-
-  - type: entities
-    show_header_toggle: false
-    title: Alarms
-    entities:
-    - automation.water_leakage_floor_1
-    - automation.water_leakage_floor_2
-    - automation.too_high_temperature_at_the_first_floor
-    - automation.too_high_temperature_at_the_second_floor
-    - automation.smoke_alarm
-    - automation.stop_warning_signal_with_code_0000
-
+- type: vertical-stack
+  cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - automation.upstairs_light_turn_on_if_motion_06_30_23_00
-    - automation.upstairs_light_turn_on_if_motion_23_00_00_00
-    - automation.upstairs_light_turn_off_00_00_06_30
-    - automation.upstairs_light_turn_off_in_5_minutes_after_motion
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.bedroom_turn_on_bed_light_in_daylight
-    - automation.bedroom_turn_on_bed_light_before_sunrise
-    - automation.bedroom_turn_on_bed_light_after_sunset
-    - automation.bedroom_turn_off_bed_light
-    - automation.bedroom_bed_led_sunrise
-    - automation.bedroom_decrease_brightness
-    - automation.bedroom_increase_brightness
-    - automation.bedroom_set_max_brightness
-    - automation.bedroom_set_min_brightness
-    - automation.bedroom_turn_off_light
-    - automation.bedroom_turn_on_light
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.entrance_light_force_to_update_vasttrafik_sensor
-    - automation.entrance_light_turn_off_in_5_minutes_after_the_door_is_closed
-    - automation.entrance_light_turn_on_at_7_23
-    - automation.entrance_light_turn_off_at_7_45_if_no_motion
-    - automation.entrance_light_turn_on_when_the_door_opens
-    - automation.entrance_door_sound
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.hass_certificate_notification_on_update
-    - automation.hass_new_version_available
-    - automation.hass_notification_on_start
-    - automation.hass_notification_on_stop
-    - automation.update_available_notifications
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.camera_foscam1_restart_power_if_unavailable
-    - automation.camera_foscam2_restart_power_if_unavailable
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.moodlamp_police_effect_while_pending
-    - automation.moodlamp_turn_on_if_motion_at_night
-    - automation.moodlamp_turn_off_if_no_motion_at_night
-    - automation.moodlamp_turn_off_when_disarmed_before_sunset
-    - automation.moodlamp_turn_on_when_disarmed_after_sunset
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.wifi_control_notify_if_unavailable
-    - automation.wifi_control_run_wifi_problem_script_on_start
-    - automation.wifi_control_run_wifi_problem_script_if_unavailable
-    - automation.wifi_control_run_wifi_problem_script_if_a_device_becomes_available
-    - automation.wifi_control_restart_router_if_too_many_unavailable
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.all_in_bed_alarm_trigger_if_any_door_is_open
-    - automation.all_in_bed_run_script_on_start
-    - automation.all_in_bed_run_script_every_10_minutes_if_off
-    - automation.all_in_bed_run_script_if_motion_and_sensor_is_on
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.living_room_decrease_brightness_of_the_left_lamp
-    - automation.living_room_decrease_brightness_of_the_right_lamp
-    - automation.living_room_increase_brightness_of_the_left_lamp
-    - automation.living_room_increase_brightness_of_the_right_lamp
-    - automation.living_room_set_max_brightness_to_the_left_lamp
-    - automation.living_room_set_max_brightness_to_the_right_lamp
-    - automation.living_room_set_min_brightness_to_the_left_lamp
-    - automation.living_room_set_min_brightness_to_the_right_lamp
-    - automation.living_room_toggle_the_left_lamp
-    - automation.living_room_toggle_the_right_lamp
-    - automation.living_room_turn_off_all_lamps
-    - automation.living_room_turn_on_all_lamps
-    - automation.living_room_wallswitch_toggle_entrance_light
-    - automation.living_room_wallswitch_turn_on_living_room_lights
-    - automation.living_room_wallswitch_turn_off_living_room_lights
-    - automation.living_room_wallswitch_turn_on_mood_lamp
-    - automation.living_room_wallswitch_turn_off_mood_lamp
-    - automation.living_room_wallswitch_switch_effect_on_mood_lamp
-    - automation.living_room_wallswitch_turn_off_entire_living_room
-    - automation.moodlamp_turn_on_at_sunset
-    - automation.moodlamp_turn_off_at_midnight
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.kitchen_toggle_lights_1
-    - automation.kitchen_toggle_lights_2
-    - automation.kitchen_decrease_brightness_for_lights_1
-    - automation.kitchen_decrease_brightness_for_lights_2
-    - automation.kitchen_increase_brightness_for_lights_1
-    - automation.kitchen_increase_brightness_for_lights_2
-    - automation.kitchen_turn_on_all_lights
-    - automation.kitchen_turn_off_all_lights
-    - automation.kitchen_set_min_brightness_for_lights_1
-    - automation.kitchen_set_min_brightness_for_lights_2
-    - automation.kitchen_set_max_brightness_for_lights_1
-    - automation.kitchen_set_max_brightness_for_lights_2
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.stairs_run_stairs_effects_script_if_motions
-    - automation.stairs_run_stairs_effects_when_timer_triggers
-    - automation.stairs_run_stairs_nightlight_script_if_motions
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.deconz_new_version_available
-    - automation.zigbee_notify_if_unavailable_zigbee_device
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - input_boolean.debug_mode
+    - input_boolean.vacation_mode
   - type: conditional
     conditions:
-    - entity: input_boolean.debug_mode
+    - entity: input_boolean.vacation_mode
       state: "on"
-    - entity: alarm_control_panel.house
-      state: "disarmed"
     card: 
-      type: vertical-stack
-      cards:
-      - type: entities
-        title: Debug card
-        show_header_toggle: false
-        entities:
-        - automation.warning_sound_rpi_speaker
-        - automation.alarm_sound_rpi_speaker
-        - automation.alarm_pending_sound
-        - script.test_pushover
-        - script.alarm_on
-        - script.alarm_off
-        - switch.alarm_switch
-        - input_boolean.all_lights_on_to_warm_color
-        - switch.router_restart
+      type: entities
+      show_header_toggle: false
+      entities:
+      - script.vacation_lights
+      - automation.vacation_lights_start_on_sunset
+      - automation.vacation_lights_stop_at_midnight
 
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.garden_lights_turn_on_at_sunset
-    - automation.garden_lights_turn_off_at_sunrise
-    - automation.yard_turn_on_porch_light_at_sunset
-    - automation.yard_turn_off_porch_light_at_sunrise
-    - automation.yard_turn_on_backyard_light_at_sunset
-    - automation.yard_turn_off_backyard_light_at_sunrise
-    - automation.yard_turn_on_living_room_if_motion_in_backyard_while_all_in_bed
-    - automation.yard_turn_off_living_room_in_3_minutes_after_motion_in_backyard
-    - automation.yard_turn_on_lights_if_motion_in_backyard_while_armed_away
-    - automation.yard_turn_off_lights_in_3_minutes_after_motion_in_backyard
-    - automation.yard_video_if_motion_in_backyard_while_all_in_bed
-    - automation.yard_video_if_motion_in_baclyard_while_armed_away
-    - automation.yard_notify_if_motion_after_sunset
+- type: entities
+  show_header_toggle: false
+  entities:
+  - input_boolean.logger_deconz
+  - input_boolean.logger_mqtt
+  - input_boolean.logger_python_script
+  - input_boolean.logger_shell_commands
+  - input_boolean.logger_helpers_script
 
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.guest_room_turn_on_light_on_motion
-    - automation.guest_room_turn_off_light_in_5_minutes_after_motion
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.work_room_toggle_light
-    - automation.work_room_toggle_ikea_plug_1
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - input_boolean.logger_deconz
-    - input_boolean.logger_mqtt
-    - input_boolean.logger_python_script
-    - input_boolean.logger_shell_commands
-    - input_boolean.logger_helpers_script
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - automation.smhi_alert

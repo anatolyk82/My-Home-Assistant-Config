@@ -1,6 +1,4 @@
 - alias: '[Vacation] Lights start on sunset'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: sun
     event: sunset
@@ -19,8 +17,6 @@
 
 
 - alias: '[Vacation] Lights stop at midnight'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: time
     at: '00:18:00'

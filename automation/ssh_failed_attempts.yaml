@@ -1,5 +1,4 @@
-- alias: 'Too many failed ssh logins'
-  hide_entity: true
+- alias: '[Security] Too many failed ssh logins'
   initial_state: true
   trigger:
     - platform: state

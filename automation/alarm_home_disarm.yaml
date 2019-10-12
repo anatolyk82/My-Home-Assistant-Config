@@ -1,4 +1,4 @@
-- alias: 'Disarm Home alarm if movements on the first floor'
+- alias: '[Alarm] Disarm Armed_Home if motion on the first floor'
   hide_entity: true
   initial_state: true
   trigger:

@@ -32,7 +32,7 @@
     data:
       code: !secret alarm_code
 
-- alias: '[Alarm] Pending from night'
+- alias: '[Alarm] Pending from armed_night'
   hide_entity: true
   initial_state: true
   trigger:
@@ -62,7 +62,7 @@
 
 
 # =========> Arming/Pending
-- alias: '[Alarm] Pending sound while pending from disarmed'
+- alias: '[Alarm] Pending sound while pending from disarmed state'
   hide_entity: true
   initial_state: true
   trigger:
@@ -88,7 +88,7 @@
     entity_id: automation.alarm_pending_sound
 
 # =========> Armed Away
-- alias: '[Alarm] Armed away activated'
+- alias: '[Alarm] Armed Away has been armed'
   hide_entity: true
   initial_state: true
   trigger:
@@ -107,7 +107,7 @@
 
 
 # =========> Armed Home
-- alias: '[Alarm] Armed home activated'
+- alias: '[Alarm] Armed Home has been armed'
   hide_entity: true
   initial_state: true
   trigger:

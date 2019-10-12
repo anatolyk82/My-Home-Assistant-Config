@@ -1,4 +1,4 @@
-- alias: 'Warning Sound RPi Speaker'
+- alias: '[System] Warning Sound RPi Speaker'
   hide_entity: true
   initial_state: false
   trigger:
@@ -8,7 +8,7 @@
   - service: shell_command.warning_sound_rpi_speaker
 
 
-- alias: 'Stop warning signal with code 0000'
+- alias: '[Keypad] Stop warning signal with code 0000'
   hide_entity: true
   initial_state: true
   trigger:

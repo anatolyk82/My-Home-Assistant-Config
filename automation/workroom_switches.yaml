@@ -1,5 +1,4 @@
 - alias: '[Work room] Toggle light'
-  initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
@@ -13,7 +12,6 @@
       color_temp: 250
 
 - alias: '[Work room] Toggle Ikea plug 1'
-  initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event

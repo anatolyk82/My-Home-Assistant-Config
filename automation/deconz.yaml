@@ -1,5 +1,4 @@
 - alias: "[deCONZ] New Version available"
-  initial_state: true
   trigger:
   - platform: state
     entity_id: sensor.deconz_available_version

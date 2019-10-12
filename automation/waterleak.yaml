@@ -1,4 +1,4 @@
-- alias: 'Water leakage floor 1'
+- alias: '[Security] Water leakage floor 1'
   initial_state: true
   trigger:
   - platform: state
@@ -23,7 +23,7 @@
       message: "WARNING! A water leakage is detected on the first floor"
 
 
-- alias: 'Water leakage floor 2'
+- alias: '[Security] Water leakage floor 2'
   initial_state: true
   trigger:
   - platform: state

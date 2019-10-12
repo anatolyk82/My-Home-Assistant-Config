@@ -1,4 +1,4 @@
-- alias: 'Too high temperature at the second floor'
+- alias: '[Security] Too high temperature at the second floor'
   initial_state: true
   trigger:
     platform: numeric_state
@@ -9,7 +9,7 @@
     data_template:
       message: "Warning! Temperature at the second floor is {{ states.sensor.temperature_second_floor.state }} degrees"
 
-- alias: 'Too high temperature at the first floor'
+- alias: '[Security] Too high temperature at the first floor'
   initial_state: true
   trigger:
     platform: numeric_state

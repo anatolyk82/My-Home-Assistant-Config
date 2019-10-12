@@ -1,5 +1,4 @@
 - alias: '[Entrance] Door sound'
-  initial_state: True
   trigger:
   - platform: state
     entity_id: binary_sensor.openclose_entrance

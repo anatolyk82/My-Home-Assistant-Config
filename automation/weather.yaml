@@ -1,4 +1,4 @@
-- alias: 'SMHI Alert'
+- alias: '[Security] SMHI Alert'
   trigger:
     platform: state
     entity_id: sensor.smhialert

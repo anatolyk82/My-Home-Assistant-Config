@@ -1,4 +1,4 @@
-- alias: 'Turn on all lights at 3200K'
+- alias: '[System] Turn on all lights at 3200K'
   initial_state: true
   trigger:
   - platform: state

@@ -1,4 +1,4 @@
-- alias: 'Smoke alarm'
+- alias: '[Security] Notify with sound and message about smoke'
   initial_state: true
   trigger:
   - platform: state

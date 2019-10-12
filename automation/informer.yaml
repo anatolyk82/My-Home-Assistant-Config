@@ -1,6 +1,4 @@
 - alias: '[Informer] Temperature outside'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: time_pattern
     minutes: '/15'
@@ -18,8 +16,6 @@
       qos: 0
 
 - alias: '[Informer] Temperature on the 1 floor'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: time_pattern
     minutes: '/15'
@@ -33,8 +29,6 @@
       qos: 0
 
 - alias: '[Informer] Temperature on the 2 floor'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: time_pattern
     minutes: '/15'
@@ -49,8 +43,6 @@
 
 
 - alias: '[Informer] Turn off screen while all in bed'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.all_in_bed
@@ -64,8 +56,6 @@
       qos: 0
 
 - alias: '[Informer] Turn on screen when awakening'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.all_in_bed
@@ -80,8 +70,6 @@
 
 
 - alias: '[Informer] Turn off screen when alarm armed'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -96,8 +84,6 @@
 
 
 - alias: '[Informer] Turn on screen when alarm disarmed'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -112,8 +98,6 @@
 
 
 - alias: '[Informer] Notify sunset'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: sun
     event: sunset
@@ -127,8 +111,6 @@
 
 
 - alias: '[Informer] Notify sunrise'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: sun
     event: sunrise
@@ -143,7 +125,6 @@
 
 
 - alias: "[Informer] HASS new version"
-  initial_state: true
   trigger:
   - platform: state
     entity_id: sensor.hass_available_version
@@ -157,7 +138,6 @@
 
 
 - alias: "[Informer] deCONZ new version"
-  initial_state: true
   trigger:
   - platform: state
     entity_id: sensor.deconz_available_version
@@ -171,7 +151,6 @@
 
 
 - alias: "[Informer] Synchronize time"
-  initial_state: true
   trigger:
   - platform: time
     at: "23:55:00"
@@ -185,8 +164,6 @@
 
 
 - alias: '[Informer] Good morning'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.all_in_bed
@@ -196,6 +173,7 @@
     after:  '06:00:00'
     before: '12:00:00'
   action:
+  - delay: '00:00:03'
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'

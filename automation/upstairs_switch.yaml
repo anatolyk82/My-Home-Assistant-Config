@@ -1,7 +1,6 @@
 # Ikea switch 4
 
 - alias: '[Upstairs switch] Turn on light'
-  initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
@@ -21,7 +20,6 @@
 
 
 - alias: '[Upstairs switch] Turn off light'
-  initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
@@ -40,7 +38,6 @@
 
     
 - alias: "[Upstairs switch] Increase brightness"
-  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -59,7 +56,6 @@
 
 
 - alias: "[Upstairs switch] Decrease brightness"
-  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -78,7 +74,6 @@
 
 
 - alias: "[Upstairs switch] Set max brightness"
-  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -97,7 +92,6 @@
 
 
 - alias: "[Upstairs switch] Set min brightness"
-  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
@@ -116,7 +110,6 @@
 
 
 - alias: "[Upstairs switch] Toggle auto light"
-  initial_state: true
   trigger:
     platform: event
     event_type: deconz_event

@@ -1,5 +1,4 @@
 - alias: '[ZigBee] Notify if unavailable zigbee device'
-  initial_state: true
   trigger:
   - platform: state
     entity_id: light.ikea_lamp_1,  light.ikea_lamp_2,  light.ikea_lamp_3,

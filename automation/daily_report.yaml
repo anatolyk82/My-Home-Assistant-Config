@@ -1,6 +1,4 @@
 - alias: '[System] Daily report'
-  hide_entity: true
-  initial_state: true
   trigger:
   - platform: time
     at: "23:59:55"
