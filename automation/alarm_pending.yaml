@@ -1,4 +1,4 @@
-- alias: '[Alarm] Alarm pending sound'
+- alias: '[Alarm] Pending sound'
   hide_entity: true
   initial_state: False
   trigger:

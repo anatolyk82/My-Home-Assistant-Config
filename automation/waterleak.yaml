@@ -6,7 +6,7 @@
     to: 'on'
   action:
   - service: automation.turn_on
-    entity_id: automation.warning_sound_rpi_speaker
+    entity_id: automation.system_warning_sound_rpi_speaker
   - service: notify.pushover
     data:
       title: "Water leak!"
@@ -31,7 +31,7 @@
     to: 'on'
   action:
   - service: automation.turn_on
-    entity_id: automation.warning_sound_rpi_speaker
+    entity_id: automation.system_warning_sound_rpi_speaker
   - service: notify.pushover
     data:
       title: "Water leak!"

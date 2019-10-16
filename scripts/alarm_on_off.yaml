@@ -8,7 +8,7 @@ alarm_on:
       data:
         effect: "Police"
     - service: automation.turn_on
-      entity_id: automation.alarm_sound_rpi_speaker
+      entity_id: automation.alarm_alarm_sound_rpi_speaker
     - service: light.turn_on
       data:
         entity_id: light.gledopto_lamp_4
@@ -70,7 +70,7 @@ alarm_off:
     - service: automation.turn_off
       entity_id: automation.alarm_pending_sound
     - service: automation.turn_off
-      entity_id: automation.alarm_sound_rpi_speaker
+      entity_id: automation.alarm_alarm_sound_rpi_speaker
     - service: switch.turn_off
       data:
         entity_id: switch.alarm_switch
