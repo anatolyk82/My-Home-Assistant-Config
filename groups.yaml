@@ -163,6 +163,7 @@ zigbee_switches:
   - switch.ikea_switch_2
   - switch.ikea_switch_3
   - switch.ikea_switch_4
+  - switch.ikea_switch_5
   - switch.xiaomi_switch_workroom
   - switch.xiaomi_switch_bedroom
   - switch.xiaomi_wallswitch_1

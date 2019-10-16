@@ -1,4 +1,4 @@
-- alias: '[Guest room] Turn on light on motion'
+- alias: '[Guestroom] Turn on light on motion'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_room
@@ -16,7 +16,7 @@
 #      transition: 5
 #      brightness: 255
 
-- alias: '[Guest room] Turn off light in 5 minutes after motion'
+- alias: '[Guestroom] Turn off light in 5 minutes after motion'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_room
