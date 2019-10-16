@@ -120,33 +120,29 @@ cards:
       - sensor.lightlevel_room
   - type: vertical-stack
     cards:
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_1
-        name: Upstairs
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
+    - type: horizontal-stack
+      cards:
+      - type: light
         entity: light.gledopto_lamp_4
-        name: Bedroom
-      - type: custom:slider-entity-row
+        icon: mdi:ceiling-light
+        name: "Bedroom"
+      - type: light
         entity: light.bed_led
-        name: Bed LED
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
+        name: "Bed"
+    - type: horizontal-stack
+      cards:
+      - type: light
         entity: light.aqara_lamp_1
-        name: Work room
-#      - type: custom:slider-entity-row
-#        entity: light.xiaomi_philips_desklamp
-#        name: Desklamp
-#      - type: custom:slider-entity-row
-#        entity: light.xiaomi_philips_desklamp_ambient_light
-#        name: Desklamp ambient
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
+        icon: mdi:ceiling-light
+        name: "Workroom"
+      - type: light
         entity: light.gledopto_lamp_3
-        name: Room
+        icon: mdi:ceiling-light
+        name: "Guestroom"
+    - type: horizontal-stack
+      cards:
+      - type: light
+        entity: light.ikea_lamp_1
+        icon: mdi:ceiling-light
+        name: "Upstairs"
 
