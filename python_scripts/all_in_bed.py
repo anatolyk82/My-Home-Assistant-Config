@@ -21,10 +21,14 @@ if alarm_state == 'armed_away':
 # Illumination is checked only if the sensor is off. It allows to avoid
 # unexpecting turning off in the morning whenn all are still in bed
 all_in_bed_current_state = hass.states.get('binary_sensor.all_in_bed').state
+if hass.states.get('binary_sensor.all_in_bed') == None:
+    all_in_bed_current_state = 'off'
 if all_in_bed_current_state == 'off' and all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('sensor'):
         if entity_id.find('lightlevel') >= 0:
             lightlevel_state = hass.states.get(entity_id)
+            if entity_id == 'sensor.lightlevel_backyard':
+                continue
             logger.debug("AllInBed: Illumination for '%s' is %s", entity_id, lightlevel_state.state)
             if lightlevel_state.state == 'unknown':
                 continue
