@@ -18,6 +18,8 @@ homeassistant:
     - /home/homeassistant/snapshots
     - /home/homeassistant/records
     - /home/homeassistant/.homeassistant/www/images
+    - /home/homeassistant/.homeassistant/www/camera_records
+    - /home/homeassistant/.homeassistant/www/camera_snapshots
 
 # Show links to resources in log and frontend
 # introduction:

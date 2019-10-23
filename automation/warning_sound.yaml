@@ -17,4 +17,4 @@
     payload: '0000'
   action:
   - service: automation.turn_off
-    entity_id: automation.warning_sound_rpi_speaker
+    entity_id: automation.system_warning_sound_rpi_speaker

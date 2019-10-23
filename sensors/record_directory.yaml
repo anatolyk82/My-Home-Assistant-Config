@@ -1,9 +1,9 @@
 - platform: folder
-  folder: /home/homeassistant/records
+  folder: /home/homeassistant/.homeassistant/www/camera_records
   filter: "*.mp4"
 
 - platform: folder
-  folder: /home/homeassistant/snapshots
+  folder: /home/homeassistant/.homeassistant/www/camera_snapshots
   filter: "*.jpg"
 
 - platform: template
@@ -11,10 +11,10 @@
     number_of_records:
       entity_id: sensor.records
       friendly_name: "Number of records"
-      value_template: "{{ state_attr('sensor.records', 'number_of_files') }}"
+      value_template: "{{ state_attr('sensor.camera_records', 'number_of_files') }}"
       icon_template: mdi:filmstrip
     number_of_snapshots:
       entity_id: sensor.snapshots
       friendly_name: "Number of snapshots"
-      value_template: "{{ state_attr('sensor.snapshots', 'number_of_files') }}"
+      value_template: "{{ state_attr('sensor.camera_snapshots', 'number_of_files') }}"
       icon_template: mdi:image

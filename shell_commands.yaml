@@ -11,3 +11,4 @@ router_restart: !secret router_restart
 
 warning_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/warning.wav"
 
+update_records_index: "/home/homeassistant/.homeassistant/bin/update_records.sh"

@@ -59,6 +59,10 @@ cards:
   - type: entities
     entities:
     - sensor.number_of_records
+    - type: weblink
+      name: "List of records"
+      url: "/local/camera_records/index.html"
+      icon: mdi:format-list-numbered
     - sensor.number_of_snapshots
 
   - type: entities

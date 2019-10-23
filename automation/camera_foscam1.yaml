@@ -11,7 +11,7 @@
     data_template:
       entity_id: camera.foscam_1
       #filename: '/mnt/ssd/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
-      filename: '/home/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
+      filename: '/home/homeassistant/.homeassistant/www/camera_snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.foscam1_snapshot
@@ -78,8 +78,9 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
       duration: "{{ states('input_number.foscam1_record_length') | int }}"
+  - service: shell_command.update_records_index
   - delay:
       seconds: "{{ states('input_number.foscam1_record_length') | int }}"
   - service: input_boolean.turn_off
