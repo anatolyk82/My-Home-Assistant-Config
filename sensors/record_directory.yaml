@@ -9,12 +9,12 @@
 - platform: template
   sensors:
     number_of_records:
-      entity_id: sensor.records
+      entity_id: sensor.camera_records
       friendly_name: "Number of records"
       value_template: "{{ state_attr('sensor.camera_records', 'number_of_files') }}"
       icon_template: mdi:filmstrip
     number_of_snapshots:
-      entity_id: sensor.snapshots
+      entity_id: sensor.camera_snapshots
       friendly_name: "Number of snapshots"
       value_template: "{{ state_attr('sensor.camera_snapshots', 'number_of_files') }}"
       icon_template: mdi:image
