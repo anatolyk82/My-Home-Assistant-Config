@@ -80,10 +80,20 @@
       entity_id: camera.foscam_1
       filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
       duration: "{{ states('input_number.foscam1_record_length') | int }}"
-  - service: shell_command.update_records_index
   - delay:
       seconds: "{{ states('input_number.foscam1_record_length') | int }}"
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.foscam1_record_video
+
+
+- alias: '[Camera] Update html list of video files'
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.number_of_records
+  action:
+  - delay: '00:00:10'
+  - service: shell_command.update_records_index
 

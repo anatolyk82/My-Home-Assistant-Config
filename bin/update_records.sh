@@ -11,6 +11,9 @@ cat <<EOF >$html_file
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
 	</head>
 	<body>
 		<div class="siimple-content siimple-content--large siimple--mt-5">
@@ -34,7 +37,7 @@ cat <<EOF >> $html_file
 							<div class="siimple-card-body" align="center">
 								<video width="280" height="160" controls><source src="$name" type="video/mp4"/></video>
 							</div>
-							<div class="siimple-card-footer" align="center">$r_date $str_time</div>
+							<div class="siimple-card-footer" align="center">$r_date ${str_time:0:2}:${str_time:2:2}:${str_time:4:2}</div>
 						</div>
 					</div>
 EOF

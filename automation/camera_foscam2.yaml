@@ -80,7 +80,6 @@
       entity_id: camera.foscam_2
       filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
       duration: "{{ states('input_number.foscam2_record_length') | int }}"
-  - service: shell_command.update_records_index
   - delay:
       seconds: "{{ states('input_number.foscam2_record_length') | int }}"
   - service: input_boolean.turn_off
