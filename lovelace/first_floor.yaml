@@ -188,48 +188,34 @@ cards:
 
   - type: vertical-stack
     cards:
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
+    - type: horizontal-stack
+      cards:
+      - type: light
         entity: light.ikea_lamp_2
-        name: Entrance
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
+        icon: mdi:ceiling-light
+        name: "Entrance"
+      - type: light
         entity: light.mood_lamp
-        name: Mood Lamp
-      - type: custom:slider-entity-row
-        entity: light.living_room
-        name: Living room
-      - type: custom:slider-entity-row
+        icon: mdi:lava-lamp
+        name: "Moodlamp"
+    - type: horizontal-stack
+      cards:
+      - type: light
         entity: light.gledopto_lamp_1
-        name: Living room right
-      - type: custom:slider-entity-row
+        icon: mdi:ceiling-light
+        name: "Living room (window)"
+      - type: light
         entity: light.gledopto_lamp_2
-        name: Living room left
-    - type: entities
-      entities:
-      - type: custom:slider-entity-row
-        entity: light.kitchen_lights_1
-        name: Kitchen1
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_4
-        name: Kitchen Lamp 1
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_5
-        name: Kitchen Lamp 2
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_6
-        name: Kitchen Lamp 3
-      - type: custom:slider-entity-row
+        icon: mdi:ceiling-light
+        name: "Living room (kitchen)"
+    - type: horizontal-stack
+      cards:
+      - type: light
         entity: light.kitchen_lights_2
-        name: Kitchen2
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_7
-        name: Kitchen Lamp 7
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_8
-        name: Kitchen Lamp 8
-      - type: custom:slider-entity-row
-        entity: light.ikea_lamp_9
-        name: Kitchen Lamp 9
+        icon: mdi:track-light
+        name: "Kitchen (exit)"
+      - type: light
+        entity: light.kitchen_lights_1
+        icon: mdi:track-light
+        name: "Kitchen (window)"
+
