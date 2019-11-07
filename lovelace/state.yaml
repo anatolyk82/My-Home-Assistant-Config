@@ -70,6 +70,15 @@ cards:
     name: "Second Floor Weather"
   - entity: sensor.weather_outdoor_battery_level
     name: "Outdoor Weather"
+- type: entities
+  entities:
+  - sensor.number_of_records
+  - type: weblink
+    name: "List of records"
+    url: "/local/camera_records/index.html"
+    icon: mdi:format-list-numbered
+  - sensor.number_of_snapshots
+
 - type: vertical-stack
   cards:
   - type: entities

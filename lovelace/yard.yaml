@@ -57,15 +57,6 @@ cards:
     - light.ikea_lamp_12
 
   - type: entities
-    entities:
-    - sensor.number_of_records
-    - type: weblink
-      name: "List of records"
-      url: "/local/camera_records/index.html"
-      icon: mdi:format-list-numbered
-    - sensor.number_of_snapshots
-
-  - type: entities
     show_header_toggle: false
     entities:
     - entity: binary_sensor.openclose_storehouse
