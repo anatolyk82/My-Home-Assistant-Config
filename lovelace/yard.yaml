@@ -30,7 +30,7 @@ cards:
 
   - type: entities
     entities:
-    - switch.cameras
+    - switch.ikea_plug_3
 
 
 #---------------

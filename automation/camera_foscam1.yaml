@@ -29,12 +29,12 @@
   action:
   - service: switch.turn_off
     data:
-      entity_id: switch.cameras
+      entity_id: switch.ikea_plug_3
   - delay:
       seconds: 5
   - service: switch.turn_on
     data:
-      entity_id: switch.cameras
+      entity_id: switch.ikea_plug_3
 #  - service: notify.pushover
 #    data:
 #      message: "Foscam1 is unavailable. Restart power."
