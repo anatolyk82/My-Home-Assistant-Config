@@ -13,6 +13,8 @@ exclude:
     - sun
     - input_number
     - input_select
+    - input_boolean
+    - vacuum
   entities:
     - camera.weather
     - sensor.homeassistantlog
@@ -21,4 +23,63 @@ exclude:
     - sensor.last_boot
     - sensor.moonphases
     - sensor.moon
+    - sensor.solar_angle
+    - binary_sensor.updater
+    - sensor.vasttrafik_linje_176_mot_lindholmen
+    - sensor.vasttrafik_linje_176_mot_rannebergen
+    - sensor.vasttrafik_linje_177_mot_lindholmen
+    - sensor.vasttrafik_linje_177_mot_lovgardet
+    - switch.wifi_cord_1
+    - switch.pump1
+
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.cpu_temp
+    - sensor.memory_free
+    - sensor.memory_use_percent
+    - sensor.swap_use_percent
+    - sensor.disk_use_percent
+    - sensor.processor_use
+    
+    - sensor.entrance_battery_level
+    - sensor.ikea_on_off_switch_1_battery_level
+    - sensor.ikea_switch_1_battery_level
+    - sensor.ikea_switch_2_battery_level
+    - sensor.ikea_switch_3_battery_level
+    - sensor.ikea_switch_4_battery_level
+    - sensor.ikea_switch_5_battery_level
+    - sensor.kitchen_battery_level
+    - sensor.living_room_battery_level
+    - sensor.lumi_sensor_smoke_battery_level
+    - sensor.motion_sensor_backyard_battery_level
+    - sensor.motion_sensor_bedroom_battery_level
+    - sensor.motion_sensor_entrance_battery_level
+    - sensor.motion_sensor_entrance_outside_battery_level
+    - sensor.motion_sensor_kitchen_battery_level
+    - sensor.motion_sensor_livingroom_battery_level
+    - sensor.motion_sensor_room_battery_level
+    - sensor.motion_sensor_upstairs_battery_level
+    - sensor.motion_sensor_workroom_battery_level
+    - sensor.storehouse_battery_level
+    - sensor.water_first_floor_battery_level
+    - sensor.water_second_floor_battery_level
+    - sensor.weather_first_floor_battery_level
+    - sensor.weather_outdoor_battery_level
+    - sensor.weather_second_floor_battery_level
+    - sensor.weather_storehouse_battery_level
+    - sensor.xiaomi_switch_bedroom_battery_level
+    - sensor.xiaomi_switch_workroom_battery_level
+    - sensor.xiaomi_wallswitch_1_battery_level
+
+    - sensor.number_of_records
+    - sensor.number_of_snapshots
+
+    - sensor.date
+    - sensor.date_time
+    - sensor.date_time_iso
+    - sensor.time
+    - sensor.time_iso
+
+    - sensor.camera_records
+    - sensor.camera_snapshots
 
