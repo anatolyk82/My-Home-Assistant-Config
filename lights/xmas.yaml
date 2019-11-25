@@ -1,0 +1,7 @@
+#- platform: switch
+#  name: Christmas Lights
+#  entity_id: switch.wifi_cord_1
+
+- platform: switch
+  name: "Ljusstakar"
+  entity_id: switch.ikea_plug_1

@@ -1,0 +1,22 @@
+- alias: '[Christmas Lights] Turn on Ljusstakar when disarmed after sunset'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'disarmed'
+  condition:
+  - condition: sun
+    after: sunset
+  action:
+  - service: light.turn_on
+    entity_id: light.ljusstakar
+
+
+- alias: '[Christmas Lights] Turn off Ljusstakar when armed away'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.ljusstakar
