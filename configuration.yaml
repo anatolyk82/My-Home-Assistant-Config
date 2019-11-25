@@ -154,5 +154,6 @@ alarm_control_panel: !include alarm.yaml
 #mysensors: !include mysensors.yaml
 timer: !include timers.yaml
 panel_iframe: !include panel_iframe.yaml
+scene: !include scenes.yaml
 
 
