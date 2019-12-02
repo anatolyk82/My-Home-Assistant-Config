@@ -139,10 +139,12 @@ cards:
         entity: light.gledopto_lamp_3
         icon: mdi:ceiling-light
         name: "Guestroom"
-    - type: horizontal-stack
-      cards:
       - type: light
         entity: light.ikea_lamp_1
         icon: mdi:ceiling-light
         name: "Upstairs"
+      
+  - type: entities
+    entities:
+    - cover.blinds_guestroom
 
