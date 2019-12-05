@@ -191,15 +191,9 @@ cards:
     - type: horizontal-stack
       cards:
       - type: light
-        entity: light.ikea_lamp_2
-        icon: mdi:ceiling-light
-        name: "Entrance"
-      - type: light
         entity: light.mood_lamp
         icon: mdi:lava-lamp
-        name: "Moodlamp"
-    - type: horizontal-stack
-      cards:
+        name: "Moodlamp (Living room)"
       - type: light
         entity: light.gledopto_lamp_1
         icon: mdi:ceiling-light
@@ -211,11 +205,15 @@ cards:
     - type: horizontal-stack
       cards:
       - type: light
+        entity: light.ikea_lamp_2
+        icon: mdi:ceiling-light
+        name: "Entrance"
+      - type: light
         entity: light.kitchen_lights_2
         icon: mdi:track-light
         name: "Kitchen (exit)"
       - type: light
         entity: light.kitchen_lights_1
         icon: mdi:track-light
-        name: "Kitchen (window)"
+        name: "Kitchen (win)"
 
