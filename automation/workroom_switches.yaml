@@ -3,22 +3,11 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: xiaomi_switch_workroom 
-      event: 1002
+      id: ikea_on_off_switch_1
+      event: 2002
   action:
   - service: light.toggle
     data:
       entity_id: light.aqara_lamp_1
       color_temp: 250
 
-- alias: '[Work room] Toggle Ikea plug 1'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: xiaomi_switch_workroom 
-      event: 1004
-  action:
-  - service: switch.toggle
-    data:
-      entity_id: switch.ikea_plug_1
