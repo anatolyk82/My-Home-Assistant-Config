@@ -3,7 +3,7 @@ title: My Home
 # Include external resources
 resources:
   - url: /local/custom_ui/slider-entity-row.js
-    type: js
+    type: module
   - url: /local/custom_ui/card-tools.js?v=2
     type: js
   - url: /local/custom_ui/popup-card.js
