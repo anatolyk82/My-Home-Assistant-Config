@@ -1,3 +1,16 @@
+- alias: '[Christmas Lights] Toggle light'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      event: 1002
+  action:
+  - service: light.toggle
+    data:
+      entity_id: light.ljusstakar
+
+
 - alias: '[Christmas Lights] Turn on Ljusstakar when disarmed after sunset'
   trigger:
   - platform: state
@@ -6,17 +19,33 @@
   condition:
   - condition: sun
     after: sunset
+  - condition: state
+    entity_id: light.ljusstakar
+    state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.ljusstakar
 
 
-- alias: '[Christmas Lights] Turn off Ljusstakar when armed away'
+- alias: '[Christmas Lights] Turn on Ljusstakar at sunset'
   trigger:
-  - platform: state
-    entity_id: alarm_control_panel.house
-    to: 'armed_away'
+  - platform: sun
+    event: sunset
+    offset: '-00:15:00'
+  condition:
+  - condition: state
+    entity_id: light.ljusstakar
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.ljusstakar
+
+
+- alias: '[Christmas Lights] Turn off Ljusstakar at sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '00:30:00'
   action:
   - service: light.turn_off
-    data:
-      entity_id: light.ljusstakar
+    entity_id: light.ljusstakar
