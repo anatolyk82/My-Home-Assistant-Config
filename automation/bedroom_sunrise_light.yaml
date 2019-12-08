@@ -28,3 +28,13 @@
       rgb_color: [255, 255, 0]
       transition: 600
 
+
+- alias: "[Bedroom] Color loop over bed light"
+  initial_state: false
+  trigger:
+  - platform: time_pattern
+    seconds: '/3'
+  action:
+  - service: python_script.color_loop
+    data:
+      entity_id: light.bed_led
