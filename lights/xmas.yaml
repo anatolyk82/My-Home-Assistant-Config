@@ -5,3 +5,11 @@
 - platform: switch
   name: "Ljusstakar"
   entity_id: switch.ikea_plug_1
+
+- platform: switch
+  name: "Stjärnor"
+  entity_id: switch.ikea_plug_4
+
+- platform: switch
+  name: "Julgran"
+  entity_id: switch.ikea_plug_5

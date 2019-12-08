@@ -1,4 +1,4 @@
-- alias: '[Christmas Lights] Toggle light'
+- alias: '[Christmas Lights] Toggle all with button'
   trigger:
   - platform: event
     event_type: deconz_event
@@ -7,11 +7,15 @@
       event: 1002
   action:
   - service: light.toggle
-    data:
-      entity_id: light.ljusstakar
+    entity_id: light.ljusstakar
+  - service: light.toggle
+    entity_id: light.julgran
+  - service: light.toggle
+    entity_id: light.stjarnor
 
+#----------------------------------------
 
-- alias: '[Christmas Lights] Turn on Ljusstakar when disarmed after sunset'
+- alias: '[Christmas Lights] Turn on all when disarmed after sunset'
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
@@ -19,14 +23,16 @@
   condition:
   - condition: sun
     after: sunset
-  - condition: state
-    entity_id: light.ljusstakar
-    state: 'off'
   action:
   - service: light.turn_on
     entity_id: light.ljusstakar
+  - service: light.turn_on
+    entity_id: light.julgran
+  - service: light.turn_on
+    entity_id: light.stjarnor
 
-
+#----------------------------------------
+# Turn on 15 minutes before sunset
 - alias: '[Christmas Lights] Turn on Ljusstakar at sunset'
   trigger:
   - platform: sun
@@ -40,7 +46,7 @@
   - service: light.turn_on
     entity_id: light.ljusstakar
 
-
+# Turn off 30 minutes after sunrise
 - alias: '[Christmas Lights] Turn off Ljusstakar at sunrise'
   trigger:
   - platform: sun
@@ -49,3 +55,110 @@
   action:
   - service: light.turn_off
     entity_id: light.ljusstakar
+
+#----------------------------------------
+
+# Turn on 10 minutes before sunset
+- alias: '[Christmas Lights] Turn on Julgran at sunset'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-00:10:00'
+  condition:
+  - condition: state
+    entity_id: light.julgran
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.julgran
+
+# Turn off 20 minutes after sunrise
+- alias: '[Christmas Lights] Turn off Julgran at sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '00:20:00'
+  action:
+  - service: light.turn_off
+    entity_id: light.julgran
+
+#----------------------------------------
+
+# Turn on 30 minutes after sunset
+- alias: '[Christmas Lights] Turn on Stjärnor at sunset'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:30:00'
+  condition:
+  - condition: state
+    entity_id: light.stjarnor
+    state: 'off'
+#  - condition: state
+#    entity_id: input_boolean.vacation_mode
+#    state: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.stjarnor
+
+# Turn off 5 minutes before sunrise
+- alias: '[Christmas Lights] Turn off Stjärnor at sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:05:00'
+  action:
+  - service: light.turn_off
+    entity_id: light.stjarnor
+
+
+- alias: '[Christmas lights] Turn off Stjärnor when all in bed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    to: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.stjarnor
+
+
+- alias: '[Christmas lights] Turn on Stjärnor when awake'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    to: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.stjarnor
+
+#==================== Vacation ==========================
+
+- alias: '[Christmas lights] Turn off Stjärnor at midnight if vacation'
+  trigger:
+  - platform: time
+    at: "23:58:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
+  - service: light.turn_off
+    entity_id: light.stjarnor
+
+- alias: '[Christmas lights] Turn on Stjärnor at 7:30 if vacation'
+  trigger:
+  - platform: time
+    at: "07:27:00"
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
+  - service: light.turn_on
+    entity_id: light.stjarnor

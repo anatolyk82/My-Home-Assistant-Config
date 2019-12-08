@@ -78,3 +78,9 @@ cards:
     - entity: light.ljusstakar
       name: "Ljusstakar"
       image: /local/icons/ljusstake.png
+    - entity: light.stjarnor
+      name: "Stjärnor"
+      image: /local/icons/julstjarna.png
+    - entity: light.julgran
+      name: "Julgran"
+      image: /local/icons/julgran.png
