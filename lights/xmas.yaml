@@ -13,3 +13,7 @@
 - platform: switch
   name: "Julgran"
   entity_id: switch.ikea_plug_5
+
+- platform: switch
+  name: "Utomhus Ljusslinga"
+  entity_id: switch.ikea_plug_6

@@ -84,3 +84,7 @@ cards:
     - entity: light.julgran
       name: "Julgran"
       image: /local/icons/julgran.png
+    - entity: light.utomhus_ljusslinga
+      name: "Utomhus Ljusslinga"
+      icon: mdi:led-strip-variant
+      #image: /local/icons/julgran.png

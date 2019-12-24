@@ -166,6 +166,7 @@ cards:
         style:
           top: 57%
           left: 88%
+
     - type: horizontal-stack
       cards:
       - type: sensor

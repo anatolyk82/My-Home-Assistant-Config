@@ -84,6 +84,32 @@
 
 #----------------------------------------
 
+# Turn on 25 minutes before sunset
+- alias: '[Christmas Lights] Turn on Utomhus Ljusslinga at sunset'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-00:25:00'
+  condition:
+  - condition: state
+    entity_id: light.utomhus_ljusslinga
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.utomhus_ljusslinga
+
+# Turn off 25 minutes after sunrise
+- alias: '[Christmas Lights] Turn off Utomhus Ljusslinga at sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '00:25:00'
+  action:
+  - service: light.turn_off
+    entity_id: light.utomhus_ljusslinga
+
+#----------------------------------------
+
 # Turn on 30 minutes after sunset
 - alias: '[Christmas Lights] Turn on Stjärnor at sunset'
   trigger:
@@ -127,6 +153,9 @@
   - platform: state
     entity_id: binary_sensor.all_in_bed
     to: 'off'
+  condition:
+  - condition: sun
+    before: sunrise
   action:
   - service: light.turn_on
     entity_id: light.stjarnor
@@ -162,3 +191,4 @@
   action:
   - service: light.turn_on
     entity_id: light.stjarnor
+
