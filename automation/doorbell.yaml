@@ -1,0 +1,28 @@
+- alias: '[Doorbell] Snapshot and video when rings'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell
+    to: 'on'
+#  condition:
+#  - condition: state
+#    entity_id: alarm_control_panel.house
+#    state: 'armed_away'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/tmp/foscam2.jpg'
+  - service: notify.pushover_file
+    data:
+      title: "Doorbell rings"
+      message: "Someone is at the door"
+      data:
+        file:
+          path: '/tmp/foscam2.jpg'
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 30
+
