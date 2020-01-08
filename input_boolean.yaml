@@ -4,19 +4,18 @@
 #  initial: off
 
 auto_nightlight:
-  name: Auto nightlight
+  name: "Auto nightlight"
   initial: on
 
 debug_mode:
-  name: Debug mode
+  name: "Debug mode"
   initial: off
 
 vacation_mode:
-  name: Vacation mode
-  initial: off
+  name: "Vacation mode"
 
 all_lights_on_to_warm_color:
-  name: Turn on all lights at 3200K
+  name: "Turn on all lights at 3200K"
   initial: off
 
 foscam1_snapshot:
@@ -73,3 +72,8 @@ foscam2_record_video:
   name: 'Foscam2 Record'
   initial: off
   icon: mdi:video
+
+guestroom_blinds_auto:
+  name: "Guestroom blinds automation"
+  icon: mdi:blinds
+

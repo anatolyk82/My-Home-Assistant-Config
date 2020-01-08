@@ -49,13 +49,15 @@ cards:
   title: "Batteries"
   entities:
   - entity: sensor.ikea_switch_1_battery_level
-    name: "IKEA Switch1"
+    name: "IKEA Switch 1 (Livivng room)"
   - entity: sensor.ikea_switch_2_battery_level
-    name: "IKEA Switch2"
+    name: "IKEA Switch 2 (Bedroom)"
   - entity: sensor.ikea_switch_3_battery_level
-    name: "IKEA Switch3"
+    name: "IKEA Switch 3 (Kitchen)"
   - entity: sensor.ikea_switch_4_battery_level
-    name: "IKEA Switch4"
+    name: "IKEA Switch 4 (Upstairs)"
+  - entity: sensor.ikea_switch_5_battery_level
+    name: "IKEA Switch 5 (Guestroom)"
   - entity: sensor.xiaomi_switch_bedroom_battery_level
     name: "Bedroom Switch"
   - entity: sensor.xiaomi_switch_workroom_battery_level
