@@ -11,3 +11,14 @@
       entity_id: light.aqara_lamp_1
       color_temp: 250
 
+- alias: '[Workroom] Flash if motion'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_bedroom
+    entity_id: binary_sensor.presence_upstairs
+    to: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.aqara_lamp_1
+      flash: short
