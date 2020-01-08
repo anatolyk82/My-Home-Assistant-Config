@@ -43,6 +43,7 @@ exclude:
     
     - sensor.entrance_battery_level
     - sensor.ikea_on_off_switch_1_battery_level
+    - sensor.ikea_on_off_switch_2_battery_level
     - sensor.ikea_switch_1_battery_level
     - sensor.ikea_switch_2_battery_level
     - sensor.ikea_switch_3_battery_level

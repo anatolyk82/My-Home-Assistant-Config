@@ -32,3 +32,4 @@ cards:
   show_header_toggle: false
   entities:
   - input_boolean.guestroom_blinds_auto
+  - input_boolean.workroom_blinds_auto

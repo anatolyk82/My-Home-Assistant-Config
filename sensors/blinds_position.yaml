@@ -31,3 +31,36 @@
       {% endif %}
       "
 
+- platform: template
+  sensors:
+    blinds_workroom_position:
+      entity_id: cover.blinds_workroom
+      friendly_name: 'Workroom blinds position'
+      unit_of_measurement: '%'
+      value_template: "{{ (state_attr('cover.blinds_workroom', 'current_position') - 36 ) * 100 / 64 | round(0) }}"
+      icon_template: "
+      {% if state_attr('cover.blinds_workroom', 'current_position') <= 3 %}
+          '/local/icons/venetian-blinds/blinds_00.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 10 %}
+          '/local/icons/venetian-blinds/blinds_10.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 20 %}
+          '/local/icons/venetian-blinds/blinds_20.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 30 %}
+          '/local/icons/venetian-blinds/blinds_30.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 40 %}
+          '/local/icons/venetian-blinds/blinds_40.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 50 %}
+          '/local/icons/venetian-blinds/blinds_50.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 60 %}
+          '/local/icons/venetian-blinds/blinds_60.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 70 %}
+          '/local/icons/venetian-blinds/blinds_70.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 80 %}
+          '/local/icons/venetian-blinds/blinds_80.png'
+      {% elif state_attr('cover.blinds_workroom', 'current_position') <= 90 %}
+          '/local/icons/venetian-blinds/blinds_90.png'
+      {% else %}
+          '/local/icons/venetian-blinds/blinds_99.png'
+      {% endif %}
+      "
+

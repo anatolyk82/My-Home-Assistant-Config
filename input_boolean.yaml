@@ -77,3 +77,7 @@ guestroom_blinds_auto:
   name: "Guestroom blinds automation"
   icon: mdi:blinds
 
+workroom_blinds_auto:
+  name: "Workroom blinds automation"
+  icon: mdi:blinds
+
