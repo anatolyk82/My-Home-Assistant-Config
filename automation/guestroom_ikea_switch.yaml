@@ -1,115 +1,12 @@
-# Ikea switch 5
-
-- alias: '[Guestroom] Turn on light'
+- alias: '[Guestroom] IKEA Switch light control'
   initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_5
-      event: 1002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'off'
   action:
-  - service: light.turn_on
-    data:
-      color_temp: 380
-      entity_id: light.gledopto_lamp_3
-
-
-- alias: '[Guestroom] Turn off light'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_5
-      event: 1002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'on'
-  action:
-  - service: light.turn_off
-    data:
-      entity_id: light.gledopto_lamp_3
-
-
-    
-- alias: "[Guestroom] Increase brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_5
-      event: 2002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data_template: 
-      entity_id: light.gledopto_lamp_3
-      brightness: '{{ states.light.gledopto_lamp_3.attributes.brightness + 75 }}'
-
-- alias: "[Guestroom] Decrease brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_5
-      event: 3002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data_template: 
-      entity_id: light.gledopto_lamp_3
-      brightness: '{{ states.light.gledopto_lamp_3.attributes.brightness - 75 }}'
-
-
-- alias: "[Guestroom] Set max brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_5
-      event: 2001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_3
-    data_template: 
-      brightness_pct: 100
-
-- alias: "[Guestroom] Set min brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_5
-      event: 3001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_3
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_3
-    data_template: 
-      brightness_pct: 5
-
-
+  - service: python_script.ikea_switch_control
+    data_template:
+      event: "{{ trigger.event }}"
 

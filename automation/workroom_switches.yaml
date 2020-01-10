@@ -10,116 +10,17 @@
       entity_id: light.aqara_lamp_1
       flash: short
 
-#----------------------------------------------------------
-# Ikea switch 6
 
-- alias: '[Workroom] Turn on light'
+- alias: '[Workroom] IKEA Switch light control'
   initial_state: true
   trigger:
   - platform: event
     event_type: deconz_event
     event_data:
       id: ikea_switch_6
-      event: 1002
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'off'
   action:
-  - service: light.turn_on
-    data:
-      color_temp: 380
-      entity_id: light.aqara_lamp_1
+  - service: python_script.ikea_switch_control
+    data_template:
+      event: "{{ trigger.event }}"
 
 
-- alias: '[Workroom] Turn off light'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_6
-      event: 1002
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_off
-    data:
-      entity_id: light.aqara_lamp_1
-
-
-    
-- alias: "[Workroom] Increase brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_6
-      event: 2002
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data_template: 
-      entity_id: light.aqara_lamp_1
-      brightness: '{{ states.light.aqara_lamp_1.attributes.brightness + 75 }}'
-
-- alias: "[Workroom] Decrease brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_6
-      event: 3002
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data_template: 
-      entity_id: light.aqara_lamp_1
-      brightness: '{{ states.light.aqara_lamp_1.attributes.brightness - 75 }}'
-
-
-- alias: "[Workroom] Set max brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_6
-      event: 2001
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.aqara_lamp_1
-    data_template: 
-      brightness_pct: 100
-
-- alias: "[Workroom] Set min brightness"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_6
-      event: 3001
-  condition:
-  - condition: state
-    entity_id: light.aqara_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.aqara_lamp_1
-    data_template: 
-      brightness_pct: 5

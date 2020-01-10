@@ -60,6 +60,9 @@
   - condition: sun
     after: sunrise
     after_offset: '-00:15:00'
+  - condition: sun
+    before: sunset
+    before_offset: '00:15:00'
 #  - condition: state
 #    entity_id: sun.sun
 #    state: 'above_horizon'
