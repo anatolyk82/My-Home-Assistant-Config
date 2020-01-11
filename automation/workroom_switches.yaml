@@ -1,8 +1,7 @@
 - alias: '[Workroom] Flash if motion'
   trigger:
   - platform: state
-    entity_id: binary_sensor.presence_bedroom
-    entity_id: binary_sensor.presence_upstairs
+    entity_id: binary_sensor.presence_bedroom, binary_sensor.presence_upstairs
     to: 'on'
   action:
   - service: light.turn_on
