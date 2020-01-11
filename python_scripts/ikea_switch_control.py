@@ -61,8 +61,11 @@ if light.state == 'on':
     if 'color_temp' in light.attributes:
         color_temp = int(light.attributes['color_temp'])
 
-min_mireds = int(light.attributes['min_mireds'])
-max_mireds = int(light.attributes['max_mireds'])
+min_mireds = -1
+max_mireds = -1
+if color_temp > -1:
+    min_mireds = int(light.attributes['min_mireds'])
+    max_mireds = int(light.attributes['max_mireds'])
 
 logger.debug("IKEA Switch Control: min_mireds: %s, max_mireds: %s", min_mireds, max_mireds)
 logger.debug("IKEA Switch Control: brightness: %s, color_temp: %s", brightness, color_temp)
