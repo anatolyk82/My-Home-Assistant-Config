@@ -37,3 +37,14 @@
     data:
       title: "Doorbell unavailable"
       message: "The doorbell is unavailable"
+
+
+- alias: '[Doorbell] Sound if button pressed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell
+    to: 'on'
+  action:
+  - service: shell_command.doorbell_sound
+
+
