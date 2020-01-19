@@ -23,3 +23,39 @@
       event: "{{ trigger.event }}"
 
 
+- alias: '[Workroom] Turn on light with Xiaomi button '
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.aqara_lamp_1
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.aqara_lamp_1
+      color_temp: 400
+      brightness: 255
+
+
+- alias: '[Workroom] Turn off light with Xiaomi button '
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      event: 1002
+  condition:
+  - condition: state
+    entity_id: light.aqara_lamp_1
+    state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.aqara_lamp_1
