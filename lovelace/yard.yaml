@@ -30,7 +30,8 @@ cards:
 
   - type: entities
     entities:
-    - switch.ikea_plug_3
+    - entity: switch.ikea_plug_3
+      name: "Cameras"
 
 
 #---------------
@@ -66,3 +67,5 @@ cards:
       name: "Storehouse Temperature"
     - entity: sensor.humidity_storehouse
       name: "Storehouse Humidity"
+    - entity: switch.ikea_plug_1
+      name: "Värmefläkt"
