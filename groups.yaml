@@ -1,8 +1,6 @@
 
 wifi_lights:
-  view: no
   name: 'WiFi Lights'
-  control: hidden
   entities:
   - light.bed_led
   - light.mood_lamp
@@ -13,9 +11,7 @@ wifi_lights:
 # ------------------------------------------------
 
 outdoor_lights:
-  view: no
   name: 'Outdoor Lights'
-  control: hidden
   entities:
   - light.garden_lights_1
   - light.garden_lights_2
@@ -25,9 +21,7 @@ outdoor_lights:
 
 
 indoor_lights:
-  view: no
   name: 'Indoor Lights'
-  control: hidden
   entities:
   - light.ikea_lamp_1
   - light.ikea_lamp_2
@@ -48,9 +42,7 @@ indoor_lights:
 
 # ------------------------------------------------
 zigbee_devices:
-  view: no
   name: 'All ZigBee Devices'
-  control: hidden
   entities:
   - group.zigbee_water_sensors
   - group.zigbee_weather_sensors
@@ -63,17 +55,13 @@ zigbee_devices:
   - group.zigbee_smoke_sensors
 
 zigbee_water_sensors:
-  view: no
   name: 'ZigBee Water sensors'
-  control: hidden
   entities:
   - sensor.water_first_floor
   - sensor.water_second_floor
 
 zigbee_weather_sensors:
-  view: no
   name: 'ZigBee Weather sensors'
-  control: hidden
   entities:
   - sensor.temperature_first_floor
   - sensor.humidity_first_floor
@@ -86,9 +74,7 @@ zigbee_weather_sensors:
   - sensor.pressure_outdoor
 
 zigbee_lights:
-  view: no
   name: 'ZigBee Lights'
-  control: hidden
   entities:
   - light.ikea_lamp_1
   - light.ikea_lamp_2
@@ -109,9 +95,7 @@ zigbee_lights:
   - light.aqara_lamp_1
 
 zigbee_door_sensors:
-  view: no
   name: 'ZigBee Door sensors'
-  control: hidden
   entities:
   - binary_sensor.openclose_entrance
   - binary_sensor.openclose_livingroom
@@ -119,9 +103,7 @@ zigbee_door_sensors:
   - binary_sensor.openclose_storehouse
 
 zigbee_motion_sensors:
-  view: no
   name: 'ZigBee Motion sensors'
-  control: hidden
   entities:
   - binary_sensor.presence_entrance
   - binary_sensor.presence_livingroom
@@ -133,9 +115,7 @@ zigbee_motion_sensors:
   - binary_sensor.presence_backyard
 
 zigbee_lightlevel_sensors:
-  view: no
   name: 'ZigBee Light level sensors'
-  control: hidden
   entities:
   - sensor.lightlevel_entrance
   - sensor.lightlevel_livingroom
@@ -147,17 +127,13 @@ zigbee_lightlevel_sensors:
   - sensor.lightlevel_backyard
 
 zigbee_plugs:
-  view: no
   name: 'ZigBee Plugs'
-  control: hidden
   entities:
   - switch.ikea_plug_1
   - switch.ikea_plug_2
 
 zigbee_switches:
-  view: no
   name: 'ZigBee Switches'
-  control: hidden
   entities:
   - switch.ikea_switch_1
   - switch.ikea_switch_2
@@ -169,9 +145,7 @@ zigbee_switches:
   - switch.xiaomi_wallswitch_1
 
 zigbee_smoke_sensors:
-  view: no
   name: 'ZigBee Smoke Sensors'
-  control: hidden
   entities:
   - binary_sensor.smoke_first_floor
 
