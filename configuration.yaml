@@ -137,7 +137,6 @@ automation: !include_dir_merge_list automation/
 script: !include_dir_merge_named scripts/
 switch: !include_dir_merge_list switches/
 zone: !include zones.yaml
-weblink: !include weblink.yaml
 binary_sensor: !include_dir_merge_list binary_sensors/
 sensor: !include_dir_merge_list sensors/
 input_boolean: !include input_boolean.yaml

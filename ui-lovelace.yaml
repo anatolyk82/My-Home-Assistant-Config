@@ -15,7 +15,6 @@ resources:
 #background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view
 excluded_entities:
-  - weblink.router
 views:
   - !include lovelace/overview.yaml
 

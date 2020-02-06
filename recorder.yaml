@@ -7,7 +7,6 @@ exclude:
     - group
     - scene
     - script
-    - weblink
     - zone
     - media_player
     - sun
