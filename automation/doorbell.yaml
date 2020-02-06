@@ -1,5 +1,4 @@
 - alias: '[Doorbell] Snapshot and video when rings'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.doorbell
@@ -27,7 +26,6 @@
 #      duration: 30
 
 - alias: '[Doorbell] Notify if unavailable'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.doorbell

@@ -1,5 +1,4 @@
 - alias: '[System] Warning Sound RPi Speaker'
-  hide_entity: true
   initial_state: false
   trigger:
   - platform: time_pattern
@@ -9,7 +8,6 @@
 
 
 - alias: '[Keypad] Stop warning signal with code 0000'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: mqtt

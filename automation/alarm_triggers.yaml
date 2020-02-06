@@ -1,5 +1,4 @@
 - alias: '[Alarm] Trigger alarm while armed away'
-  hide_entity: true
   initial_state: true
   trigger:
     - platform: state 
@@ -47,7 +46,6 @@
 
 
 - alias: '[Alarm] Trigger alarm if any door is open while armed home'
-  hide_entity: true
   initial_state: true
   trigger:
     - platform: state 
@@ -73,7 +71,6 @@
 
 - alias: '[Alarm] Trigger alarm if any door is open while armed night'
   initial_state: true
-  hide_entity: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.openclose_livingroom

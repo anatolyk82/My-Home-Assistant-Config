@@ -1,5 +1,4 @@
 - alias: '[Alarm] Disarm Armed_Home if motion on the first floor'
-  hide_entity: true
   initial_state: true
   trigger:
     - platform: state 

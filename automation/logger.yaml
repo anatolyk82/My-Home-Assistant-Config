@@ -1,5 +1,4 @@
 - alias: '[Logger] Switch loglevel for pyhton scripts to debug'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -11,7 +10,6 @@
       homeassistant.components.python_script: debug
 
 - alias: '[Logger] Switch loglevel for pyhton scripts to warning'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -25,7 +23,6 @@
 #---------------------------- deconz
 
 - alias: '[Logger] Switch loglevel for deconz to debug'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -38,7 +35,6 @@
       homeassistant.components.deconz: debug
 
 - alias: '[Logger] Switch loglevel for deconz to warning'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -53,7 +49,6 @@
 #---------------------------- mqtt
  
 - alias: '[Logger] Switch loglevel for mqtt to debug'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -65,7 +60,6 @@
       homeassistant.components.mqtt: debug
 
 - alias: '[Logger] Switch loglevel for mqtt to warning'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -80,7 +74,6 @@
 #---------------------------- shell commands
 
 - alias: '[Logger] Switch loglevel for shell commands to debug'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -92,7 +85,6 @@
       homeassistant.components.shell_command: debug
 
 - alias: '[Logger] Switch loglevel for shell commands to warning'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -107,7 +99,6 @@
 #---------------------------- helpers.script
 
 - alias: '[Logger] Switch loglevel for helpers.script to debug'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -119,7 +110,6 @@
       homeassistant.helpers.script: debug
 
 - alias: '[Logger] Switch loglevel for helpers.script to warning'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state

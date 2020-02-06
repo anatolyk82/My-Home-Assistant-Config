@@ -72,7 +72,6 @@
 #==============================================================#
 
 - alias: '[Yard] Turn on living room if motion in backyard while all in bed'
-  hide_entity: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.presence_backyard
@@ -87,7 +86,6 @@
 
 
 - alias: '[Yard] Turn off living room in 3 minutes after motion in backyard'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -109,7 +107,6 @@
 #==============================================================#
 
 - alias: '[Yard] Turn on lights if motion in backyard while armed away'
-  hide_entity: true
   trigger:
   - platform: state 
     entity_id: binary_sensor.presence_backyard
@@ -131,7 +128,6 @@
 
 
 - alias: '[Yard] Turn off lights in 3 minutes after motion in backyard'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -155,7 +151,6 @@
 #==============================================================#
 
 - alias: '[Yard] Video if motion in backyard while armed away'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -184,7 +179,6 @@
 
 
 - alias: '[Yard] Video if motion in backyard while all in bed'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -213,7 +207,6 @@
 
 
 - alias: '[Yard] Notify if motion after sunset'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -257,7 +250,6 @@
 #==============================================================#
 
 - alias: '[Garden Lights] Turn on at sunset'
-  hide_entity: true
   trigger:
   - platform: sun
     event: sunset
@@ -289,7 +281,6 @@
 
 
 - alias: '[Garden Lights] Turn off at sunrise'
-  hide_entity: true
   trigger:
   - platform: sun
     event: sunrise
@@ -307,7 +298,6 @@
 
 
 - alias: '[Garden Lights] Turn off garden power supply if too warm'
-  hide_entity: true
   trigger:
   - platform: numeric_state
     entity_id: sensor.garden_light_temperature
@@ -323,7 +313,6 @@
 #==============================================================#
 
 - alias: '[Garden Lights] Fan slider'
-  hide_entity: true
   trigger:
   - platform: state 
     entity_id: input_number.garden_powersupply_fan

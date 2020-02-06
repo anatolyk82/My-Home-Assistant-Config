@@ -1,6 +1,5 @@
 
 - alias: '[Camera Foscam2] Take snapshot'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -18,7 +17,6 @@
 
 
 - alias: '[Camera Foscam2] Restart power if unavailable'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -41,7 +39,6 @@
 
 
 - alias: '[Camera Foscam2] Play stream on TV'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -55,7 +52,6 @@
 
 
 - alias: '[Camera Foscam2] Stop stream on TV'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -68,7 +64,6 @@
 
 
 - alias: '[Camera Foscam2] Record video'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state

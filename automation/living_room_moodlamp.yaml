@@ -1,5 +1,4 @@
 - alias: '[MoodLamp] Turn on when disarmed after sunset'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -16,7 +15,6 @@
 
 
 - alias: '[MoodLamp] Turn off when disarmed before sunset'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -37,7 +35,6 @@
 
 
 - alias: '[MoodLamp] Police effect while pending'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -51,7 +48,6 @@
 
 
 - alias: '[MoodLamp] Turn on if motion at night'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -84,7 +80,6 @@
 
 
 - alias: '[MoodLamp] Turn off if no motion at night'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -109,7 +104,6 @@
 
 
 - alias: '[MoodLamp] Turn on at sunset'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: sun
@@ -134,7 +128,6 @@
 
 
 - alias: '[MoodLamp] Turn on at sunset if vacation away'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: sun
@@ -158,7 +151,6 @@
 
 
 - alias: '[MoodLamp] Turn off at midnight'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: time

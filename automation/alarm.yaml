@@ -1,5 +1,4 @@
 - alias: '[Alarm] Arm night automatically'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -16,7 +15,6 @@
       code: !secret alarm_code
 
 - alias: '[Alarm] Disarm night automatically'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -33,7 +31,6 @@
       code: !secret alarm_code
 
 - alias: '[Alarm] Pending from armed_night'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -63,7 +60,6 @@
 
 # =========> Arming/Pending
 - alias: '[Alarm] Pending sound while pending from disarmed state'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -76,7 +72,6 @@
 
 
 - alias: '[Alarm] Pending sound while pending from armed away'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -89,7 +84,6 @@
 
 # =========> Armed Away
 - alias: '[Alarm] Armed Away has been armed'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -108,7 +102,6 @@
 
 # =========> Armed Home
 - alias: '[Alarm] Armed Home has been armed'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -124,7 +117,6 @@
 
 # ==============> Disarmed
 - alias: '[Alarm] Disarmed'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state
@@ -138,7 +130,6 @@
 
 # =============> Triggered
 - alias: '[Alarm] Triggered'
-  hide_entity: true
   initial_state: true
   trigger:
   - platform: state

@@ -1,5 +1,4 @@
 - alias: '[Alarm] Alarm Sound RPi Speaker'
-  hide_entity: true
   initial_state: False
   trigger:
   - platform: time_pattern

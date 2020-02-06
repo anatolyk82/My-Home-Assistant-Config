@@ -1,5 +1,4 @@
 - alias: '[Upstairs light] Turn on if motion (06:30 - 23:00)'
-  hide_entity: true
 #  initial_state: true
   trigger:
     platform: state
@@ -25,7 +24,6 @@
 
 
 - alias: '[Upstairs light] Turn on if motion (23:00 - 00:00)'
-  hide_entity: true
 #  initial_state: true
   trigger:
     platform: state
@@ -50,7 +48,6 @@
 
 
 - alias: '[Upstairs light] Turn off in 5 minutes after motion'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.presence_upstairs
@@ -75,7 +72,6 @@
 
 
 - alias: '[Upstairs light] Turn off (00:00 - 06:30)'
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.presence_upstairs
