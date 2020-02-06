@@ -166,6 +166,15 @@ cards:
         style:
           top: 57%
           left: 88%
+      - type: state-icon
+        entity: light.ball_light
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 63%
+          left: 40%
 
     - type: horizontal-stack
       cards:

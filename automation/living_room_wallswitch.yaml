@@ -76,6 +76,42 @@
     entity_id: light.ikea_lamp_2
 
 
+- alias: '[Living room] Wallswitch - Turn on Ball Light'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 1001 #Left Press And Hold
+  condition:
+  - condition: state
+    entity_id: light.ball_light
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.ball_light
+    data:
+      brightness_pct: 70
+
+
+- alias: '[Living room] Wallswitch - Turn off Ball Light'
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_wallswitch_1
+      event: 1001 #Left Press And Hold
+  condition:
+  - condition: state
+    entity_id: light.ball_light
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.ball_light
+
+
 - alias: '[Living room] Wallswitch - Turn on Mood Lamp'
   initial_state: true
   trigger:
@@ -162,4 +198,6 @@
     entity_id: light.ikea_lamp_2
   - service: light.turn_off
     entity_id: light.stairs
+  - service: light.turn_off
+    entity_id: light.ball_light
 
