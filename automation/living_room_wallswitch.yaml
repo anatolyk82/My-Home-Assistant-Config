@@ -86,13 +86,14 @@
       event: 1001 #Left Press And Hold
   condition:
   - condition: state
-    entity_id: light.ball_light
+    entity_id: light.ikea_lamp_3
     state: 'off'
   action:
   - service: light.turn_on
-    entity_id: light.ball_light
+    entity_id: light.ikea_lamp_3
     data:
-      brightness_pct: 70
+      brightness: 255
+      rgb_color: [255, 205, 120]
 
 
 - alias: '[Living room] Wallswitch - Turn off Ball Light'
@@ -105,11 +106,13 @@
       event: 1001 #Left Press And Hold
   condition:
   - condition: state
-    entity_id: light.ball_light
+    entity_id: light.ikea_lamp_3
     state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.ball_light
+    entity_id: light.ikea_lamp_3
+    data:
+      transition: 2
 
 
 - alias: '[Living room] Wallswitch - Turn on Mood Lamp'
@@ -199,5 +202,5 @@
   - service: light.turn_off
     entity_id: light.stairs
   - service: light.turn_off
-    entity_id: light.ball_light
+    entity_id: light.ikea_lamp_3
 

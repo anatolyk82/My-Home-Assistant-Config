@@ -167,7 +167,7 @@ cards:
           top: 57%
           left: 88%
       - type: state-icon
-        entity: light.ball_light
+        entity: light.ikea_lamp_3
         tap_action:
           action: toggle
         hold_action:
@@ -201,20 +201,6 @@ cards:
     - type: horizontal-stack
       cards:
       - type: light
-        entity: light.mood_lamp
-        icon: mdi:lava-lamp
-        name: "Moodlamp (Living room)"
-      - type: light
-        entity: light.gledopto_lamp_1
-        icon: mdi:ceiling-light
-        name: "Living room (window)"
-      - type: light
-        entity: light.gledopto_lamp_2
-        icon: mdi:ceiling-light
-        name: "Living room (kitchen)"
-    - type: horizontal-stack
-      cards:
-      - type: light
         entity: light.ikea_lamp_2
         icon: mdi:ceiling-light
         name: "Entrance"
@@ -226,4 +212,23 @@ cards:
         entity: light.kitchen_lights_1
         icon: mdi:track-light
         name: "Kitchen (win)"
+    - type: horizontal-stack
+      cards:
+      - type: light
+        entity: light.gledopto_lamp_1
+        icon: mdi:ceiling-light
+        name: "Living room (window)"
+      - type: light
+        entity: light.gledopto_lamp_2
+        icon: mdi:ceiling-light
+        name: "Living room (kitchen)"
+    - type: horizontal-stack
+      cards:
+      - type: light
+        entity: light.mood_lamp
+        icon: mdi:lava-lamp
+        name: "Moodlamp (Living room)"
+      - type: light
+        entity: light.ikea_lamp_3
+        name: "Ball lamp"
 

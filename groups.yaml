@@ -25,6 +25,7 @@ indoor_lights:
   entities:
   - light.ikea_lamp_1
   - light.ikea_lamp_2
+  - light.ikea_lamp_3
   - light.ikea_lamp_4
   - light.ikea_lamp_5
   - light.ikea_lamp_6
