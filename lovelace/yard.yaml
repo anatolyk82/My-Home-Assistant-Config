@@ -19,7 +19,8 @@ cards:
 
   - type: entities
     entities:
-    - switch.ikea_plug_2
+    - entity: switch.ikea_plug_2
+      state_color: true
     - light.garden_lights_1
     - light.garden_lights_2
 
@@ -31,6 +32,7 @@ cards:
   - type: entities
     entities:
     - entity: switch.ikea_plug_3
+      state_color: true
       name: "Cameras"
 
 
@@ -68,4 +70,5 @@ cards:
     - entity: sensor.humidity_storehouse
       name: "Storehouse Humidity"
     - entity: switch.ikea_plug_1
+      state_color: true
       name: "Värmefläkt"
