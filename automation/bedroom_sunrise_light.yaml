@@ -2,7 +2,7 @@
   initial_state: true
   trigger:
   - platform: time
-    at: "06:50:00"
+    at: "06:47:00"
   condition:
   - condition: numeric_state
     entity_id: sensor.lightlevel_bedroom
@@ -22,11 +22,12 @@
     entity_id: input_boolean.vacation_mode
     state: 'off'
   action:
-  - service: light.turn_on
-    entity_id: light.bed_led
-    data:
-      rgb_color: [255, 255, 0]
-      transition: 600
+  - service: python_script.bed_light_sunrise
+#  - service: light.turn_on
+#    entity_id: light.bed_led
+#    data:
+#      rgb_color: [255, 255, 0]
+#      transition: 600
 
 
 - alias: "[Bedroom] Color loop over bed light"
@@ -38,3 +39,14 @@
   - service: python_script.color_loop
     data:
       entity_id: light.bed_led
+
+
+- alias: '[Bedroom] Bed light timer'
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.bed_light_timer
+  action:
+  - service: python_script.bed_light_sunrise
+

@@ -74,6 +74,8 @@
     entity_id: light.bed_led
     state: 'on'
   action:
+  - service: timer.cancel
+    entity_id: timer.bed_light_timer
   - service: light.turn_off
     entity_id: light.bed_led
 
