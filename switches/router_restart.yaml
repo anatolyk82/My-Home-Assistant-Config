@@ -1,9 +1,0 @@
-- platform: command_line
-  switches:
-    router_restart:
-      friendly_name: "Restart router"
-      command_on: !secret router_restart
-      command_off: '#'
-      command_state: false
-      #value_template: '{{ false }}'
-
