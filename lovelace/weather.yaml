@@ -6,12 +6,25 @@ cards:
     - type: weather-forecast
       #entity: weather.dark_sky
       entity: weather.smhi_home
-    - type: glance
-      column_width: calc(100% / 3)
+  - type: vertical-stack
+    cards:
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        name: " "
+        entity: sensor.temperature_outdoor
+        graph: line
+      - type: sensor
+        name: " "
+        entity: sensor.humidity_outdoor
+        graph: line
+      - type: sensor
+        name: " "
+        entity: sensor.pressure_outdoor
+        graph: line
+    - type: entities
       entities:
-      - sensor.temperature_outdoor
-      - sensor.humidity_outdoor
-      - sensor.pressure_outdoor
+      - sensor.yr_cloudiness
   - type: history-graph
     title: Temperature history
     hours_to_show: 48
