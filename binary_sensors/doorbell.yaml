@@ -1,8 +1,8 @@
 - platform: mqtt
   name: 'Doorbell'
-  state_topic: 'doorbell'
+  state_topic: 'doorbell_16c653'
   payload_on: 'on'
   payload_off: 'off'
-  availability_topic: "doorbell/status"
-  json_attributes_topic: "doorbell/attributes"
+  availability_topic: "doorbell_16c653/status"
+  json_attributes_topic: "doorbell_16c653/attributes"
 
