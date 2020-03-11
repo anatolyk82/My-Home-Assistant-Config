@@ -1,4 +1,4 @@
 # https://github.com/Lallassu/smhialert
 #
-- platform: smhialert
-  district: '007'
+#- platform: smhialert
+#  district: '007'

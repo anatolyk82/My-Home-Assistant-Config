@@ -1,8 +1,0 @@
-{
-  "domain": "smhialert",
-  "name": "SMHIAlert",
-  "documentation": "https://github.com/lallassu/smhialert",
-  "dependencies": [],
-  "codeowners": ["@lallassu"],
-  "requirements": []
-}
