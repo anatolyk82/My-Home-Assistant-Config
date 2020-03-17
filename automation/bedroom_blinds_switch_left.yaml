@@ -1,0 +1,207 @@
+- alias: "[Bedroom Blinds Left] Run script on start"
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+# ------------------
+
+- alias: "[Bedroom Blinds Left] Set moving sensor to 0 when it's down"
+  trigger:
+  - platform: numeric_state
+    entity_id: cover.blinds_bedroom_left
+    value_template: "{{ state.attributes.current_position }}"
+    below: 3 # 0 is min
+    for:
+      seconds: 1
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+
+
+- alias: "[Bedroom Blinds Left] Set moving sensor to 0 when it's up"
+  trigger:
+  - platform: numeric_state
+    entity_id: cover.blinds_bedroom_left
+    value_template: "{{ state.attributes.current_position }}"
+    above: 97 # 100 is max
+    for:
+      seconds: 1
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+
+# ------------------
+
+- alias: '[Bedroom Blinds Left] Go up'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 1002
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'off'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 100
+
+
+- alias: '[Bedroom Blinds Left] Stop going up'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 1002
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+  - service: cover.stop_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+# ------------------
+
+- alias: '[Bedroom Blinds Left] Go down'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 2002
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'off'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 0
+
+
+- alias: '[Bedroom Blinds Left] Stop going down'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 2002
+  condition:
+    - condition: state
+      entity_id: binary_sensor.blinds_bedroom_left_moving
+      state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+  - service: cover.stop_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+# ------------------
+
+- alias: '[Bedroom Blinds Left] Go up while holding'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 1001
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+
+- alias: '[Bedroom Blinds Left] Stop going up on release'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 1003
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+  - service: cover.stop_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+# ------------------
+#
+- alias: '[Bedroom Blinds Left] Go down while holding'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 2001
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.close_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+
+
+- alias: '[Bedroom Blinds Left] Stop going down on release'
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: ikea_on_off_switch_3
+      event: 2003
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'off'
+  - service: cover.stop_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+

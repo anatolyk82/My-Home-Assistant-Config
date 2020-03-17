@@ -1,0 +1,349 @@
+
+- alias: '[Bedroom Blinds Left] Close 15 min after sunset if cloudy'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:15:00'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") > 50 }}'
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    above: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 0
+
+
+- alias: '[Bedroom Blinds Left] Close 30 min after sunset if still open'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:30:00'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") > 50 }}'
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 0
+
+
+ #-----------------------------------------
+
+
+- alias: '[Bedroom Blinds Right] Close 15 min after sunset if cloudy'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:15:00'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") > 50 }}'
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    above: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 0
+
+
+- alias: '[Bedroom Blinds Right] Close 30 min after sunset if still open'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:30:00'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") > 50 }}'
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 0
+
+
+#==================================================================================
+
+
+- alias: '[Bedroom Blinds Left] Open 30 min before sunrise if armed away and not cloudy'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:30:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") < 50 }}'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    below: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 100
+
+
+- alias: '[Bedroom Blinds Left] Open 15 min before sunrise if armed away and still close'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:15:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") < 50 }}'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 100
+
+# ----------------------------------------------------------
+
+- alias: '[Bedroom Blinds Right] Open 30 min before sunrise if armed away and not cloudy'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:30:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") < 50 }}'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    below: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 100
+
+
+- alias: '[Bedroom Blinds Right] Open 15 min before sunrise if armed away and still close'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:15:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") < 50 }}'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 100
+
+#==================================================================================
+
+- alias: '[Bedroom Blinds Left] Open when armed away 30 min before sunset and not cloudy'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: sun
+    after: sunrise
+    after_offset: '-00:30:00'
+  - condition: sun
+    before: sunset
+    before_offset: '00:30:00'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    below: 35
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") < 50 }}'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 100
+
+
+- alias: '[Bedroom Blinds Left] Open when armed away 15 min before sunset and still close'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: sun
+    after: sunrise
+    after_offset: '-00:15:00'
+  - condition: sun
+    before: sunset
+    before_offset: '00:15:00'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_left", "current_position") < 50 }}'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.yr_cloudiness
+      state: 'unknown'
+    - condition: state
+      entity_id: sensor.yr_cloudiness
+      state: 'unavailable'
+    - condition: numeric_state
+      entity_id: sensor.yr_cloudiness
+      above: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_left
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_left
+      position: 100
+
+#-------------------------------------------------
+
+- alias: '[Bedroom Blinds Right] Open when armed away 30 min before sunset and not cloudy'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: sun
+    after: sunrise
+    after_offset: '-00:30:00'
+  - condition: sun
+    before: sunset
+    before_offset: '00:30:00'
+  - condition: numeric_state
+    entity_id: sensor.yr_cloudiness
+    below: 35
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") < 50 }}'
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 100
+
+
+- alias: '[Bedroom Blinds Right] Open when armed away 15 min before sunset and still close'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: sun
+    after: sunrise
+    after_offset: '-00:15:00'
+  - condition: sun
+    before: sunset
+    before_offset: '00:15:00'
+  - condition: template
+    value_template: '{{ state_attr("cover.blinds_bedroom_right", "current_position") < 50 }}'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.yr_cloudiness
+      state: 'unknown'
+    - condition: state
+      entity_id: sensor.yr_cloudiness
+      state: 'unavailable'
+    - condition: numeric_state
+      entity_id: sensor.yr_cloudiness
+      above: 35
+  action:
+  - service: python_script.blinds_moving_control
+    data:
+      entity_id: cover.blinds_bedroom_right
+      is_moving: 'on'
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.blinds_bedroom_right
+      position: 100
+

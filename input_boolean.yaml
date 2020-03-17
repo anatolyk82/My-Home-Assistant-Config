@@ -81,3 +81,6 @@ workroom_blinds_auto:
   name: "Workroom blinds automation"
   icon: mdi:blinds
 
+bedroom_blinds_auto:
+  name: "Bedroom blinds automation"
+  icon: mdi:blinds

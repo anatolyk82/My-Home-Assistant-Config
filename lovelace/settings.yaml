@@ -33,6 +33,7 @@ cards:
   entities:
   - input_boolean.guestroom_blinds_auto
   - input_boolean.workroom_blinds_auto
+  - input_boolean.bedroom_blinds_auto
 
 - type: entities
   show_header_toggle: false

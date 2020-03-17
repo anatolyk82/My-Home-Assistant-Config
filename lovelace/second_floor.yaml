@@ -144,68 +144,11 @@ cards:
         icon: mdi:ceiling-light
         name: "Upstairs"
       
-    - type: horizontal-stack
-      cards:
-      - type: markdown
-        content: |
-            Guestroom
-            Open: {{ states.sensor.blinds_guestroom_position.state | round (0) }} %
-      - type: entity-button
-        name: "Open"
-        entity: cover.blinds_guestroom
-        icon_height: 34px
-        icon: mdi:arrow-up
-        tap_action:
-          action: toggle
-          confirmation:
-            text: "Open the blinds ?"
-          service: cover.set_cover_position
-          service_data:
-            entity_id: cover.blinds_guestroom
-            position: 100
-      - type: entity-button
-        name: "Close"
-        entity: cover.blinds_guestroom
-        icon_height: 34px
-        icon: mdi:arrow-down
-        tap_action:
-          action: call-service
-          confirmation:
-            text: "Close the blinds ?"
-          service: cover.set_cover_position
-          service_data:
-            entity_id: cover.blinds_guestroom
-            position: 36
 
-    - type: horizontal-stack
-      cards:
-      - type: markdown
-        content: |
-            Worktroom
-            Open: {{ states.sensor.blinds_workroom_position.state | round (0) }} %
-      - type: entity-button
-        name: "Open"
-        entity: cover.blinds_workroom
-        icon_height: 34px
-        icon: mdi:arrow-up
-        tap_action:
-          action: toggle
-          confirmation:
-            text: "Open the blinds ?"
-          service: cover.set_cover_position
-          service_data:
-            entity_id: cover.blinds_workroom
-            position: 100
-      - type: entity-button
-        name: "Close"
-        entity: cover.blinds_workroom
-        icon_height: 34px
-        icon: mdi:arrow-down
-        tap_action:
-          action: call-service
-          confirmation:
-            text: "Close the blinds ?"
-          service: cover.set_cover_position
-          service_data:
-            entity_id: cover.blinds_workroom
-            position: 36
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - cover.blinds_guestroom
+    - cover.blinds_workroom
+    - cover.blinds_bedroom_left
+    - cover.blinds_bedroom_right
