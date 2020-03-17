@@ -20,7 +20,7 @@
   - service: cover.set_cover_position
     data:
       entity_id: cover.blinds_guestroom
-      position: 36
+      position: 0
 
 
 - alias: '[Guestroom Blinds] Close 30 min after sunset if still open'
@@ -40,7 +40,7 @@
   - service: cover.set_cover_position
     data:
       entity_id: cover.blinds_guestroom
-      position: 36
+      position: 0
 
 # ----------------------------------------------------------
 
