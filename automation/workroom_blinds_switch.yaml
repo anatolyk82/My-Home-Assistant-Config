@@ -15,7 +15,7 @@
   - platform: numeric_state
     entity_id: cover.blinds_workroom
     value_template: "{{ state.attributes.current_position }}"
-    below: 39 # 36 is min
+    below: 3 # 0 is min
     for:
       seconds: 1
   condition:
@@ -112,7 +112,7 @@
   - service: cover.set_cover_position
     data:
       entity_id: cover.blinds_workroom
-      position: 36
+      position: 0
 
 
 - alias: '[Workroom Blinds] Stop going down'
