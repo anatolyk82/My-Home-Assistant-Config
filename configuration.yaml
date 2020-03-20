@@ -130,6 +130,15 @@ duckdns:
  
 lovelace:
   mode: yaml
+  resources:
+  - url: /local/custom_ui/slider-entity-row.js
+    type: module
+  - url: /local/custom_ui/card-tools.js?v=2
+    type: js
+  - url: /local/custom_ui/popup-card.js
+    type: js
+  - url: /local/custom_ui/bar-card.js?v0.0.5
+    type: js
 
 notify: !include notify.yaml
 group: !include groups.yaml

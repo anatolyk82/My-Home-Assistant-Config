@@ -11,6 +11,7 @@ cards:
     - binary_sensor.foscam1
 
   - type: entities
+    show_header_toggle: false
     entities:
     - input_boolean.foscam1_snapshot
     - input_boolean.foscam1_on_tv
@@ -18,6 +19,7 @@ cards:
     - input_boolean.foscam1_record_video
 
   - type: entities
+    show_header_toggle: false
     entities:
     - entity: switch.ikea_plug_2
       state_color: true
@@ -25,11 +27,13 @@ cards:
     - light.garden_lights_2
 
   - type: entities
+    show_header_toggle: false
     entities:
     - binary_sensor.presence_backyard
     - sensor.lightlevel_backyard
 
   - type: entities
+    show_header_toggle: false
     entities:
     - entity: switch.ikea_plug_3
       state_color: true
@@ -47,6 +51,7 @@ cards:
     - binary_sensor.foscam2
 
   - type: entities
+    show_header_toggle: false
     entities:
     - input_boolean.foscam2_snapshot
     - input_boolean.foscam2_on_tv
@@ -54,6 +59,7 @@ cards:
     - input_boolean.foscam2_record_video
 
   - type: entities
+    show_header_toggle: false
     entities:
     - light.ikea_lamp_10
     - light.ikea_lamp_11

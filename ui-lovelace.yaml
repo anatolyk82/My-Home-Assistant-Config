@@ -1,15 +1,5 @@
 title: My Home
 #background: center / cover no-repeat url("/local/images/background.jpg") fixed
-# Include external resources
-resources:
-  - url: /local/custom_ui/slider-entity-row.js
-    type: module
-  - url: /local/custom_ui/card-tools.js?v=2
-    type: js
-  - url: /local/custom_ui/popup-card.js
-    type: js
-  - url: /local/custom_ui/bar-card.js?v0.0.5
-    type: js
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 #background: center / cover no-repeat url("/background.png") fixed

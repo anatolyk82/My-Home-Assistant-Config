@@ -11,7 +11,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/screen'
-      payload: "{'icon':[228,166,239,6,6,22,12,0], 'text':'{{ states.sensor.temperature_outdoor.state | round(0) }}^', 'id':1}"
+      payload: "{'icon':[39,101,247,96,96,104,48,0], 'text':'{{ states.sensor.temperature_outdoor.state | round(0) }}^', 'id':1}"
       retain: false
       qos: 0
 
@@ -24,7 +24,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/screen'
-      payload: "{'icon':[8,28,54,127,34,34,62,0], 'text':'P1:{{ states.sensor.temperature_first_floor.state | round(0) }}^', 'id':2}"
+      payload: "{'icon':[39,101,247,96,96,104,48,0], 'text':'P1:{{ states.sensor.temperature_first_floor.state | round(0) }}^', 'id':2}"
       retain: false
       qos: 0
 
@@ -37,7 +37,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/screen'
-      payload: "{'icon':[8,28,54,127,34,34,62,0], 'text':'P2:{{ states.sensor.temperature_second_floor.state | round(0) }}^', 'id':3}"
+      payload: "{'icon':[39,101,247,96,96,104,48,0], 'text':'P2:{{ states.sensor.temperature_second_floor.state | round(0) }}^', 'id':3}"
       retain: false
       qos: 0
 
@@ -105,7 +105,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'
-      payload: "{'icon':[8,42,28,127,0,54,28,8], 'text': 'sunset', 'timeout':60}"
+      payload: "{'icon':[16,84,56,254,0,108,56,16], 'text': 'sunset', 'timeout':60}"
       retain: false
       qos: 0
 
@@ -118,7 +118,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'
-      payload: "{'icon':[8,42,28,127,0,8,28,54], 'text': 'sunrise', 'timeout':60}"
+      payload: "{'icon':[16,84,56,254,0,16,56,108], 'text': 'sunrise', 'timeout':60}"
       retain: false
       qos: 0
 
@@ -132,7 +132,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'
-      payload: "{'icon':[15,17,33,45,33,45,33,63], 'text': 'Home Assistant version {{ states.sensor.hass_available_version.state }} is available', 'timeout':180}"
+      payload: "{'icon':[240,136,132,180,132,180,132,252], 'text': 'Home Assistant version {{ states.sensor.hass_available_version.state }} is available', 'timeout':180}"
       retain: false
       qos: 0
 
@@ -145,7 +145,7 @@
   - service: mqtt.publish
     data_template:
       topic: 'informer/set/notification'
-      payload: "{'icon':[15,17,33,45,33,45,33,63], 'text': 'deCONZ version {{ states.sensor.deconz_available_version.state }} is available', 'timeout':180}"
+      payload: "{'icon':[240,136,132,180,132,180,132,252], 'text': 'deCONZ version {{ states.sensor.deconz_available_version.state }} is available', 'timeout':180}"
       retain: false
       qos: 0
 
