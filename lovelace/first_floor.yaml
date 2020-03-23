@@ -43,7 +43,8 @@ cards:
         entity: light.gledopto_lamp_1
         tap_action:
           action: toggle
-        hold_action: more-info
+        hold_action:
+          action: more-info
         style:
           top: 40%
           left: 32%
@@ -51,7 +52,8 @@ cards:
         entity: light.gledopto_lamp_2
         tap_action:
           action: toggle
-        hold_action: more-info
+        hold_action:
+          action: more-info
         style:
           top: 40%
           left: 47%
@@ -59,7 +61,8 @@ cards:
         entity: light.ikea_lamp_2
         tap_action:
           action: toggle
-        hold_action: more-info
+        hold_action:
+          action: more-info
         style:
           top: 71%
           left: 53%
