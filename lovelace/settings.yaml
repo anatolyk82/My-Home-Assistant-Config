@@ -18,15 +18,23 @@ cards:
       - script.vacation_lights
       - automation.vacation_lights_start_on_sunset
       - automation.vacation_lights_stop_at_midnight
+- type: entities
+  show_header_toggle: false
+  entities:
+  - automation.doorbell_sound_if_button_pressed
 
 - type: entities
   show_header_toggle: false
   entities:
-  - input_boolean.logger_deconz
-  - input_boolean.logger_mqtt
-  - input_boolean.logger_python_script
-  - input_boolean.logger_shell_commands
-  - input_boolean.logger_helpers_script
+  - type: call-service
+    icon: mdi:bell-alert
+    name: "Warning signal"
+    action_name: "Stop"
+    service: mqtt.publish
+    service_data:
+      topic: "alarm/keypad/code"
+      payload: "0000"
+      qos: 0
 
 - type: entities
   show_header_toggle: false
@@ -35,7 +43,23 @@ cards:
   - input_boolean.workroom_blinds_auto
   - input_boolean.bedroom_blinds_auto
 
-- type: entities
-  show_header_toggle: false
-  entities:
-  - automation.doorbell_sound_if_button_pressed
+- type: vertical-stack
+  cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - input_boolean.debug_mode
+  - type: conditional
+    conditions:
+    - entity: input_boolean.debug_mode
+      state: "on"
+    card:
+      type: entities
+      show_header_toggle: false
+      entities:
+      - input_boolean.logger_deconz
+      - input_boolean.logger_mqtt
+      - input_boolean.logger_python_script
+      - input_boolean.logger_shell_commands
+      - input_boolean.logger_helpers_script
+
