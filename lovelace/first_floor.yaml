@@ -103,7 +103,7 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 40%
+          top: 38%
           left: 76%
       - type: state-icon
         entity: light.kitchen_lights_2
@@ -112,7 +112,7 @@ cards:
         hold_action:
           action: more-info
         style:
-          top: 40%
+          top: 38%
           left: 66%
       - type: state-icon
         entity: light.mood_lamp
@@ -178,6 +178,15 @@ cards:
         style:
           top: 63%
           left: 40%
+      - type: state-icon
+        entity: light.kitchen_cupboard
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 52%
+          left: 71%
 
     - type: horizontal-stack
       cards:
