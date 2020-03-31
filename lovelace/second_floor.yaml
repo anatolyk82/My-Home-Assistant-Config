@@ -116,13 +116,20 @@ cards:
       - type: sensor
         entity: sensor.humidity_second_floor
         graph: line
-    - type: glance
-      column_width: calc(100% / 4)
-      entities:
-      - sensor.lightlevel_upstairs
-      - sensor.lightlevel_bedroom
-      - sensor.lightlevel_workroom
-      - sensor.lightlevel_room
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        entity: sensor.lightlevel_upstairs
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_bedroom
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_workroom
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_room
+        graph: line
   - type: vertical-stack
     cards:
     - type: horizontal-stack
