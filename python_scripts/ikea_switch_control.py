@@ -1,6 +1,6 @@
 
 switch_to_light = { 
-        "ikea_switch_6":"light.aqara_lamp_1",    # Workroom
+        "ikea_switch_6":"light.ikea_lamp_13",    # Workroom
         "ikea_switch_5":"light.gledopto_lamp_3", # Guestroom
         "ikea_switch_2":"light.gledopto_lamp_4", # Bedroom
         "ikea_switch_4":"light.ikea_lamp_1",     # Upstairs

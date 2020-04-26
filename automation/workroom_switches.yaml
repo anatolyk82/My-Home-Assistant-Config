@@ -6,7 +6,7 @@
   action:
   - service: light.turn_on
     data:
-      entity_id: light.aqara_lamp_1
+      entity_id: light.ikea_lamp_13
       flash: short
 
 
@@ -33,12 +33,12 @@
       event: 1002
   condition:
   - condition: state
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
     state: 'off'
   action:
   - service: light.turn_on
     data:
-      entity_id: light.aqara_lamp_1
+      entity_id: light.ikea_lamp_13
       color_temp: 400
       brightness: 255
 
@@ -53,9 +53,9 @@
       event: 1002
   condition:
   - condition: state
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
     state: 'on'
   action:
   - service: light.turn_off
     data:
-      entity_id: light.aqara_lamp_1
+      entity_id: light.ikea_lamp_13

@@ -1,9 +1,64 @@
 
-- alias: '[BallLamp] Turn off at midnight'
-  initial_state: true
+
+- alias: "[BallLamp] Turn on if it's dark"
   trigger:
-  - platform: time
-    at: "23:59:30"
+  - platform: state
+    entity_id: binary_sensor.presence_livingroom
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - condition: state
+    entity_id: light.ikea_lamp_2
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.lightlevel_livingroom
+    below: 5
+  action:
+  - service: light.turn_on
+    data:
+      transition: 3
+      brightness_pct: 70
+      entity_id: light.ikea_lamp_3
+#  - delay: "00:00:01"
+#  - service: light.turn_on
+#    data:
+#      entity_id: light.ikea_lamp_3
+#      rgb_color: [255, 205, 120]
+
+
+- alias: "[BallLamp] Reduce brightness if no motion"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_livingroom
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_3
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 30
+      entity_id: light.ikea_lamp_3
+
+
+- alias: "[BallLamp] Turn off if no motion"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_livingroom
+    to: 'off'
+    for:
+      minutes: 15
+  condition:
+  - condition: state
+    entity_id: light.ikea_lamp_3
+    state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.ikea_lamp_3
+    data:
+      entity_id: light.ikea_lamp_3
+      transition: 5

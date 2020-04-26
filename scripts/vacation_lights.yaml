@@ -24,7 +24,7 @@ vacation_lights:
     entity_id: light.kitchen_1
   - delay: '00:05:00'
   - service: light.turn_on
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - delay: '00:05:00'
   - service: light.turn_off
     entity_id: light.ikea_lamp_1
@@ -33,7 +33,7 @@ vacation_lights:
     entity_id: light.kitchen_1
   - delay: '00:45:00'
   - service: light.turn_off
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - service: light.turn_on
     entity_id: light.gledopto_lamp_3
   - service: light.turn_on
@@ -51,10 +51,10 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.gledopto_lamp_4
   - service: light.turn_on
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - delay: '00:55:00'
   - service: light.turn_off
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - service: light.turn_on
     entity_id: light.gledopto_lamp_1
   - service: light.turn_on
@@ -74,7 +74,7 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.kitchen_2
   - service: light.turn_on
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - service: light.turn_off
     entity_id: light.ikea_lamp_1
   - delay: '00:05:00'
@@ -87,7 +87,7 @@ vacation_lights:
   - service: light.turn_on
     entity_id: light.gledopto_lamp_4
   - service: light.turn_off
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - delay: '00:15:00'
   - service: light.turn_off
     entity_id: light.gledopto_lamp_4
@@ -97,7 +97,7 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.ikea_lamp_1
   - service: light.turn_on
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - delay: '00:10:00'
   - service: light.turn_on
     entity_id: light.kitchen_1
@@ -108,7 +108,7 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.gledopto_lamp_2
   - service: light.turn_off
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - service: light.turn_off
     entity_id: light.kitchen_1
   - service: light.turn_on
@@ -122,8 +122,8 @@ vacation_lights:
   - service: light.turn_off
     entity_id: light.gledopto_lamp_4
   - service: light.turn_on
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
   - delay: '00:35:00'
   - service: light.turn_off
-    entity_id: light.aqara_lamp_1
+    entity_id: light.ikea_lamp_13
 

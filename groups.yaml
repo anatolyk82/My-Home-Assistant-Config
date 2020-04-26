@@ -36,7 +36,7 @@ indoor_lights:
   - light.gledopto_lamp_2
   - light.gledopto_lamp_3
   - light.gledopto_lamp_4
-  - light.aqara_lamp_1
+  - light.ikea_lamp_13
   - light.mood_lamp
   - light.bed_led
   - light.stairs
@@ -89,11 +89,11 @@ zigbee_lights:
   - light.ikea_lamp_10
   - light.ikea_lamp_11
   - light.ikea_lamp_12
+  - light.ikea_lamp_13
   - light.gledopto_lamp_1
   - light.gledopto_lamp_2
   - light.gledopto_lamp_3
   - light.gledopto_lamp_4
-  - light.aqara_lamp_1
 
 zigbee_door_sensors:
   name: 'ZigBee Door sensors'

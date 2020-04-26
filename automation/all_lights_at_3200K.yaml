@@ -15,7 +15,7 @@
       kelvin: 3200
   - service: light.turn_on
     data:
-      entity_id: light.aqara_lamp_1
+      entity_id: light.ikea_lamp_13
       kelvin: 3200
   - service: light.turn_on
     data:

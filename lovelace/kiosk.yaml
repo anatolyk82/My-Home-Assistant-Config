@@ -143,7 +143,7 @@ cards:
         action: more-info
 
     - type: entity-button
-      entity: light.aqara_lamp_1
+      entity: light.ikea_lamp_13
       name: "Work room"
       icon: mdi:ceiling-light
       tap_action:

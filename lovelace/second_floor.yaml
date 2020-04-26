@@ -61,7 +61,7 @@ cards:
           top: 48%
           left: 50%
       - type: state-icon # Workroom light
-        entity: light.aqara_lamp_1
+        entity: light.ikea_lamp_13
         tap_action:
           action: toggle
         hold_action:
@@ -144,7 +144,7 @@ cards:
     - type: horizontal-stack
       cards:
       - type: light
-        entity: light.aqara_lamp_1
+        entity: light.ikea_lamp_13
         icon: mdi:ceiling-light
         name: "Workroom"
       - type: light
