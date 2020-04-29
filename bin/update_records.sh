@@ -16,7 +16,11 @@ cat <<EOF >$html_file
         <meta http-equiv="Expires" content="0">
 	</head>
 	<body>
+
 		<div class="siimple-content siimple-content--large siimple--mt-5">
+			<div class="siimple-navbar siimple-navbar--primary siimple-navbar--fluid siimple--mb-4 siimple--rounded">
+            	<div class="siimple-navbar-title">Camera records</div>
+        	</div>
 			<div class="siimple-grid">
 				<div class="siimple-grid-row">
 EOF
@@ -57,6 +61,10 @@ done
 
 cat <<EOF >> $html_file
 				</div>
+			</div>
+
+			<div class="siimple-content siimple-content--extra-small" align="center">
+				<a href="https://stolix.duckdns.org:58123/lovelace/overview" class="siimple-btn siimple-btn--primary siimple-btn--big siimple-btn--fluid">Back to Home Assistant</a>
 			</div>
 		</div>
 	</body>
