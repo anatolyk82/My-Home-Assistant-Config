@@ -1,5 +1,5 @@
 title: My Home
-#background: center / cover no-repeat url("/local/images/background.jpg") fixed
+background: center / cover no-repeat url("/local/images/bg_hass.jpg") fixed
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 #background: center / cover no-repeat url("/background.png") fixed
