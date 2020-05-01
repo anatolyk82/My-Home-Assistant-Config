@@ -16,22 +16,8 @@ cards:
       - type: state-icon
         entity: binary_sensor.motion_upstairs
         style:
-          top: 82%
+          top: 84%
           left: 32%
-      - type: state-icon
-        entity: binary_sensor.presence_upstairs
-        style:
-          top: 77%
-          left: 50%
-      - type: state-icon
-        entity: light.ikea_lamp_1
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        style:
-          top: 61%
-          left: 50%
       - type: state-icon  # Bedroom - light
         entity: light.gledopto_lamp_4 
         tap_action:
@@ -55,10 +41,29 @@ cards:
         style:
           top: 18%
           left: 26%
+      - type: state-icon
+        entity: light.ikea_lamp_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 68%
+          left: 50%
+      - type: state-icon
+        entity: binary_sensor.presence_upstairs
+        style:
+          top: 79%
+          left: 50%
+      - type: state-icon # Smoke detector
+        entity: binary_sensor.smoke_second_floor
+        style:
+          top: 55%
+          left: 50%
       - type: state-label
         entity: sensor.temperature_second_floor
         style:
-          top: 48%
+          top: 46%
           left: 50%
       - type: state-icon # Workroom light
         entity: light.ikea_lamp_13
@@ -69,14 +74,6 @@ cards:
         style:
           top: 67%
           left: 70%
-#      - type: state-icon # Workroom desklight
-#        entity: light.xiaomi_philips_desklamp
-#        tap_action:
-#          action: toggle
-#        hold_action: more-info
-#        style:
-#          top: 67%
-#          left: 82%
       - type: state-icon
         entity: binary_sensor.presence_workroom
         style:
