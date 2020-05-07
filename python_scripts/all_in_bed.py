@@ -30,8 +30,9 @@ if all_in_bed_current_state == 'off' and all_in_bed == 'on':
             if entity_id == 'sensor.lightlevel_backyard':
                 continue
             logger.debug("AllInBed: Illumination for '%s' is %s", entity_id, lightlevel_state.state)
-            if lightlevel_state.state == 'unknown':
+            if lightlevel_state.state == 'unknown' or lightlevel_state.state == 'unavailable':
                 continue
+            logger.debug("AllInBed: Check for illumination for '%s'", entity_id)
             if float(lightlevel_state.state) > 10:
                 all_in_bed = 'off'
                 logger.debug("AllInBed: Illumination for '%s' is above 10. Set the sensor to off", entity_id)
