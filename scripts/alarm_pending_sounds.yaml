@@ -1,0 +1,17 @@
+alarm_pending_sounds:
+  alias: "Make alarm pending sound and warn if any door or window is open"
+  sequence:
+  - service: shell_command.alarm_pending_sound
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.openclose_livingroom
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.openclose_kitchen
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.openclose_storehouse
+      state: 'on'
+  - service: shell_command.something_open_sound
+
