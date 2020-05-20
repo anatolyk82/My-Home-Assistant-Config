@@ -112,10 +112,10 @@ vacuum:
 #      mac: !secret xiaomi_gateway_mac
 
 
-deconz:
-  host: !secret deconz_host
-  port: !secret deconz_port
-  api_key: !secret deconz_key
+#deconz:
+#  host: !secret deconz_host
+#  port: !secret deconz_port
+#  api_key: !secret deconz_key
 
 logger: !include logger.yaml
 
