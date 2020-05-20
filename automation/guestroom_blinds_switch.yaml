@@ -54,7 +54,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 1002
   condition:
     - condition: state
@@ -76,7 +76,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 1002
   condition:
     - condition: state
@@ -98,7 +98,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 2002
   condition:
     - condition: state
@@ -120,7 +120,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 2002
   condition:
     - condition: state
@@ -142,7 +142,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 1001
   action:
   - service: python_script.blinds_moving_control
@@ -159,7 +159,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 1003
   action:
   - service: python_script.blinds_moving_control
@@ -177,7 +177,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 2001
   action:
   - service: python_script.blinds_moving_control
@@ -194,7 +194,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_on_off_switch_2
+      id: ikea_up_down_switch_3
       event: 2003
   action:
   - service: python_script.blinds_moving_control
