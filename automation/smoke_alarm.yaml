@@ -1,4 +1,4 @@
-- alias: '[Security] Notify with sound and message about smoke'
+- alias: '[Security] Smoke alarm on the first floor'
   initial_state: true
   trigger:
   - platform: state
@@ -9,16 +9,40 @@
     entity_id: automation.system_warning_sound_rpi_speaker
   - service: notify.pushover
     data:
-      title: "Smoke Alarm"
-      message: "WARNING! Smoke detected!"
-  - delay: '00:00:10'
+      title: "Smoke Alarm 1"
+      message: "WARNING! Smoke detected on the first floor!"
+  - delay: '00:00:15'
   - service: notify.pushover
     data:
-      title: "Smoke Alarm"
-      message: "WARNING! Smoke detected!"
-  - delay: '00:00:10'
+      title: "Smoke Alarm 2"
+      message: "WARNING! Smoke detected on the first floor!"
+  - delay: '00:00:15'
   - service: notify.pushover
     data:
-      title: "Smoke Alarm"
-      message: "WARNING! Smoke detected!"
+      title: "Smoke Alarm 3"
+      message: "WARNING! Smoke detected on the first floor!"
 
+
+- alias: '[Security] Smoke alarm on the second floor'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.smoke_second_floor
+    to: 'on'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.system_warning_sound_rpi_speaker
+  - service: notify.pushover
+    data:
+      title: "Smoke Alarm 1"
+      message: "WARNING! Smoke detected on the second floor!"
+  - delay: '00:00:15'
+  - service: notify.pushover
+    data:
+      title: "Smoke Alarm 2"
+      message: "WARNING! Smoke detected on the second floor!"
+  - delay: '00:00:15'
+  - service: notify.pushover
+    data:
+      title: "Smoke Alarm 3"
+      message: "WARNING! Smoke detected on the second floor!"
