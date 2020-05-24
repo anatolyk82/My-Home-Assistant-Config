@@ -18,6 +18,7 @@ cards:
       'armed_night': '/local/images/alarm/alarm_armed_night.png'
       'disarmed':    '/local/images/alarm/alarm_disarmed.png'
       'pending':     '/local/images/alarm/alarm_pending.png'
+      'arming':      '/local/images/alarm/alarm_arming.png'
       'triggered':   '/local/images/alarm/alarm_triggered.png'
 
   - type: horizontal-stack

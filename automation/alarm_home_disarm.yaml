@@ -10,9 +10,6 @@
     - platform: state 
       entity_id: binary_sensor.presence_kitchen
       to: 'on'
-#    - platform: state 
-#      entity_id: binary_sensor.presence_upstairs #Second floor
-#      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.house

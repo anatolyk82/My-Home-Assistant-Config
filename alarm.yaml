@@ -1,6 +1,6 @@
 # https://www.home-assistant.io/components/alarm_control_panel.manual/
 #
-# DISARMED -> pedning -> ARMED -> pending + delay -> TRIGGERED -> DISARMED
+# DISARMED -> arming -> ARMED -> pending -> TRIGGERED -> DISARMED
 #                                            |-> DISARMED 
 #
 - platform: manual
@@ -10,14 +10,14 @@
   disarmed:
     trigger_time: 0
   armed_home:
-    pending_time: 0
+    arming_time: 0
     delay_time: 0
     trigger_time: 60
   armed_away:
-    delay_time: 0
-    pending_time: 60
+    arming_time: 60
+    delay_time: 60
     trigger_time: 300
   armed_night:
-    delay_time: 0
-    pending_time: 0
+    arming_time: 0
+    delay_time: 20
     trigger_time: 300

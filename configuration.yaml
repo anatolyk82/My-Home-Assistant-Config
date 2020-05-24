@@ -11,6 +11,8 @@ homeassistant:
   time_zone: !secret time_zone
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  external_url: !secret http_external_url
+  internal_url: "https://192.168.1.2:8123"
   whitelist_external_dirs:
     - /home/homeassistant/.homeassistant   
     - /tmp
@@ -38,16 +40,11 @@ frontend: !include frontend.yaml
 config:
 
 http:
-  # Secrets are defined in the file secrets.yaml
-  #api_password: !secret http_password
   trusted_proxies: 
     - 172.16.0.0/12
-#  trusted_networks:
-#    - 172.16.0.0/12
   use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 3
-  base_url: !secret http_external_url
   ssl_certificate: !secret http_ssl_certificate
   ssl_key: !secret http_ssl_key
 

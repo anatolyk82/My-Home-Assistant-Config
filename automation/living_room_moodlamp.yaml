@@ -34,12 +34,25 @@
     entity_id: light.mood_lamp
 
 
-- alias: '[MoodLamp] Police effect while pending'
+- alias: '[MoodLamp] Alarm effect while pending'
   initial_state: true
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
     to: 'pending'
+  action:
+  - service: light.turn_on
+    entity_id: light.mood_lamp
+    data:
+      effect: "Alarm"
+
+
+- alias: '[MoodLamp] Alarm effect while arming'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'arming'
   action:
   - service: light.turn_on
     entity_id: light.mood_lamp

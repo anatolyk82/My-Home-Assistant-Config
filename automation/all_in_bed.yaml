@@ -30,9 +30,6 @@
     - platform: state
       entity_id: binary_sensor.presence_workroom
       to: 'on'
-    - platform: state
-      entity_id: binary_sensor.presence_room
-      to: 'on'
   condition:
     - condition: state
       entity_id: binary_sensor.all_in_bed

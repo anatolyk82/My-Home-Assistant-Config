@@ -48,6 +48,24 @@
     data:
       code: !secret alarm_code
 
+
+- alias: '[Keypad] Disarm alarm while arming'
+  initial_state: true
+  trigger:
+  - platform: mqtt
+    topic: 'alarm/keypad/code'
+    payload: !secret alarm_code
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'arming'
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.house
+    data:
+      code: !secret alarm_code
+
+
 - alias: '[Keypad] Disarm alarm while triggered'
   initial_state: true
   trigger:

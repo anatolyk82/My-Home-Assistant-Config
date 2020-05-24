@@ -82,7 +82,7 @@
     entity_id: binary_sensor.openclose_kitchen
     to: 'on'
   - platform: state 
-    entity_id: binary_sensor.openclose_storehouse #Storagehouse door
+    entity_id: binary_sensor.openclose_storehouse
     to: 'on'
   condition:
   - condition: state

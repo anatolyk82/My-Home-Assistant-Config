@@ -3,58 +3,87 @@ alarm_on:
   sequence:
     - service: automation.turn_off
       entity_id: automation.alarm_pending_sound
+
     - service: light.turn_on
       entity_id: light.mood_lamp
       data:
         effect: "Police"
+
     - service: automation.turn_on
       entity_id: automation.alarm_alarm_sound_rpi_speaker
+
+    - service: switch.turn_on
+      data:
+        entity_id: switch.alarm_switch
+
     - service: light.turn_on
       data:
         entity_id: light.gledopto_lamp_4
         rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_4
         brightness_pct: 100
+
     - service: light.turn_on
       data:
         entity_id: light.ikea_lamp_13
         brightness_pct: 100
+
     - service: light.turn_on
       data:
         entity_id: light.gledopto_lamp_1
         rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_1
         brightness_pct: 100
+
     - service: light.turn_on
       data:
         entity_id: light.gledopto_lamp_2
         rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_2
         brightness_pct: 100
+
     - service: light.turn_on
       data:
         entity_id: light.gledopto_lamp_3
         rgb_color: [255, 0, 0]
-        brightness_pct: 100
-    - service: switch.turn_on
+    - delay: '00:00:01'
+    - service: light.turn_on
       data:
-        entity_id: switch.alarm_switch
+        entity_id: light.gledopto_lamp_3
+        brightness_pct: 100
+
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! Th alarm has been triggered."
+
     - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
+
     - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
+
     - delay: '00:00:10'
     - service: notify.pushover
       data:
         title: "ALARM"
         message: "WARNING! The alarm has been triggered."
+
     - delay: '00:00:10'
     - service: notify.pushover
       data:

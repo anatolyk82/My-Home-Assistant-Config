@@ -64,8 +64,7 @@
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
-    from: 'disarmed'
-    to: 'pending'
+    to: 'arming'
   action:
   - service: automation.turn_on
     entity_id: automation.alarm_pending_sound
@@ -76,7 +75,6 @@
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
-    from: 'armed_away'
     to: 'pending'
   action:
   - service: automation.turn_on
