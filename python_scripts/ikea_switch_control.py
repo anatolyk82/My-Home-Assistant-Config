@@ -53,6 +53,9 @@ logger.debug("IKEA Switch Control: Light: %s", switch_to_light[switch_id])
 
 light = hass.states.get(light_id)
 
+#for i in light.attributes:
+#    logger.debug('light.attributes[%s] = %s', i, light.attributes[i])
+
 brightness = -1
 color_temp = -1
 if light.state == 'on':
@@ -62,10 +65,16 @@ if light.state == 'on':
         color_temp = int(light.attributes['color_temp'])
 
 min_mireds = -1
-max_mireds = -1
-if color_temp > -1:
+if 'min_mireds' in light.attributes:
     min_mireds = int(light.attributes['min_mireds'])
+
+max_mireds = -1
+if 'max_mireds' in light.attributes:
     max_mireds = int(light.attributes['max_mireds'])
+
+#if color_temp > -1:
+#    min_mireds = int(light.attributes['min_mireds'])
+#    max_mireds = int(light.attributes['max_mireds'])
 
 logger.debug("IKEA Switch Control: min_mireds: %s, max_mireds: %s", min_mireds, max_mireds)
 logger.debug("IKEA Switch Control: brightness: %s, color_temp: %s", brightness, color_temp)
@@ -96,6 +105,14 @@ elif code == "4002" and (color_temp > -1):
     if light.state == 'on':
         new_color_temp = decrease_value(color_temp, color_temp_delta, min_mireds)
         service_data = { 'entity_id': light_id, 'color_temp': new_color_temp }
+        hass.services.call('light', 'turn_on', service_data, False)
+elif code == "4002" and (color_temp < 0) and (min_mireds > -1):
+    if light.state == 'on':
+        service_data = { 'entity_id': light_id, 'color_temp': min_mireds }
+        hass.services.call('light', 'turn_on', service_data, False)
+elif code == "5002" and (color_temp < 0) and (max_mireds > -1):
+    if light.state == 'on':
+        service_data = { 'entity_id': light_id, 'color_temp': max_mireds }
         hass.services.call('light', 'turn_on', service_data, False)
 elif code == "2001" and (brightness > -1):
     if light.state == 'on':
