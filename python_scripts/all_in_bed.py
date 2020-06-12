@@ -143,6 +143,7 @@ if all_in_bed == 'on':
             lu = entityState.last_updated.replace(tzinfo=None)
             now = datetime.datetime.now()
             diff_secs = (now - lu).total_seconds()
+            logger.debug("AllInBed: Last update of the sensor %s was at %s. Now it's %s so it was %d seconds ago", entity_id, lu, now, diff_secs)
             if diff_secs < minutes_last_update * 60:
                 logger.debug("AllInBed: There was motion on %s less than %d minutes ago. Set the sensor to off", entity_id, minutes_last_update)
                 all_in_bed = 'off'
