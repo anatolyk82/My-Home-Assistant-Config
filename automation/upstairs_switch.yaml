@@ -12,15 +12,3 @@
     data_template:
       event: "{{ trigger.event }}"
 
-- alias: "[Upstairs switch] Toggle auto light"
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_4
-      event: 1001
-  action:
-  - service: python_script.upstairs_automation
-    data:
-      action: 'toggle'
-
