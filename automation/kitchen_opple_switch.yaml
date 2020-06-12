@@ -1,0 +1,12 @@
+- alias: '[Kitchen] Opple Switch'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: opple_switch_1
+  action:
+  - service: python_script.opple_switch_kitchen
+    data_template:
+      event: "{{ trigger.event }}"
+
