@@ -67,11 +67,13 @@ cards:
       icon: mdi:home
 
   - type: entities
+    show_header_toggle: false
     entities:
     - entity: binary_sensor.doorbell
       icon: mdi:bell
     - binary_sensor.all_in_bed
+    - binary_sensor.presence_frontyard
+    - light.frontyard
     #- switch.wifi_cord_1
-    #- switch.ikea_plug_1
     #- switch.pump1
     #- sensor.irrigation_water_level

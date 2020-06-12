@@ -43,6 +43,12 @@ cards:
   - input_boolean.workroom_blinds_auto
   - input_boolean.bedroom_blinds_auto
 
+- type: entities
+  show_header_toggle: false
+  entities:
+  - automation.front_yard_light_if_motion_after_sunset
+  - automation.front_yard_notify_if_motion_after_sunset
+
 - type: vertical-stack
   cards:
   - type: entities

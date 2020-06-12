@@ -1,0 +1,4 @@
+- platform: switch
+  name: "Frontyard"
+  entity_id: switch.ikea_plug_1
+
