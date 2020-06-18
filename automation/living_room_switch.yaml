@@ -1,228 +1,31 @@
-# The bulb closer to the kitchen is the left light - gledopto_lamp_2
-# The bulb closer to the window is the right light - gledopto_lamp_1
-#
-- alias: '[Living room] Turn on all lamps'
+- alias: '[Living room] Ikea switch 3'
   initial_state: true
   trigger:
     platform: event
     event_type: deconz_event
     event_data:
-      id: ikea_switch_1
-      event: 1002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_1
-    state: 'off'
-  - condition: state
-    entity_id: light.gledopto_lamp_2
-    state: 'off'
+      id: ikea_switch_3
   action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_1
-    data:
-      color_temp: 460
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_2
-    data:
-      color_temp: 460
+  - service: python_script.ikea_switch_living_room
+    data_template:
+      button: >
+        {% if trigger.event.data.event == 1002 %}
+          center_click
+        {% elif trigger.event.data.event == 2002 %}
+          up_click
+        {% elif trigger.event.data.event == 3002 %}
+          down_click
+        {% elif trigger.event.data.event == 4002 %}
+          left_click
+        {% elif trigger.event.data.event == 5002 %}
+          right_click
+        {% elif trigger.event.data.event == 2001 %}
+          up_press
+        {% elif trigger.event.data.event == 2003 %}
+          up_release
+        {% elif trigger.event.data.event == 3001 %}
+          down_press
+        {% elif trigger.event.data.event == 3003 %}
+          down_release
+        {% endif %}
 
-- alias: '[Living room] Turn off all lamps'
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 1002
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: light.gledopto_lamp_1
-      state: 'on'
-    - condition: state
-      entity_id: light.gledopto_lamp_2
-      state: 'on'
-  action:
-  - service: light.turn_off
-    entity_id: light.gledopto_lamp_1
-  - service: light.turn_off
-    entity_id: light.gledopto_lamp_2
-
-
-
-- alias: '[Living room] Toggle the left lamp'
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 4002
-  action:
-  - service: light.toggle
-    entity_id: light.gledopto_lamp_2
-
-
-- alias: '[Living room] Toggle the right lamp'
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 5002
-  action:
-  - service: light.toggle
-    entity_id: light.gledopto_lamp_1
-
-
-- alias: "[Living room] Increase brightness of the right lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 2002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_1
-    data_template: 
-      brightness: '{{ states.light.gledopto_lamp_1.attributes.brightness + 75 }}'
-
-- alias: "[Living room] Decrease brightness of the right lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 3002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_1
-    data_template: 
-      brightness: '{{ states.light.gledopto_lamp_1.attributes.brightness - 75 }}'
-        
-
-
-- alias: "[Living room] Increase brightness of the left lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 2002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_2
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_2
-    data_template: 
-      brightness: '{{ states.light.gledopto_lamp_2.attributes.brightness + 75 }}'
-
-- alias: "[Living room] Decrease brightness of the left lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 3002
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_2
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_2
-    data_template: 
-      brightness: '{{ states.light.gledopto_lamp_2.attributes.brightness - 75 }}'
-
-
-
-- alias: "[Living room] Set max brightness to the right lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 2001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_1
-    data_template: 
-      brightness_pct: 100
-
-- alias: "[Living room] Set min brightness to the right lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 3001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_1
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_1
-    data_template: 
-      brightness_pct: 5
-
-
-
-- alias: "[Living room] Set max brightness to the left lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 2001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_2
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_2
-    data_template: 
-      brightness_pct: 100
-
-- alias: "[Living room] Set min brightness to the left lamp"
-  initial_state: true
-  trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_1
-      event: 3001
-  condition:
-  - condition: state
-    entity_id: light.gledopto_lamp_2
-    state: 'on'
-  action:
-  - service: light.turn_on
-    entity_id: light.gledopto_lamp_2
-    data_template: 
-      brightness_pct: 5
