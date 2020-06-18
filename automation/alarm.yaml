@@ -90,7 +90,8 @@
   action:
   - service: notify.pushover
     data:
-      message: "The Away alarm has been armed."
+      title: "Alarm is armed"
+      message: "The alarm has been armed away."
   - service: automation.turn_off
     entity_id: automation.alarm_pending_sound
   - service: light.turn_off
@@ -108,7 +109,8 @@
   action:
   - service: notify.pushover
     data:
-      message: "The Home alarm has been armed."
+      title: "Alarm is armed"
+      message: "The alarm has been armed home."
   - service: automation.turn_off
     entity_id: automation.alarm_pending_sound
 
