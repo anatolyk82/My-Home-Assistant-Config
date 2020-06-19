@@ -75,6 +75,3 @@ cards:
       name: "Storehouse Temperature"
     - entity: sensor.humidity_storehouse
       name: "Storehouse Humidity"
-    - entity: switch.ikea_plug_1
-      state_color: true
-      name: "Värmefläkt"
