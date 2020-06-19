@@ -3,6 +3,32 @@ event = data.get('event')
 
 brightness_delta = 50
 
+kitchen_lights_1 = [
+        'light.ikea_lamp_4',
+        'light.ikea_lamp_5',
+        'light.ikea_lamp_6',
+        ]
+
+kitchen_lights_2 = [
+        'light.ikea_lamp_7',
+        'light.ikea_lamp_8',
+        'light.ikea_lamp_9',
+        ]
+
+def turnOnLights(lights):
+    for i in range(0, len(lights)):
+        lamp_id = lights[ len(lights) - i - 1 ]
+        service_data = { 'entity_id': lamp_id }
+        hass.services.call('light', 'turn_on', service_data, False)
+        time.sleep(0.3)
+
+def turnOffLights(lights):
+    for i in range(0, len(lights)):
+        lamp_id = lights[ i ]
+        service_data = { 'entity_id': lamp_id }
+        hass.services.call('light', 'turn_off', service_data, False)
+        time.sleep(0.3)
+
 def increase_value(current_value, delta, max_value):
     if current_value < max_value:
         current_value = current_value + delta
@@ -58,14 +84,14 @@ if light2.state == 'on':
 
 if code == "1002":
     if light1.state == 'on':
-        hass.services.call('light', 'turn_off', { 'entity_id': l1 }, False)
+        turnOffLights( kitchen_lights_1 )
     else:
-        hass.services.call('light', 'turn_on', { 'entity_id': l1 }, False)
+        turnOnLights( kitchen_lights_1 )
 elif code == "2002":
     if light2.state == 'on':
-        hass.services.call('light', 'turn_off', { 'entity_id': l2 }, False)
+        turnOffLights( kitchen_lights_2 )
     else:
-        hass.services.call('light', 'turn_on', { 'entity_id': l2 }, False)
+        turnOnLights( kitchen_lights_2 )
 elif code == "3002":
     if light1.state == 'on':
         new_brightness = decrease_value(brightness_l1, brightness_delta, 1)
@@ -100,9 +126,13 @@ elif code == "4001":
         hass.services.call('light', 'turn_on', service_data, False)
 elif code == "5002":
     if light1.state == 'on' or light2.state == 'on':
-        hass.services.call('light', 'turn_off', { 'entity_id': [l1, l2] }, False)
+        #hass.services.call('light', 'turn_off', { 'entity_id': [l1, l2] }, False)
+        turnOffLights( kitchen_lights_1 )
+        turnOffLights( kitchen_lights_2 )
     else:
-        hass.services.call('light', 'turn_on', { 'entity_id': [l1, l2] }, False)
+        #hass.services.call('light', 'turn_on', { 'entity_id': [l1, l2] }, False)
+        turnOnLights( kitchen_lights_2 )
+        turnOnLights( kitchen_lights_1 )
 elif code == "6002":
     if light_cupboard.state == 'on':
         hass.services.call('light', 'turn_off', { 'entity_id': lc }, False)
