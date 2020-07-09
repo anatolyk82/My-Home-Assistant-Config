@@ -1,41 +1,3 @@
-- alias: '[Doorbell] Snapshot and video when rings'
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.doorbell
-    to: 'on'
-#  condition:
-#  - condition: state
-#    entity_id: alarm_control_panel.house
-#    state: 'armed_away'
-  action:
-  - service: camera.snapshot
-    data_template:
-      entity_id: camera.foscam_2
-      filename: '/tmp/foscam2.jpg'
-  - service: notify.pushover_file
-    data:
-      title: "Doorbell rings"
-      message: "Someone is at the door"
-      data:
-        file:
-          path: '/tmp/foscam2.jpg'
-#  - service: camera.record
-#    data_template:
-#      entity_id: camera.foscam_2
-#      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-#      duration: 30
-
-- alias: '[Doorbell] Notify if unavailable'
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.doorbell
-    to: 'unavailable'
-  action:
-  - service: notify.pushover
-    data:
-      title: "Doorbell unavailable"
-      message: "The doorbell is unavailable"
-
 
 - alias: '[Doorbell] Sound if button pressed'
   trigger:
@@ -44,5 +6,23 @@
     to: 'on'
   action:
   - service: shell_command.doorbell_sound
+
+
+#-----------------------------
+
+- alias: '[Doorbell] Xiaomi button pressed'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: xiaomi_switch_workroom 
+      #event: 1002 #-short press
+      #event: 1001 # press and hold
+      #event: 1004 # long press
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.doorbell
 
 

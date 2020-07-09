@@ -13,6 +13,6 @@ warning_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.home
 
 update_records_index: "/home/homeassistant/.homeassistant/bin/update_records.sh"
 
-doorbell_sound: "/usr/bin/play --volume 0.7 /home/homeassistant/.homeassistant/media/doorbell.wav"
+doorbell_sound: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/doorbell.wav"
 
 something_open_sound: "/usr/bin/play --volume 1 /home/homeassistant/.homeassistant/media/something_open.wav"

@@ -1,0 +1,32 @@
+doorbell:
+  alias: "Doorbell actions"
+  sequence:
+  - service: shell_command.doorbell_sound
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/tmp/foscam2.jpg'
+  - service: notify.pushover_file
+    data:
+      title: "Doorbell rings"
+      message: "Someone is at the door"
+      data:
+        file:
+          path: '/tmp/foscam2.jpg'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'armed_away'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'armed_night'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'pending'
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 30
+
