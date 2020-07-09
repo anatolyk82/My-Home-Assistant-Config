@@ -1,0 +1,72 @@
+
+- alias: '[Window Covers] Run script 15 min after sunset'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:15:00'
+  action:
+  - service: python_script.blinds_control
+    data:
+      intention: close
+      intention_info: after_sunset_15
+
+
+- alias: '[Window Covers] Run script 30 min after sunset'
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:30:00'
+  action:
+  - service: python_script.blinds_control
+    data:
+      intention: close
+      intention_info: after_sunset_30
+
+
+- alias: '[Window Covers] Run script 30 min before sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:30:00'
+  action:
+  - service: python_script.blinds_control
+    data:
+      intention: open
+      intention_info: before_sunrise_30
+
+
+- alias: '[Window Covers] Run script 15 min before sunrise'
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-00:15:00'
+  action:
+  - service: python_script.blinds_control
+    data:
+      intention: open
+      intention_info: before_sunrise_15
+
+
+- alias: '[Window Covers] Run script when armed away'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  action:
+  - service: python_script.blinds_control
+    data:
+      intention: open
+      intention_info: armed_away
+
+  
+- alias: '[Window Covers] Run script when all_in_bed is off'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.all_in_bed
+    to: 'off'
+  action:
+  - delay: '00:00:05'
+  - service: python_script.blinds_control
+    data:
+      intention: open
+      intention_info: waken_up
