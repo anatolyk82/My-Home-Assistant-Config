@@ -1,9 +1,6 @@
 
 all_in_bed = 'on'
 
-def utc2local(dt):
-    return dt - datetime.timedelta(seconds = time.timezone)
-
 
 # Check time (only between 22:00 - 10:00 it starts checking)
 now = datetime.datetime.now()
@@ -19,6 +16,21 @@ alarm_state = hass.states.get('alarm_control_panel.house').state
 if alarm_state == 'armed_away':
     all_in_bed = 'off'
     logger.debug("[All In Bed] Alarm is armed as 'armed_away'. Set the sensor to off")
+
+
+def utc2local(utc_td):
+    now = datetime.datetime.now()
+    utcnow = datetime.datetime.utcnow()
+    offset_sec = (now - utcnow).total_seconds()
+    local_td = datetime.datetime.strptime(utc_td, '%Y-%m-%dT%H:%M:%S+00:00') + datetime.timedelta(seconds=offset_sec)
+    return local_td
+
+
+def timezoneOffset():
+    now = datetime.datetime.now()
+    utcnow = datetime.datetime.utcnow()
+    offset_sec = (now - utcnow).total_seconds()
+    return offset_sec
 
 
 # Check all illumination sensors if their values are below 10
@@ -146,7 +158,8 @@ if all_in_bed == 'on':
             entityState = hass.states.get(entity_id)
             lu = entityState.last_updated.replace(tzinfo=None)
             now = datetime.datetime.now()
-            diff_secs = (now - lu).total_seconds() - 7200 #HACK: 7200 - 2 hours is the difference between stockholm and UTC times
+            diff_secs = (now - lu).total_seconds() - timezoneOffset() #TODO: should use the function utc2local()
+            #diff_secs = (now - utc2local(lu)).total_seconds()
             logger.debug("[All In Bed] Last update of the sensor %s was at %s. Now it's %s so it was %d seconds ago", entity_id, lu, now, diff_secs)
             if diff_secs < minutes_last_update * 60:
                 logger.debug("[All In Bed] There was motion on %s less than %d minutes ago. Set the sensor to off", entity_id, minutes_last_update)
