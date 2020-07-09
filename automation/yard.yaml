@@ -1,92 +1,76 @@
 
-- alias: '[Yard] Turn on backyard light at sunset'
-  trigger:
-  - platform: sun
-    event: sunset
-  action:
-  - service: light.turn_on
-    entity_id: light.ikea_lamp_10
-    data:
-      transition: 30
-      brightness_pct: 95
 
-
-- alias: '[Yard] Turn off backyard light at sunrise'
-  trigger:
-  - platform: sun
-    event: sunrise
-  action:
-  - service: light.turn_off
-    entity_id: light.ikea_lamp_10
-    data:
-      transition: 30
-
-#==============================================================#
-
-- alias: '[Yard] Turn on porch light at sunset'
-  trigger:
-  - platform: sun
-    event: sunset
-  action:
-  - service: light.turn_on
-    entity_id: light.ikea_lamp_11
-    data:
-      transition: 30
-      brightness_pct: 100
-
-
-- alias: '[Yard] Turn off porch light at sunrise'
-  trigger:
-  - platform: sun
-    event: sunrise
-  action:
-  - service: light.turn_off
-    entity_id: light.ikea_lamp_11
-    data:
-      transition: 30
-
-#==============================================================#
-
-- alias: '[Yard] Turn on storehouse light at sunset'
+- alias: '[Yard] Turn on yard lights at sunset'
   trigger:
   - platform: sun
     event: sunset
   action:
   - service: switch.turn_on
+    entity_id: switch.ikea_plug_2  # Power for garden lights
+  - delay: "00:00:01"
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_10  # The Backyard light
+    data:
+      transition: 10
+      brightness_pct: 95
+  - delay: "00:00:10"
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_11  # The Porch light
+    data:
+      transition: 10
+      brightness_pct: 100
+  - delay: "00:00:10"
+  - service: light.turn_on
+    entity_id: light.ikea_lamp_12  # The frontyard light
+    data:
+      transition: 10
+      brightness_pct: 100
+  - delay: "00:00:10"
+  - service: switch.turn_on        # The storehouse decor light
     entity_id: switch.smart_plug_18
+  - delay: "00:00:10"
+  - service: light.turn_on         # The garden lights
+    data:
+      entity_id: light.garden_lights_1
+      transition: 10
+      brightness_pct: 100
+      rgb_color: [255, 255, 255]
+  - delay: '00:00:10'
+  - service: light.turn_on         # Turn on an effect
+    data:
+      entity_id: light.garden_lights_1
+      effect: "RandomColorLamp"
 
 
-- alias: '[Yard] Turn off storehouse light at sunrise'
+- alias: '[Yard] Turn off yard lights at sunrise'
   trigger:
   - platform: sun
     event: sunrise
   action:
   - service: switch.turn_off
     entity_id: switch.smart_plug_18
-
-#==============================================================#
-
-- alias: '[Yard] Turn on front yard light at sunset'
-  trigger:
-  - platform: sun
-    event: sunset
-  action:
-  - service: light.turn_on
-    entity_id: light.ikea_lamp_12
-    data:
-      transition: 30
-      brightness_pct: 100
-
-
-- alias: '[Yard] Turn off front yard light at sunrise'
-  trigger:
-  - platform: sun
-    event: sunrise
-  action:
+  - delay: "00:00:10"
   - service: light.turn_off
     entity_id: light.ikea_lamp_12
     data:
-      transition: 30
+      transition: 10
+  - delay: "00:00:10"
+  - service: light.turn_off
+    entity_id: light.ikea_lamp_11
+    data:
+      transition: 10
+  - delay: "00:00:10"
+  - service: light.turn_off
+    entity_id: light.ikea_lamp_10
+    data:
+      transition: 10
+  - delay: "00:00:10"
+  - service: light.turn_off
+    entity_id: light.garden_lights_1
+  - delay: '00:00:10'
+  - service: switch.turn_off
+    entity_id: switch.ikea_plug_2
+
 
 #==============================================================#
 
@@ -267,53 +251,6 @@
         file:
           path: '/tmp/foscam1.jpg'
 #==============================================================#
-
-- alias: '[Garden Lights] Turn on at sunset'
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: '-00:00:30'
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: light.garden_lights_1
-      state: 'off'
-    - condition: state
-      entity_id: light.garden_lights_1
-      state: 'unavailable'
-  action:
-  - service: switch.turn_on
-    entity_id: switch.ikea_plug_2
-  - delay: '00:00:30'
-  - service: light.turn_on
-    data:
-      entity_id: light.garden_lights_1
-      transition: 10
-      brightness_pct: 100
-      rgb_color: [255, 255, 255]
-  - delay: '00:00:10'
-  - service: light.turn_on
-    data:
-      entity_id: light.garden_lights_1
-      effect: "RandomColorLamp"
-
-
-- alias: '[Garden Lights] Turn off at sunrise'
-  trigger:
-  - platform: sun
-    event: sunrise
-    offset: '-00:30:00'
-  condition:
-  - condition: state
-    entity_id: light.garden_lights_1
-    state: 'on'
-  action:
-  - service: light.turn_off
-    entity_id: light.garden_lights_1
-  - delay: '00:00:30'
-  - service: switch.turn_off
-    entity_id: switch.ikea_plug_2
 
 
 - alias: '[Garden Lights] Turn off garden power supply if too warm'
