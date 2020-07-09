@@ -1,12 +1,14 @@
 all_covers = [
         {
             "cover": "cover.blinds_workroom",
-            "enable_switch": "input_boolean.workroom_blinds_auto"
+            "enable_switch": "input_boolean.workroom_blinds_auto",
+            "enable_open": True
         },
-#        {
-#            "cover": "cover.blinds_guestroom",
-#            "enable_switch":"input_boolean.guestroom_blinds_auto"
-#        },    
+        {
+            "cover": "cover.blinds_guestroom",
+            "enable_switch":"input_boolean.guestroom_blinds_auto"
+            "enable_open": True
+        },    
     ]
 
 def utc2local(utc_td):
@@ -87,9 +89,13 @@ for i in range(0, len(all_covers)):
             logger.debug("[Blinds Control]: Current position of %s is %d", cover_id, current_position)
         else:
             logger.error("[Blinds Control]: Failed to fetch the current position of %s. Assume that current_position is %d", cover_id, current_position)
+
+        isOpenningEnabled = all_covers[i]["enable_open"]
+        if isOpenningEnabled != True:
+            logger.debug("[Blinds Control]: It is not allowed to open blinds %s", cover_id)
        
         # Logic to open/close a cover
-        if intention == 'open':
+        if intention == 'open' and isOpenningEnabled == True:
             if intention_info == 'before_sunrise_30' and isCloudy == False and current_position <= thresholdCoverIsClosed and all_in_bed == 'off':
                 logger.debug("[Blinds Control]: The sky is clear. Open the cover %s 30 min before sunrise. Position: %d", cover_id, current_position)
                 openCover(cover_id)
