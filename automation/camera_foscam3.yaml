@@ -1,0 +1,63 @@
+
+- alias: '[Camera Foscam3] Take snapshot'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam3_snapshot
+    to: 'on'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_3
+      #filename: '/mnt/ssd/homeassistant/snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
+      filename: '/home/homeassistant/.homeassistant/www/camera_snapshots/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.jpg'
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.foscam3_snapshot
+
+
+- alias: '[Camera Foscam3] Play stream on TV'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam3_on_tv
+    to: 'on'
+  action:
+  - service: camera.play_stream
+    data:
+      entity_id: camera.foscam_3
+      media_player: media_player.sirius
+
+
+- alias: '[Camera Foscam3] Stop stream on TV'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam3_on_tv
+    to: 'off'
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.sirius
+
+
+- alias: '[Camera Foscam3] Record video'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.foscam3_record_video
+    to: 'on'
+  action:
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
+      duration: "{{ states('input_number.foscam3_record_length') | int }}"
+  - delay:
+      seconds: "{{ states('input_number.foscam3_record_length') | int }}"
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.foscam3_record_video
+
+
+

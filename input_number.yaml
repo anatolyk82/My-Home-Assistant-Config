@@ -23,3 +23,12 @@ foscam2_record_length:
   mode: 'box'
   unit_of_measurement: "sec"
   icon: mdi:filmstrip
+
+foscam3_record_length:
+  name: "Foscam3 Record Length"
+  min: 5
+  max: 300
+  initial: 20
+  mode: 'box'
+  unit_of_measurement: "sec"
+  icon: mdi:filmstrip

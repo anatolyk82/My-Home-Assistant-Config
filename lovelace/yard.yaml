@@ -81,10 +81,10 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - input_boolean.foscam2_snapshot
-    - input_boolean.foscam2_on_tv
-    - input_number.foscam2_record_length
-    - input_boolean.foscam2_record_video
+    - input_boolean.foscam3_snapshot
+    - input_boolean.foscam3_on_tv
+    - input_number.foscam3_record_length
+    - input_boolean.foscam3_record_video
 
 #  - type: glance
 #    show_header_toggle: false
