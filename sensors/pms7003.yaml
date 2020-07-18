@@ -1,0 +1,59 @@
+- platform: mqtt
+  name: 'PM0.3'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm0p3 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"
+
+- platform: mqtt
+  name: 'PM0.5'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm0p5 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"
+
+- platform: mqtt
+  name: 'PM1.0'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm1p0 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"
+
+- platform: mqtt
+  name: 'PM2.5'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm2p5 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"
+
+- platform: mqtt
+  name: 'PM5.0'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm2p5 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"
+
+- platform: mqtt
+  name: 'PM10.0'
+  state_topic: "aqm_77c668/pm"
+  value_template: "{{ value_json.pm10p0 }}"
+  icon: mdi:air-filter
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "/ 0.1L air"

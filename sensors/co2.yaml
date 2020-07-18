@@ -1,0 +1,10 @@
+- platform: mqtt
+  name: 'CO2 Concentration'
+  state_topic: "aqm_77c668/co2"
+  icon: mdi:molecule-co2
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "ppm"
+
+
