@@ -22,6 +22,7 @@ homeassistant:
     - /home/homeassistant/.homeassistant/www/images
     - /home/homeassistant/.homeassistant/www/camera_records
     - /home/homeassistant/.homeassistant/www/camera_snapshots
+    - /dev/shm
 
 # Show links to resources in log and frontend
 # introduction:
@@ -130,14 +131,16 @@ duckdns:
 lovelace:
   mode: yaml
   resources:
-  - url: /local/custom_ui/slider-entity-row.js
-    type: module
-  - url: /local/custom_ui/card-tools.js?v=2
-    type: js
-  - url: /local/custom_ui/popup-card.js
-    type: js
-  - url: /local/custom_ui/bar-card.js?v0.0.5
-    type: js
+    - url: /local/plugins/layout-card.js?v=1
+      type: module
+#  - url: /local/custom_ui/slider-entity-row.js
+#    type: module
+#  - url: /local/custom_ui/card-tools.js?v=2
+#    type: js
+#  - url: /local/custom_ui/popup-card.js
+#    type: js
+#  - url: /local/custom_ui/bar-card.js?v0.0.5
+#    type: js
 
 notify: !include notify.yaml
 group: !include groups.yaml
@@ -147,7 +150,8 @@ switch: !include_dir_merge_list switches/
 zone: !include zones.yaml
 binary_sensor: !include_dir_merge_list binary_sensors/
 sensor: !include_dir_merge_list sensors/
-input_boolean: !include input_boolean.yaml
+#input_boolean: !include input_boolean.yaml
+input_boolean: !include_dir_merge_named input_boolean/
 input_number: !include input_number.yaml
 #input_select: !include input_select.yaml
 camera: !include cameras.yaml
