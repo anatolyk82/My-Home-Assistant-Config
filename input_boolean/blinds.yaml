@@ -1,0 +1,19 @@
+bedroom_blinds_auto:
+  name: "Bedroom blinds automation"
+  icon: mdi:blinds
+
+workroom_open_blinds_automation:
+  name: "Workroom Open Blinds Automation"
+  icon: mdi:blinds
+
+workroom_close_blinds_automation:
+  name: "Workroom Close Blinds Automation"
+  icon: mdi:blinds
+
+guestroom_open_blinds_automation:
+  name: "Guestroom Open Blinds Automation"
+  icon: mdi:blinds
+
+guestroom_close_blinds_automation:
+  name: "Guestroom Close Blinds Automation"
+  icon: mdi:blinds

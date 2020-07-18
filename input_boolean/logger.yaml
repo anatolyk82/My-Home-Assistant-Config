@@ -1,0 +1,30 @@
+debug_mode:
+  name: "Debug mode"
+  initial: off
+
+logger_python_script:
+  name: "[Logger] Python scripts debug"
+  initial: off
+  icon: mdi:settings
+
+logger_deconz:
+  name: "[Logger] deConz events debug"
+  initial: off
+  icon: mdi:settings
+
+logger_shell_commands:
+  name: "[Logger] Shell commands debug"
+  initial: off
+  icon: mdi:settings
+
+logger_mqtt:
+  name: "[Logger] Mqtt debug"
+  initial: off
+  icon: mdi:settings
+
+logger_helpers_script:
+  name: "[Logger] Helper script debug"
+  initial: off
+  icon: mdi:settings
+
+
