@@ -1,15 +1,15 @@
 all_covers = [
         {
-            "cover": "cover.blinds_workroom",                              # Blinds id
-            "enable_switch": "input_boolean.workroom_blinds_auto",         # Switch which enables automation for this cover
-            "enable_open": True,                                           # Can the automation open the cover
-            "position_to_open": 25,                                        # Set this position when the cover is open:   100 - fully open
-            "position_to_close": 0                                         # Set this position when the cover is closed: 0 - fully closed
+            "cover": "cover.blinds_workroom",                                            # Blinds id
+            "close_automation_switch": "input_boolean.workroom_close_blinds_automation", # Switch which enables automation for this cover
+            "open_automation_switch": "input_boolean.workroom_open_blinds_automation",   # Switch which enables automation for this cover
+            "position_to_open": 25,                                                      # Set this position when the cover is open:   100 - fully open
+            "position_to_close": 0                                                       # Set this position when the cover is closed: 0 - fully closed
         },
         {
             "cover": "cover.blinds_guestroom",
-            "enable_switch":"input_boolean.guestroom_blinds_auto",
-            "enable_open": True,
+            "close_automation_switch": "input_boolean.guestroom_close_blinds_automation",
+            "open_automation_switch":" input_boolean.guestroom_open_blinds_automation",
             "position_to_open": 25,
             "position_to_close": 0
         },    
@@ -71,57 +71,51 @@ else:
     isCloudy = False
     logger.debug('[Blinds Control] Cloudeness sensor is unavailable. Take isCloudy=%s', isCloudy)
     
-# From which position a cover is considered as closed
-# position = 0 - fully closed; position = 100 - fully open
-thresholdCoverIsClosed = 100 #20
-thresholdCoverIsOpen = 0 #80
-        
 
 for i in range(0, len(all_covers)):
     cover_id = all_covers[ i ]["cover"]
-    automation_enabled = hass.states.get( all_covers[i]["enable_switch"] ).state
-    logger.debug("[Blinds Control]: Automation of %s is %s", cover_id, automation_enabled )
+    open_automation = hass.states.get( all_covers[i]["open_automation_switch"] ).state
+    close_automation = hass.states.get( all_covers[i]["close_automation_switch"] ).state
+    
     current_position = 100 # Assume that this cover is fully open
-    if automation_enabled == "on":
-        cover = hass.states.get( cover_id )
 
-        # Fetch the current position
-        if 'current_position' in cover.attributes:
-            current_position = int(cover.attributes['current_position'])
-            logger.debug("[Blinds Control]: Current position of %s is %d", cover_id, current_position)
-        else:
-            logger.error("[Blinds Control]: Failed to fetch the current position of %s. Assume that current_position is %d", cover_id, current_position)
+    cover = hass.states.get( cover_id )
 
-        isOpenningEnabled = all_covers[i]["enable_open"]
-        if isOpenningEnabled != True:
-            logger.debug("[Blinds Control]: It is not allowed to open blinds %s", cover_id)
+    # Fetch the current position
+    if 'current_position' in cover.attributes:
+        current_position = int(cover.attributes['current_position'])
+        logger.debug("[Blinds Control]: Current position of %s is %d", cover_id, current_position)
+    else:
+        logger.error("[Blinds Control]: Failed to fetch the current position of %s. Assume that current_position is %d", cover_id, current_position)
 
-        position_to_open = all_covers[i]["position_to_open"]
-        position_to_close = all_covers[i]["position_to_close"]
+    position_to_open = all_covers[i]["position_to_open"]
+    position_to_close = all_covers[i]["position_to_close"]
 
-        # Logic to open/close a cover
-        if intention == 'open' and isOpenningEnabled == True:
-            if intention_info == 'before_sunrise_30' and isCloudy == False and current_position <= thresholdCoverIsClosed and all_in_bed == 'off':
-                logger.debug("[Blinds Control]: The sky is clear. Open the cover %s 30 min before sunrise. Position: %d", cover_id, current_position)
-                setCoverPosition(cover_id, position_to_open)
+    # Logic to open/close a cover
+    if intention == 'open' and open_automation == 'on':
+        if intention_info == 'before_sunrise_30' and isCloudy == False and current_position <= position_to_open and all_in_bed == 'off':
+            logger.debug("[Blinds Control]: The sky is clear. Open the cover %s 30 min before sunrise. Position: %d", cover_id, current_position)
+            setCoverPosition(cover_id, position_to_open)
 
-            if intention_info == 'before_sunrise_15' and current_position <= thresholdCoverIsClosed and all_in_bed == 'off':
-                logger.debug("[Blinds Control]: Open the cover %s 15 min before sunrise. Position: %d", cover_id, current_position)
-                setCoverPosition(cover_id, position_to_open)
+        if intention_info == 'before_sunrise_15' and current_position <= position_to_open and all_in_bed == 'off':
+            logger.debug("[Blinds Control]: Open the cover %s 15 min before sunrise. Position: %d", cover_id, current_position)
+            setCoverPosition(cover_id, position_to_open)
 
-            if intention_info == 'waken_up' and current_position <= thresholdCoverIsClosed and delta_sunrise < 30 and isCloudy == False:
-                logger.debug("[Blinds Control]: The sky is clear, someone has waken up and it's %d minutes until sunrise. Open the cover %s. Position: %d", delta_sunrise, cover_id, current_position)
-                setCoverPosition(cover_id, position_to_open)
+        if intention_info == 'waken_up' and current_position <= position_to_open and delta_sunrise < 30 and isCloudy == False:
+            logger.debug("[Blinds Control]: The sky is clear, someone has waken up and it's %d minutes until sunrise. Open the cover %s. Position: %d", delta_sunrise, cover_id, current_position)
+            setCoverPosition(cover_id, position_to_open)
 
-            if intention_info == 'waken_up' and current_position <= thresholdCoverIsClosed and sun.state == 'above_horizon':
-                logger.debug("[Blinds Control]: Someone has waken up and the sun has risen. Open the cover %s. Position: %d", cover_id, current_position)
-                setCoverPosition(cover_id, position_to_open)
+        if intention_info == 'waken_up' and current_position <= position_to_open and sun.state == 'above_horizon':
+            logger.debug("[Blinds Control]: Someone has waken up and the sun has risen. Open the cover %s. Position: %d", cover_id, current_position)
+            setCoverPosition(cover_id, position_to_open)
 
-        elif intention == 'close':
-            if intention_info == 'after_sunset_15' and isCloudy == True and current_position >= thresholdCoverIsOpen:
-                logger.debug("[Blinds Control]: It's cloudy. Close the cover %s 15 min after sunset. Position: %d", cover_id, current_position)
-                setCoverPosition(cover_id, position_to_close)
+        #if intention_info == 'armed_away'
 
-            if intention == 'close' and intention_info == 'after_sunset_30' and current_position >= thresholdCoverIsOpen:
-                logger.debug("[Blinds Control]: Close the cover %s 30 min after sunset. Position: %d", cover_id, current_position)
-                setCoverPosition(cover_id, position_to_close)
+    elif intention == 'close' and close_automation == 'on':
+        if intention_info == 'after_sunset_15' and isCloudy == True and current_position >= position_to_close:
+            logger.debug("[Blinds Control]: It's cloudy. Close the cover %s 15 min after sunset. Position: %d", cover_id, current_position)
+            setCoverPosition(cover_id, position_to_close)
+
+        if intention == 'close' and intention_info == 'after_sunset_30' and current_position >= position_to_close:
+            logger.debug("[Blinds Control]: Close the cover %s 30 min after sunset. Position: %d", cover_id, current_position)
+            setCoverPosition(cover_id, position_to_close)
