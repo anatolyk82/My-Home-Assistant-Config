@@ -26,8 +26,8 @@
       transition: 10
       brightness_pct: 100
   - delay: "00:00:10"
-  - service: switch.turn_on        # The storehouse decor light
-    entity_id: switch.smart_plug_18
+  - service: light.turn_on        # The storehouse decor light
+    entity_id: light.frontyard_decor
   - delay: "00:00:10"
   - service: light.turn_on         # The garden lights
     data:
@@ -50,8 +50,8 @@
   - platform: sun
     event: sunrise
   action:
-  - service: switch.turn_off
-    entity_id: switch.smart_plug_18
+  - service: light.turn_off
+    entity_id: light.frontyard_decor
   - delay: "00:00:10"
   - service: light.turn_off
     entity_id: light.ikea_lamp_12
@@ -90,7 +90,7 @@
     state: 'below_horizon'
   action:
   - service: light.turn_on
-    entity_id: light.frontyard
+    entity_id: light.frontyard_bright
 
 
 - alias: '[Front Yard] Turn off light if no motion for 1 min'
@@ -102,11 +102,11 @@
       minutes: 1
   condition:
   - condition: state
-    entity_id: light.frontyard
+    entity_id: light.frontyard_bright
     state: 'on'
   action:
   - service: light.turn_off
-    entity_id: light.frontyard
+    entity_id: light.frontyard_bright
 
 
 - alias: '[Front Yard] Video if motion in front yard while armed away'

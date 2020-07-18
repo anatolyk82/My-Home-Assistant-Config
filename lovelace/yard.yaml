@@ -23,7 +23,7 @@ cards:
     entities:
     - binary_sensor.foscam3
     - binary_sensor.presence_frontyard
-    - light.frontyard
+    - light.frontyard_bright
     - sensor.lightlevel_frontyard
 
   - type: entities
@@ -38,15 +38,13 @@ cards:
     - entity: sensor.humidity_storehouse
       name: "Storehouse Humidity"
 
+
   - type: entities
     show_header_toggle: false
     entities:
-    - entity: switch.ikea_plug_2
-      state_color: true
-    - entity: light.garden_lights_1
-      icon: mdi:lightbulb-group
-    - light.garden_lights_2
-
+    - entity: light.frontyard_bright
+      name: "Frontyard bright light"
+      icon: mdi:spotlight
   
 
 #---------------
@@ -86,13 +84,6 @@ cards:
     - input_number.foscam3_record_length
     - input_boolean.foscam3_record_video
 
-#  - type: glance
-#    show_header_toggle: false
-#    entities:
-#    - light.ikea_lamp_10
-#    - light.ikea_lamp_11
-#    - light.ikea_lamp_12
-
   - type: horizontal-stack
     cards:
     - type: light
@@ -104,16 +95,11 @@ cards:
     - type: light
       entity: light.ikea_lamp_12
       icon: mdi:wall-sconce-flat
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - entity: light.frontyard
-      name: "Frontyard bright light"
-      icon: mdi:spotlight
-    - entity: switch.smart_plug_18
-      name: "Frontyard decor light"
+      name: "Frontyard Kitchen"
+    - type: light
+      entity: light.frontyard_decor
       icon: mdi:wall-sconce-flat
+
 
   - type: entities
     show_header_toggle: false
@@ -125,4 +111,12 @@ cards:
       name: "Garden Power 2"
       icon: mdi:power-socket-de
 
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: switch.ikea_plug_2
+      state_color: true
+    - entity: light.garden_lights_1
+      icon: mdi:lightbulb-group
+    - light.garden_lights_2
   

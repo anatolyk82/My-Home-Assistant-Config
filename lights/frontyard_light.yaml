@@ -1,4 +1,8 @@
 - platform: switch
-  name: "Frontyard"
+  name: "Frontyard Bright"
   entity_id: switch.ikea_plug_1
+
+- platform: switch
+  name: "Frontyard Decor"
+  entity_id: switch.smart_plug_18
 
