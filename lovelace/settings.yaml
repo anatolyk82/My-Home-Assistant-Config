@@ -39,15 +39,12 @@ cards:
 - type: entities
   show_header_toggle: false
   entities:
-  - input_boolean.guestroom_blinds_auto
-  - input_boolean.workroom_blinds_auto
+  - input_boolean.guestroom_open_blinds_automation
+  - input_boolean.guestroom_close_blinds_automation
+  - input_boolean.workroom_open_blinds_automation
+  - input_boolean.workroom_close_blinds_automation
   - input_boolean.bedroom_blinds_auto
 
-- type: entities
-  show_header_toggle: false
-  entities:
-  - automation.front_yard_light_if_motion_after_sunset
-  - automation.front_yard_notify_if_motion_after_sunset
 
 - type: vertical-stack
   cards:

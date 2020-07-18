@@ -40,6 +40,9 @@
     data:
       entity_id: light.garden_lights_1
       effect: "RandomColorLamp"
+  - service: light.turn_on
+    data:
+      entity_id: light.garden_power_1
 
 
 - alias: '[Yard] Turn off yard lights at sunrise'
@@ -70,9 +73,143 @@
   - delay: '00:00:10'
   - service: switch.turn_off
     entity_id: switch.ikea_plug_2
+  - delay: '00:00:10'
+  - service: light.turn_off
+    entity_id: light.garden_power_1
+
+#=============================( Frontyard )================================#
+
+- alias: '[Front Yard] Light if motion after sunset'
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  action:
+  - service: light.turn_on
+    entity_id: light.frontyard
 
 
-#==============================================================#
+- alias: '[Front Yard] Turn off light if no motion for 1 min'
+  trigger:
+  - platform: state 
+    entity_id: binary_sensor.presence_frontyard
+    to: 'off'
+    for:
+      minutes: 1
+  condition:
+  - condition: state
+    entity_id: light.frontyard
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.frontyard
+
+
+- alias: '[Front Yard] Video if motion in front yard while armed away'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/tmp/foscam3.jpg'
+  - service: notify.pushover_file
+    data:
+      title: "Frontyard motion"
+      message: "Motion detected in the frontyard"
+      data:
+        file:
+          path: '/tmp/foscam3.jpg'
+#  - service: camera.record
+#    data_template:
+#      entity_id: camera.foscam_3
+#      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+#      duration: 40
+
+
+- alias: '[Front Yard] Video if motion in front yard while all in bed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'on'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/tmp/foscam3.jpg'
+  - service: notify.pushover_file
+    data:
+      title: "Frontyard motion"
+      message: "Motion detected in the frontyard"
+      data:
+        file:
+          path: '/tmp/foscam3.jpg'
+#  - service: camera.record
+#    data_template:
+#      entity_id: camera.foscam_3
+#      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+#      duration: 40
+
+
+- alias: '[Front Yard] Notify if motion in frontyard after sunset'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'off'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'disarmed'
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  - condition: state
+    entity_id: binary_sensor.openclose_livingroom
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.openclose_entrance
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.openclose_kitchen
+    state: 'off'
+  action:
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/tmp/foscam3.jpg'
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 40
+  - service: notify.pushover_file
+    data:
+      title: "Frontyard motion"
+      message: "Motion detected in the frontyard"
+      data:
+        file:
+          path: '/tmp/foscam3.jpg'
+
+#=============================( Backyard )================================#
+# Lights in the living room
+#
 
 - alias: '[Yard] Turn on living room if motion in backyard while all in bed'
   trigger:
@@ -107,7 +244,6 @@
   - service: light.turn_off
     entity_id: light.living_room
 
-#==============================================================#
 
 - alias: '[Yard] Turn on lights if motion in backyard while armed away'
   trigger:
@@ -151,7 +287,7 @@
     entity_id: light.ikea_lamp_1
 
 
-#==============================================================#
+#-----------------#
 
 - alias: '[Yard] Video if motion in backyard while armed away'
   trigger:
@@ -209,7 +345,7 @@
       duration: 40
 
 
-- alias: '[Yard] Notify if motion after sunset'
+- alias: '[Yard] Notify if motion in backyard after sunset'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -250,7 +386,8 @@
       data:
         file:
           path: '/tmp/foscam1.jpg'
-#==============================================================#
+
+#=============================(Garden Power Supply)================================#
 
 
 - alias: '[Garden Lights] Turn off garden power supply if too warm'
@@ -266,7 +403,6 @@
     data:
       message: "The garden power supply is turned off due to a risk of overheating."
 
-#==============================================================#
 
 - alias: '[Garden Lights] Fan slider'
   trigger:

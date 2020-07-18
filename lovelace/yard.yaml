@@ -4,11 +4,63 @@ cards:
 - type: vertical-stack
   cards:
   - type: picture-glance
-    title: "Bakgården (Foscam1)"
+    title: "Bakgård (Foscam1)"
     camera_image: camera.foscam_1
     entities:
-    - binary_sensor.presence_backyard
     - binary_sensor.foscam1
+    - binary_sensor.presence_backyard
+    - sensor.lightlevel_backyard
+
+  - type: picture-glance
+    title: "Entrè (Foscam2)"
+    camera_image: camera.foscam_2
+    entities:
+    - binary_sensor.foscam2
+
+  - type: picture-glance
+    title: "Framsida (Foscam3)"
+    camera_image: camera.foscam_3
+    entities:
+    - binary_sensor.foscam3
+    - binary_sensor.presence_frontyard
+    - light.frontyard
+    - sensor.lightlevel_frontyard
+
+  - type: entities
+    title: "Förråd"
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.openclose_storehouse
+      name: "Storehouse Door"
+      secondary_info: 'last-changed'
+    - entity: sensor.temperature_storehouse
+      name: "Storehouse Temperature"
+    - entity: sensor.humidity_storehouse
+      name: "Storehouse Humidity"
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: switch.ikea_plug_2
+      state_color: true
+    - entity: light.garden_lights_1
+      icon: mdi:lightbulb-group
+    - light.garden_lights_2
+
+  
+
+#---------------
+
+- type: vertical-stack
+  cards:
+
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: switch.ikea_plug_3
+      state_color: true
+      name: "Cameras"
 
   - type: entities
     show_header_toggle: false
@@ -21,34 +73,10 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - entity: switch.ikea_plug_2
-      state_color: true
-    - light.garden_lights_1
-    - light.garden_lights_2
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - binary_sensor.presence_backyard
-    - sensor.lightlevel_backyard
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - entity: switch.ikea_plug_3
-      state_color: true
-      name: "Cameras"
-
-
-#---------------
-
-- type: vertical-stack
-  cards:
-  - type: picture-glance
-    title: "Gården (Foscam2)"
-    camera_image: camera.foscam_2
-    entities:
-    - binary_sensor.foscam2
+    - input_boolean.foscam2_snapshot
+    - input_boolean.foscam2_on_tv
+    - input_number.foscam2_record_length
+    - input_boolean.foscam2_record_video
 
   - type: entities
     show_header_toggle: false
@@ -58,20 +86,43 @@ cards:
     - input_number.foscam2_record_length
     - input_boolean.foscam2_record_video
 
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - light.ikea_lamp_10
-    - light.ikea_lamp_11
-    - light.ikea_lamp_12
+#  - type: glance
+#    show_header_toggle: false
+#    entities:
+#    - light.ikea_lamp_10
+#    - light.ikea_lamp_11
+#    - light.ikea_lamp_12
+
+  - type: horizontal-stack
+    cards:
+    - type: light
+      entity: light.ikea_lamp_10
+      icon: mdi:coach-lamp
+    - type: light
+      entity: light.ikea_lamp_11
+      icon: mdi:wall-sconce-flat
+    - type: light
+      entity: light.ikea_lamp_12
+      icon: mdi:wall-sconce-flat
 
   - type: entities
     show_header_toggle: false
     entities:
-    - entity: binary_sensor.openclose_storehouse
-      name: "Storehouse Door"
-      secondary_info: 'last-changed'
-    - entity: sensor.temperature_storehouse
-      name: "Storehouse Temperature"
-    - entity: sensor.humidity_storehouse
-      name: "Storehouse Humidity"
+    - entity: light.frontyard
+      name: "Frontyard bright light"
+      icon: mdi:spotlight
+    - entity: switch.smart_plug_18
+      name: "Frontyard decor light"
+      icon: mdi:wall-sconce-flat
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: light.garden_power_1
+      name: "Garden Power 1"
+      icon: mdi:power-socket-de
+    - entity: light.garden_power_2
+      name: "Garden Power 2"
+      icon: mdi:power-socket-de
+
+  
