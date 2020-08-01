@@ -3,14 +3,14 @@ all_covers = [
             "cover": "cover.blinds_workroom",                                            # Blinds id
             "close_automation_switch": "input_boolean.workroom_close_blinds_automation", # Switch which enables automation for this cover
             "open_automation_switch": "input_boolean.workroom_open_blinds_automation",   # Switch which enables automation for this cover
-            "position_to_open": 25,                                                      # Set this position when the cover is open:   100 - fully open
+            "position_to_open": 100,                                                      # Set this position when the cover is open:   100 - fully open
             "position_to_close": 0                                                       # Set this position when the cover is closed: 0 - fully closed
         },
         {
             "cover": "cover.blinds_guestroom",
             "close_automation_switch": "input_boolean.guestroom_close_blinds_automation",
-            "open_automation_switch":" input_boolean.guestroom_open_blinds_automation",
-            "position_to_open": 25,
+            "open_automation_switch": "input_boolean.guestroom_open_blinds_automation",
+            "position_to_open": 100,
             "position_to_close": 0
         },    
     ]
@@ -91,21 +91,22 @@ for i in range(0, len(all_covers)):
     position_to_open = all_covers[i]["position_to_open"]
     position_to_close = all_covers[i]["position_to_close"]
 
+    #logger.debug("[Blinds Control]: --- %s: pos:%d; intention_info:%s; sun.state=%s open_automation:%s; close_automation:%s", cover_id, current_position, intention_info, sun.state, open_automation, close_automation)
     # Logic to open/close a cover
     if intention == 'open' and open_automation == 'on':
-        if intention_info == 'before_sunrise_30' and isCloudy == False and current_position <= position_to_open and all_in_bed == 'off':
+        if intention_info == 'before_sunrise_30' and isCloudy == False and current_position < position_to_open and all_in_bed == 'off':
             logger.debug("[Blinds Control]: The sky is clear. Open the cover %s 30 min before sunrise. Position: %d", cover_id, current_position)
             setCoverPosition(cover_id, position_to_open)
 
-        if intention_info == 'before_sunrise_15' and current_position <= position_to_open and all_in_bed == 'off':
+        if intention_info == 'before_sunrise_15' and current_position < position_to_open and all_in_bed == 'off':
             logger.debug("[Blinds Control]: Open the cover %s 15 min before sunrise. Position: %d", cover_id, current_position)
             setCoverPosition(cover_id, position_to_open)
 
-        if intention_info == 'waken_up' and current_position <= position_to_open and delta_sunrise < 30 and isCloudy == False:
+        if intention_info == 'waken_up' and current_position < position_to_open and delta_sunrise < 30 and isCloudy == False:
             logger.debug("[Blinds Control]: The sky is clear, someone has waken up and it's %d minutes until sunrise. Open the cover %s. Position: %d", delta_sunrise, cover_id, current_position)
             setCoverPosition(cover_id, position_to_open)
 
-        if intention_info == 'waken_up' and current_position <= position_to_open and sun.state == 'above_horizon':
+        if intention_info == 'waken_up' and current_position < position_to_open and sun.state == 'above_horizon':
             logger.debug("[Blinds Control]: Someone has waken up and the sun has risen. Open the cover %s. Position: %d", cover_id, current_position)
             setCoverPosition(cover_id, position_to_open)
 
