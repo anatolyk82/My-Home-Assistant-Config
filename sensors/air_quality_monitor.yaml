@@ -1,4 +1,34 @@
 - platform: mqtt
+  name: 'CO2 Concentration'
+  state_topic: "aqm_77c668/co2"
+  icon: mdi:molecule-co2
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "ppm"
+
+
+- platform: mqtt
+  name: 'AQM Temperature'
+  state_topic: "aqm_77c668/temperature"
+  icon: mdi:temperature-celsius
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "C"
+
+
+- platform: mqtt
+  name: 'AQM Humidity'
+  state_topic: "aqm_77c668/humidity"
+  icon: mdi:water-percent
+  availability_topic: "aqm_77c668/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+  unit_of_measurement: "%"
+
+
+- platform: mqtt
   name: 'PM0.3'
   state_topic: "aqm_77c668/pm"
   value_template: "{{ value_json.pm0p3 }}"
