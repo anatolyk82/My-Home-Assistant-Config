@@ -109,9 +109,11 @@ if hass.states.get('light.kitchen_lights_2').state == 'on' and all_in_bed == 'on
     all_in_bed = 'off'
 
 # Check the media player
-if hass.states.get('media_player.sirius').state != 'off' and all_in_bed == 'on':
-    logger.debug("[All In Bed] The media player 'Sirius' is on. Set the sensor to off")
-    all_in_bed = 'off'
+media_state = hass.states.get('media_player.sirius').state
+if media_player != 'unavailable':
+    if media_player != 'off' and all_in_bed == 'on':
+        logger.debug("[All In Bed] The media player 'Sirius' is on. Set the sensor to off")
+        all_in_bed = 'off'
 
 
 # Check if all doors are closed. Nobody sleeps with open doors =)
