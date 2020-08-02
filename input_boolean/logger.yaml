@@ -5,26 +5,26 @@ debug_mode:
 logger_python_script:
   name: "[Logger] Python scripts debug"
   initial: off
-  icon: mdi:settings
+  icon: mdi:cog
 
 logger_deconz:
   name: "[Logger] deConz events debug"
   initial: off
-  icon: mdi:settings
+  icon: mdi:cog
 
 logger_shell_commands:
   name: "[Logger] Shell commands debug"
   initial: off
-  icon: mdi:settings
+  icon: mdi:cog
 
 logger_mqtt:
   name: "[Logger] Mqtt debug"
   initial: off
-  icon: mdi:settings
+  icon: mdi:cog
 
 logger_helpers_script:
   name: "[Logger] Helper script debug"
   initial: off
-  icon: mdi:settings
+  icon: mdi:cog
 
 

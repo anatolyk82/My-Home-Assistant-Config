@@ -170,6 +170,6 @@ if all_in_bed == 'on':
 logger.debug("[All In Bed] Set binary_sensor.all_in_bed to %s", all_in_bed)
 hass.states.set('binary_sensor.all_in_bed', all_in_bed, {
     'friendly_name': 'Everyone in bed',
-    'icon': 'mdi:hotel'
+    'icon': 'mdi:bed'
 })
 

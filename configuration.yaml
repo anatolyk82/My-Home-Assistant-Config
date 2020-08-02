@@ -13,7 +13,7 @@ homeassistant:
   packages: !include_dir_named packages
   external_url: !secret http_external_url
   internal_url: "https://192.168.1.2:8123"
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /home/homeassistant/.homeassistant   
     - /tmp
     #- /mnt/ssd/homeassistant

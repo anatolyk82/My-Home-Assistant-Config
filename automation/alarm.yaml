@@ -1,3 +1,8 @@
+#---------------------------------------------------
+#
+# armed_night automations
+#
+#---------------------------------------------------
 - alias: '[Alarm] Arm night automatically'
   initial_state: true
   trigger:
@@ -14,6 +19,7 @@
     data:
       code: !secret alarm_code
 
+
 - alias: '[Alarm] Disarm night automatically'
   initial_state: true
   trigger:
@@ -29,6 +35,7 @@
     entity_id: alarm_control_panel.house
     data:
       code: !secret alarm_code
+
 
 - alias: '[Alarm] Pending from armed_night'
   initial_state: true
@@ -58,8 +65,12 @@
       brightness_pct: 100
 
 
-# =========> Arming/Pending
-- alias: '[Alarm] Pending sound while pending from disarmed state'
+#---------------------------------------------------
+#
+# Pending sound
+#
+#---------------------------------------------------
+- alias: '[Alarm] Pending sound while arming'
   initial_state: true
   trigger:
   - platform: state
@@ -70,7 +81,7 @@
     entity_id: automation.alarm_pending_sound
 
 
-- alias: '[Alarm] Pending sound while pending from armed away'
+- alias: '[Alarm] Pending sound while pending'
   initial_state: true
   trigger:
   - platform: state
@@ -80,8 +91,13 @@
   - service: automation.turn_on
     entity_id: automation.alarm_pending_sound
 
-# =========> Armed Away
-- alias: '[Alarm] Armed Away has been armed'
+
+#---------------------------------------------------
+#
+# Routines on armed_away
+#
+#---------------------------------------------------
+- alias: '[Alarm] Routines on armed away'
   initial_state: true
   trigger:
   - platform: state
@@ -99,8 +115,12 @@
       entity_id: group.indoor_lights
 
 
-# =========> Armed Home
-- alias: '[Alarm] Armed Home has been armed'
+#---------------------------------------------------
+#
+# Routines on armed_home
+#
+#---------------------------------------------------
+- alias: '[Alarm] Routines on armed home'
   initial_state: true
   trigger:
   - platform: state
@@ -115,8 +135,12 @@
     entity_id: automation.alarm_pending_sound
 
 
-# ==============> Disarmed
-- alias: '[Alarm] Disarmed'
+#---------------------------------------------------
+#
+# Routines on disarmed
+#
+#---------------------------------------------------
+- alias: '[Alarm] Routines on Disarmed'
   initial_state: true
   trigger:
   - platform: state
@@ -128,8 +152,12 @@
       entity_id: script.alarm_off
 
 
-# =============> Triggered
-- alias: '[Alarm] Triggered'
+#---------------------------------------------------
+#
+# Routines on triggered
+#
+#---------------------------------------------------
+- alias: '[Alarm] Routines on Triggered'
   initial_state: true
   trigger:
   - platform: state

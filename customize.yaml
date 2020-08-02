@@ -343,7 +343,7 @@ input_boolean.all_lights_on_to_warm_color:
   icon: mdi:lightbulb-on
 
 input_boolean.debug_mode:
-  icon: mdi:settings
+  icon: mdi:cog
 
 input_boolean.foscam1_snapshot:
   icon: mdi:camera
@@ -381,7 +381,7 @@ sensor.ssh_attack:
 sensor.home_assistant_log:
   hidden: true
   friendly_name: "HASS Logfile"
-  icon: mdi:file-document-box-outline
+  icon: mdi:text-box-outline
 
 sensor.home_assistant_v2_db:
   hidden: true
@@ -393,19 +393,19 @@ sensor.installed_version:
 
 sensor.hass_available_version:
   hidden: true
-  icon: mdi:github-circle
+  icon: mdi:github
 
 sensor.hass_installed_version:
   hidden: true
   icon: mdi:folder-download
 
 binary_sensor.all_in_bed:
-  icon: mdi:hotel
+  icon: mdi:bed
   hidden: true
 
 sensor.deconz_available_version:
   hidden: true
-  icon: mdi:github-circle
+  icon: mdi:github
 
 sensor.deconz_installed_version:
   hidden: true
