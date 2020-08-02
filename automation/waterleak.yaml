@@ -7,20 +7,14 @@
   action:
   - service: automation.turn_on
     entity_id: automation.system_warning_sound_rpi_speaker
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the first floor"
-  - delay: '00:00:10'
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the first floor"
-  - delay: '00:00:10'
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the first floor"
+  - repeat:
+      count: 3
+      sequence:
+        - service: notify.pushover
+          data:
+            title: "Water leak!"
+            message: "WARNING! A water leakage is detected on the first floor"
+        - delay: '00:00:10'
 
 
 - alias: '[Security] Water leakage floor 2'
@@ -32,19 +26,12 @@
   action:
   - service: automation.turn_on
     entity_id: automation.system_warning_sound_rpi_speaker
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the second floor"
-  - delay: '00:00:10'
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the second floor"
-  - delay: '00:00:10'
-  - service: notify.pushover
-    data:
-      title: "Water leak!"
-      message: "WARNING! A water leakage is detected on the second floor"
-
+  - repeat:
+      count: 3
+      sequence:
+        - service: notify.pushover
+          data:
+            title: "Water leak!"
+            message: "WARNING! A water leakage is detected on the second floor"
+        - delay: '00:00:10'
 
