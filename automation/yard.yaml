@@ -119,6 +119,25 @@
     entity_id: alarm_control_panel.house
     state: 'armed_away'
   action:
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_3
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 40 #TODO: shall be configurable
+  - delay:
+      seconds: 40
+
+
+- alias: '[Front Yard] Notify if motion while armed away'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_3
@@ -130,16 +149,29 @@
       data:
         file:
           path: '/tmp/foscam3.jpg'
+
+# ---
+
+- alias: '[Front Yard] Video if motion while all in bed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_frontyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'on'
+  action:
   - service: camera.record
     data_template:
       entity_id: camera.foscam_3
       filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 40 #TODO: shall be configurable
+      duration: 40
   - delay:
       seconds: 40
 
 
-- alias: '[Front Yard] Video if motion while all in bed'
+- alias: '[Front Yard] Notify if motion while all in bed'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_frontyard
@@ -160,14 +192,8 @@
       data:
         file:
           path: '/tmp/foscam3.jpg'
-  - service: camera.record
-    data_template:
-      entity_id: camera.foscam_3
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 40
-  - delay:
-      seconds: 40
 
+# ---
 
 - alias: '[Front Yard] Notify if motion after sunset'
   trigger:
@@ -293,7 +319,7 @@
     state: 'below_horizon'
   action:
   - service: light.turn_on
-    entity_id: light.ikea_lamp_1
+    entity_id: light.aqara_lamp_1
   - delay:
       seconds: 10
   - service: light.turn_on
@@ -318,12 +344,12 @@
   - delay:
       seconds: 5
   - service: light.turn_off
-    entity_id: light.ikea_lamp_1
+    entity_id: light.aqara_lamp_1
 
 
 #-----------------#
 
-- alias: '[Yard] Video if motion in backyard while armed away'
+- alias: '[Yard] Notify if motion in backyard while armed away'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -344,14 +370,48 @@
       data:
         file:
           path: '/tmp/foscam1.jpg'
+
+
+- alias: '[Yard] Video if motion in backyard while armed away'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_backyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
       filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
+  - delay:
+      seconds: 40
 
+# ---
 
 - alias: '[Yard] Video if motion in backyard while all in bed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_backyard
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'on'
+  action:
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_1
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 40
+  - delay:
+      seconds: 40
+
+
+- alias: '[Yard] Notify if motion in backyard while all in bed'
   trigger:
   - platform: state
     entity_id: binary_sensor.presence_backyard
@@ -372,12 +432,8 @@
       data:
         file:
           path: '/tmp/foscam1.jpg'
-  - service: camera.record
-    data_template:
-      entity_id: camera.foscam_1
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 40
 
+# ---
 
 - alias: '[Yard] Notify if motion in backyard after sunset'
   trigger:
@@ -449,6 +505,7 @@
       duration: 40
   - delay:
       seconds: 40
+
 #=============================(Garden Power Supply)================================#
 
 
