@@ -134,7 +134,7 @@ cards:
   - type: horizontal-stack
     cards:
     - type: entity-button
-      entity: light.ikea_lamp_1
+      entity: light.aqara_lamp_1
       name: "Upstairs"
       icon: mdi:ceiling-light
       tap_action:

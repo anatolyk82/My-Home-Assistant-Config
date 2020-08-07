@@ -293,7 +293,7 @@ light.xiaomi_philips_desklamp:
   friendly_name: Desktop lamp
   icon: mdi:desk-lamp
 
-light.ikea_lamp_1:
+light.aqara_lamp_1:
   icon: mdi:ceiling-light
 
 light.ikea_lamp_2:

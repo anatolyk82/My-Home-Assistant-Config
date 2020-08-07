@@ -42,7 +42,7 @@ cards:
           top: 18%
           left: 26%
       - type: state-icon
-        entity: light.ikea_lamp_1
+        entity: light.aqara_lamp_1
         tap_action:
           action: toggle
         hold_action:
@@ -149,7 +149,7 @@ cards:
         icon: mdi:ceiling-light
         name: "Guestroom"
       - type: light
-        entity: light.ikea_lamp_1
+        entity: light.aqara_lamp_1
         icon: mdi:ceiling-light
         name: "Upstairs"
       
