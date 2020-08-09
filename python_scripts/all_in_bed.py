@@ -36,6 +36,7 @@ def timezoneOffset():
 # Check all illumination sensors if their values are below 10
 # Illumination is checked only if the sensor is off. It allows to avoid
 # unexpecting turning off in the morning whenn all are still in bed
+
 all_in_bed_current_state = hass.states.get('binary_sensor.all_in_bed').state
 if hass.states.get('binary_sensor.all_in_bed') == None:
     all_in_bed_current_state = 'off'
@@ -80,20 +81,17 @@ if hass.states.get('light.ikea_lamp_13').state == 'on' and all_in_bed == 'on':
     logger.debug("[All In Bed] Workroom light is on. Set the sensor to off")
     all_in_bed = 'off'
 
-#if hass.states.get('light.xiaomi_philips_desklamp').state == 'on' and all_in_bed == 'on':
-#    logger.debug("[All In Bed] Desktop lamp is on. Set the sensor to off")
-#    all_in_bed = 'off'
-
 # Bedroom
 if hass.states.get('light.gledopto_lamp_4').state == 'on' and all_in_bed == 'on':
     logger.debug("[All In Bed] Bedroom light is on. Set the sensor to off")
     all_in_bed = 'off'
 
+# Bed light
 if hass.states.get('light.bed_led').state == 'on' and all_in_bed == 'on':
     logger.debug("[All In Bed] BedLED light is on. Set the sensor to off")
     all_in_bed = 'off'
 
-# Room
+# GuestRoom
 if hass.states.get('light.gledopto_lamp_3').state == 'on' and all_in_bed == 'on':
     logger.debug("[All In Bed] Guest room light is on. Set the sensor to off")
     all_in_bed = 'off'
@@ -106,6 +104,11 @@ if hass.states.get('light.kitchen_lights_1').state == 'on' and all_in_bed == 'on
 # Kitchen 2
 if hass.states.get('light.kitchen_lights_2').state == 'on' and all_in_bed == 'on':
     logger.debug("[All In Bed] Kitchen lights 2 is on. Set the sensor to off")
+    all_in_bed = 'off'
+
+# Kitchen cupboard
+if hass.states.get('light.kitchen_cupboard').state == 'on' and all_in_bed == 'on':
+    logger.debug("[All In Bed] Kitchen cupboard lights is on. Set the sensor to off")
     all_in_bed = 'off'
 
 # Check the media player
@@ -154,8 +157,8 @@ minutes_last_update = 10
 if all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('binary_sensor'):
         if entity_id.find('presence') >= 0:
-            # Ignore motion sensor in the bedroom  
-            if entity_id.find('bedroom') >= 0:
+            # Ignore motion sensor in the bedroom and guestroom 
+            if entity_id == 'binary_sensor.presence_bedroom' or entity_id == 'binary_sensor.presence_room':
                 continue
             entityState = hass.states.get(entity_id)
             lu = entityState.last_updated.replace(tzinfo=None)
