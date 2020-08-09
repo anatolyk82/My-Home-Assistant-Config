@@ -40,6 +40,7 @@ indoor_lights:
   - light.mood_lamp
   - light.bed_led
   - light.stairs
+  - light.kitchen_cupboard
 
 # ------------------------------------------------
 zigbee_devices:
@@ -149,6 +150,7 @@ zigbee_smoke_sensors:
   name: 'ZigBee Smoke Sensors'
   entities:
   - binary_sensor.smoke_first_floor
+  - binary_sensor.smoke_second_floor
 
 # ------------------------------------------------
 
