@@ -45,8 +45,7 @@
     from: 'armed_night'
     to: 'pending'
   action:
-  - service: automation.turn_on
-    entity_id: automation.alarm_pending_sound
+  - service: script.alarm_pending
   - service: light.turn_on
     data:
       entity_id: light.kitchen_lights_1
@@ -77,8 +76,7 @@
     entity_id: alarm_control_panel.house
     to: 'arming'
   action:
-  - service: automation.turn_on
-    entity_id: automation.alarm_pending_sound
+  - service: script.alarm_arming
 
 
 - alias: '[Alarm] Pending sound while pending'
@@ -88,8 +86,7 @@
     entity_id: alarm_control_panel.house
     to: 'pending'
   action:
-  - service: automation.turn_on
-    entity_id: automation.alarm_pending_sound
+  - service: script.alarm_pending
 
 
 #---------------------------------------------------
@@ -108,11 +105,13 @@
     data:
       title: "Alarm is armed"
       message: "The alarm has been armed away."
-  - service: automation.turn_off
-    entity_id: automation.alarm_pending_sound
   - service: light.turn_off
     data:
       entity_id: group.indoor_lights
+  # In case if 'armed_away' goes after 'triggered'
+  - service: script.turn_on
+    data:
+      entity_id: script.alarm_deactivated
 
 
 #---------------------------------------------------
@@ -131,8 +130,6 @@
     data:
       title: "Alarm is armed"
       message: "The alarm has been armed home."
-  - service: automation.turn_off
-    entity_id: automation.alarm_pending_sound
 
 
 #---------------------------------------------------
@@ -149,7 +146,7 @@
   action:
   - service: script.turn_on
     data:
-      entity_id: script.alarm_off
+      entity_id: script.alarm_deactivated
 
 
 #---------------------------------------------------
@@ -166,5 +163,5 @@
   action:
   - service: script.turn_on
     data:
-      entity_id: script.alarm_on
+      entity_id: script.alarm_triggered
 

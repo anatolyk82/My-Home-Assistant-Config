@@ -1,0 +1,135 @@
+alarm_arming:
+  alias: "Do actions while alarm is arming"
+  sequence:
+    repeat:
+      while:
+        - condition: state
+          entity_id: alarm_control_panel.house
+          state: 'arming'
+      sequence:
+        - service: shell_command.alarm_pending_sound
+        - delay:
+            seconds: 2
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.openclose_livingroom
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.openclose_kitchen
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.openclose_storehouse
+              state: 'on'
+        - service: shell_command.something_open_sound
+
+
+alarm_pending:
+  alias: "Do actions while alarm is pending"
+  sequence:
+    repeat:
+      while:
+        - condition: state
+          entity_id: alarm_control_panel.house
+          state: 'pending'
+      sequence:
+        - service: shell_command.alarm_pending_sound
+        - delay:
+            seconds: 2
+
+
+alarm_triggered:
+  alias: "Actions when alarm is triggered"
+  sequence:
+
+    - service: light.turn_on
+      entity_id: light.mood_lamp
+      data:
+        effect: "Police"
+
+    - service: script.turn_on
+      data:
+        entity_id: script.alarm_triggered_sound
+
+    - service: switch.turn_on
+      data:
+        entity_id: switch.alarm_switch
+
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_4
+        rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_4
+        brightness_pct: 100
+
+    - service: light.turn_on
+      data:
+        entity_id: light.ikea_lamp_13
+        brightness_pct: 100
+
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_1
+        rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_1
+        brightness_pct: 100
+
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_2
+        rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_2
+        brightness_pct: 100
+
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_3
+        rgb_color: [255, 0, 0]
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.gledopto_lamp_3
+        brightness_pct: 100
+
+    - repeat:
+        count: 5
+        sequence:
+          - service: notify.pushover
+            data:
+              title: "ALARM"
+              message: "WARNING! The alarm has been triggered."
+          - delay: '00:00:10'
+
+
+alarm_triggered_sound:
+  alias: "Alarm sound when alarm is triggered"
+  sequence:
+    repeat:
+      while:
+        - condition: state
+          entity_id: alarm_control_panel.house
+          state: 'triggered'
+      sequence:
+        - service: shell_command.alarm_sound_rpi_speaker
+        - delay:
+            seconds: 1
+
+
+alarm_deactivated:
+  alias: "Actions when alarm is deactivated"
+  sequence:
+    - service: automation.turn_off
+      entity_id: automation.alarm_alarm_sound_rpi_speaker
+    - service: switch.turn_off
+      data:
+        entity_id: switch.alarm_switch
+

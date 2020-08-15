@@ -1,9 +1,0 @@
-- alias: '[Alarm] Pending sound'
-  initial_state: False
-  trigger:
-  - platform: time_pattern
-    seconds: "/2"
-  action:
-  - service: script.alarm_pending_sounds
-
-
