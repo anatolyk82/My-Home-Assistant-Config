@@ -1,0 +1,106 @@
+- alias: '[System] Any battery is low'
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_switch_workroom_battery_level
+    - sensor.xiaomi_switch_bedroom_battery_level
+    - sensor.motion_sensor_kitchen_battery_level
+    - sensor.motion_sensor_bedroom_battery_level
+    - sensor.motion_sensor_backyard_battery_level
+    - sensor.motion_sensor_upstairs_battery_level
+    - sensor.motion_sensor_room_battery_level
+    - sensor.motion_sensor_entrance_battery_level
+    - sensor.motion_sensor_workroom_battery_level
+    - sensor.kitchen_battery_level
+    - sensor.motion_sensor_livingroom_battery_level
+    - sensor.living_room_battery_level
+    - sensor.entrance_battery_level
+    - sensor.storehouse_battery_level
+    - sensor.ikea_switch_1_battery_level
+    - sensor.ikea_switch_2_battery_level
+    - sensor.ikea_switch_3_battery_level
+    - sensor.ikea_switch_4_battery_level
+    - sensor.ikea_switch_5_battery_level
+    - sensor.xiaomi_wallswitch_1_battery_level
+    - sensor.weather_storehouse_battery_level
+    - sensor.weather_second_floor_battery_level
+    - sensor.weather_first_floor_battery_level
+    - sensor.weather_outdoor_battery_level
+    - sensor.water_first_floor_battery_level
+    - sensor.water_second_floor_battery_level
+    - sensor.ikea_on_off_switch_1_battery_level
+    - sensor.ikea_on_off_switch_2_battery_level
+    - sensor.ikea_up_down_switch_1_battery_level
+    - sensor.ikea_up_down_switch_2_battery_level
+    - sensor.ikea_up_down_switch_3_battery_level
+    - sensor.smoke_first_floor_battery_level
+    - sensor.smoke_second_floor_battery_level
+    - sensor.blinds_guesroom_battery_level
+    - sensor.blinds_workroom_battery_level
+    - sensor.blinds_bedroom_right_battery_level
+    - sensor.blinds_bedroom_left_battery_level
+    - sensor.opple_switch_1_battery_level
+    below: 20
+  mode: queued
+  action:
+  - choose:
+
+    # Outdoor weather sensor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_outdoor_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the outdoor weather sensor is {{ states('sensor.weather_outdoor_battery_level') }} %."
+
+    # Left cover in the bedroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_bedroom_left_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the left cover in the bedroom is {{ states('sensor.blinds_bedroom_left_battery_level') }} %."
+
+    # Right cover in the bedroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_bedroom_right_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the right cover in the bedroom is {{ states('sensor.blinds_bedroom_right_battery_level') }} %."
+
+    # Cover in the guestroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_guesroom_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the cover in the guestroom is {{ states('sensor.blinds_guesroom_battery_level') }} %."
+
+    # Cover in the workroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_workroom_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the cover in the workroom is {{ states('sensor.blinds_workroom_battery_level') }} %."
+
+    default:
+    - service: notify.pushover
+      data_template:
+        title: "Low battery"
+        message: "The battery of {{ trigger.to_state.entity_id }} is {{ trigger.to_state.state }} %."
+
+
+
+
