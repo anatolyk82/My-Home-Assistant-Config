@@ -53,4 +53,5 @@ cards:
     - type: entities
       entities:
       - sensor.yr_cloudiness
+      - sensor.yr_wind_speed
 

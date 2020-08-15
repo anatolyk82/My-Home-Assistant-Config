@@ -66,3 +66,11 @@ cards:
       - input_boolean.logger_shell_commands
       - input_boolean.logger_helpers_script
 
+- type: entities
+  show_header_toggle: false
+  entities:
+  - sensor.zigbee2mqtt_bridge_state
+  - sensor.zigbee2mqtt_version
+  - switch.zigbee2mqtt_main_join
+  - sensor.zigbee2mqtt_log_level
+  - input_select.zigbee2mqtt_log_level
