@@ -33,7 +33,7 @@
       entity_id: binary_sensor.presence_bedroom
       to: 'on'
     - platform: state 
-      entity_id: binary_sensor.presence_room
+      entity_id: binary_sensor.presence_guestroom
       to: 'on'
   condition:
     - condition: state

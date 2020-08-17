@@ -1,0 +1,9 @@
+- platform: "mqtt"
+  name: "aqara_lamp_1"
+  state_topic: "zigbee2mqtt/aqara_lamp_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/aqara_lamp_1/set"
+  brightness_scale: 255

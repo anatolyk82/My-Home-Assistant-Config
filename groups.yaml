@@ -112,7 +112,7 @@ zigbee_motion_sensors:
   - binary_sensor.presence_kitchen
   - binary_sensor.presence_upstairs
   - binary_sensor.presence_workroom
-  - binary_sensor.presence_room
+  - binary_sensor.presence_guestroom
   - binary_sensor.presence_bedroom
   - binary_sensor.presence_backyard
 

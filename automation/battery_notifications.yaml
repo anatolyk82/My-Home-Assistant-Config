@@ -10,13 +10,12 @@
     - sensor.motion_sensor_upstairs_battery_level
     - sensor.motion_sensor_room_battery_level
     - sensor.motion_sensor_entrance_battery_level
-    - sensor.motion_sensor_workroom_battery_level
     - sensor.kitchen_battery_level
     - sensor.motion_sensor_livingroom_battery_level
     - sensor.living_room_battery_level
     - sensor.entrance_battery_level
     - sensor.storehouse_battery_level
-    - sensor.ikea_switch_1_battery_level
+    - sensor.ikea_switch_1_battery
     - sensor.ikea_switch_2_battery_level
     - sensor.ikea_switch_3_battery_level
     - sensor.ikea_switch_4_battery_level
@@ -40,6 +39,10 @@
     - sensor.blinds_bedroom_right_battery_level
     - sensor.blinds_bedroom_left_battery_level
     - sensor.opple_switch_1_battery_level
+    - sensor.motion_workroom_battery
+    - sensor.motion_upstairs_battery
+    - sensor.motion_guestroom_battery
+    - sensor.keypad_1_battery
     below: 20
   mode: queued
   action:
@@ -94,6 +97,56 @@
         data_template:
           title: "Low battery"
           message: "The battery of the cover in the workroom is {{ states('sensor.blinds_workroom_battery_level') }} %."
+
+    # Ikea Switch 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_switch_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Ikea switch 1 is {{ states('sensor.ikea_switch_1_battery') }} %."
+
+    # Motion sensor in the workroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_workroom_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the workroom is {{ states('sensor.motion_workroom_battery') }} %."
+
+    # Motion sensor upstairs
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_upstairs_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor upstairs is {{ states('sensor.motion_upstairs_battery') }} %."
+
+    # Motion sensor in the guestroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_guestroom_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the guestroom is {{ states('sensor.motion_guestroom_battery') }} %."
+
+    # Keypad 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.keypad_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the keypad 1 is {{ states('sensor.keypad_1_battery') }} %."
 
     default:
     - service: notify.pushover

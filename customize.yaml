@@ -240,8 +240,8 @@ binary_sensor.presence_workroom:
 binary_sensor.presence_bedroom:
   friendly_name: Bedroom
 
-binary_sensor.presence_room:
-  friendly_name: Room
+binary_sensor.presence_guestroom:
+  friendly_name: Guestroom
 
 #============================ Illumination
 sensor.lightlevel_livingroom:

@@ -94,7 +94,7 @@ cards:
           top: 33%
           left: 70%
       - type: state-icon #Room motion sensor
-        entity: binary_sensor.presence_room
+        entity: binary_sensor.presence_guestroom
         style:
           top: 33%
           left: 80%
@@ -125,7 +125,7 @@ cards:
         entity: sensor.lightlevel_workroom
         graph: line
       - type: sensor
-        entity: sensor.lightlevel_room
+        entity: sensor.lightlevel_guestroom
         graph: line
   - type: vertical-stack
     cards:

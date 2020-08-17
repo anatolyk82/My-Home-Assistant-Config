@@ -1,0 +1,46 @@
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_workroom
+# 0x00158d000236a581
+#
+################################################
+- platform: "mqtt"
+  name: "presence_workroom"
+  state_topic: "zigbee2mqtt/motion_workroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_upstairs
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_upstairs"
+  state_topic: "zigbee2mqtt/motion_upstairs"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_guestroom
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_guestroom"
+  state_topic: "zigbee2mqtt/motion_guestroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"

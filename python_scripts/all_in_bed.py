@@ -158,7 +158,7 @@ if all_in_bed == 'on':
     for entity_id in hass.states.entity_ids('binary_sensor'):
         if entity_id.find('presence') >= 0:
             # Ignore motion sensor in the bedroom and guestroom 
-            if entity_id == 'binary_sensor.presence_bedroom' or entity_id == 'binary_sensor.presence_room':
+            if entity_id == 'binary_sensor.presence_bedroom' or entity_id == 'binary_sensor.presence_guestroom':
                 continue
             entityState = hass.states.get(entity_id)
             lu = entityState.last_updated.replace(tzinfo=None)

@@ -9,7 +9,7 @@
                binary_sensors.openclose_livingroom, binary_sensors.openclose_storehouse,
                binary_sensor.presence_bedroom,  binary_sensor.presence_entrance, 
                binary_sensor.presence_kitchen,  binary_sensor.presence_livingroom, 
-               binary_sensor.presence_room,     binary_sensor.presence_upstairs, 
+               binary_sensor.presence_guestroom,     binary_sensor.presence_upstairs, 
                binary_sensor.presence_workroom, binary_sensor.presence_backyard,
                sensor.lightlevel_entrance,  sensor.lightlevel_livingroom,
                sensor.lightlevel_kitchen,   sensor.lightlevel_upstairs,

@@ -1,0 +1,64 @@
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor in the workroom
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_workroom'
+  state_topic: "zigbee2mqtt/motion_workroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_workroom_battery'
+  state_topic: "zigbee2mqtt/motion_workroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor upstairs
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_upstairs'
+  state_topic: "zigbee2mqtt/motion_upstairs"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_upstairs_battery'
+  state_topic: "zigbee2mqtt/motion_upstairs"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor in the guestroom
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_guestroom'
+  state_topic: "zigbee2mqtt/motion_guestroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_guestroom_battery'
+  state_topic: "zigbee2mqtt/motion_guestroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
