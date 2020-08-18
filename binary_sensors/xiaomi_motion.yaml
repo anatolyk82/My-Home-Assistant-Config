@@ -44,3 +44,19 @@
   payload_off: false
   value_template: "{{ value_json.occupancy }}"
   device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_bedroom
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_bedroom"
+  state_topic: "zigbee2mqtt/motion_bedroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
