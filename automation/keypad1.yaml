@@ -1,13 +1,13 @@
 - alias: '[Keypad1] Button actions'
   trigger:
     platform: mqtt
-    topic: "zigbee2mqtt/keypad_1/action"
+    topic: "zigbee2mqtt/keypad_1"
   #mode: queued
   action:
   - choose:
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_1_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_1_single' }}"
       sequence:
       - service: cover.open_cover
         data:
@@ -15,7 +15,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_5_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_5_single' }}"
       sequence:
       - service: cover.close_cover
         data:
@@ -23,7 +23,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_4_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_4_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:
@@ -32,7 +32,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_3_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_3_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:
@@ -41,7 +41,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_2_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_2_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:
@@ -50,7 +50,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_8_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_8_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:
@@ -59,7 +59,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_7_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_7_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:
@@ -68,7 +68,7 @@
 
     - conditions:
       - condition: template
-        value_template: "{{ trigger.payload | string == 'button_6_single' }}"
+        value_template: "{{ trigger.payload_json.action | string == 'button_6_single' }}"
       sequence:
       - service: cover.set_cover_position
         data:

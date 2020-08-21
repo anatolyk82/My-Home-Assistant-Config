@@ -24,7 +24,7 @@
     - sensor.weather_outdoor_battery_level
     - sensor.water_first_floor_battery_level
     - sensor.water_second_floor_battery_level
-    - sensor.ikea_on_off_switch_1_battery_level
+    - sensor.ikea_on_off_switch_1_battery
     - sensor.ikea_on_off_switch_2_battery_level
     - sensor.ikea_up_down_switch_1_battery_level
     - sensor.ikea_up_down_switch_2_battery_level
@@ -32,7 +32,7 @@
     - sensor.smoke_first_floor_battery_level
     - sensor.smoke_second_floor_battery_level
     - sensor.blinds_guesroom_battery_level
-    - sensor.blinds_workroom_battery_level
+    - sensor.blinds_workroom_battery
     - sensor.blinds_bedroom_right_battery_level
     - sensor.blinds_bedroom_left_battery_level
     - sensor.opple_switch_1_battery_level
@@ -89,12 +89,12 @@
     # Cover in the workroom
     - conditions:
       - condition: template
-        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_workroom_battery_level' }}"
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_workroom_battery' }}"
       sequence:
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the cover in the workroom is {{ states('sensor.blinds_workroom_battery_level') }} %."
+          message: "The battery of the cover in the workroom is {{ states('sensor.blinds_workroom_battery') }} %."
 
     # Ikea Switch 1
     - conditions:
@@ -155,6 +155,16 @@
         data_template:
           title: "Low battery"
           message: "The battery of the keypad 1 is {{ states('sensor.keypad_1_battery') }} %."
+
+    # IKEA on/off switch 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_on_off_switch_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the IKEA on/off switch 1 is {{ states('sensor.ikea_on_off_switch_1_battery') }} %."
 
     default:
     - service: notify.pushover

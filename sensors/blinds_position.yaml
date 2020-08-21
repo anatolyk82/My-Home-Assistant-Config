@@ -4,7 +4,7 @@
       entity_id: cover.blinds_guestroom
       friendly_name: 'Guestroom blinds position'
       unit_of_measurement: '%'
-      value_template: "{{ (state_attr('cover.blinds_guestroom', 'current_position') - 36 ) * 100 / 64 | round(0) }}"
+      value_template: "{{ state_attr('cover.blinds_guestroom', 'current_position') }}"
       icon_template: "
       {% if state_attr('cover.blinds_guestroom', 'current_position') <= 3 %}
           '/local/icons/venetian-blinds/blinds_00.png'
@@ -37,7 +37,7 @@
       entity_id: cover.blinds_workroom
       friendly_name: 'Workroom blinds position'
       unit_of_measurement: '%'
-      value_template: "{{ (state_attr('cover.blinds_workroom', 'current_position') - 36 ) * 100 / 64 | round(0) }}"
+      value_template: "{{ state_attr('cover.blinds_workroom', 'current_position') }}"
       icon_template: "
       {% if state_attr('cover.blinds_workroom', 'current_position') <= 3 %}
           '/local/icons/venetian-blinds/blinds_00.png'
