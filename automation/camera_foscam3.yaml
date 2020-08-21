@@ -26,7 +26,7 @@
   - service: camera.play_stream
     data:
       entity_id: camera.foscam_3
-      media_player: media_player.sirius
+      media_player: media_player.lg_tv
 
 
 - alias: '[Camera Foscam3] Stop stream on TV'
@@ -38,7 +38,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.sirius
+      entity_id: media_player.lg_tv
 
 
 - alias: '[Camera Foscam3] Record video'

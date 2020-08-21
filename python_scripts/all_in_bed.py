@@ -112,7 +112,7 @@ if hass.states.get('light.kitchen_cupboard').state == 'on' and all_in_bed == 'on
     all_in_bed = 'off'
 
 # Check the media player
-media_player = hass.states.get('media_player.sirius').state
+media_player = hass.states.get('media_player.lg_tv').state
 if media_player != 'unavailable':
     if media_player != 'off' and all_in_bed == 'on':
         logger.debug("[All In Bed] The media player 'Sirius' is on. Set the sensor to off")

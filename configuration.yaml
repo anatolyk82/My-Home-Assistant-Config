@@ -155,7 +155,7 @@ input_boolean: !include_dir_merge_named input_boolean/
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 camera: !include cameras.yaml
-cast: !include media.yaml
+#cast: !include media.yaml
 weather: !include weather.yaml
 recorder: !include recorder.yaml
 device_tracker: !include_dir_merge_list device_tracker/
@@ -166,5 +166,9 @@ alarm_control_panel: !include alarm.yaml
 timer: !include timers.yaml
 panel_iframe: !include panel_iframe.yaml
 scene: !include scenes.yaml
+webostv: !include webostv.yaml
+cover: !include_dir_merge_list covers/
+
+wake_on_lan:
 
 

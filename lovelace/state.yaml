@@ -101,7 +101,7 @@ cards:
   - sensor.garden_light_temperature
   - input_number.garden_powersupply_fan
 - type: media-control
-  entity: media_player.sirius
+  entity: media_player.lg_tv
   
 - type: history-graph
   title: CO2 Concentration

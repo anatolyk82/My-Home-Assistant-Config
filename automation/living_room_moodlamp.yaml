@@ -80,7 +80,7 @@
     entity_id: alarm_control_panel.house
     state: 'disarmed'
   - condition: state
-    entity_id: media_player.sirius
+    entity_id: media_player.lg_tv
     state: 'off'
   - condition: time
     after: "00:01"
@@ -106,7 +106,7 @@
     entity_id: light.mood_lamp
     state: 'on'
   - condition: state
-    entity_id: media_player.sirius
+    entity_id: media_player.lg_tv
     state: 'off'
   - condition: time
     after: "00:01"
