@@ -1,89 +1,137 @@
 - platform: mqtt
   name: 'CO2 Concentration'
-  state_topic: "aqm_77c668/co2"
+  state_topic: "aqm_77c668"
   icon: mdi:molecule-co2
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
   unit_of_measurement: "ppm"
+  value_template: >-
+    {% if value_json.co2 | string == "" %}
+      {{ states('sensor.co2_concentration') }}
+    {% else %}
+      {{ value_json.co2 }}
+    {% endif %}
 
 
 - platform: mqtt
   name: 'AQM Temperature'
-  state_topic: "aqm_77c668/temperature"
+  state_topic: "aqm_77c668"
   icon: mdi:temperature-celsius
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
   unit_of_measurement: "C"
+  value_template: >-
+    {% if value_json.temperature | string == "" %}
+      {{ states('sensor.aqm_temperature') }}
+    {% else %}
+      {{ value_json.temperature }}
+    {% endif %}
 
 
 - platform: mqtt
   name: 'AQM Humidity'
-  state_topic: "aqm_77c668/humidity"
+  state_topic: "aqm_77c668"
   icon: mdi:water-percent
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
   unit_of_measurement: "%"
+  value_template: >-
+    {% if value_json.humidity | string == "" %}
+      {{ states('sensor.aqm_humidity') }}
+    {% else %}
+      {{ value_json.humidity }}
+    {% endif %}
 
 
 - platform: mqtt
   name: 'PM0.3'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm0p3 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm0p3_ppd | string == "" %}
+      {{ states('sensor.pm0_3') }}
+    {% else %}
+      {{ value_json.pm0p3_ppd }}
+    {% endif %}
 
 - platform: mqtt
   name: 'PM0.5'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm0p5 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm0p5_ppd | string == "" %}
+      {{ states('sensor.pm0_5') }}
+    {% else %}
+      {{ value_json.pm0p5_ppd }}
+    {% endif %}
 
 - platform: mqtt
   name: 'PM1.0'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm1p0 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm1p0_ppd | string == "" %}
+      {{ states('sensor.pm1_0') }}
+    {% else %}
+      {{ value_json.pm1p0_ppd }}
+    {% endif %}
 
 - platform: mqtt
   name: 'PM2.5'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm2p5 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm2p5_ppd | string == "" %}
+      {{ states('sensor.pm2_5') }}
+    {% else %}
+      {{ value_json.pm2p5_ppd }}
+    {% endif %}
 
 - platform: mqtt
   name: 'PM5.0'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm2p5 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm5p0_ppd | string == "" %}
+      {{ states('sensor.pm5_0') }}
+    {% else %}
+      {{ value_json.pm5p0_ppd }}
+    {% endif %}
 
 - platform: mqtt
   name: 'PM10.0'
-  state_topic: "aqm_77c668/pm"
-  value_template: "{{ value_json.pm10p0 }}"
+  state_topic: "aqm_77c668"
   icon: mdi:air-filter
   availability_topic: "aqm_77c668/status"
   payload_available: "online"
   payload_not_available: "offline"
-  unit_of_measurement: "/ 0.1L air"
+  unit_of_measurement: "ppd"
+  value_template: >-
+    {% if value_json.pm10p0_ppd | string == "" %}
+      {{ states('sensor.pm10_0') }}
+    {% else %}
+      {{ value_json.pm10p0_ppd }}
+    {% endif %}
