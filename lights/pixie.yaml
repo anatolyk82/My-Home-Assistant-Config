@@ -3,10 +3,10 @@
   schema: json
   rgb: true
   brightness: true
-  command_topic: "light_77c228/channel0/set"
-  state_topic: "light_77c228/channel0"
-  availability_topic: "light_77c228/status"
-  json_attributes_topic: "light_77c228/attributes"
+  command_topic: "light_0fe4f0/channel0/set"
+  state_topic: "light_0fe4f0/channel0"
+  availability_topic: "light_0fe4f0/status"
+  json_attributes_topic: "light_0fe4f0/attributes"
   payload_available: "online"
   payload_not_available: "offline"
   optimistic: false
@@ -45,10 +45,10 @@
   schema: json
   rgb: true
   brightness: true
-  command_topic: "light_77c228/channel1/set"
-  state_topic: "light_77c228/channel1"
-  availability_topic: "light_77c228/status"
-  json_attributes_topic: "light_77c228/attributes"
+  command_topic: "light_0fe4f0/channel1/set"
+  state_topic: "light_0fe4f0/channel1"
+  availability_topic: "light_0fe4f0/status"
+  json_attributes_topic: "light_0fe4f0/attributes"
   payload_available: "online"
   payload_not_available: "offline"
   optimistic: false
