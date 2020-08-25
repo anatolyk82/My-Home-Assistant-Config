@@ -41,6 +41,7 @@
     - sensor.motion_guestroom_battery
     - sensor.motion_bedroom_battery
     - sensor.keypad_1_battery
+    - sensor.tuya_weather_1_battery
     below: 20
   mode: queued
   action:
@@ -165,6 +166,16 @@
         data_template:
           title: "Low battery"
           message: "The battery of the IKEA on/off switch 1 is {{ states('sensor.ikea_on_off_switch_1_battery') }} %."
+    
+    # TuYa weather sensor 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.tuya_weather_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the TuYa weather sensor 1 is {{ states('sensor.tuya_weather_1_battery') }} %."
 
     default:
     - service: notify.pushover
