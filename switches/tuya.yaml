@@ -1,0 +1,11 @@
+- platform: mqtt
+  name: "TuYa Power 1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  command_topic: "zigbee2mqtt/tuya_power_1/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  state_topic: "zigbee2mqtt/tuya_power_1"
+  value_template: "{{ value_json.state }}"
+  qos: 1
+  retain: false
+
