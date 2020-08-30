@@ -158,6 +158,7 @@ cards:
     show_header_toggle: false
     entities:
     - cover.blinds_guestroom
-    - cover.blinds_workroom
+    - entity: cover.blinds_workroom
+      name: "Workroom Cover"
     - cover.blinds_bedroom_left
     - cover.blinds_bedroom_right
