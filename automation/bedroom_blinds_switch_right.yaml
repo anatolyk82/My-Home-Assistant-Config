@@ -51,15 +51,14 @@
 
 - alias: '[Bedroom Blinds Right] Go up'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 1002
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
   condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_bedroom_right_moving
-      state: 'off'
+  - condition: template
+    value_template: '{{ trigger.payload_json.action == "open" }}'
+  - condition: state
+    entity_id: binary_sensor.blinds_bedroom_right_moving
+    state: 'off'
   action:
   - service: python_script.blinds_moving_control
     data:
@@ -71,79 +70,55 @@
       position: 100
 
 
-- alias: '[Bedroom Blinds Right] Stop going up'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 1002
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_bedroom_right_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_bedroom_right
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_bedroom_right
-
-# ------------------
-
 - alias: '[Bedroom Blinds Right] Go down'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 2002
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
   condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_bedroom_right_moving
-      state: 'off'
+  - condition: template
+    value_template: '{{ trigger.payload_json.action == "down" }}'
+  - condition: state
+    entity_id: binary_sensor.blinds_bedroom_right_moving
+    state: 'off'
   action:
   - service: python_script.blinds_moving_control
     data:
       entity_id: cover.blinds_bedroom_right
       is_moving: 'on'
-  - service: cover.set_cover_position
+  - wait_template: "{{ states('binary_sensor.blinds_bedroom_right_moving')|string == 'on' }}"
+    timeout: '00:02:00'
+    continue_on_timeout: false
+  - service: cover.close_cover
     data:
       entity_id: cover.blinds_bedroom_right
-      position: 0
 
 
-- alias: '[Bedroom Blinds Right] Stop going down'
+- alias: '[Bedroom Blinds Right] Stop moving'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 2002
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
   condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_bedroom_right_moving
-      state: 'on'
+  - condition: state
+    entity_id: binary_sensor.blinds_bedroom_right_moving
+    state: 'on'
   action:
+  - service: cover.stop_cover
+    data:
+      entity_id: cover.blinds_bedroom_right
   - service: python_script.blinds_moving_control
     data:
       entity_id: cover.blinds_bedroom_right
       is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_bedroom_right
 
 # ------------------
 
 - alias: '[Bedroom Blinds Right] Go up while holding'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 1001
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json.action == "open" }}'
   action:
   - service: python_script.blinds_moving_control
     data:
@@ -154,13 +129,13 @@
       entity_id: cover.blinds_bedroom_right
 
 
-- alias: '[Bedroom Blinds Right] Stop going up on release'
+- alias: '[Bedroom Blinds Right] Stop moving on release'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 1003
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json.action == "stop" }}'
   action:
   - service: python_script.blinds_moving_control
     data:
@@ -170,38 +145,20 @@
     data:
       entity_id: cover.blinds_bedroom_right
 
-# ------------------
-#
+
 - alias: '[Bedroom Blinds Right] Go down while holding'
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 2001
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_2"
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json.action == "close" }}'
   action:
   - service: python_script.blinds_moving_control
     data:
       entity_id: cover.blinds_bedroom_right
       is_moving: 'on'
   - service: cover.close_cover
-    data:
-      entity_id: cover.blinds_bedroom_right
-
-
-- alias: '[Bedroom Blinds Right] Stop going down on release'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_2
-      event: 2003
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_bedroom_right
-      is_moving: 'off'
-  - service: cover.stop_cover
     data:
       entity_id: cover.blinds_bedroom_right
 

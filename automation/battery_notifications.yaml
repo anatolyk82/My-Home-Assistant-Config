@@ -26,8 +26,8 @@
     - sensor.water_second_floor_battery_level
     - sensor.ikea_on_off_switch_1_battery
     - sensor.ikea_on_off_switch_2_battery_level
-    - sensor.ikea_up_down_switch_1_battery_level
-    - sensor.ikea_up_down_switch_2_battery_level
+    - sensor.ikea_up_down_switch_1_battery
+    - sensor.ikea_up_down_switch_2_battery
     - sensor.ikea_up_down_switch_3_battery_level
     - sensor.smoke_first_floor_battery_level
     - sensor.smoke_second_floor_battery_level
@@ -167,6 +167,26 @@
           title: "Low battery"
           message: "The battery of the IKEA on/off switch 1 is {{ states('sensor.ikea_on_off_switch_1_battery') }} %."
     
+    # IKEA up/down switch 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_up_down_switch_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_1_battery') }} %."
+    
+    # IKEA up/down switch 2
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_up_down_switch_2_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_2_battery') }} %."
+
     # TuYa weather sensor 1
     - conditions:
       - condition: template
