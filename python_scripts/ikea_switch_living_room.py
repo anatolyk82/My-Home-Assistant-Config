@@ -56,7 +56,7 @@ button = data.get('button')
 logger.debug("IKEA Switch Control: button=%s", button)
 
 
-if button == "center_click":
+if button == "toggle":
     any_light_is_on = ((light1.state == 'on') or (light2.state == 'on'))
     if any_light_is_on == True:
         service_data = { 'entity_id': light1_entity_id }
@@ -69,7 +69,7 @@ if button == "center_click":
         service_data = { 'entity_id': light2_entity_id, "color_temp":460 }
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "left_click":
+elif button == "arrow_left_click":
     service_data = { 'entity_id': light1_entity_id }
     logger.debug("IKEA Switch Control: service_data=%s", service_data)
     if light1.state == 'on':
@@ -77,7 +77,7 @@ elif button == "left_click":
     else:
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "right_click":
+elif button == "arrow_right_click":
     service_data = { 'entity_id': light2_entity_id }
     logger.debug("IKEA Switch Control: service_data=%s", service_data)
     if light2.state == 'on':
@@ -85,7 +85,7 @@ elif button == "right_click":
     else:
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "up_click":
+elif button == "brightness_up_click":
     if (brightness1 > -1) and light1.state == 'on':
         new_brightness = increase_value(brightness1, brightness_delta, 255)
         service_data = { 'entity_id': light1_entity_id, 'brightness': new_brightness }
@@ -95,7 +95,7 @@ elif button == "up_click":
         service_data = { 'entity_id': light2_entity_id, 'brightness': new_brightness }
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "down_click":
+elif button == "brightness_down_click":
     if (brightness1 > -1) and light1.state == 'on':
         new_brightness = decrease_value(brightness1, brightness_delta, 1)
         service_data = { 'entity_id': light1_entity_id, 'brightness': new_brightness }
@@ -105,7 +105,7 @@ elif button == "down_click":
         service_data = { 'entity_id': light2_entity_id, 'brightness': new_brightness }
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "down_press":
+elif button == "brightness_down_hold":
     if (brightness1 > -1) and light1.state == 'on':
         service_data = { 'entity_id': light1_entity_id, 'brightness': 1 }
         hass.services.call('light', 'turn_on', service_data, False)
@@ -113,10 +113,11 @@ elif button == "down_press":
         service_data = { 'entity_id': light2_entity_id, 'brightness': 1 }
         hass.services.call('light', 'turn_on', service_data, False)
 
-elif button == "up_press":
+elif button == "brightness_up_hold":
     if (brightness1 > -1) and light1.state == 'on':
         service_data = { 'entity_id': light1_entity_id, 'brightness': 255 }
         hass.services.call('light', 'turn_on', service_data, False)
     if (brightness2 > -1) and light2.state == 'on':
         service_data = { 'entity_id': light2_entity_id, 'brightness': 255 }
         hass.services.call('light', 'turn_on', service_data, False)
+

@@ -1,24 +1,24 @@
-#- platform: "mqtt"
-#  name: "gledopto_lamp_1"
-#  state_topic: "zigbee2mqtt/gledopto_lamp_1"
-#  availability_topic: "zigbee2mqtt/bridge/state"
-#  brightness: true
-#  color_temp: true
-#  xy: true
-#  schema: "json"
-#  command_topic: "zigbee2mqtt/gledopto_lamp_1/set"
-#  brightness_scale: 255
+- platform: "mqtt"
+  name: "gledopto_lamp_1"
+  state_topic: "zigbee2mqtt/gledopto_lamp_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  xy: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/gledopto_lamp_1/set"
+  brightness_scale: 255
 
-#- platform: "mqtt"
-#  name: "gledopto_lamp_2"
-#  state_topic: "zigbee2mqtt/gledopto_lamp_2"
-#  availability_topic: "zigbee2mqtt/bridge/state"
-#  brightness: true
-#  color_temp: true
-#  xy: true
-#  schema: "json"
-#  command_topic: "zigbee2mqtt/gledopto_lamp_2/set"
-#  brightness_scale: 255
+- platform: "mqtt"
+  name: "gledopto_lamp_2"
+  state_topic: "zigbee2mqtt/gledopto_lamp_2"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  xy: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/gledopto_lamp_2/set"
+  brightness_scale: 255
 
 - platform: "mqtt"
   name: "gledopto_lamp_3"

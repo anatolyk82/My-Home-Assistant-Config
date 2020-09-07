@@ -1,31 +1,10 @@
 - alias: '[Living room] Ikea switch 3'
   initial_state: true
   trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_3
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_switch_3"
   action:
   - service: python_script.ikea_switch_living_room
     data_template:
-      button: >
-        {% if trigger.event.data.event == 1002 %}
-          center_click
-        {% elif trigger.event.data.event == 2002 %}
-          up_click
-        {% elif trigger.event.data.event == 3002 %}
-          down_click
-        {% elif trigger.event.data.event == 4002 %}
-          left_click
-        {% elif trigger.event.data.event == 5002 %}
-          right_click
-        {% elif trigger.event.data.event == 2001 %}
-          up_press
-        {% elif trigger.event.data.event == 2003 %}
-          up_release
-        {% elif trigger.event.data.event == 3001 %}
-          down_press
-        {% elif trigger.event.data.event == 3003 %}
-          down_release
-        {% endif %}
+      button: '{{ trigger.payload_json.action }}'
 
