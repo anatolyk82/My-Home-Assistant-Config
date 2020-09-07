@@ -1,6 +1,0 @@
-- platform: yeelight
-  devices:
-    192.168.1.13:
-      name: Bulb 13
-      transition: 1000
-

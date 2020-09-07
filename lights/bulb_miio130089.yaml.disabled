@@ -1,6 +1,0 @@
-- platform: yeelight
-  devices:
-    192.168.1.17:
-      name: Bulb 17
-      transition: 1000
-
