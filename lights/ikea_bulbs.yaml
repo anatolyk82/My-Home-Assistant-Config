@@ -7,3 +7,13 @@
   schema: "json"
   command_topic: "zigbee2mqtt/ikea_lamp_13/set"
   brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_2"
+  state_topic: "zigbee2mqtt/ikea_lamp_2"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_2/set"
+  brightness_scale: 255
