@@ -1,167 +1,40 @@
-- alias: "[Workroom Blinds] Run script on start"
-  initial_state: true
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-
-# ------------------
-
-- alias: "[Workroom Blinds] Set moving sensor to 0 when it's down"
-  trigger:
-  - platform: numeric_state
-    entity_id: cover.blinds_workroom
-    value_template: "{{ state.attributes.current_position }}"
-    below: 3 # 0 is min
-    for:
-      seconds: 1
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_workroom_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'off'
-
-
-- alias: "[Workroom Blinds] Set moving sensor to 0 when it's up"
-  trigger:
-  - platform: numeric_state
-    entity_id: cover.blinds_workroom
-    value_template: "{{ state.attributes.current_position }}"
-    above: 98 # 100 is max
-    for:
-      seconds: 1
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_workroom_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'off'
-
-# ------------------
-
-- alias: '[Workroom Blinds] Go up'
+- alias: '[Workroom Blinds] Switch automation'
   trigger:
   - platform: mqtt
     topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json.action == "on"}}'
-  - condition: state
-    entity_id: binary_sensor.blinds_workroom_moving
-    state: 'off'
   action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'on'
-  - wait_template: "{{ states('binary_sensor.blinds_workroom_moving')|string == 'on' }}"
-    timeout: '00:02:00'
-    continue_on_timeout: false
-  - service: cover.open_cover
-    data:
-      entity_id: cover.blinds_workroom
+  - choose:
 
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: "{{ trigger.payload_json.action == 'on' }}"
+        - condition: template
+          value_template: "{{ trigger.payload_json.action == 'brightness_move_up' }}"
+      sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.blinds_workroom
 
-- alias: '[Workroom Blinds] Go down'
-  trigger:
-  - platform: mqtt
-    topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json.action == "off" }}'
-  - condition: state
-    entity_id: binary_sensor.blinds_workroom_moving
-    state: 'off'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'on'
-  - wait_template: "{{ states('binary_sensor.blinds_workroom_moving')|string == 'on' }}"
-    timeout: '00:02:00'
-    continue_on_timeout: false
-  - service: cover.close_cover
-    data:
-      entity_id: cover.blinds_workroom
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: "{{ trigger.payload_json.action == 'off' }}"
+        - condition: template
+          value_template: "{{ trigger.payload_json.action == 'brightness_move_down' }}"
+      sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.blinds_workroom
 
-
-- alias: '[Workroom Blinds] Stop moving'
-  trigger:
-  - platform: mqtt
-    topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: state
-    entity_id: binary_sensor.blinds_workroom_moving
-    state: 'on'
-  action:
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_workroom
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'off'
-
-# ------------------
-
-- alias: '[Workroom Blinds] Go up while holding'
-  trigger:
-  - platform: mqtt
-    topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json.action == "brightness_move_up" }}'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'on'
-  - service: cover.open_cover
-    data:
-      entity_id: cover.blinds_workroom
-
-
-- alias: '[Workroom Blinds] Stop moving on release'
-  trigger:
-  - platform: mqtt
-    topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json.action == "brightness_stop" }}'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_workroom
-
-
-- alias: '[Workroom Blinds] Go down while holding'
-  trigger:
-  - platform: mqtt
-    topic: "zigbee2mqtt/ikea_on_off_switch_1"
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json.action == "brightness_move_down" }}'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_workroom
-      is_moving: 'on'
-  - service: cover.close_cover
-    data:
-      entity_id: cover.blinds_workroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'brightness_stop' }}"
+      sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_workroom
 
 
