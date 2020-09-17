@@ -1,3 +1,17 @@
+- alias: '[Workroom Blinds] Request position after restart'
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - delay: '00:00:30'
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_workroom/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
+
+
 - alias: '[Workroom Blinds] Switch automation'
   trigger:
   - platform: mqtt
