@@ -11,7 +11,7 @@
       sequence:
       - service: cover.open_cover
         data:
-          entity_id: cover.blinds_workroom
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
@@ -19,7 +19,7 @@
       sequence:
       - service: cover.close_cover
         data:
-          entity_id: cover.blinds_workroom
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
@@ -27,8 +27,8 @@
       sequence:
       - service: cover.set_cover_position
         data:
-          position: 0
-          entity_id: cover.blinds_workroom
+          position: 20
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
@@ -36,17 +36,16 @@
       sequence:
       - service: cover.set_cover_position
         data:
-          position: 40
-          entity_id: cover.blinds_workroom
+          position: 60
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
         value_template: "{{ trigger.payload_json.action | string == 'button_2_single' }}"
       sequence:
-      - service: cover.set_cover_position
+      - service: cover.stop_cover
         data:
-          position: 80
-          entity_id: cover.blinds_workroom
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
@@ -54,8 +53,8 @@
       sequence:
       - service: cover.set_cover_position
         data:
-          position: 20
-          entity_id: cover.blinds_workroom
+          position: 40
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
@@ -63,14 +62,82 @@
       sequence:
       - service: cover.set_cover_position
         data:
-          position: 60
-          entity_id: cover.blinds_workroom
+          position: 80
+          entity_id: cover.blinds_bedroom_left
 
     - conditions:
       - condition: template
         value_template: "{{ trigger.payload_json.action | string == 'button_6_single' }}"
       sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_bedroom_left
+
+    #---
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_14_single' }}"
+      sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_18_single' }}"
+      sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_13_single' }}"
+      sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_17_single' }}"
+      sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_16_single' }}"
+      sequence:
       - service: cover.set_cover_position
         data:
-          position: 100
-          entity_id: cover.blinds_workroom
+          position: 20
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_20_single' }}"
+      sequence:
+      - service: cover.set_cover_position
+        data:
+          position: 40
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_15_single' }}"
+      sequence:
+      - service: cover.set_cover_position
+        data:
+          position: 60
+          entity_id: cover.blinds_bedroom_right
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action | string == 'button_19_single' }}"
+      sequence:
+      - service: cover.set_cover_position
+        data:
+          position: 80
+          entity_id: cover.blinds_bedroom_right
