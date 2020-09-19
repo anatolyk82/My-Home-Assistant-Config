@@ -1,18 +1,16 @@
 
-alarm_pending_sound: "/usr/bin/play --volume 0.7 /home/homeassistant/.homeassistant/media/alarm_pending.wav"
+alarm_pending_sound: "/usr/bin/play --volume 0.7 /home/homeassistant/.homeassistant/media/Sounds/alarm_pending.wav"
     
-alarm_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/alarm.wav"
+alarm_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/Sounds/alarm.wav"
 
-entrance_door_open: "/usr/bin/play --volume 0.4 /home/homeassistant/.homeassistant/media/door_open.wav"
+entrance_door_open: "/usr/bin/play --volume 0.4 /home/homeassistant/.homeassistant/media/Sounds/door_open.wav"
 
 renew_ssl: "/home/homeassistant/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01"
 
 router_restart: !secret router_restart
 
-warning_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/warning.wav"
+warning_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/Sounds/warning.wav"
 
-update_records_index: "/home/homeassistant/.homeassistant/bin/update_records.sh"
+doorbell_sound: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/Sounds/doorbell.wav"
 
-doorbell_sound: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/doorbell.wav"
-
-something_open_sound: "/usr/bin/play --volume 1 /home/homeassistant/.homeassistant/media/something_open.wav"
+something_open_sound: "/usr/bin/play --volume 1 /home/homeassistant/.homeassistant/media/Sounds/something_open.wav"

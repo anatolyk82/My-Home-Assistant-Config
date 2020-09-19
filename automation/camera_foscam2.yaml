@@ -73,7 +73,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_2
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}_m.mp4'
       duration: "{{ states('input_number.foscam2_record_length') | int }}"
   - delay:
       seconds: "{{ states('input_number.foscam2_record_length') | int }}"

@@ -122,7 +122,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_3
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40 #TODO: shall be configurable
   - delay:
       seconds: 40
@@ -165,7 +165,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_3
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
   - delay:
       seconds: 40
@@ -261,7 +261,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_3
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
   - delay:
       seconds: 40
@@ -385,7 +385,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
   - delay:
       seconds: 40
@@ -405,7 +405,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
   - delay:
       seconds: 40
@@ -501,7 +501,7 @@
   - service: camera.record
     data_template:
       entity_id: camera.foscam_1
-      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      filename: '/home/homeassistant/.homeassistant/media/Records/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
       duration: 40
   - delay:
       seconds: 40

@@ -20,8 +20,8 @@ homeassistant:
     - /home/homeassistant/snapshots
     - /home/homeassistant/records
     - /home/homeassistant/.homeassistant/www/images
-    - /home/homeassistant/.homeassistant/www/camera_records
-    - /home/homeassistant/.homeassistant/www/camera_snapshots
+    - /home/homeassistant/.homeassistant/media/Records
+    - /home/homeassistant/.homeassistant/media/Snapshots
     - /dev/shm
 
 # Show links to resources in log and frontend
@@ -104,18 +104,8 @@ vacuum:
   host: 192.168.1.25
   token: !secret xiaomi_vacuum_token
 
-
-#xiaomi_aqara:
-#  discovery_retry: 8
-#  gateways:
-#    - key: !secret xiaomi_gateway_key
-#      mac: !secret xiaomi_gateway_mac
-
-
-#deconz:
-#  host: !secret deconz_host
-#  port: !secret deconz_port
-#  api_key: !secret deconz_key
+media_source:
+#  recordings: /home/homeassistant/.homeassistant/www/camera_records
 
 logger: !include logger.yaml
 
