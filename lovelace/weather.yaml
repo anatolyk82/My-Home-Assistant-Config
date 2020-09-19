@@ -4,36 +4,7 @@ cards:
   - type: vertical-stack
     cards:
     - type: weather-forecast
-      #entity: weather.dark_sky
       entity: weather.smhi_home
-    - type: picture-entity
-      entity: camera.weather
-      show_name: false
-      show_state: false
-  - type: history-graph
-    title: Temperature history
-    hours_to_show: 48
-    entities:
-      - entity: sensor.yr_temperature
-        name: Yr temperature
-      - entity: sensor.temperature_outdoor
-        name: Temperature sensor
-  - type: history-graph
-    title: Humidity history
-    hours_to_show: 48
-    entities:
-      - entity: sensor.yr_humidity
-        name: Yr humidity
-      - entity: sensor.humidity_outdoor
-        name: Humidity sensor
-  - type: history-graph
-    title: Pressure history
-    hours_to_show: 48
-    entities:
-      - entity: sensor.yr_pressure
-        name: Yr pressure
-      - entity: sensor.pressure_outdoor
-        name: Pressure sensor
   - type: vertical-stack
     cards:
     - type: horizontal-stack
@@ -50,8 +21,22 @@ cards:
         name: " "
         entity: sensor.pressure_outdoor
         graph: line
-    - type: entities
-      entities:
-      - sensor.yr_cloudiness
-      - sensor.yr_wind_speed
+  - type: history-graph
+    title: Temperature history
+    hours_to_show: 48
+    entities:
+      - entity: sensor.temperature_outdoor
+        name: Temperature sensor
+  - type: history-graph
+    title: Humidity history
+    hours_to_show: 48
+    entities:
+      - entity: sensor.humidity_outdoor
+        name: Humidity sensor
+  - type: history-graph
+    title: Pressure history
+    hours_to_show: 48
+    entities:
+      - entity: sensor.pressure_outdoor
+        name: Pressure sensor
 
