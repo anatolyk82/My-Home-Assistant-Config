@@ -133,6 +133,8 @@
   - platform: state
     entity_id: binary_sensor.presence_frontyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: alarm_control_panel.house
@@ -141,14 +143,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_3
-      filename: '/tmp/foscam3.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Frontyard motion"
-      message: "Motion detected in the frontyard"
+      message: "Motion detected in the frontyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam3.jpg'
+          path: "{{ snapshot_file }}"
 
 # ---
 
@@ -176,6 +178,8 @@
   - platform: state
     entity_id: binary_sensor.presence_frontyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: binary_sensor.all_in_bed
@@ -184,14 +188,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_3
-      filename: '/tmp/foscam3.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Frontyard motion"
-      message: "Motion detected in the frontyard"
+      message: "Motion detected in the frontyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam3.jpg'
+          path: "{{ snapshot_file }}"
 
 # ---
 
@@ -200,6 +204,8 @@
   - platform: state
     entity_id: binary_sensor.presence_frontyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam3_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: binary_sensor.all_in_bed
@@ -223,14 +229,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_3
-      filename: '/tmp/foscam3.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Frontyard motion"
-      message: "Motion detected in the frontyard"
+      message: "Motion detected in the frontyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam3.jpg'
+          path: "{{ snapshot_file }}"
 
 
 - alias: '[Front Yard] Video if motion after sunset'
@@ -354,6 +360,8 @@
   - platform: state
     entity_id: binary_sensor.presence_backyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: alarm_control_panel.house
@@ -362,14 +370,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_1
-      filename: '/tmp/foscam1.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Backyard motion"
-      message: "Motion detected in the backyard"
+      message: "Motion detected in the backyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam1.jpg'
+          path: "{{ snapshot_file }}"
 
 
 - alias: '[Yard] Video if motion in backyard while armed away'
@@ -416,6 +424,8 @@
   - platform: state
     entity_id: binary_sensor.presence_backyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: binary_sensor.all_in_bed
@@ -424,14 +434,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_1
-      filename: '/tmp/foscam1.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Backyard motion"
-      message: "Motion detected in the backyard"
+      message: "Motion detected in the backyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam1.jpg'
+          path: "{{ snapshot_file }}"
 
 # ---
 
@@ -440,6 +450,8 @@
   - platform: state
     entity_id: binary_sensor.presence_backyard
     to: 'on'
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam1_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   condition:
   - condition: state
     entity_id: binary_sensor.all_in_bed
@@ -463,14 +475,14 @@
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_1
-      filename: '/tmp/foscam1.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Backyard motion"
-      message: "Motion detected in the backyard"
+      message: "Motion detected in the backyard at {{ now().strftime('%H:%M:%S') }}"
       data:
         file:
-          path: '/tmp/foscam1.jpg'
+          path: "{{ snapshot_file }}"
 
 
 - alias: '[Yard] Video if motion in backyard after sunset'
