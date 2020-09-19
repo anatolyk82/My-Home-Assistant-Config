@@ -179,6 +179,14 @@ cards:
           top: 63%
           left: 40%
       - type: state-icon
+        entity: media_player.lg_tv
+        icon: mdi:television
+        tap_action:
+          action: more-info
+        style:
+          top: 63%
+          left: 35%
+      - type: state-icon
         entity: light.kitchen_cupboard
         tap_action:
           action: toggle
@@ -213,10 +221,6 @@ cards:
     - type: horizontal-stack
       cards:
       - type: light
-        entity: light.ikea_lamp_2
-        icon: mdi:ceiling-light
-        name: "Entrance"
-      - type: light
         entity: light.kitchen_lights_2
         icon: mdi:track-light
         name: "Kitchen (exit)"
@@ -224,8 +228,16 @@ cards:
         entity: light.kitchen_lights_1
         icon: mdi:track-light
         name: "Kitchen (win)"
+      - type: light
+        entity: light.kitchen_cupboard
+        icon: mdi:wall-sconce-flat
+        name: "Cupboard"
     - type: horizontal-stack
       cards:
+      - type: light
+        entity: light.ikea_lamp_2
+        icon: mdi:ceiling-light
+        name: "Entrance"
       - type: light
         entity: light.gledopto_lamp_1
         icon: mdi:ceiling-light
@@ -241,6 +253,7 @@ cards:
         icon: mdi:lava-lamp
         name: "Moodlamp (Living room)"
       - type: light
+        icon: mdi:wall-sconce-round-variant
         entity: light.ikea_lamp_3
         name: "Ball lamp"
 

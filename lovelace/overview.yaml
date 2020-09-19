@@ -36,6 +36,19 @@ cards:
       entity: sensor.pressure_outdoor
       graph: line
 
+
+#-----------
+- type: vertical-stack
+  cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.doorbell
+      icon: mdi:bell
+    - binary_sensor.all_in_bed
+    #- switch.wifi_cord_1
+    #- switch.pump1
+    #- sensor.irrigation_water_level
   - type: glance
     show_name: false
     entities:
@@ -46,32 +59,3 @@ cards:
   - type: entities
     entities:
     - sensor.moonphases
-
-#-----------
-- type: vertical-stack
-  cards:
-  - type: glance
-    show_name: true
-    entities:
-    - entity: sensor.vasttrafik_linje_176_mot_lindholmen
-      name: "🚍 176"
-      icon: mdi:office-building
-    - entity: sensor.vasttrafik_linje_177_mot_lindholmen
-      name: "🚍 177"
-      icon: mdi:office-building
-    - entity: sensor.vasttrafik_linje_176_mot_rannebergen
-      name: "🚍 176"
-      icon: mdi:home
-    - entity: sensor.vasttrafik_linje_177_mot_lovgardet
-      name: "🚍 177"
-      icon: mdi:home
-
-  - type: entities
-    show_header_toggle: false
-    entities:
-    - entity: binary_sensor.doorbell
-      icon: mdi:bell
-    - binary_sensor.all_in_bed
-    #- switch.wifi_cord_1
-    #- switch.pump1
-    #- sensor.irrigation_water_level
