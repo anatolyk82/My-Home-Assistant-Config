@@ -1,72 +1,156 @@
-
-- alias: '[Window Covers] Run script 15 min after sunset'
+#########################################################
+#
+# Close the covers when it get dark
+#
+#########################################################
+- alias: "[Cover Workroom] Close cover when it gets dark"
   trigger:
-  - platform: sun
-    event: sunset
-    offset: '00:15:00'
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    below: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.workroom_close_blinds_automation
+    state: 'on'
   action:
-  - service: python_script.blinds_control
+  - service: cover.close_cover
     data:
-      intention: close
-      intention_info: after_sunset_15
+      entity_id: cover.blinds_workroom
 
 
-- alias: '[Window Covers] Run script 30 min after sunset'
+- alias: "[Cover Guestroom] Close cover when it gets dark"
   trigger:
-  - platform: sun
-    event: sunset
-    offset: '00:30:00'
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    below: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.guestroom_close_blinds_automation
+    state: 'on'
   action:
-  - service: python_script.blinds_control
+  - service: cover.close_cover
     data:
-      intention: close
-      intention_info: after_sunset_30
+      entity_id: cover.blinds_guestroom
 
 
-- alias: '[Window Covers] Run script 30 min before sunrise'
+- alias: "[Cover Bedroom] Close cover when it gets dark"
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: '-00:30:00'
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    below: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
   action:
-  - service: python_script.blinds_control
+  - service: cover.close_cover
     data:
-      intention: open
-      intention_info: before_sunrise_30
+      entity_id: cover.blinds_bedroom_left
+  - service: cover.close_cover
+    data:
+      entity_id: cover.blinds_bedroom_right
 
 
-- alias: '[Window Covers] Run script 15 min before sunrise'
+#########################################################
+#
+# Open the covers when it get bright and 
+# at least one person is not sleeping
+#
+#########################################################
+- alias: "[Cover Workroom] Open cover when it gets bright"
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: '-00:15:00'
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    above: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.workroom_open_blinds_automation
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'off'
   action:
-  - service: python_script.blinds_control
+  - service: cover.open_cover
     data:
-      intention: open
-      intention_info: before_sunrise_15
+      entity_id: cover.blinds_workroom
 
 
-- alias: '[Window Covers] Run script when armed away'
+- alias: "[Cover Guestroom] Open cover when it gets bright"
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    above: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.guestroom_open_blinds_automation
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.all_in_bed
+    state: 'off'
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_guestroom
+
+
+#########################################################
+#
+# Open the covers when someone has waken up and it's brght
+#
+#########################################################
+- alias: "[Cover Workroom] Open cover when someone wakes up"
   trigger:
   - platform: state
     entity_id: alarm_control_panel.house
-    to: 'armed_away'
+    from: 'armed_night'
+    to: 'disarmed'
+  condition:
+  - condition: state
+    entity_id: input_boolean.workroom_open_blinds_automation
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.xiaomi_illuminance_1
+    above: 10
   action:
-  - service: python_script.blinds_control
+  - delay:
+      seconds: 10
+  - service: cover.open_cover
     data:
-      intention: open
-      intention_info: armed_away
+      entity_id: cover.blinds_workroom
 
-  
-- alias: '[Window Covers] Run script when all_in_bed is off'
+
+- alias: "[Cover Guestroom] Open cover when someone wakes up"
   trigger:
   - platform: state
-    entity_id: binary_sensor.all_in_bed
-    to: 'off'
+    entity_id: alarm_control_panel.house
+    from: 'armed_night'
+    to: 'disarmed'
+  condition:
+  - condition: state
+    entity_id: input_boolean.guestroom_open_blinds_automation
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.xiaomi_illuminance_1
+    above: 10
   action:
-  - delay: '00:00:05'
-  - service: python_script.blinds_control
+  - delay:
+      seconds: 10
+  - service: cover.open_cover
     data:
-      intention: open
-      intention_info: waken_up
+      entity_id: cover.blinds_guestroom
+
