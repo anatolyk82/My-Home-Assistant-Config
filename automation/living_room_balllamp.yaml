@@ -39,6 +39,9 @@
   - condition: state
     entity_id: light.ikea_lamp_3
     state: 'on'
+  - condition: state
+    entity_id: media_player.lg_tv
+    state: 'off'
   action:
   - service: light.turn_on
     data:
@@ -57,6 +60,9 @@
   - condition: state
     entity_id: light.ikea_lamp_3
     state: 'on'
+  - condition: state
+    entity_id: media_player.lg_tv
+    state: 'off'
   action:
   - service: light.turn_off
     data:
