@@ -1,18 +1,20 @@
 doorbell:
   alias: "Doorbell actions"
+  variables:
+    snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   sequence:
   - service: shell_command.doorbell_sound
   - service: camera.snapshot
     data_template:
       entity_id: camera.foscam_2
-      filename: '/tmp/foscam2.jpg'
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
-      title: "Doorbell rings"
-      message: "Someone is at the door"
+      title: "Doorbell"
+      message: "Doorbell rings at {{ now().strftime('%H:%M:%S') }}. Someone is at the door."
       data:
         file:
-          path: '/tmp/foscam2.jpg'
+          path: "{{ snapshot_file }}"
   - condition: or
     conditions:
     - condition: state
@@ -28,5 +30,5 @@ doorbell:
     data_template:
       entity_id: camera.foscam_2
       filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-      duration: 30
+      duration: 45
 
