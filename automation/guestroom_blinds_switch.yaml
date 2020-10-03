@@ -1,207 +1,46 @@
-- alias: "[Guestroom Blinds] Run script on start"
-  initial_state: true
+- alias: '[Guestroom Blinds] Request position after restart'
   trigger:
   - platform: homeassistant
     event: start
   action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
+  - delay: '00:00:30'
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_guestroom/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
 
-# ------------------
 
-- alias: "[Guestroom Blinds] Set moving sensor to 0 when it's down"
+- alias: '[Guestroom Blinds] Switch automation'
   trigger:
-  - platform: numeric_state
-    entity_id: cover.blinds_guestroom
-    value_template: "{{ state.attributes.current_position }}"
-    below: 3 # 0 is min
-    for:
-      seconds: 1
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'on'
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_up_down_switch_3"
   action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
+  - choose:
 
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'open' }}"
+      sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.blinds_guestroom
 
-- alias: "[Guestroom Blinds] Set moving sensor to 0 when it's up"
-  trigger:
-  - platform: numeric_state
-    entity_id: cover.blinds_guestroom
-    value_template: "{{ state.attributes.current_position }}"
-    above: 97 # 100 is max
-    for:
-      seconds: 1
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'close' }}"
+      sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.blinds_guestroom
 
-# ------------------
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'stop' }}"
+      sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_guestroom
 
-- alias: '[Guestroom Blinds] Go up'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 1002
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'off'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'on'
-  - service: cover.set_cover_position
-    data:
-      entity_id: cover.blinds_guestroom
-      position: 100
-
-
-- alias: '[Guestroom Blinds] Stop going up'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 1002
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
-# ------------------
-
-- alias: '[Guestroom Blinds] Go down'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 2002
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'off'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'on'
-  - service: cover.set_cover_position
-    data:
-      entity_id: cover.blinds_guestroom
-      position: 0
-
-
-- alias: '[Guestroom Blinds] Stop going down'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 2002
-  condition:
-    - condition: state
-      entity_id: binary_sensor.blinds_guestroom_moving
-      state: 'on'
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
-# ------------------
-
-- alias: '[Guestroom Blinds] Go up while holding'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 1001
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'on'
-  - service: cover.open_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
-
-- alias: '[Guestroom Blinds] Stop going up on release'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 1003
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
-# ------------------
-#
-- alias: '[Guestroom Blinds] Go down while holding'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 2001
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'on'
-  - service: cover.close_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
-
-- alias: '[Guestroom Blinds] Stop going down on release'
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_up_down_switch_3
-      event: 2003
-  action:
-  - service: python_script.blinds_moving_control
-    data:
-      entity_id: cover.blinds_guestroom
-      is_moving: 'off'
-  - service: cover.stop_cover
-    data:
-      entity_id: cover.blinds_guestroom
-
+ 

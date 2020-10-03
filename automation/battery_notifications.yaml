@@ -28,10 +28,10 @@
     - sensor.ikea_on_off_switch_2_battery_level
     - sensor.ikea_up_down_switch_1_battery
     - sensor.ikea_up_down_switch_2_battery
-    - sensor.ikea_up_down_switch_3_battery_level
+    - sensor.ikea_up_down_switch_3_battery
     - sensor.smoke_first_floor_battery_level
     - sensor.smoke_second_floor_battery_level
-    - sensor.blinds_guesroom_battery_level
+    - sensor.blinds_guesroom_battery
     - sensor.blinds_workroom_battery
     - sensor.blinds_bedroom_right_battery_level
     - sensor.blinds_bedroom_left_battery_level
@@ -80,12 +80,12 @@
     # Cover in the guestroom
     - conditions:
       - condition: template
-        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_guesroom_battery_level' }}"
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.blinds_guesroom_battery' }}"
       sequence:
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the cover in the guestroom is {{ states('sensor.blinds_guesroom_battery_level') }} %."
+          message: "The battery of the cover in the guestroom is {{ states('sensor.blinds_guesroom_battery') }} %."
 
     # Cover in the workroom
     - conditions:
@@ -196,6 +196,16 @@
         data_template:
           title: "Low battery"
           message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_2_battery') }} %."
+
+    # IKEA up/down switch 3
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_up_down_switch_3_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_3_battery') }} %."
 
     # TuYa weather sensor 1
     - conditions:

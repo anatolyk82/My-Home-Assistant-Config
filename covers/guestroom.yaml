@@ -1,0 +1,9 @@
+- platform: "mqtt"
+  name: "blinds_guestroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  command_topic: "zigbee2mqtt/blinds_guestroom/set"
+  position_topic: "zigbee2mqtt/blinds_guestroom"
+  set_position_topic: "zigbee2mqtt/blinds_guestroom/set"
+  set_position_template: "{ \"position\": {{ position }} }"
+  value_template: "{{ value_json.position }}"
+
