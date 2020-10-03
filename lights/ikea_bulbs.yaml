@@ -17,3 +17,70 @@
   schema: "json"
   command_topic: "zigbee2mqtt/ikea_lamp_2/set"
   brightness_scale: 255
+
+#################################################
+#
+# Kitchen start from the door side towards to living room
+#
+#################################################
+- platform: "mqtt"
+  name: "ikea_lamp_4"
+  state_topic: "zigbee2mqtt/ikea_lamp_4"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_4/set"
+  brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_5"
+  state_topic: "zigbee2mqtt/ikea_lamp_5"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_5/set"
+  brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_6"
+  state_topic: "zigbee2mqtt/ikea_lamp_6"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_6/set"
+  brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_7"
+  state_topic: "zigbee2mqtt/ikea_lamp_7"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_7/set"
+  brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_8"
+  state_topic: "zigbee2mqtt/ikea_lamp_8"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_8/set"
+  brightness_scale: 255
+
+- platform: "mqtt"
+  name: "ikea_lamp_9"
+  state_topic: "zigbee2mqtt/ikea_lamp_9"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_9/set"
+  brightness_scale: 255
+
+
