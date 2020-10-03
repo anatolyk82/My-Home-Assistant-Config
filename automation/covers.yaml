@@ -39,7 +39,7 @@
       entity_id: cover.blinds_guestroom
 
 
-- alias: "[Cover Bedroom] Close cover when it gets dark"
+- alias: "[Cover Bedroom] Close covers when it gets dark"
   trigger:
   - platform: numeric_state
     entity_id:
@@ -62,7 +62,7 @@
 
 #########################################################
 #
-# Open the covers when it get bright and 
+# Open the covers when it gets bright and 
 # at least one person is not sleeping
 #
 #########################################################
@@ -107,6 +107,62 @@
     data:
       entity_id: cover.blinds_guestroom
 
+
+#########################################################
+#
+# Open the covers in the bedroom when it gets bright and 
+# the alarm is armed away
+#
+#########################################################
+- alias: "[Cover Bedroom] Open covers when it gets bright and armed_away"
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.xiaomi_illuminance_1
+    above: 10
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: state
+    entity_id: alarm_control_panel.house
+    state: 'armed_away'
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_bedroom_right
+
+
+#########################################################
+#
+# Open the covers when it is already bright and 
+# the alarm gets armed away
+#
+#########################################################
+- alias: "[Cover Bedroom] Open covers when it is bright and alarm gets armed away"
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'armed_away'
+  condition:
+  - condition: state
+    entity_id: input_boolean.bedroom_blinds_auto
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.xiaomi_illuminance_1
+    above: 10
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_bedroom_left
+  - service: cover.open_cover
+    data:
+      entity_id: cover.blinds_bedroom_right
 
 #########################################################
 #
