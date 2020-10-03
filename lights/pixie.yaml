@@ -15,28 +15,44 @@
   effect_list:
   - ColorLoop
   - Rainbow
+  - DoubleRainbow
   - RainbowChase
   - RunningLights
   - TwoColors
   - ThreeColors
   - ColorPeaks
   - Stars
-  - Meteor
-  - MeteorWithParticles
-  - RandomMeteor
+  - Comet
+  - CometWithParticles
+  - RandomComets
   - ColorFadings
-  - Meteor
-  - MeteorWithParticles
+  - SparklesOnColor
+  - SparklesOnColorLoop
   - RandomMeteors
   - ColorFadings
   - SparklesOnColorLoop
-  - RainbowWipes
+  - RainbowWipesUp
+  - RainbowWipesDown
   - RainbowWipesBackwards
   - ColorWipes
   - Chain
   - BrokenLamp
-  - FastPixel
+  - FastPixels
   - Stripes
+  - Starburst
+  - ColoredStarburst
+  - RandomColoredStarburst
+  - ColorPendulum
+  - RainbowScan
+  - DoubleRainbowScan
+  - RandomColor
+  - ChaseDown
+  - ChaseUp
+  - Chase2Down
+  - Chase2Up
+  - Meteors
+  - Dots
+  - RGBScanner
   - Stop
 
 
@@ -57,26 +73,42 @@
   effect_list:
   - ColorLoop
   - Rainbow
+  - DoubleRainbow
   - RainbowChase
   - RunningLights
   - TwoColors
   - ThreeColors
   - ColorPeaks
   - Stars
-  - Meteor
-  - MeteorWithParticles
-  - RandomMeteor
+  - Comet
+  - CometWithParticles
+  - RandomComets
   - ColorFadings
-  - Meteor
-  - MeteorWithParticles
+  - SparklesOnColor
+  - SparklesOnColorLoop
   - RandomMeteors
   - ColorFadings
   - SparklesOnColorLoop
-  - RainbowWipes
+  - RainbowWipesUp
+  - RainbowWipesDown
   - RainbowWipesBackwards
   - ColorWipes
   - Chain
   - BrokenLamp
-  - FastPixel
+  - FastPixels
   - Stripes
+  - Starburst
+  - ColoredStarburst
+  - RandomColoredStarburst
+  - ColorPendulum
+  - RainbowScan
+  - DoubleRainbowScan
+  - RandomColor
+  - ChaseDown
+  - ChaseUp
+  - Chase2Down
+  - Chase2Up
+  - Meteors
+  - Dots
+  - RGBScanner
   - Stop
