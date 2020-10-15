@@ -1,5 +1,42 @@
 #########################################################
 #
+# Request positions
+#
+#########################################################
+- alias: '[All Blinds] Request position after restart'
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - delay: '00:00:30'
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_bedroom_left/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_bedroom_right/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_guestroom/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
+  - service: mqtt.publish
+    data_template:
+      topic: 'zigbee2mqtt/blinds_workroom/get'
+      payload: '{"position":""}'
+      retain: false
+      qos: 0
+
+
+#########################################################
+#
 # Close the covers when it get dark
 #
 #########################################################

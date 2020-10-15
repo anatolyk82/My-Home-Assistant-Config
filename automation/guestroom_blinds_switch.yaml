@@ -1,16 +1,3 @@
-- alias: '[Guestroom Blinds] Request position after restart'
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-  - delay: '00:00:30'
-  - service: mqtt.publish
-    data_template:
-      topic: 'zigbee2mqtt/blinds_guestroom/get'
-      payload: '{"position":""}'
-      retain: false
-      qos: 0
-
 
 - alias: '[Guestroom Blinds] Switch automation'
   trigger:
@@ -38,6 +25,38 @@
     - conditions:
       - condition: template
         value_template: "{{ trigger.payload_json.action == 'stop' }}"
+      sequence:
+      - service: cover.stop_cover
+        data:
+          entity_id: cover.blinds_guestroom
+
+
+- alias: '[Guestroom Blinds] Switch automation (IKEA Switch)'
+  trigger:
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_switch_1"
+  action:
+  - choose:
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'brightness_up_click' }}"
+      sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.blinds_guestroom
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'brightness_down_click' }}"
+      sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.blinds_guestroom
+
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.payload_json.action == 'toggle' }}"
       sequence:
       - service: cover.stop_cover
         data:

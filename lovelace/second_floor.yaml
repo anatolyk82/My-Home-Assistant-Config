@@ -157,8 +157,11 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - cover.blinds_guestroom
+    - entity: cover.blinds_guestroom
+      name: "Guestroom Cover"
     - entity: cover.blinds_workroom
       name: "Workroom Cover"
-    - cover.blinds_bedroom_left
-    - cover.blinds_bedroom_right
+    - entity: cover.blinds_bedroom_left
+      name: "Bedroom Cover Left"
+    - entity: cover.blinds_bedroom_right
+      name: "Bedroom Cover Right"

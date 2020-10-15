@@ -1,0 +1,19 @@
+
+- alias: '[Alarm] Arming events'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'arming'
+  variables:
+    arming_seconds: 0
+  action:
+  - repeat:
+      sequence:
+        - service: mqtt.publish
+          data_template:
+            topic: 'alarm/arming/elapsed'
+            payload: ""
+      retain: false
+      qos: 0
+
