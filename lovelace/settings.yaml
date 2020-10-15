@@ -21,6 +21,7 @@ cards:
 - type: entities
   show_header_toggle: false
   entities:
+  - automation.alarm_notify_when_start_pending
   - automation.doorbell_sound_if_button_pressed
 
 - type: entities
