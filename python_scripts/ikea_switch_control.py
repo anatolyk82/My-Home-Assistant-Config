@@ -33,6 +33,8 @@ def decrease_value(current_value, delta, min_value):
 switch_id = data.get('switch_id')
 action = data.get('action')
 
+logger.debug("IKEA Switch Control: switch entity_id: %s", switch_id)
+
 light_id = switch_to_light[switch_id]
 logger.debug("IKEA Switch Control: Light: %s", switch_to_light[switch_id])
 

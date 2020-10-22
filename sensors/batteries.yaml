@@ -70,6 +70,12 @@
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
 
+#-------------------------------------------------
+#
+# Ikea switches E1524/E1810
+#
+#-------------------------------------------------
+
 - platform: "mqtt"
   name: "Ikea Switch 1 Battery"
   state_topic: "zigbee2mqtt/ikea_switch_1"
@@ -79,8 +85,40 @@
   value_template: "{{ value_json.battery }}"
 
 - platform: "mqtt"
+  name: "Ikea Switch 2 Battery"
+  state_topic: "zigbee2mqtt/ikea_switch_2"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+- platform: "mqtt"
   name: "Ikea Switch 3 Battery"
   state_topic: "zigbee2mqtt/ikea_switch_3"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+- platform: "mqtt"
+  name: "Ikea Switch 4 Battery"
+  state_topic: "zigbee2mqtt/ikea_switch_4"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+- platform: "mqtt"
+  name: "Ikea Switch 5 Battery"
+  state_topic: "zigbee2mqtt/ikea_switch_5"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+- platform: "mqtt"
+  name: "Ikea Switch 6 Battery"
+  state_topic: "zigbee2mqtt/ikea_switch_6"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   device_class: "battery"

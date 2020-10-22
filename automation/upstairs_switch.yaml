@@ -3,40 +3,10 @@
 - alias: '[Upstairs] IKEA Switch light control'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: ikea_switch_4
+  - platform: mqtt
+    topic: "zigbee2mqtt/ikea_switch_4"
   action:
   - service: python_script.ikea_switch_control
     data_template:
       switch_id: ikea_switch_4
-      action: >
-        {% if trigger.event.data.event == 1002 %}
-          toggle
-        {% elif trigger.event.data.event == 2002 %}
-          brightness_up_click
-        {% elif trigger.event.data.event == 3002 %}
-          brightness_down_click
-        {% elif trigger.event.data.event == 4002 %}
-          arrow_left_click
-        {% elif trigger.event.data.event == 5002 %}
-          arrow_right_click
-        {% elif trigger.event.data.event == 2001 %}
-          brightness_up_hold
-        {% elif trigger.event.data.event == 2003 %}
-          brightness_up_release
-        {% elif trigger.event.data.event == 3001 %}
-          brightness_down_hold
-        {% elif trigger.event.data.event == 3003 %}
-          brightness_down_release
-        {% elif trigger.event.data.event == 4001 %}
-          arrow_left_hold
-        {% elif trigger.event.data.event == 4003 %}
-          arrow_left_release
-        {% elif trigger.event.data.event == 5001 %}
-          arrow_right_hold
-        {% elif trigger.event.data.event == 5003 %}
-          arrow_right_release
-        {% endif %}
-
+      action: '{{ trigger.payload_json.action }}'

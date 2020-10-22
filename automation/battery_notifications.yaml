@@ -13,10 +13,11 @@
     - sensor.entrance_battery_level
     - sensor.storehouse_battery_level
     - sensor.ikea_switch_1_battery
-    - sensor.ikea_switch_2_battery_level
+    - sensor.ikea_switch_2_battery
     - sensor.ikea_switch_3_battery
     - sensor.ikea_switch_4_battery_level
-    - sensor.ikea_switch_5_battery_level
+    - sensor.ikea_switch_5_battery
+    - sensor.ikea_switch_6_battery
     - sensor.xiaomi_wallswitch_1_battery_level
     - sensor.weather_storehouse_battery_level
     - sensor.weather_second_floor_battery_level
@@ -107,6 +108,16 @@
           title: "Low battery"
           message: "The battery of the Ikea switch 1 is {{ states('sensor.ikea_switch_1_battery') }} %."
 
+    # Ikea Switch 4
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_switch_4_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Ikea switch 4 is {{ states('sensor.ikea_switch_4_battery') }} %."
+
     # Ikea Switch 3
     - conditions:
       - condition: template
@@ -116,6 +127,36 @@
         data_template:
           title: "Low battery"
           message: "The battery of the Ikea switch 3 is {{ states('sensor.ikea_switch_3_battery') }} %."
+
+    # Ikea Switch 6
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_switch_6_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Ikea switch 6 is {{ states('sensor.ikea_switch_6_battery') }} %."
+
+    # Ikea Switch 2
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_switch_2_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Ikea switch 2 is {{ states('sensor.ikea_switch_2_battery') }} %."
+
+    # Ikea Switch 5
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.ikea_switch_5_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Ikea switch 5 is {{ states('sensor.ikea_switch_5_battery') }} %."
 
     # Motion sensor in the workroom
     - conditions:
