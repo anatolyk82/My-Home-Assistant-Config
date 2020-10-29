@@ -84,3 +84,70 @@
   unit_of_measurement: "%"
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
+
+
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor in the living room
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_livingroom'
+  state_topic: "zigbee2mqtt/motion_livingroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_livingroom_battery'
+  state_topic: "zigbee2mqtt/motion_livingroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor in the entrance
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_entrance'
+  state_topic: "zigbee2mqtt/motion_entrance"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_entrance_battery'
+  state_topic: "zigbee2mqtt/motion_entrance"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+
+#-------------------------------------------------
+#
+# Motion / Illuminance sensor in the kitchen
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: 'lightlevel_kitchen'
+  state_topic: "zigbee2mqtt/motion_kitchen"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "lx"
+  device_class: "illuminance"
+  value_template: "{{ value_json.illuminance }}"
+
+- platform: "mqtt"
+  name: 'motion_kitchen_battery'
+  state_topic: "zigbee2mqtt/motion_kitchen"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+

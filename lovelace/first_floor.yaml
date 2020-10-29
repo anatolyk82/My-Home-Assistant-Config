@@ -256,4 +256,12 @@ cards:
         icon: mdi:wall-sconce-round-variant
         entity: light.ikea_lamp_3
         name: "Ball lamp"
+    - type: history-graph
+      title: Temperature history
+      hours_to_show: 48
+      entities:
+      - entity: sensor.temperature_first_floor
+        name: "Living room"
+      - entity: sensor.tuya_temperature_1
+        name: "Kitchen"
 

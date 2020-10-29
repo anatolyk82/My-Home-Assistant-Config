@@ -60,3 +60,51 @@
   payload_off: false
   value_template: "{{ value_json.occupancy }}"
   device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_livingroom
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_livingroom"
+  state_topic: "zigbee2mqtt/motion_livingroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_entrance
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_entrance"
+  state_topic: "zigbee2mqtt/motion_entrance"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+
+
+################################################
+#
+# Motion sensor in the workroom binary_sensor.presence_kitchen
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_kitchen"
+  state_topic: "zigbee2mqtt/motion_kitchen"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"

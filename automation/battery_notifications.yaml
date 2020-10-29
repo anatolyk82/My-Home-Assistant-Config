@@ -4,11 +4,8 @@
     entity_id:
     - sensor.xiaomi_switch_workroom_battery_level
     - sensor.xiaomi_switch_bedroom_battery_level
-    - sensor.motion_sensor_kitchen_battery_level
     - sensor.motion_sensor_backyard_battery_level
-    - sensor.motion_sensor_entrance_battery_level
     - sensor.kitchen_battery_level
-    - sensor.motion_sensor_livingroom_battery_level
     - sensor.living_room_battery_level
     - sensor.entrance_battery_level
     - sensor.storehouse_battery_level
@@ -41,6 +38,9 @@
     - sensor.motion_upstairs_battery
     - sensor.motion_guestroom_battery
     - sensor.motion_bedroom_battery
+    - sensor.motion_kitchen_battery
+    - sensor.motion_entrance_battery
+    - sensor.motion_livingroom_battery
     - sensor.keypad_1_battery
     - sensor.tuya_weather_1_battery
     below: 20
@@ -197,6 +197,36 @@
         data_template:
           title: "Low battery"
           message: "The battery of the motion sensor in the bedroom is {{ states('sensor.motion_bedroom_battery') }} %."
+
+    # Motion sensor in the kitchen
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_kitchen_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the kitchen is {{ states('sensor.motion_kitchen_battery') }} %."
+
+    # Motion sensor in the living room
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_livingroom_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the living room is {{ states('sensor.motion_livingroom_battery') }} %."
+
+    # Motion sensor in the entrance
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_entrance_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the entrance is {{ states('sensor.motion_entrance_battery') }} %."
 
     # Keypad 1
     - conditions:
