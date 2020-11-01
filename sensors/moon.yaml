@@ -3,7 +3,6 @@
 - platform: template
   sensors:
     moonphases:
-      entity_id: sensor.moon
       friendly_name: 'Moon'
       value_template: '{{ states.sensor.moon.state }}'
       entity_picture_template: >
