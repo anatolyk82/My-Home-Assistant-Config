@@ -1,5 +1,7 @@
 - alias: '[Kitchen] Opple Switch'
   initial_state: true
+  mode: parallel
+  max: 2
   trigger:
   - platform: event
     event_type: deconz_event
