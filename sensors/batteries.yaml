@@ -124,3 +124,23 @@
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
 
+#-------------------------------------------------
+#
+# Xiaomi Weather sensor
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: "Weather First Floor Battery"
+  state_topic: "zigbee2mqtt/weather_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "Weather Second Floor Battery"
+  state_topic: "zigbee2mqtt/weather_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"

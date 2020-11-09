@@ -288,6 +288,26 @@
           title: "Low battery"
           message: "The battery of the TuYa weather sensor 1 is {{ states('sensor.tuya_weather_1_battery') }} %."
 
+    # weather second floor sensor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_first_floor_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the weather sensor on the first floot is {{ states('sensor.weather_first_floor_battery') }} %."
+
+    # weather second floor sensor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_second_floor_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the weather sensor on the second floot is {{ states('sensor.weather_second_floor_battery') }} %."
+
     default:
     - service: notify.pushover
       data_template:
