@@ -1,0 +1,11 @@
+- alias: '[Alarm] Notify when start pending'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'pending'
+  action:
+  - service: notify.pushover
+    data:
+      title: "Alarm is pending"
+      message: "The alarm has started pending at {{ now().strftime('%H:%M:%S') }}"
+
