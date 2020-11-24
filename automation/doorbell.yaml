@@ -13,13 +13,11 @@
 - alias: '[Doorbell] Xiaomi button pressed'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: xiaomi_switch_workroom 
-      #event: 1002 #-short press
-      #event: 1001 # press and hold
-      #event: 1004 # long press
+  - platform: mqtt
+    topic: "zigbee2mqtt/xiaomi_button_1"
+  condition:
+  - condition: template
+    value_template: "{{ trigger.payload_json.action == 'single' }}"
   action:
   - service: script.turn_on
     data:

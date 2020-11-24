@@ -2,8 +2,8 @@
   trigger:
   - platform: numeric_state
     entity_id:
-    - sensor.xiaomi_switch_workroom_battery_level
-    - sensor.xiaomi_switch_bedroom_battery_level
+    - sensor.xiaomi_button_1_battery
+    - sensor.xiaomi_button_2_battery
     - sensor.motion_sensor_backyard_battery_level
     - sensor.kitchen_battery_level
     - sensor.living_room_battery_level
@@ -307,6 +307,26 @@
         data_template:
           title: "Low battery"
           message: "The battery of the weather sensor on the second floot is {{ states('sensor.weather_second_floor_battery') }} %."
+
+    # xiaomi_button_1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.xiaomi_button_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the xiaomi button 1 (doorbell) is {{ states('sensor.xiaomi_button_1_battery') }} %."
+
+    # xiaomi_button_2
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.xiaomi_button_2_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the xiaomi button 2 (Bedroom) is {{ states('sensor.xiaomi_button_2_battery') }} %."
 
     default:
     - service: notify.pushover
