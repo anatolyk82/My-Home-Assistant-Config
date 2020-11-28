@@ -1,0 +1,33 @@
+#########################################################
+# First floor
+#########################################################
+- platform: "mqtt"
+  name: "smoke_first_floor_sensitivity"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.sensitivity }}"
+
+- platform: "mqtt"
+  name: "smoke_first_floor_smoke_density"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "-"
+  value_template: "{{ value_json.smoke_density }}"
+  icon: "mdi:google-circles-communities"
+
+#########################################################
+# Second floor
+#########################################################
+- platform: "mqtt"
+  name: "smoke_second_floor_sensitivity"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.sensitivity }}"
+
+- platform: "mqtt"
+  name: "smoke_second_floor_smoke_density"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "-"
+  value_template: "{{ value_json.smoke_density }}"
+  icon: "mdi:google-circles-communities"

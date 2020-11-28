@@ -1,0 +1,58 @@
+#########################################################
+# First floor
+#########################################################
+- platform: "mqtt"
+  name: "smoke_first_floor"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.smoke }}"
+  payload_on: true
+  payload_off: false
+  device_class: "smoke"
+
+- platform: "mqtt"
+  name: "smoke_first_floor_battery_low"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.battery_low }}"
+  payload_on: true
+  payload_off: false
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "smoke_first_floor_tamper"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.tamper }}"
+  payload_on: true
+  payload_off: false
+
+#########################################################
+# Second floor
+#########################################################
+
+- platform: "mqtt"
+  name: "smoke_second_floor"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.smoke }}"
+  payload_on: true
+  payload_off: false
+  device_class: "smoke"
+
+- platform: "mqtt"
+  name: "smoke_second_floor_battery_low"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.battery_low }}"
+  payload_on: true
+  payload_off: false
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "smoke_second_floor_tamper"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.tamper }}"
+  payload_on: true
+  payload_off: false
