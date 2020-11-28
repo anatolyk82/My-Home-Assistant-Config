@@ -5,8 +5,6 @@ cards:
     cards:
     - type: weather-forecast
       entity: weather.smhi_home
-  - type: vertical-stack
-    cards:
     - type: horizontal-stack
       cards:
       - type: sensor
@@ -22,21 +20,12 @@ cards:
         entity: sensor.pressure_outdoor
         graph: line
   - type: history-graph
-    title: Temperature history
     hours_to_show: 48
     entities:
       - entity: sensor.temperature_outdoor
         name: Temperature sensor
-  - type: history-graph
-    title: Humidity history
-    hours_to_show: 48
-    entities:
       - entity: sensor.humidity_outdoor
         name: Humidity sensor
-  - type: history-graph
-    title: Pressure history
-    hours_to_show: 48
-    entities:
       - entity: sensor.pressure_outdoor
         name: Pressure sensor
 
