@@ -83,4 +83,28 @@
   command_topic: "zigbee2mqtt/ikea_lamp_9/set"
   brightness_scale: 255
 
+#################################################
+#
+# Color bulbs
+#
+#################################################
+- platform: "mqtt"
+  name: "ikea_lamp_3"
+  state_topic: "zigbee2mqtt/ikea_lamp_3"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: false
+  xy: true
+  hs: false
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_3/set"
+  brightness_scale: 254
+  effect: true
+  effect_list: 
+    - "blink"
+    - "breathe"
+    - "okay"
+    - "channel_change"
+    - "finish_effect"
+    - "stop_effect"
 
