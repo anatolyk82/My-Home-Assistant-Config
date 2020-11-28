@@ -1,0 +1,36 @@
+- platform: "mqtt"
+  name: "openclose_livingroom"
+  state_topic: "zigbee2mqtt/openclose_livingroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.contact }}"
+  payload_on: false
+  payload_off: true
+  device_class: "door"
+
+- platform: "mqtt"
+  name: "openclose_entrance"
+  state_topic: "zigbee2mqtt/openclose_entrance"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.contact }}"
+  payload_on: false
+  payload_off: true
+  device_class: "door"
+
+- platform: "mqtt"
+  name: "openclose_kitchen"
+  state_topic: "zigbee2mqtt/openclose_kitchen"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.contact }}"
+  payload_on: false
+  payload_off: true
+  device_class: "door"
+
+- platform: "mqtt"
+  name: "openclose_storehouse"
+  state_topic: "zigbee2mqtt/openclose_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.contact }}"
+  payload_on: false
+  payload_off: true
+  device_class: "door"
+

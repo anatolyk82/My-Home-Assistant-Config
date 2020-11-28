@@ -2,13 +2,15 @@
   trigger:
   - platform: numeric_state
     entity_id:
+    - sensor.smoke_first_floor_battery
+    - sensor.smoke_second_floor_battery
     - sensor.xiaomi_button_1_battery
     - sensor.xiaomi_button_2_battery
     - sensor.motion_sensor_backyard_battery_level
-    - sensor.kitchen_battery_level
-    - sensor.living_room_battery_level
-    - sensor.entrance_battery_level
-    - sensor.storehouse_battery_level
+    - sensor.openclose_kitchen_battery
+    - sensor.openclose_livingroom_battery
+    - sensor.openclose_entrance_battery
+    - sensor.openclose_storehouse_battery
     - sensor.ikea_switch_1_battery
     - sensor.ikea_switch_2_battery
     - sensor.ikea_switch_3_battery
@@ -43,21 +45,12 @@
     - sensor.motion_livingroom_battery
     - sensor.keypad_1_battery
     - sensor.tuya_weather_1_battery
-    below: 20
+    below: 15
   mode: queued
   action:
   - choose:
 
-    # Outdoor weather sensor
-    - conditions:
-      - condition: template
-        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_outdoor_battery_level' }}"
-      sequence:
-      - service: notify.pushover
-        data_template:
-          title: "Low battery"
-          message: "The battery of the outdoor weather sensor is {{ states('sensor.weather_outdoor_battery_level') }} %."
-
+    #----------------------
     # Left cover in the bedroom
     - conditions:
       - condition: template
@@ -98,6 +91,7 @@
           title: "Low battery"
           message: "The battery of the cover in the workroom is {{ states('sensor.blinds_workroom_battery') }} %."
 
+    #----------------------
     # Ikea Switch 1
     - conditions:
       - condition: template
@@ -158,6 +152,7 @@
           title: "Low battery"
           message: "The battery of the Ikea switch 5 is {{ states('sensor.ikea_switch_5_battery') }} %."
 
+    #----------------------
     # Motion sensor in the workroom
     - conditions:
       - condition: template
@@ -226,8 +221,9 @@
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the motion sensor in the entrance is {{ states('sensor.motion_entrance_battery') }} %."
+          message: "The battery of the motion sensor at the entrance is {{ states('sensor.motion_entrance_battery') }} %."
 
+    #----------------------
     # Keypad 1
     - conditions:
       - condition: template
@@ -238,6 +234,7 @@
           title: "Low battery"
           message: "The battery of the keypad 1 is {{ states('sensor.keypad_1_battery') }} %."
 
+    #----------------------
     # IKEA on/off switch 1
     - conditions:
       - condition: template
@@ -248,6 +245,7 @@
           title: "Low battery"
           message: "The battery of the IKEA on/off switch 1 is {{ states('sensor.ikea_on_off_switch_1_battery') }} %."
     
+    #----------------------
     # IKEA up/down switch 1
     - conditions:
       - condition: template
@@ -266,7 +264,7 @@
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_2_battery') }} %."
+          message: "The battery of the IKEA up/down switch 2 is {{ states('sensor.ikea_up_down_switch_2_battery') }} %."
 
     # IKEA up/down switch 3
     - conditions:
@@ -276,9 +274,10 @@
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the IKEA up/down switch 1 is {{ states('sensor.ikea_up_down_switch_3_battery') }} %."
+          message: "The battery of the IKEA up/down switch 3 is {{ states('sensor.ikea_up_down_switch_3_battery') }} %."
 
-    # TuYa weather sensor 1
+    #----------------------
+    # TuYa Weather sensor 1
     - conditions:
       - condition: template
         value_template: "{{ trigger.to_state.entity_id == 'sensor.tuya_weather_1_battery' }}"
@@ -288,7 +287,7 @@
           title: "Low battery"
           message: "The battery of the TuYa weather sensor 1 is {{ states('sensor.tuya_weather_1_battery') }} %."
 
-    # weather second floor sensor
+    # Xiaomi Weather First Floor sensor
     - conditions:
       - condition: template
         value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_first_floor_battery' }}"
@@ -298,7 +297,7 @@
           title: "Low battery"
           message: "The battery of the weather sensor on the first floot is {{ states('sensor.weather_first_floor_battery') }} %."
 
-    # weather second floor sensor
+    # Xiaomi Weather Second Floor sensor
     - conditions:
       - condition: template
         value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_second_floor_battery' }}"
@@ -308,6 +307,17 @@
           title: "Low battery"
           message: "The battery of the weather sensor on the second floot is {{ states('sensor.weather_second_floor_battery') }} %."
 
+    # Outdoor weather sensor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_outdoor_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the outdoor weather sensor is {{ states('sensor.weather_outdoor_battery_level') }} %."
+
+    #----------------------
     # xiaomi_button_1
     - conditions:
       - condition: template
@@ -328,6 +338,68 @@
           title: "Low battery"
           message: "The battery of the xiaomi button 2 (Bedroom) is {{ states('sensor.xiaomi_button_2_battery') }} %."
 
+    #----------------------
+    # openclose_entrance
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.openclose_entrance_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the entrance door sensor is {{ states('sensor.openclose_entrance_battery') }} %."
+
+    # openclose_kitchen
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.openclose_kitchen_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the kitchen door sensor is {{ states('sensor.openclose_kitchen_battery') }} %."
+
+    # openclose_livingroom
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.openclose_livingroom_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the kitchen door sensor is {{ states('sensor.openclose_livingroom_battery') }} %."
+
+    # openclose_storehouse
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.openclose_storehouse_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the store house door sensor is {{ states('sensor.openclose_storehouse_battery') }} %."
+
+    #----------------------
+    # Smoke detector 1 floor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.smoke_first_floor_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the smoke sensor on the 1st floor is {{ states('sensor.smoke_first_floor_battery') }} %."
+
+    # Smoke detector 2 floor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.smoke_second_floor_battery_level' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the smoke sensor on the 2nd floor is {{ states('sensor.smoke_second_floor_battery') }} %."
+
     default:
     - service: notify.pushover
       data_template:
@@ -336,4 +408,30 @@
 
 
 
+- alias: '[System] Battery of Smoke detectors'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.smoke_first_floor_battery_low
+    - binary_sensor.smoke_second_floor_battery_low
+    to: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'binary_sensor.smoke_first_floor_battery_low' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "⚠ Low battery"
+          message: "The battery of the smoke sensor on the first floor is low: {{ states('sensor.smoke_first_floor_battery') }} %."
 
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'binary_sensor.smoke_second_floor_battery_low' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "⚠ Low battery"
+          message: "The battery of the smoke sensor on the second floor is low: {{ states('sensor.smoke_second_floor_battery') }} %."

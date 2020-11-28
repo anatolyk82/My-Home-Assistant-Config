@@ -165,3 +165,62 @@
   unit_of_measurement: "%"
   value_template: "{{ value_json.battery }}"
   device_class: "battery"
+
+
+#-------------------------------------------------
+#
+# Open/Close sensors
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: "openclose_livingroom_battery"
+  state_topic: "zigbee2mqtt/openclose_livingroom"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "openclose_entrance_battery"
+  state_topic: "zigbee2mqtt/openclose_entrance"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "openclose_kitchen_battery"
+  state_topic: "zigbee2mqtt/openclose_kitchen"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "openclose_storehouse_battery"
+  state_topic: "zigbee2mqtt/openclose_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+#-------------------------------------------------
+#
+# Smoke sensors
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: "smoke_first_floor_battery"
+  state_topic: "zigbee2mqtt/smoke_first_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "smoke_second_floor_battery"
+  state_topic: "zigbee2mqtt/smoke_second_floor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
