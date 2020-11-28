@@ -97,9 +97,11 @@ cards:
     - type: light
       entity: light.ikea_lamp_10
       icon: mdi:coach-lamp
+      name: "Backyard"
     - type: light
       entity: light.ikea_lamp_11
       icon: mdi:wall-sconce-flat
+      name: "Porch"
     - type: light
       entity: light.ikea_lamp_12
       icon: mdi:wall-sconce-flat

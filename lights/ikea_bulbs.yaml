@@ -108,3 +108,68 @@
     - "finish_effect"
     - "stop_effect"
 
+
+# --- Ikea Lamp 10 - Backyard
+- platform: "mqtt"
+  name: "ikea_lamp_10"
+  state_topic: "zigbee2mqtt/ikea_lamp_10"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  xy: false
+  hs: false
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_10/set"
+  brightness_scale: 254
+  effect: true
+  effect_list: 
+    - "blink"
+    - "breathe"
+    - "okay"
+    - "channel_change"
+    - "finish_effect"
+    - "stop_effect"
+
+
+# --- Ikea Lamp 11 - Porch
+- platform: "mqtt"
+  name: "ikea_lamp_11"
+  state_topic: "zigbee2mqtt/ikea_lamp_11"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: false
+  xy: false
+  hs: false
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_11/set"
+  brightness_scale: 254
+  effect: true
+  effect_list: 
+    - "blink"
+    - "breathe"
+    - "okay"
+    - "channel_change"
+    - "finish_effect"
+    - "stop_effect"
+
+
+# --- Ikea Lamp 12 - Front Yard
+- platform: "mqtt"
+  name: "ikea_lamp_12"
+  state_topic: "zigbee2mqtt/ikea_lamp_12"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: false
+  xy: false
+  hs: false
+  schema: "json"
+  command_topic: "zigbee2mqtt/ikea_lamp_12/set"
+  brightness_scale: 254
+  effect: true
+  effect_list: 
+    - "blink"
+    - "breathe"
+    - "okay"
+    - "channel_change"
+    - "finish_effect"
+    - "stop_effect"
