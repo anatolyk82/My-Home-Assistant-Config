@@ -2,7 +2,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.smoke_first_floor
+    entity_id: binary_sensor.smoke_1
     to: 'on'
   action:
   - service: automation.turn_on
@@ -17,11 +17,24 @@
         - delay: '00:00:15'
 
 
+- alias: '[Security] Tamper alarm of the Smoke1 sensor'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.smoke_1_tamper
+    to: 'on'
+  action:
+  - service: notify.pushover
+    data:
+      title: "Tamper Alarm"
+      message: "WARNING! Tamper alarm of the Smoke sensor 1 (first floor)"
+
+
 - alias: '[Security] Smoke alarm on the second floor'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.smoke_second_floor
+    entity_id: binary_sensor.smoke_2
     to: 'on'
   action:
   - service: automation.turn_on

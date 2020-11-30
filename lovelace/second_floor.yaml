@@ -56,7 +56,7 @@ cards:
           top: 79%
           left: 50%
       - type: state-icon # Smoke detector
-        entity: binary_sensor.smoke_second_floor
+        entity: binary_sensor.smoke_2
         style:
           top: 55%
           left: 50%
@@ -80,7 +80,7 @@ cards:
           top: 78%
           left: 76%
       - type: state-icon # Water sensor
-        entity: binary_sensor.water_second_floor
+        entity: binary_sensor.water_leak_2
         style:
           top: 25%
           left: 49%

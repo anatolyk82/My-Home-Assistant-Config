@@ -2,7 +2,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.water_first_floor
+    entity_id: binary_sensor.water_leak_1
     to: 'on'
   action:
   - service: automation.turn_on
@@ -21,7 +21,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.water_second_floor
+    entity_id: binary_sensor.water_leak_2
     to: 'on'
   action:
   - service: automation.turn_on

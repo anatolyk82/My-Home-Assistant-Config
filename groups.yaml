@@ -149,8 +149,8 @@ zigbee_switches:
 zigbee_smoke_sensors:
   name: 'ZigBee Smoke Sensors'
   entities:
-  - binary_sensor.smoke_first_floor
-  - binary_sensor.smoke_second_floor
+  - binary_sensor.smoke_1
+  - binary_sensor.smoke_2
 
 # ------------------------------------------------
 

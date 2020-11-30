@@ -1,18 +1,15 @@
-#########################################################
-# First floor
-#########################################################
 - platform: "mqtt"
-  name: "smoke_1"
-  state_topic: "zigbee2mqtt/smoke_1"
+  name: "water_leak_1"
+  state_topic: "zigbee2mqtt/water_leak_1"
   availability_topic: "zigbee2mqtt/bridge/state"
-  value_template: "{{ value_json.smoke }}"
+  value_template: "{{ value_json.water_leak }}"
   payload_on: true
   payload_off: false
-  device_class: "smoke"
+  device_class: "moisture"
 
 - platform: "mqtt"
-  name: "smoke_1_battery_low"
-  state_topic: "zigbee2mqtt/smoke_1"
+  name: "water_leak_1_battery_low"
+  state_topic: "zigbee2mqtt/water_leak_1"
   availability_topic: "zigbee2mqtt/bridge/state"
   value_template: "{{ value_json.battery_low }}"
   payload_on: true
@@ -20,29 +17,27 @@
   device_class: "battery"
 
 - platform: "mqtt"
-  name: "smoke_1_tamper"
-  state_topic: "zigbee2mqtt/smoke_1"
+  name: "water_leak_1_tamper"
+  state_topic: "zigbee2mqtt/water_leak_1"
   availability_topic: "zigbee2mqtt/bridge/state"
   value_template: "{{ value_json.tamper }}"
   payload_on: true
   payload_off: false
 
-#########################################################
-# Second floor
-#########################################################
+#-----------------------
 
 - platform: "mqtt"
-  name: "smoke_2"
-  state_topic: "zigbee2mqtt/smoke_2"
+  name: "water_leak_2"
+  state_topic: "zigbee2mqtt/water_leak_2"
   availability_topic: "zigbee2mqtt/bridge/state"
-  value_template: "{{ value_json.smoke }}"
+  value_template: "{{ value_json.water_leak }}"
   payload_on: true
   payload_off: false
-  device_class: "smoke"
+  device_class: "moisture"
 
 - platform: "mqtt"
-  name: "smoke_2_battery_low"
-  state_topic: "zigbee2mqtt/smoke_2"
+  name: "water_leak_2_battery_low"
+  state_topic: "zigbee2mqtt/water_leak_2"
   availability_topic: "zigbee2mqtt/bridge/state"
   value_template: "{{ value_json.battery_low }}"
   payload_on: true
@@ -50,9 +45,10 @@
   device_class: "battery"
 
 - platform: "mqtt"
-  name: "smoke_2_tamper"
-  state_topic: "zigbee2mqtt/smoke_2"
+  name: "water_leak_2_tamper"
+  state_topic: "zigbee2mqtt/water_leak_2"
   availability_topic: "zigbee2mqtt/bridge/state"
   value_template: "{{ value_json.tamper }}"
   payload_on: true
   payload_off: false
+
