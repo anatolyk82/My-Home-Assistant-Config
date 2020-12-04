@@ -1,0 +1,44 @@
+
+title: "Christmas"
+id: christmas
+cards:
+- type: grid
+  columns: 4
+  cards:
+  - type: button
+    icon: mdi:snowman
+    name: "Snögubbe"
+    entity: switch.tuya_power_1
+    tap_action:
+      action: call-service
+      service: switch.toggle
+      service_data:
+        entity_id: switch.tuya_power_1
+  - type: button
+    icon: mdi:star
+    name: "Stjärnor"
+    entity: switch.ikea_plug_7
+    tap_action:
+      action: call-service
+      service: switch.toggle
+      service_data:
+        entity_id: switch.ikea_plug_7
+  - type: button
+    icon: mdi:pine-tree
+    name: "Julgran"
+    entity: switch.wifi_cord
+    tap_action:
+      action: call-service
+      service: switch.toggle
+      service_data:
+        entity_id: switch.wifi_cord
+  - type: button
+    icon: mdi:string-lights
+    name: "Ljusslinga"
+    entity: light.garden_power_2
+    tap_action:
+      action: call-service
+      service: switch.toggle
+      service_data:
+        entity_id: light.garden_power_2
+
