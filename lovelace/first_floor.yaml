@@ -216,52 +216,39 @@ cards:
         entity: sensor.lightlevel_kitchen
         graph: line
 
-  - type: vertical-stack
+  - type: grid
+    columns: 3
     cards:
-    - type: horizontal-stack
-      cards:
-      - type: light
-        entity: light.kitchen_lights_2
-        icon: mdi:track-light
-        name: "Kitchen (exit)"
-      - type: light
-        entity: light.kitchen_lights_1
-        icon: mdi:track-light
-        name: "Kitchen (win)"
-      - type: light
-        entity: light.kitchen_cupboard
-        icon: mdi:wall-sconce-flat
-        name: "Cupboard"
-    - type: horizontal-stack
-      cards:
-      - type: light
-        entity: light.ikea_lamp_2
-        icon: mdi:ceiling-light
-        name: "Entrance"
-      - type: light
-        entity: light.gledopto_lamp_1
-        icon: mdi:ceiling-light
-        name: "Living room (window)"
-      - type: light
-        entity: light.gledopto_lamp_2
-        icon: mdi:ceiling-light
-        name: "Living room (kitchen)"
-    - type: horizontal-stack
-      cards:
-      - type: light
-        entity: light.mood_lamp
-        icon: mdi:lava-lamp
-        name: "Moodlamp (Living room)"
-      - type: light
-        icon: mdi:wall-sconce-round-variant
-        entity: light.ikea_lamp_3
-        name: "Ball lamp"
-    - type: history-graph
-      title: Temperature history
-      hours_to_show: 48
-      entities:
-      - entity: sensor.temperature_first_floor
-        name: "Living room"
-      - entity: sensor.tuya_temperature_1
-        name: "Kitchen"
+    - type: light
+      entity: light.kitchen_lights_2
+      icon: mdi:track-light
+      name: "Kitchen (exit)"
+    - type: light
+      entity: light.kitchen_lights_1
+      icon: mdi:track-light
+      name: "Kitchen (win)"
+    - type: light
+      entity: light.kitchen_cupboard
+      icon: mdi:wall-sconce-flat
+      name: "Cupboard"
+    - type: light
+      entity: light.ikea_lamp_2
+      icon: mdi:ceiling-light
+      name: "Entrance"
+    - type: light
+      entity: light.gledopto_lamp_1
+      icon: mdi:ceiling-light
+      name: "Living room (window)"
+    - type: light
+      entity: light.gledopto_lamp_2
+      icon: mdi:ceiling-light
+      name: "Living room (kitchen)"
+    - type: light
+      entity: light.mood_lamp
+      icon: mdi:lava-lamp
+      name: "Moodlamp (Living room)"
+    - type: light
+      icon: mdi:wall-sconce-round-variant
+      entity: light.ikea_lamp_3
+      name: "Ball lamp"
 

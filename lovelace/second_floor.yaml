@@ -127,19 +127,10 @@ cards:
       - type: sensor
         entity: sensor.lightlevel_guestroom
         graph: line
-  - type: vertical-stack
+
+  - type: grid
+    columns: 3
     cards:
-    - type: horizontal-stack
-      cards:
-      - type: light
-        entity: light.gledopto_lamp_4
-        icon: mdi:ceiling-light
-        name: "Bedroom"
-      - type: light
-        entity: light.bed_led
-        name: "Bed"
-    - type: horizontal-stack
-      cards:
       - type: light
         entity: light.ikea_lamp_13
         icon: mdi:ceiling-light
@@ -152,6 +143,13 @@ cards:
         entity: light.aqara_lamp_1
         icon: mdi:ceiling-light
         name: "Upstairs"
+      - type: light
+        entity: light.gledopto_lamp_4
+        icon: mdi:ceiling-light
+        name: "Bedroom"
+      - type: light
+        entity: light.bed_led
+        name: "Bed"
       
 
   - type: entities
