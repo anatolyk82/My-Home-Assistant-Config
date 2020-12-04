@@ -18,10 +18,10 @@
     - sensor.ikea_switch_5_battery
     - sensor.ikea_switch_6_battery
     - sensor.xiaomi_wallswitch_1_battery_level
-    - sensor.weather_storehouse_battery_level
-    - sensor.weather_second_floor_battery_level
-    - sensor.weather_first_floor_battery_level
     - sensor.weather_outdoor_battery_level
+    - sensor.weather_first_floor_battery
+    - sensor.weather_second_floor_battery
+    - sensor.weather_storehouse_battery
     - sensor.water_leak_1_battery
     - sensor.water_leak_2_battery
     - sensor.ikea_on_off_switch_1_battery
@@ -293,7 +293,7 @@
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the weather sensor on the first floot is {{ states('sensor.weather_first_floor_battery') }} %."
+          message: "The battery of the weather sensor on the first floor is {{ states('sensor.weather_first_floor_battery') }} %."
 
     # Xiaomi Weather Second Floor sensor
     - conditions:
@@ -303,7 +303,17 @@
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the weather sensor on the second floot is {{ states('sensor.weather_second_floor_battery') }} %."
+          message: "The battery of the weather sensor on the second floor is {{ states('sensor.weather_second_floor_battery') }} %."
+
+    # Xiaomi Weather Storehouse sensor
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_storehouse_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the weather sensor in the storehouse is {{ states('sensor.weather_storehouse_battery') }} %."
 
     # Outdoor weather sensor
     - conditions:

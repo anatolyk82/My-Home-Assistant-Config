@@ -48,3 +48,28 @@
   value_template: "{{ value_json.pressure }}"
   device_class: "pressure"
 
+#-------------------
+
+- platform: "mqtt"
+  name: "Temperature Storehouse"
+  state_topic: "zigbee2mqtt/weather_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temperature }}"
+  device_class: "temperature"
+
+- platform: "mqtt"
+  name: "Humidity Storehouse"
+  state_topic: "zigbee2mqtt/weather_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.humidity }}"
+  device_class: "humidity"
+
+- platform: "mqtt"
+  name: "Pressure Storehouse"
+  state_topic: "zigbee2mqtt/weather_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "hPa"
+  value_template: "{{ value_json.pressure }}"
+  device_class: "pressure"
