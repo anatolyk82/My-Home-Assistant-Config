@@ -89,8 +89,8 @@
     entity_id: sun.sun
     state: 'below_horizon'
   action:
-  - service: light.turn_on
-    entity_id: light.frontyard_bright
+  - service: switch.turn_on
+    entity_id: switch.ikea_plug_1
 
 
 - alias: '[Front Yard] Bright light off if no motion for 1 min'
@@ -102,11 +102,11 @@
       minutes: 1
   condition:
   - condition: state
-    entity_id: light.frontyard_bright
+    entity_id: switch.ikea_plug_1
     state: 'on'
   action:
-  - service: light.turn_off
-    entity_id: light.frontyard_bright
+  - service: switch.turn_off
+    entity_id: switch.ikea_plug_1
 
 
 - alias: '[Front Yard] Video if motion while armed away'

@@ -23,7 +23,7 @@ cards:
     entities:
     - binary_sensor.foscam3
     - binary_sensor.presence_frontyard
-    - light.frontyard_bright
+    - switch.ikea_plug_1
     - sensor.lightlevel_frontyard
 
   - type: entities
@@ -45,7 +45,7 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - entity: light.frontyard_bright
+    - entity: switch.ikea_plug_1
       name: "Frontyard bright light"
       icon: mdi:spotlight
 
