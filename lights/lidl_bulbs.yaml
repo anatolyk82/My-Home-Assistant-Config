@@ -1,0 +1,19 @@
+- platform: "mqtt"
+  name: "lidl_lamp_1"
+  state_topic: "zigbee2mqtt/lidl_lamp_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  brightness: true
+  color_temp: true
+  xy: true
+  hs: false
+  schema: "json"
+  command_topic: "zigbee2mqtt/lidl_lamp_1/set"
+  brightness_scale: 254
+  effect: true
+  effect_list: 
+    - "blink"
+    - "breathe"
+    - "okay"
+    - "channel_change"
+    - "finish_effect"
+    - "stop_effect"

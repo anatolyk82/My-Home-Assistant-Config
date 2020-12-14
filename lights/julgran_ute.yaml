@@ -1,0 +1,5 @@
+- platform: group
+  name: Julgran Ute
+  entities:
+  - light.christams_pixie_1
+  - light.christams_pixie_2

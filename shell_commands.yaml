@@ -14,3 +14,8 @@ warning_sound_rpi_speaker: "/usr/bin/play --volume 1.0 /home/homeassistant/.home
 doorbell_sound: "/usr/bin/play --volume 1.0 /home/homeassistant/.homeassistant/media/Sounds/doorbell.wav"
 
 something_open_sound: "/usr/bin/play --volume 1 /home/homeassistant/.homeassistant/media/Sounds/something_open.wav"
+
+
+christmas_tree_effects: "/home/homeassistant/.homeassistant/bin/julgran.sh"
+christmas_tree_start: "/home/homeassistant/.homeassistant/bin/julgran_start.sh"
+christmas_tree_stop: "/home/homeassistant/.homeassistant/bin/julgran_stop.sh"
