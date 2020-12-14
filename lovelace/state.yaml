@@ -9,11 +9,6 @@ cards:
 - type: entities
   show_header_toggle: false
   entities:
-  - sensor.deconz_available_version
-  - sensor.deconz_installed_version
-- type: entities
-  show_header_toggle: false
-  entities:
   - sensor.home_assistant_v2_db
   - sensor.home_assistant_log
 - type: entities
