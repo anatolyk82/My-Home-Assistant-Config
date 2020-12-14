@@ -19,5 +19,5 @@
     trigger_time: 300
   armed_night:
     arming_time: 0
-    delay_time: 20
+    delay_time: 40
     trigger_time: 300
