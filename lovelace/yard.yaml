@@ -114,10 +114,10 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-    - entity: light.garden_power_1
+    - entity: switch.xiaomi_relay_1_l1
       name: "Garden Power 1"
       icon: mdi:power-socket-de
-    - entity: light.garden_power_2
+    - entity: switch.xiaomi_relay_1_l2
       name: "Garden Power 2"
       icon: mdi:power-socket-de
 

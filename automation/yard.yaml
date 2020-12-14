@@ -40,9 +40,9 @@
     data:
       entity_id: light.garden_lights_1
       effect: "RandomColorLamp"
-  - service: light.turn_on
+  - service: switch.turn_on
     data:
-      entity_id: light.garden_power_1
+      entity_id: switch.xiaomi_relay_1_l1
 
 
 - alias: '[Yard] Turn off yard lights at sunrise'
@@ -74,8 +74,8 @@
   - service: switch.turn_off
     entity_id: switch.ikea_plug_2
   - delay: '00:00:10'
-  - service: light.turn_off
-    entity_id: light.garden_power_1
+  - service: switch.turn_off
+    entity_id: switch.xiaomi_relay_1_l1
 
 #=============================( Frontyard )================================#
 

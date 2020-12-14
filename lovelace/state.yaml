@@ -88,3 +88,8 @@ cards:
   - entity: sensor.pm5_0
   - entity: sensor.pm10_0
 
+- type: entities
+  show_header_toggle: false
+  entities:
+  - entity: sensor.xiaomi_relay_1_voltage
+    name: "Main Voltage"
