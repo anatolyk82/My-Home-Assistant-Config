@@ -20,7 +20,23 @@
   value_template: "{{ value_json.coordinator }}"
   icon: mdi:chip
 
+#--------------------- Log Sensors -----------------------#
 - platform: mqtt
   name: "Zigbee2MQTT Log Level"
   state_topic: "zigbee2mqtt/bridge/config"
   value_template: "{{  value_json.log_level }}"
+
+- platform: mqtt
+  name: "Zigbee2MQTT Log Type"
+  state_topic: "zigbee2mqtt/bridge/log"
+  value_template: "{{  value_json.type }}"
+
+- platform: mqtt
+  name: "Zigbee2MQTT Log Message"
+  state_topic: "zigbee2mqtt/bridge/log"
+  value_template: "{{  value_json.message }}"
+
+#- platform: mqtt
+#  name: "Zigbee2MQTT Log Extra Message"
+#  state_topic: "zigbee2mqtt/bridge/log"
+#  value_template: "{{  value_json.meta.description }}"

@@ -60,4 +60,13 @@ cards:
         service: automation.toggle
         service_data:
           entity_id: automation.christmas_lights_christmas_tree_animations
+    - type: button
+      icon: mdi:star
+      name: "Stjärna i Köket"
+      entity: switch.ikea_plug_8
+      tap_action:
+        action: call-service
+        service: switch.toggle
+        service_data:
+          entity_id: switch.ikea_plug_8
    

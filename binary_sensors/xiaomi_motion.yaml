@@ -108,3 +108,34 @@
   payload_off: false
   value_template: "{{ value_json.occupancy }}"
   device_class: "motion"
+
+################################################
+#
+# Motion sensor in the backyard binary_sensor.presence_backyard
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_backyard"
+  state_topic: "zigbee2mqtt/motion_backyard"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+
+################################################
+#
+# Motion sensor in the frontyard binary_sensor.presence_frontyard
+# 
+#
+################################################
+- platform: "mqtt"
+  name: "presence_frontyard"
+  state_topic: "zigbee2mqtt/motion_frontyard"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.occupancy }}"
+  device_class: "motion"
+

@@ -75,3 +75,13 @@ cards:
   - switch.zigbee2mqtt_main_join
   - sensor.zigbee2mqtt_log_level
   - input_select.zigbee2mqtt_log_level
+
+- type: markdown
+  entity_id:
+  - sensor.zigbee2mqtt_log_type
+  - sensor.zigbee2mqtt_log_message
+  title: "Zigbee2MQTT Log"
+  content: |
+    **Log message at:** {{ as_local( states.sensor.zigbee2mqtt_log_message.last_changed ) }}
+    **Log type:** {{ states('sensor.zigbee2mqtt_log_type') }}
+    **Log Message:** {{ states('sensor.zigbee2mqtt_log_message') }}
