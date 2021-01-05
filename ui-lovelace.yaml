@@ -20,6 +20,3 @@ views:
 
   - !include lovelace/settings.yaml
 
-  - !include lovelace/christmas.yaml
-#  - !include lovelace/kiosk.yaml
-
