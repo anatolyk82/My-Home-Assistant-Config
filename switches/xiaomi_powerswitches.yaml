@@ -1,0 +1,18 @@
+- platform: "mqtt"
+  name: "Xiaomi Powerswitch 1 Left"
+  state_topic: "zigbee2mqtt/xiaomi_powerswitch_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_left }}"
+  command_topic: "zigbee2mqtt/xiaomi_powerswitch_1/left/set"
+
+- platform: "mqtt"
+  name: "Xiaomi Powerswitch 1 Right"
+  state_topic: "zigbee2mqtt/xiaomi_powerswitch_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_off: "OFF"
+  payload_on: "ON"
+  value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/xiaomi_powerswitch_1/right/set"
+

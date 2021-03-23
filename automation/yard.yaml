@@ -26,8 +26,8 @@
       transition: 10
       brightness_pct: 100
   - delay: "00:00:10"
-  - service: light.turn_on        # The storehouse decor light
-    entity_id: light.frontyard_decor
+  - service: switch.turn_on
+    entity_id: switch.xiaomi_powerswitch_1_right
   - delay: "00:00:10"
   - service: light.turn_on         # The garden lights
     data:
@@ -53,8 +53,8 @@
   - platform: sun
     event: sunrise
   action:
-  - service: light.turn_off
-    entity_id: light.frontyard_decor
+  - service: switch.turn_off
+    entity_id: switch.xiaomi_powerswitch_1_right
   - delay: "00:00:10"
   - service: light.turn_off
     entity_id: light.ikea_lamp_12

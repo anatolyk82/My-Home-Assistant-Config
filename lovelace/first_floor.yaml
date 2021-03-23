@@ -20,11 +20,6 @@ cards:
           top: 93%
           left: 20%
       - type: state-icon
-        entity: binary_sensor.motion_downstairs
-        style:
-          top: 64%
-          left: 25%
-      - type: state-icon
         entity: binary_sensor.presence_entrance
         style:
           top: 71%
@@ -123,13 +118,6 @@ cards:
         style:
           top: 11%
           left: 53%
-      - type: state-icon
-        entity: light.stairs
-        tap_action:
-          action: more-info
-        style:
-          top: 78%
-          left: 24%
       - type: state-icon
         entity: light.garden_lights_1
         tap_action:

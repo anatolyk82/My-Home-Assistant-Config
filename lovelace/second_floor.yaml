@@ -13,11 +13,6 @@ cards:
         style:
           top: 14%
           left: 7%
-      - type: state-icon
-        entity: binary_sensor.motion_upstairs
-        style:
-          top: 84%
-          left: 32%
       - type: state-icon  # Bedroom - light
         entity: light.gledopto_lamp_4 
         tap_action:
@@ -98,13 +93,6 @@ cards:
         style:
           top: 33%
           left: 80%
-      - type: state-icon
-        entity: light.stairs
-        tap_action:
-          action: more-info
-        style:
-          top: 83%
-          left: 15%
     - type: horizontal-stack
       cards:
       - type: sensor

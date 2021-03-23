@@ -2,7 +2,13 @@
   name: "Frontyard Bright"
   entity_id: switch.ikea_plug_1
 
-- platform: switch
+- platform: mqtt
   name: "Frontyard Decor"
-  entity_id: switch.smart_plug_18
-
+  state_topic: "zigbee2mqtt/xiaomi_powerswitch_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  optimistic: false
+  payload_on: "ON"
+  payload_off: "OFF"
+  state_value_template: "{{ value_json.state_right }}"
+  command_topic: "zigbee2mqtt/xiaomi_powerswitch_1/right/set"
+  qos: 1

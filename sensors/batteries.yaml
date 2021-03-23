@@ -139,7 +139,7 @@
 
 - platform: "mqtt"
   name: "Weather Second Floor Battery"
-  state_topic: "zigbee2mqtt/weather_second_floor"
+  state_topic: "zioutdoorweather_second_floor"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   value_template: "{{ value_json.battery }}"
@@ -148,6 +148,14 @@
 - platform: "mqtt"
   name: "Weather Storehouse Battery"
   state_topic: "zigbee2mqtt/weather_storehouse"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.battery }}"
+  device_class: "battery"
+
+- platform: "mqtt"
+  name: "Weather Outdor Battery"
+  state_topic: "zigbee2mqtt/weather_outdoor"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   value_template: "{{ value_json.battery }}"

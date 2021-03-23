@@ -12,6 +12,12 @@
   - light.ikea_lamp_8
   - light.ikea_lamp_9
 
-- platform: switch
+- platform: mqtt
   name: "Kitchen cupboard"
-  entity_id: switch.ikea_plug_4
+  state_topic: "zigbee2mqtt/ikea_plug_4"
+  command_topic: "zigbee2mqtt/ikea_plug_4/set"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  optimistic: false
+  brightness: false
+  schema: "json"
+  qos: 1

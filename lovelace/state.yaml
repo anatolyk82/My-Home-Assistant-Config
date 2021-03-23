@@ -66,22 +66,16 @@ cards:
 - type: media-control
   entity: media_player.lg_tv
   
-- type: history-graph
-  title: CO2 Concentration
-  hours_to_show: 24
+- type: glance
   entities:
-  - entity: sensor.co2_concentration
-
-- type: history-graph
-  title: Dust Particles
-  hours_to_show: 24
-  entities:
-  - entity: sensor.pm0_3
-  - entity: sensor.pm0_5
-  - entity: sensor.pm1_0
-  - entity: sensor.pm2_5
-  - entity: sensor.pm5_0
-  - entity: sensor.pm10_0
+  - entity: sensor.aqm_co2
+    name: "CO₂"
+  - entity: sensor.aqm_tvoc
+    name: "TVOC"
+  - entity: sensor.aqm_pm2_5_concentration
+    name: "PM2.5"
+  - entity: sensor.aqm_pm10_0_concentration
+    name: "PM10.0"
 
 - type: entities
   show_header_toggle: false

@@ -18,7 +18,7 @@
     - sensor.ikea_switch_5_battery
     - sensor.ikea_switch_6_battery
     - sensor.xiaomi_wallswitch_1_battery_level
-    - sensor.weather_outdoor_battery_level
+    - sensor.weather_outdoor_battery
     - sensor.weather_first_floor_battery
     - sensor.weather_second_floor_battery
     - sensor.weather_storehouse_battery
@@ -318,12 +318,12 @@
     # Outdoor weather sensor
     - conditions:
       - condition: template
-        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_outdoor_battery_level' }}"
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.weather_outdoor_battery' }}"
       sequence:
       - service: notify.pushover
         data_template:
           title: "Low battery"
-          message: "The battery of the outdoor weather sensor is {{ states('sensor.weather_outdoor_battery_level') }} %."
+          message: "The battery of the outdoor weather sensor is {{ states('sensor.weather_outdoor_battery') }} %."
 
     #----------------------
     # xiaomi_button_1
