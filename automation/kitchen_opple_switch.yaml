@@ -3,12 +3,10 @@
   mode: parallel
   max: 2
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: opple_switch_1
+  - platform: mqtt
+    topic: "zigbee2mqtt/xiaomi_oppleswitch_1"
   action:
   - service: python_script.opple_switch_kitchen
     data_template:
-      event: "{{ trigger.event }}"
+      action: "{{ trigger.payload_json.action }}"
 

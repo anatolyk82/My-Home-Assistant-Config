@@ -1,5 +1,5 @@
 
-event = data.get('event')
+action = data.get('action')
 
 brightness_delta = 50
 
@@ -49,21 +49,6 @@ def decrease_value(current_value, delta, min_value):
     else:
         return min_value
 
-pos_start = event.find('id=') + 3
-pos_end = event.find(',', pos_start)
-switch_id = event[pos_start:pos_end]
-logger.debug("[Kitchen Opple Switch]: switch_id=%s", switch_id)
-
-pos_start = event.find('unique_id=') + 10
-pos_end = event.find(',', pos_start)
-unique_id = event[pos_start:pos_end]
-logger.debug("[Kitchen Opple Switch]: unique_id=%s", unique_id)
-
-pos_start = event.find('event=') + 6
-pos_end = event.find(',', pos_start)
-code = event[pos_start:pos_end]
-logger.debug("[Kitchen Opple Switch]: code=%s", code)
-
 l1 = 'light.kitchen_lights_1'
 l2 = 'light.kitchen_lights_2'
 lc = 'light.kitchen_cupboard'
@@ -82,17 +67,17 @@ if light2.state == 'on':
     if 'brightness' in light2.attributes:
         brightness_l2 = int(light2.attributes['brightness'])
 
-if code == "1002":
+if action == "button_1_single":
     if light1.state == 'on':
         turnOffLights( kitchen_lights_1 )
     else:
         turnOnLights( kitchen_lights_1 )
-elif code == "2002":
+elif action == "button_2_single":
     if light2.state == 'on':
         turnOffLights( kitchen_lights_2 )
     else:
         turnOnLights( kitchen_lights_2 )
-elif code == "3002":
+elif action == "button_3_single":
     if light1.state == 'on':
         new_brightness = decrease_value(brightness_l1, brightness_delta, 1)
         service_data = { 'entity_id': l1, 'brightness': new_brightness }
@@ -101,14 +86,14 @@ elif code == "3002":
         new_brightness = decrease_value(brightness_l2, brightness_delta, 1)
         service_data = { 'entity_id': l2, 'brightness': new_brightness }
         hass.services.call('light', 'turn_on', service_data, False)
-elif code == "3001":
+elif action == "button_3_hold":
     if light1.state == 'on':
         service_data = { 'entity_id': l1, 'brightness': 1 }
         hass.services.call('light', 'turn_on', service_data, False)
     if light2.state == 'on':
         service_data = { 'entity_id': l2, 'brightness': 1 }
         hass.services.call('light', 'turn_on', service_data, False)
-elif code == "4002":
+elif action == "button_4_single":
     if light1.state == 'on':
         new_brightness = increase_value(brightness_l1, brightness_delta, 255)
         service_data = { 'entity_id': l1, 'brightness': new_brightness }
@@ -117,14 +102,14 @@ elif code == "4002":
         new_brightness = increase_value(brightness_l2, brightness_delta, 255)
         service_data = { 'entity_id': l2, 'brightness': new_brightness }
         hass.services.call('light', 'turn_on', service_data, False)
-elif code == "4001":
+elif action == "button_4_hold":
     if light1.state == 'on':
         service_data = { 'entity_id': l1, 'brightness': 255 }
         hass.services.call('light', 'turn_on', service_data, False)
     if light2.state == 'on':
         service_data = { 'entity_id': l2, 'brightness': 255 }
         hass.services.call('light', 'turn_on', service_data, False)
-elif code == "5002":
+elif action == "button_5_single":
     if light1.state == 'on' or light2.state == 'on':
         #hass.services.call('light', 'turn_off', { 'entity_id': [l1, l2] }, False)
         turnOffLights( kitchen_lights_1 )
@@ -133,7 +118,7 @@ elif code == "5002":
         #hass.services.call('light', 'turn_on', { 'entity_id': [l1, l2] }, False)
         turnOnLights( kitchen_lights_2 )
         turnOnLights( kitchen_lights_1 )
-elif code == "6002":
+elif action == "button_6_single":
     if light_cupboard.state == 'on':
         hass.services.call('light', 'turn_off', { 'entity_id': lc }, False)
     else:
