@@ -8,13 +8,12 @@ doorbell:
     data_template:
       entity_id: camera.foscam_2
       filename: "{{ snapshot_file }}"
-  - service: notify.pushover_file
+  - service: notify.pushover
     data:
       title: "Doorbell"
       message: "Doorbell rings at {{ now().strftime('%H:%M:%S') }}. Someone is at the door."
       data:
-        file:
-          path: "{{ snapshot_file }}"
+        attachment: "{{ snapshot_file }}"
   - condition: or
     conditions:
     - condition: state

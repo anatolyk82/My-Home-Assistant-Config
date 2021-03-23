@@ -1,24 +1,8 @@
-- name: xmpp
-  platform: xmpp
-  sender: !secret notify_xmpp_sender
-  password: !secret notify_xmpp_password
-  recipient: !secret notify_xmpp_recipient
-
 
 - platform: pushover
   name: pushover
   user_key: !secret pushover_user_key
   api_key: !secret pushover_api_key
-
-- platform: pushover_file
-  name: pushover_file
-  user_key: !secret pushover_user_key
-  api_key: !secret pushover_api_key
-
-- name: hangouts
-  platform: hangouts
-  default_conversations:
-    - id: !secret hangouts_id1
 
 #- name: email_anatoly
 #  platform: smtp
