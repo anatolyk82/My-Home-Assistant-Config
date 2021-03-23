@@ -4,31 +4,31 @@ doorbell:
     snapshot_file: '/home/homeassistant/.homeassistant/media/Snapshots/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
   sequence:
   - service: shell_command.doorbell_sound
-#  - service: camera.snapshot
-#    data_template:
-#      entity_id: camera.foscam_2
-#      filename: "{{ snapshot_file }}"
+  - service: camera.snapshot
+    data_template:
+      entity_id: camera.foscam_2
+      filename: "{{ snapshot_file }}"
   - service: notify.pushover_file
     data:
       title: "Doorbell"
       message: "Doorbell rings at {{ now().strftime('%H:%M:%S') }}. Someone is at the door."
-#      data:
-#        file:
-#          path: "{{ snapshot_file }}"
-#  - condition: or
-#    conditions:
-#    - condition: state
-#      entity_id: alarm_control_panel.house
-#      state: 'armed_away'
-#    - condition: state
-#      entity_id: alarm_control_panel.house
-#      state: 'armed_night'
-#    - condition: state
-#      entity_id: alarm_control_panel.house
-#      state: 'pending'
-#  - service: camera.record
-#    data_template:
-#      entity_id: camera.foscam_2
-#      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
-#      duration: 45
+      data:
+        file:
+          path: "{{ snapshot_file }}"
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'armed_away'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'armed_night'
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: 'pending'
+  - service: camera.record
+    data_template:
+      entity_id: camera.foscam_2
+      filename: '/home/homeassistant/.homeassistant/www/camera_records/Foscam2_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+      duration: 45
 
