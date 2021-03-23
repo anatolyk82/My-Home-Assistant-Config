@@ -5,7 +5,7 @@
   position_topic: "zigbee2mqtt/blinds_bedroom_left"
   set_position_topic: "zigbee2mqtt/blinds_bedroom_left/set"
   set_position_template: "{ \"position\": {{ position }} }"
-  value_template: "{{ value_json.position }}"
+  position_template: "{{ value_json.position }}"
 
 - platform: "mqtt"
   name: "blinds_bedroom_right"
@@ -14,4 +14,4 @@
   position_topic: "zigbee2mqtt/blinds_bedroom_right"
   set_position_topic: "zigbee2mqtt/blinds_bedroom_right/set"
   set_position_template: "{ \"position\": {{ position }} }"
-  value_template: "{{ value_json.position }}"
+  position_template: "{{ value_json.position }}"

@@ -5,4 +5,4 @@
   position_topic: "zigbee2mqtt/blinds_workroom"
   set_position_topic: "zigbee2mqtt/blinds_workroom/set"
   set_position_template: "{ \"position\": {{ position }} }"
-  value_template: "{{ value_json.position }}"
+  position_template: "{{ value_json.position }}"
