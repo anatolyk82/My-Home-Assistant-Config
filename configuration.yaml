@@ -144,7 +144,7 @@ sensor: !include_dir_merge_list sensors/
 input_boolean: !include_dir_merge_named input_boolean/
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
-camera: !include cameras.yaml
+#camera: !include cameras.yaml
 #cast: !include media.yaml
 weather: !include weather.yaml
 recorder: !include recorder.yaml
