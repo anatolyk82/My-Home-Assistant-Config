@@ -6,7 +6,6 @@
     - sensor.smoke_2_battery
     - sensor.xiaomi_button_1_battery
     - sensor.xiaomi_button_2_battery
-    - sensor.motion_sensor_backyard_battery_level
     - sensor.openclose_kitchen_battery
     - sensor.openclose_livingroom_battery
     - sensor.openclose_entrance_battery
@@ -14,7 +13,7 @@
     - sensor.ikea_switch_1_battery
     - sensor.ikea_switch_2_battery
     - sensor.ikea_switch_3_battery
-    - sensor.ikea_switch_4_battery_level
+    - sensor.ikea_switch_4_battery
     - sensor.ikea_switch_5_battery
     - sensor.ikea_switch_6_battery
     - sensor.xiaomi_wallswitch_1_battery_level
@@ -33,7 +32,7 @@
     - sensor.blinds_workroom_battery
     - sensor.blinds_bedroom_right_battery
     - sensor.blinds_bedroom_left_battery
-    - sensor.opple_switch_1_battery_level
+    - sensor.xiaomi_oppleswitch_1_battery
     - sensor.motion_workroom_battery
     - sensor.motion_upstairs_battery
     - sensor.motion_guestroom_battery
@@ -41,6 +40,7 @@
     - sensor.motion_kitchen_battery
     - sensor.motion_entrance_battery
     - sensor.motion_livingroom_battery
+    - sensor.motion_backyard_battery
     - sensor.keypad_1_battery
     - sensor.tuya_weather_1_battery
     below: 15
@@ -220,6 +220,16 @@
         data_template:
           title: "Low battery"
           message: "The battery of the motion sensor at the entrance is {{ states('sensor.motion_entrance_battery') }} %."
+
+    # Motion sensor in the backyard
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.motion_backyard_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the motion sensor in the backyard is {{ states('sensor.motion_backyard_battery') }} %."
 
     #----------------------
     # Keypad 1
@@ -407,6 +417,17 @@
         data_template:
           title: "Low battery"
           message: "The battery of the smoke sensor on the 2nd floor is {{ states('sensor.smoke_2_battery') }} %."
+
+    #---------------------------
+    # xiaomi_oppleswitch_1_battery
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.xiaomi_oppleswitch_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Opple switch 1 is {{ states('sensor.xiaomi_oppleswitch_1_battery') }} %."
 
     #----------------------
     # Water detector 1 
