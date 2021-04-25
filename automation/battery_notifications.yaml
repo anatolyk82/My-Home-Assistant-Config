@@ -16,7 +16,7 @@
     - sensor.ikea_switch_4_battery
     - sensor.ikea_switch_5_battery
     - sensor.ikea_switch_6_battery
-    - sensor.xiaomi_wallswitch_1_battery_level
+    - sensor.xiaomi_wallswitch_1_battery
     - sensor.weather_outdoor_battery
     - sensor.weather_first_floor_battery
     - sensor.weather_second_floor_battery
@@ -149,6 +149,16 @@
         data_template:
           title: "Low battery"
           message: "The battery of the Ikea switch 5 is {{ states('sensor.ikea_switch_5_battery') }} %."
+
+    # Xiaomi Wall Switch 1
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.entity_id == 'sensor.xiaomi_wallswitch_1_battery' }}"
+      sequence:
+      - service: notify.pushover
+        data_template:
+          title: "Low battery"
+          message: "The battery of the Xiaomi wallswitch 1 is {{ states('sensor.xiaomi_wallswitch_1_battery') }} %."
 
     #----------------------
     # Motion sensor in the workroom

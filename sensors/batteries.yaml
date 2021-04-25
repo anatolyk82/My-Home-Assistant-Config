@@ -274,3 +274,17 @@
   unit_of_measurement: "%"
   device_class: "battery"
 
+
+#-------------------------------------------------
+#
+# Xiaomi Wallswitch 
+#
+#-------------------------------------------------
+- platform: "mqtt"
+  name: "xiaomi_wallswitch_1_battery"
+  state_topic: "zigbee2mqtt/xiaomi_wallswitch_1"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  value_template: "{{ value_json.battery }}"
+  unit_of_measurement: "%"
+  device_class: "battery"
+
