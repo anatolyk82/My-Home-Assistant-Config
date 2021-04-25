@@ -38,8 +38,11 @@ cards:
     - entity: sensor.humidity_storehouse
       name: "Storehouse Humidity"
     - entity: switch.ikea_plug_5
-      name: "Värme"
-      icon: mdi:radiator
+      name: "Camera"
+      icon: mdi:camera
+    - entity: switch.xiaomi_powerswitch_1_left
+      name: "Storehouse Light"
+      icon: mdi:dome-light
 
 
   - type: entities
