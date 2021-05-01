@@ -15,7 +15,7 @@ cards:
   show_header_toggle: false
   entities:
   - sensor.ssh_attack
-  - sensor.ssl_certificate_expiry
+  - sensor.cert_expiry_timestamp_hass
 - type: entities
   entities:
     - sensor.rssi_bed_light
