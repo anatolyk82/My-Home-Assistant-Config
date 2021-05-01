@@ -13,21 +13,6 @@ foscam3_snapshot:
   initial: off
   icon: mdi:camera
 
-foscam1_on_tv:
-  name: "[Foscam1] Play on TV"
-  initial: off
-  icon: mdi:television
-
-foscam2_on_tv:
-  name: "[Foscam2] Play on TV"
-  initial: off
-  icon: mdi:television
-
-foscam3_on_tv:
-  name: "[Foscam3] Play on TV"
-  initial: off
-  icon: mdi:television
-
 foscam1_record_video:
   name: 'Foscam1 Record'
   initial: off

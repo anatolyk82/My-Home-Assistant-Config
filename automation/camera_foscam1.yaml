@@ -37,31 +37,6 @@
 #      message: "Foscam1 is unavailable. Restart power."
 
 
-- alias: '[Camera Foscam1] Play stream on TV'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: input_boolean.foscam1_on_tv
-    to: 'on'
-  action:
-  - service: camera.play_stream
-    data:
-      entity_id: camera.foscam_1
-      media_player: media_player.lg_tv
-
-
-- alias: '[Camera Foscam1] Stop stream on TV'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: input_boolean.foscam1_on_tv
-    to: 'off'
-  action:
-  - service: media_player.turn_off
-    data:
-      entity_id: media_player.lg_tv
-
-
 - alias: '[Camera Foscam1] Record video'
   initial_state: true
   trigger:
