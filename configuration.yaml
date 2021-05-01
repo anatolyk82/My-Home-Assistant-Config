@@ -97,12 +97,11 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-
-vacuum:
-- platform: xiaomi_miio
-  name: 'Roborock'
-  host: 192.168.1.25
-  token: !secret xiaomi_vacuum_token
+#vacuum:
+#- platform: xiaomi_miio
+#  name: 'Roborock'
+#  host: 192.168.1.25
+#  token: !secret xiaomi_vacuum_token
 
 media_source:
 #  recordings: /home/homeassistant/.homeassistant/www/camera_records
