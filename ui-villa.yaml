@@ -1,0 +1,4 @@
+title: "Villa"
+views:
+  - !include lovelace/villa/overview.yaml
+

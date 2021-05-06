@@ -97,14 +97,7 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-#vacuum:
-#- platform: xiaomi_miio
-#  name: 'Roborock'
-#  host: 192.168.1.25
-#  token: !secret xiaomi_vacuum_token
-
 media_source:
-#  recordings: /home/homeassistant/.homeassistant/www/camera_records
 
 logger: !include logger.yaml
 
@@ -117,20 +110,8 @@ duckdns:
 #freedns:
 #  access_token: !secret freedns_token
  
-lovelace:
-  mode: yaml
-  resources:
-    - url: /local/plugins/layout-card.js?v=1
-      type: module
-#  - url: /local/custom_ui/slider-entity-row.js
-#    type: module
-#  - url: /local/custom_ui/card-tools.js?v=2
-#    type: js
-#  - url: /local/custom_ui/popup-card.js
-#    type: js
-#  - url: /local/custom_ui/bar-card.js?v0.0.5
-#    type: js
-
+  
+lovelace: !include ui-config.yaml
 notify: !include notify.yaml
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
@@ -144,7 +125,6 @@ input_boolean: !include_dir_merge_named input_boolean/
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 #camera: !include cameras.yaml
-#cast: !include media.yaml
 weather: !include weather.yaml
 recorder: !include recorder.yaml
 device_tracker: !include_dir_merge_list device_tracker/

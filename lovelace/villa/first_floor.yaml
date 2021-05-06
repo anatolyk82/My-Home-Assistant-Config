@@ -1,0 +1,242 @@
+
+title: "First floor"
+id: floor1
+cards:
+  - type: vertical-stack
+    cards:
+    - type: picture-elements
+      image: /local/images/first_floor_ext1.jpg
+      elements:
+      - type: state-icon
+        entity: camera.foscam_1
+        icon: mdi:cctv
+        style:
+          top: 8%
+          left: 17%
+      - type: state-icon
+        entity: camera.foscam_2
+        icon: mdi:cctv
+        style:
+          top: 93%
+          left: 20%
+      - type: state-icon
+        entity: binary_sensor.presence_entrance
+        style:
+          top: 71%
+          left: 46%
+      - type: state-icon  # Motion - kitchen
+        entity: binary_sensor.presence_kitchen
+        style:
+          top: 19%
+          left: 73%
+      - type: state-icon # Motion - Living room
+        entity: binary_sensor.presence_livingroom
+        style:
+          top: 19%
+          left: 39%
+      - type: state-icon
+        entity: light.gledopto_lamp_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 40%
+          left: 32%
+      - type: state-icon
+        entity: light.gledopto_lamp_2
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 40%
+          left: 47%
+      - type: state-icon # Light - Entrance
+        entity: light.ikea_lamp_2
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 71%
+          left: 53%
+      - type: state-icon
+        entity: binary_sensor.openclose_entrance
+        style:
+          top: 86%
+          left: 47.8%
+      - type: state-icon
+        entity: binary_sensor.openclose_livingroom
+        style:
+          top: 46%
+          left: 20%
+      - type: state-icon
+        entity: binary_sensor.openclose_kitchen
+        style:
+          top: 39%
+          left: 84.5%
+      - type: state-icon # Water leak
+        entity: binary_sensor.water_leak_1
+        style:
+          top: 70%
+          left: 70%
+      - type: state-icon # Smoke detector
+        entity: binary_sensor.smoke_1
+        style:
+          top: 37%
+          left: 57%
+      - type: state-label
+        entity: sensor.temperature_first_floor
+        style:
+          top: 11%
+          left: 27%
+      - type: state-icon
+        entity: light.kitchen_lights_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 38%
+          left: 76%
+      - type: state-icon
+        entity: light.kitchen_lights_2
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 38%
+          left: 66%
+      - type: state-icon
+        entity: light.mood_lamp
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 11%
+          left: 53%
+      - type: state-icon
+        entity: light.garden_lights_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 44%
+          left: 4%
+      - type: state-icon
+        entity: light.ikea_lamp_10
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 60%
+          left: 16%
+      - type: state-icon
+        entity: binary_sensor.presence_backyard
+        style:
+          top: 24%
+          left: 12%
+      - type: state-icon
+        entity: light.ikea_lamp_11
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 93%
+          left: 54%
+      - type: state-icon
+        entity: light.ikea_lamp_12
+        tap_action:
+          action: toggle
+        hold_action: more-info
+        style:
+          top: 57%
+          left: 88%
+      - type: state-icon
+        entity: light.ikea_lamp_3
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 63%
+          left: 40%
+      - type: state-icon
+        entity: media_player.lg_tv
+        icon: mdi:television
+        tap_action:
+          action: more-info
+        style:
+          top: 63%
+          left: 35%
+      - type: state-icon
+        entity: light.kitchen_cupboard
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          top: 52%
+          left: 71%
+
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        entity: sensor.temperature_first_floor
+        graph: line
+      - type: sensor
+        entity: sensor.humidity_first_floor
+        graph: line
+    - type: horizontal-stack
+      cards:
+      - type: sensor
+        entity: sensor.lightlevel_entrance
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_livingroom
+        graph: line
+      - type: sensor
+        entity: sensor.lightlevel_kitchen
+        graph: line
+
+  - type: grid
+    columns: 3
+    cards:
+    - type: light
+      entity: light.kitchen_lights_2
+      icon: mdi:track-light
+      name: "Kitchen (exit)"
+    - type: light
+      entity: light.kitchen_lights_1
+      icon: mdi:track-light
+      name: "Kitchen (win)"
+    - type: light
+      entity: light.kitchen_cupboard
+      icon: mdi:wall-sconce-flat
+      name: "Cupboard"
+    - type: light
+      entity: light.ikea_lamp_2
+      icon: mdi:ceiling-light
+      name: "Entrance"
+    - type: light
+      entity: light.gledopto_lamp_1
+      icon: mdi:ceiling-light
+      name: "Living room (window)"
+    - type: light
+      entity: light.gledopto_lamp_2
+      icon: mdi:ceiling-light
+      name: "Living room (kitchen)"
+    - type: light
+      entity: light.mood_lamp
+      icon: mdi:lava-lamp
+      name: "Moodlamp (Living room)"
+    - type: light
+      icon: mdi:wall-sconce-round-variant
+      entity: light.ikea_lamp_3
+      name: "Ball lamp"
+

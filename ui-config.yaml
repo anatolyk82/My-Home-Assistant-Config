@@ -1,0 +1,18 @@
+mode: yaml
+resources:
+  - url: /local/plugins/layout-card.js?v=1
+    type: module
+
+dashboards:
+  lovelace-villa:
+    mode: yaml
+    filename: "ui-villa.yaml"
+    title: "Villa"
+    require_admin: false
+    show_in_sidebar: false
+  lovelace-wallpanel:
+    mode: yaml
+    filename: "ui-wallpanel.yaml"
+    title: "Wall Panel"
+    require_admin: false
+    show_in_sidebar: false

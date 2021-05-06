@@ -1,0 +1,61 @@
+title: "Overview"
+id: overview
+# Optional background (overwrites the global background).
+#background: radial-gradient(crimson, skyblue)
+# Each view can have a different theme applied. Theme should be defined in the frontend.
+theme: dark-mode
+# The cards to show on this view.
+cards:
+- type: vertical-stack
+  cards:
+  - type: picture-entity
+    entity: alarm_control_panel.house
+    show_name: false
+    show_state: false
+    state_image:
+      'armed_away':  '/local/images/alarm/alarm_armed_away.png'
+      'armed_home':  '/local/images/alarm/alarm_armed_home.png'
+      'armed_night': '/local/images/alarm/alarm_armed_night.png'
+      'disarmed':    '/local/images/alarm/alarm_disarmed.png'
+      'pending':     '/local/images/alarm/alarm_pending.png'
+      'arming':      '/local/images/alarm/alarm_arming.png'
+      'triggered':   '/local/images/alarm/alarm_triggered.png'
+
+  - type: horizontal-stack
+    cards:
+    - type: sensor
+      name: " "
+      entity: sensor.temperature_outdoor
+      graph: line
+    - type: sensor
+      name: " "
+      entity: sensor.humidity_outdoor
+      graph: line
+    - type: sensor
+      name: " "
+      entity: sensor.pressure_outdoor
+      graph: line
+
+
+#-----------
+- type: vertical-stack
+  cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.doorbell
+      icon: mdi:bell
+    - binary_sensor.all_in_bed
+    #- switch.wifi_cord_1
+    #- switch.pump1
+    #- sensor.irrigation_water_level
+  - type: glance
+    show_name: false
+    entities:
+    - sensor.sunrise_time
+    - sensor.solar_angle
+    - sensor.sunset_time
+
+  - type: entities
+    entities:
+    - sensor.moonphases
